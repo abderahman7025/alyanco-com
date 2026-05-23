@@ -208,10 +208,36 @@ function switchPayment(type, btn){
 function handlePayment(e){
   e.preventDefault();
   var btn = document.getElementById('payBtn');
+  var paypalBtn = document.querySelector('.paypal-btn');
   if(btn){ btn.textContent='Traitement en cours…'; btn.disabled=true; }
+  if(paypalBtn){ paypalBtn.textContent='Traitement en cours…'; paypalBtn.disabled=true; }
+
   // Génère un numéro de commande
   var orderNum = 'ALC-' + Date.now().toString().slice(-6);
   localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
+
+  // Envoie l'email de confirmation via Brevo
+  var emailPayload = {
+    email: delivery.email,
+    prenom: delivery.prenom,
+    nom: delivery.nom,
+    orderNumber: orderNum,
+    items: items,
+    total: total,
+    shippingCost: delivery.shippingCost !== undefined ? delivery.shippingCost : shippingCost,
+    shipping: delivery.shipping,
+    adresse: delivery.adresse,
+    cp: delivery.cp,
+    ville: delivery.ville
+  };
+
+  fetch('/api/send-order', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(emailPayload)
+  }).catch(function(err){ console.warn('Email send failed (non-blocking):', err); });
+
+  // Redirige vers confirmation après 1.2s (sans attendre l'email)
   setTimeout(function(){ clearCart(); window.location.href = 'confirmation'; }, 1200);
 }
 </script>
