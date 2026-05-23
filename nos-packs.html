@@ -50,7 +50,7 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 
 /* PACKS GRID */
 .packs-section { padding: 80px; }
-.packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.packs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
 .pack-card { background: var(--warm); border: 1px solid rgba(184,151,90,0.15); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: box-shadow 0.4s var(--ease-out), transform 0.4s var(--ease-out); }
 .pack-card:hover { box-shadow: 0 40px 100px rgba(28,22,18,0.15); transform: translateY(-4px); }
 .pack-card-image { aspect-ratio: 4/3; overflow: hidden; background: linear-gradient(135deg, var(--sand) 0%, var(--warm) 100%); display: flex; align-items: center; justify-content: center; position: relative; }
@@ -105,9 +105,9 @@ footer { background: var(--dark); color: var(--cream); padding: 80px; }
 .footer-legal a:hover { color: var(--cream); }
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; } .reveal-delay-4 { transition-delay: 0.4s; }
 body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
-@media (max-width: 1200px) { .packs-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) { .packs-grid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .collection-hero { padding: 60px 20px; } .packs-section { padding: 48px 20px; } .packs-grid { grid-template-columns: 1fr; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
 </style>
 </head>
@@ -193,24 +193,44 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <span class="btn-primary">Voir le pack</span>
       </div>
     </a>
-    <a href="produits/dentifrice-siwak" class="pack-card reveal reveal-delay-3">
+    <a href="produits/tetes-recharges" class="pack-card reveal reveal-delay-3">
       <div class="pack-card-image">
-        <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en Poudre">
+        <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0004.jpg" alt="Pack Têtes-recharges Siwak X3">
       </div>
       <div class="pack-card-body">
-        <div class="pack-name">Dentifrice Siwak en Poudre</div>
-        <div class="pack-desc">Le complément parfait à votre brosse Siwak. Bio, sans fluor, sans sulfates. Blancheur naturelle.</div>
+        <div class="pack-name">Pack Têtes-recharges Siwak Bio × 3</div>
+        <div class="pack-desc">100% naturel et biodégradable. Rechargez votre brosse Siwak pour 3 mois d'hygiène bucco-dentaire au naturel.</div>
         <ul class="pack-includes">
-          <li>50g de poudre Siwak bio</li>
+          <li>3 × Têtes-recharges Siwak bio</li>
+          <li>100% naturel · Biodégradable</li>
+          <li>Compatible brosse Siwak rechargeable</li>
+        </ul>
+        <div class="pack-price-row">
+          <span class="pack-price-main">16,99€</span>
+          <span class="pack-price-old">20,97€</span>
+          <span class="pack-promo">−19%</span>
+        </div>
+        <span class="btn-primary">Voir le pack</span>
+      </div>
+    </a>
+    <a href="produits/dentifrice-siwak" class="pack-card reveal reveal-delay-4">
+      <div class="pack-card-image">
+        <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Pack Dentifrice Siwak 3 mois">
+      </div>
+      <div class="pack-card-body">
+        <div class="pack-name">Pack Dentifrice Siwak en Poudre — 3 mois</div>
+        <div class="pack-desc">Bio, sans fluor, sans sulfates. Trois mois de blancheur naturelle avec la poudre dentifrice Siwak.</div>
+        <ul class="pack-includes">
+          <li>3 × 50g de poudre Siwak bio</li>
           <li>Sans fluor · Sans SLS · Sans parabènes</li>
           <li>Blancheur visible dès 2 semaines</li>
         </ul>
         <div class="pack-price-row">
-          <span class="pack-price-main">5,99€</span>
-          <span class="pack-price-old">7,99€</span>
-          <span class="pack-promo">−25%</span>
+          <span class="pack-price-main">14,99€</span>
+          <span class="pack-price-old">17,97€</span>
+          <span class="pack-promo">−17%</span>
         </div>
-        <span class="btn-primary">Voir le produit</span>
+        <span class="btn-primary">Voir le pack</span>
       </div>
     </a>
   </div>
