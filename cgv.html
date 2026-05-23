@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions Générales de Vente — ALYA & CO.</title>
+<meta name="description" content="Conditions Générales de Vente d'ALYA & CO. — livraison, retours, remboursements, paiement sécurisé. Vente en ligne de produits de beauté naturelle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root { --cream: #FAF6F1; --warm: #F2E8DD; --sand: #EAD1BF; --gold: #B8975A; --gold-light: #D4B896; --dark: #1C1612; --charcoal: #2D2520; --mid: #6B5B4E; --light: #A8958A; --white: #FFFFFF; --font-serif: 'Cormorant Garamond', Georgia, serif; --font-sans: 'DM Sans', sans-serif; --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--cream); color: var(--dark); font-family: var(--font-sans); font-weight: 300; overflow-x: hidden; cursor: none; }
+.cursor-dot { width: 8px; height: 8px; background: var(--dark); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; }
+.cursor-ring { width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.15s var(--ease), width 0.4s var(--ease-out), height 0.4s var(--ease-out), opacity 0.3s; opacity: 0.6; }
+body.cursor-hover .cursor-dot { width: 14px; height: 14px; background: var(--gold); }
+body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
+.announcement { background: var(--dark); color: var(--sand); padding: 10px 0; overflow: hidden; position: relative; z-index: 100; }
+.announcement-track { display: flex; width: max-content; animation: ticker 20s linear infinite; }
+.announcement-item { font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 60px; display: flex; align-items: center; gap: 12px; white-space: nowrap; flex-shrink: 0; }
+.announcement-item::before { content: '✦'; color: var(--gold); font-size: 8px; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(250, 246, 241, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(184, 151, 90, 0.12); transition: all 0.4s var(--ease); }
+.nav-logo { font-family: var(--font-serif); font-size: 22px; font-weight: 500; letter-spacing: 0.12em; color: var(--dark); text-decoration: none; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease); }
+.nav-links a:hover, .nav-links a.active { color: var(--dark); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-cart { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 400; }
+.cart-icon { font-size: 18px; }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.menu-toggle span { display: block; width: 22px; height: 1.5px; background: var(--dark); transition: all 0.3s var(--ease); }
+.mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(250, 246, 241, 0.98); backdrop-filter: blur(20px); z-index: 89; padding: 24px 24px 32px; border-bottom: 1px solid rgba(184, 151, 90, 0.15); flex-direction: column; gap: 0; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 13px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(184, 151, 90, 0.1); }
+.mobile-nav a:last-child { border-bottom: none; }
+
+/* HERO */
+.legal-hero { padding: 80px; background: var(--warm); border-bottom: 1px solid rgba(184,151,90,0.15); }
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 32px; }
+.breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.3s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span { color: var(--gold); }
+.legal-hero-title { font-family: var(--font-serif); font-size: clamp(36px, 4.5vw, 64px); font-weight: 300; color: var(--dark); line-height: 1.1; margin-bottom: 20px; }
+.legal-hero-title em { font-style: italic; color: var(--gold); }
+.legal-hero-meta { font-size: 12px; color: var(--light); letter-spacing: 0.1em; }
+
+/* LAYOUT */
+.legal-layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; align-items: start; max-width: 1200px; margin: 0 auto; padding: 60px 80px; }
+
+/* TABLE OF CONTENTS */
+.legal-toc { position: sticky; top: 100px; padding-right: 40px; }
+.toc-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.toc-list a { font-size: 12px; color: var(--light); text-decoration: none; padding: 6px 0; border-left: 2px solid transparent; padding-left: 12px; display: block; transition: all 0.3s; line-height: 1.4; }
+.toc-list a:hover { color: var(--dark); border-left-color: var(--gold); }
+
+/* CONTENT */
+.legal-content { padding-left: 60px; border-left: 1px solid rgba(184,151,90,0.15); }
+.legal-section { margin-bottom: 56px; scroll-margin-top: 100px; }
+.legal-section-number { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.legal-section-title { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 32px); font-weight: 300; color: var(--dark); margin-bottom: 24px; line-height: 1.2; }
+.legal-section-title em { font-style: italic; color: var(--gold); }
+.legal-p { font-size: 14px; line-height: 1.9; color: var(--mid); margin-bottom: 16px; }
+.legal-p strong { font-weight: 500; color: var(--dark); }
+.legal-p a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,151,90,0.3); transition: border-color 0.3s; }
+.legal-p a:hover { border-color: var(--gold); }
+.legal-list { margin: 16px 0 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+.legal-list li { font-size: 14px; line-height: 1.8; color: var(--mid); }
+.legal-list li::marker { color: var(--gold); }
+.legal-subsection-title { font-family: var(--font-serif); font-size: 18px; font-weight: 400; color: var(--dark); margin: 28px 0 12px; }
+.legal-divider { width: 40px; height: 1px; background: rgba(184,151,90,0.3); margin: 40px 0; }
+.info-box { background: var(--warm); border-left: 3px solid var(--gold); padding: 20px 24px; margin: 20px 0; }
+.info-box p { font-size: 13px; line-height: 1.7; color: var(--mid); }
+.info-box strong { color: var(--dark); font-weight: 500; }
+.delivery-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.delivery-table th { background: var(--warm); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); padding: 12px 16px; text-align: left; border: 1px solid rgba(184,151,90,0.15); font-weight: 400; }
+.delivery-table td { font-size: 13px; color: var(--mid); padding: 12px 16px; border: 1px solid rgba(184,151,90,0.15); line-height: 1.5; }
+.delivery-table tr:hover td { background: var(--warm); }
+
+footer { background: var(--dark); color: var(--cream); padding: 80px; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 40px; }
+.footer-logo { font-family: var(--font-serif); font-size: 28px; font-weight: 400; color: var(--cream); margin-bottom: 20px; }
+.footer-tagline { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--light); line-height: 1.7; margin-bottom: 28px; }
+.footer-socials { display: flex; gap: 16px; }
+.footer-social { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--light); text-decoration: none; font-size: 14px; transition: all 0.3s; }
+.footer-social:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { font-size: 13px; color: var(--light); text-decoration: none; transition: color 0.3s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 12px; color: var(--light); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: var(--light); text-decoration: none; transition: color 0.3s; }
+.footer-legal a:hover { color: var(--cream); }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
+@media (max-width: 1200px) { .legal-layout { grid-template-columns: 1fr; padding: 48px 40px; } .legal-toc { display: none; } .legal-content { padding-left: 0; border-left: none; } }
+@media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .legal-hero { padding: 60px 20px; } .legal-layout { padding: 40px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
+</style>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="announcement"><div class="announcement-track"><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Fabriqué sous normes européennes</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Fabriqué sous normes européennes</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div></div></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">ALYA & CO.</a>
+  <ul class="nav-links">
+    <li><a href="collection-siwak.html">Brosse Siwak</a></li>
+    <li><a href="collection-gants.html">Gants Exfoliants</a></li>
+    <li><a href="nos-packs.html">Nos Packs</a></li>
+    <li><a href="notre-histoire.html">Notre Histoire</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cart"><span class="cart-icon">→</span> Commander</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="collection-siwak.html" onclick="closeMobileNav()">Brosse Siwak</a>
+  <a href="collection-gants.html" onclick="closeMobileNav()">Gants Exfoliants</a>
+  <a href="nos-packs.html" onclick="closeMobileNav()">Nos Packs</a>
+  <a href="notre-histoire.html" onclick="closeMobileNav()">Notre Histoire</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="legal-hero">
+  <div class="breadcrumb">
+    <a href="index.html">Accueil</a>
+    <span>›</span>
+    <span>CGV</span>
+  </div>
+  <h1 class="legal-hero-title">Conditions Générales<br><em>de Vente</em></h1>
+  <div class="legal-hero-meta">Dernière mise à jour : 1er janvier 2025 — Version 2.0</div>
+</div>
+
+<!-- LAYOUT -->
+<div class="legal-layout">
+
+  <!-- TOC -->
+  <nav class="legal-toc" aria-label="Sommaire">
+    <div class="toc-title">Sommaire</div>
+    <ul class="toc-list">
+      <li><a href="#article-1">1. Objet et champ d'application</a></li>
+      <li><a href="#article-2">2. Identification du vendeur</a></li>
+      <li><a href="#article-3">3. Produits</a></li>
+      <li><a href="#article-4">4. Commande</a></li>
+      <li><a href="#article-5">5. Prix</a></li>
+      <li><a href="#article-6">6. Paiement</a></li>
+      <li><a href="#article-7">7. Livraison</a></li>
+      <li><a href="#article-8">8. Droit de rétractation</a></li>
+      <li><a href="#article-9">9. Retours et remboursements</a></li>
+      <li><a href="#article-10">10. Garanties légales</a></li>
+      <li><a href="#article-11">11. Responsabilité</a></li>
+      <li><a href="#article-12">12. Données personnelles</a></li>
+      <li><a href="#article-13">13. Loi applicable</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENT -->
+  <div class="legal-content">
+
+    <div class="legal-section reveal" id="article-1">
+      <div class="legal-section-number">Article 1</div>
+      <h2 class="legal-section-title">Objet et champ<br><em>d'application</em></h2>
+      <p class="legal-p">Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre la société ALYA & CO. (ci-après « le Vendeur ») et toute personne physique non commerçante effectuant un achat via le site internet <strong>alyanco.com</strong> ou <strong>alyanco.fr</strong> (ci-après « l'Acheteur »).</p>
+      <p class="legal-p">Toute commande passée sur le site implique l'acceptation pleine et entière des présentes CGV. Ces CGV prévalent sur tout autre document, notamment les conditions générales d'achat de l'Acheteur.</p>
+      <p class="legal-p">Le Vendeur se réserve le droit de modifier ses CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de la commande.</p>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-2">
+      <div class="legal-section-number">Article 2</div>
+      <h2 class="legal-section-title">Identification<br><em>du vendeur</em></h2>
+      <p class="legal-p"><strong>Dénomination sociale :</strong> ALYA & CO.</p>
+      <p class="legal-p"><strong>Forme juridique :</strong> Entreprise individuelle / SASU</p>
+      <p class="legal-p"><strong>Adresse e-mail :</strong> <a href="mailto:contact@alyanco.com">contact@alyanco.com</a></p>
+      <p class="legal-p"><strong>Site web :</strong> <a href="https://www.alyanco.com" target="_blank">www.alyanco.com</a></p>
+      <p class="legal-p">La boutique en ligne est hébergée sur des serveurs sécurisés en Europe.</p>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-3">
+      <div class="legal-section-number">Article 3</div>
+      <h2 class="legal-section-title">Produits</h2>
+      <p class="legal-p">Les produits proposés à la vente sont décrits avec la plus grande précision possible sur le site. Les photographies et descriptions n'ont pas de valeur contractuelle. Le Vendeur ne peut être tenu responsable des erreurs qui pourraient y figurer.</p>
+      <p class="legal-p">Tous les produits ALYA & CO. sont des produits de beauté naturelle :</p>
+      <ul class="legal-list">
+        <li>Brosses à dents Siwak rechargeables — usure naturelle du Siwak (Salvadora persica)</li>
+        <li>Têtes-recharges Siwak</li>
+        <li>Dentifrice Siwak en poudre</li>
+        <li>Gants exfoliants en soie de mûrier naturelle</li>
+        <li>Accessoires de beauté (chouchou soie de mûrier)</li>
+      </ul>
+      <p class="legal-p">Les produits sont conformes aux réglementations françaises et européennes en vigueur pour les cosmétiques et accessoires de beauté. Nos gants en soie de mûrier sont certifiés OEKO TEX® Standard 100.</p>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-4">
+      <div class="legal-section-number">Article 4</div>
+      <h2 class="legal-section-title">Commande</h2>
+      <div class="legal-subsection-title">4.1 Processus de commande</div>
+      <p class="legal-p">Pour passer une commande, l'Acheteur sélectionne les produits souhaités, les ajoute au panier, renseigne ses coordonnées et procède au paiement. La confirmation de commande est envoyée par email dans les minutes suivant le paiement.</p>
+      <div class="legal-subsection-title">4.2 Validation de commande</div>
+      <p class="legal-p">La commande n'est définitivement validée qu'après réception du paiement intégral. Le Vendeur se réserve le droit de refuser une commande en cas de litige antérieur, de suspicion de fraude ou de rupture de stock non actualisée.</p>
+      <div class="legal-subsection-title">4.3 Disponibilité des produits</div>
+      <p class="legal-p">Les produits sont proposés dans la limite des stocks disponibles. En cas d'indisponibilité après validation de commande, l'Acheteur sera informé par email et pourra choisir entre un remboursement intégral ou un produit de remplacement.</p>
+      <div class="info-box">
+        <p><strong>Bon à savoir :</strong> En passant commande, vous certifiez avoir au moins 18 ans ou avoir l'autorisation d'un représentant légal, et avoir pris connaissance des présentes CGV.</p>
+      </div>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-5">
+      <div class="legal-section-number">Article 5</div>
+      <h2 class="legal-section-title">Prix</h2>
+      <p class="legal-p">Les prix sont indiqués en euros TTC (Toutes Taxes Comprises), TVA française en vigueur incluse. Le Vendeur se réserve le droit de modifier ses prix à tout moment. Les prix applicables sont ceux affichés au moment de la validation de la commande.</p>
+      <p class="legal-p">Les frais de livraison, le cas échéant, sont calculés et affichés lors du récapitulatif de commande avant validation du paiement.</p>
+      <ul class="legal-list">
+        <li>Livraison Mondial Relay : <strong>OFFERTE dès 45€ d'achat</strong>, sinon 3,90€</li>
+        <li>Livraison Colissimo à domicile : 5,90€</li>
+        <li>Livraison express 24h : disponible selon disponibilité, tarif indiqué au panier</li>
+      </ul>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-6">
+      <div class="legal-section-number">Article 6</div>
+      <h2 class="legal-section-title">Paiement</h2>
+      <p class="legal-p">Le paiement est exigible immédiatement à la commande. Les moyens de paiement acceptés sont :</p>
+      <ul class="legal-list">
+        <li>Carte bancaire (Visa, Mastercard, American Express)</li>
+        <li>PayPal</li>
+        <li>Apple Pay / Google Pay</li>
+        <li>Paiement en 3 ou 4 fois sans frais via Klarna (à partir de 30€)</li>
+        <li>Paiement en 3 ou 4 fois sans frais via PayPal (à partir de 30€)</li>
+      </ul>
+      <p class="legal-p">Les transactions sont sécurisées par les protocoles SSL/TLS et traitées par nos prestataires de paiement certifiés PCI DSS. Le Vendeur ne conserve aucune information bancaire de l'Acheteur.</p>
+      <p class="legal-p">En cas de paiement refusé, la commande est automatiquement annulée. L'Acheteur est invité à renouveler sa commande avec un moyen de paiement valide.</p>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-7">
+      <div class="legal-section-number">Article 7</div>
+      <h2 class="legal-section-title">Livraison</h2>
+      <div class="legal-subsection-title">7.1 Zone de livraison</div>
+      <p class="legal-p">Les produits sont expédiés depuis la France métropolitaine vers la France métropolitaine, les DOM-TOM, et l'Union Européenne. Pour toute livraison hors UE, contactez-nous préalablement.</p>
+      <div class="legal-subsection-title">7.2 Délais de livraison</div>
+      <table class="delivery-table">
+        <thead>
+          <tr>
+            <th>Mode de livraison</th>
+            <th>Délai estimé</th>
+            <th>Tarif</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mondial Relay (point relais)</td>
+            <td>3 à 5 jours ouvrés</td>
+            <td>OFFERT dès 45€ / 3,90€</td>
+          </tr>
+          <tr>
+            <td>Colissimo à domicile</td>
+            <td>2 à 3 jours ouvrés</td>
+            <td>5,90€</td>
+          </tr>
+          <tr>
+            <td>Chronopost Express</td>
+            <td>24h (J+1 ouvré)</td>
+            <td>Tarif indiqué au panier</td>
+          </tr>
+          <tr>
+            <td>DOM-TOM</td>
+            <td>5 à 10 jours ouvrés</td>
+            <td>Tarif indiqué au panier</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="legal-p">Ces délais courent à partir de l'expédition, non de la commande. La préparation de commande prend 1 à 2 jours ouvrés supplémentaires.</p>
+      <div class="legal-subsection-title">7.3 Suivi et réception</div>
+      <p class="legal-p">Un numéro de suivi vous est communiqué par email dès l'expédition. En cas de colis endommagé ou manquant à la livraison, l'Acheteur doit émettre des réserves auprès du transporteur dans les 3 jours et nous en informer par email.</p>
+      <div class="legal-subsection-title">7.4 Retards de livraison</div>
+      <p class="legal-p">Les délais sont indicatifs. En cas de retard supérieur à 15 jours ouvrés, l'Acheteur peut annuler sa commande par email et obtenir un remboursement intégral, conformément à l'article L.216-2 du Code de la consommation.</p>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-8">
+      <div class="legal-section-number">Article 8</div>
+      <h2 class="legal-section-title">Droit de<br><em>rétractation</em></h2>
+      <p class="legal-p">Conformément à la Directive européenne 2011/83/UE et aux articles L.221-18 à L.221-28 du Code de la consommation, l'Acheteur dispose d'un <strong>délai de 14 jours calendaires</strong> à compter de la réception du colis pour exercer son droit de rétractation, sans avoir à justifier de motif ni à payer de pénalité.</p>
+      <p class="legal-p">Pour exercer ce droit, l'Acheteur doit notifier sa décision de rétractation avant l'expiration du délai, par email à <a href="mailto:contact@alyanco.com">contact@alyanco.com</a> en indiquant son numéro de commande.</p>
+      <div class="legal-subsection-title">Exceptions au droit de rétractation</div>
+      <p class="legal-p">Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux :</p>
+      <ul class="legal-list">
+        <li>Produits descellés après livraison et qui ne peuvent être renvoyés pour des raisons d'hygiène ou de protection de la santé (gants exfoliants utilisés, têtes-recharges Siwak descellées)</li>
+        <li>Produits personnalisés ou confectionnés selon les spécifications du consommateur</li>
+      </ul>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-9">
+      <div class="legal-section-number">Article 9</div>
+      <h2 class="legal-section-title">Retours et<br><em>remboursements</em></h2>
+      <div class="legal-subsection-title">9.1 Procédure de retour</div>
+      <p class="legal-p">Après notification de rétractation acceptée, l'Acheteur retourne le(s) produit(s) à ses frais, dans leur emballage d'origine, non utilisés et non descellés, dans un délai de 14 jours.</p>
+      <p class="legal-p">L'adresse de retour sera communiquée par email lors de l'acceptation du retour. Les retours doivent être envoyés en recommandé avec accusé de réception.</p>
+      <div class="legal-subsection-title">9.2 Remboursement</div>
+      <p class="legal-p">Le remboursement est effectué dans un délai de <strong>14 jours maximum</strong> à compter de la réception du retour (ou de la preuve d'expédition si reçue avant), via le même moyen de paiement que celui utilisé lors de l'achat.</p>
+      <p class="legal-p">Si le retour est dû à une erreur de notre part (produit défectueux, erreur d'expédition), les frais de retour sont à notre charge et remboursés.</p>
+      <div class="info-box">
+        <p><strong>Produit défectueux ou non conforme :</strong> En cas de réception d'un produit endommagé ou non conforme à votre commande, contactez-nous sous 48h à <a href="mailto:contact@alyanco.com">contact@alyanco.com</a> avec photos à l'appui. Nous procéderons à un remplacement ou remboursement sans frais pour vous.</p>
+      </div>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-10">
+      <div class="legal-section-number">Article 10</div>
+      <h2 class="legal-section-title">Garanties légales</h2>
+      <p class="legal-p">Tous les produits bénéficient des garanties légales suivantes, conformément aux articles L.217-4 et suivants du Code de la consommation :</p>
+      <ul class="legal-list">
+        <li><strong>Garantie légale de conformité :</strong> 2 ans à compter de la délivrance du bien. Sans préjudice du droit de rétractation, l'Acheteur peut exiger la réparation ou le remplacement du bien, ou un remboursement.</li>
+        <li><strong>Garantie contre les vices cachés :</strong> articles 1641 à 1648 du Code civil. En cas de vice caché rendant le produit impropre à l'usage auquel il est destiné, l'Acheteur peut choisir entre la résolution de la vente ou une réduction du prix.</li>
+      </ul>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-11">
+      <div class="legal-section-number">Article 11</div>
+      <h2 class="legal-section-title">Responsabilité</h2>
+      <p class="legal-p">Le Vendeur ne saurait être tenu pour responsable des dommages indirects résultant de l'utilisation des produits. Sa responsabilité est limitée au montant de la commande concernée.</p>
+      <p class="legal-p">Les produits ALYA & CO. sont des cosmétiques naturels à usage externe. En cas de réaction cutanée, cessez l'utilisation et consultez un professionnel de santé. Le Vendeur ne peut être tenu responsable en cas d'allergie connue à l'un des composants.</p>
+      <p class="legal-p">Le Vendeur ne peut être tenu responsable de l'inexécution de ses obligations en cas de force majeure (catastrophes naturelles, grèves générales, pandémies, etc.).</p>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-12">
+      <div class="legal-section-number">Article 12</div>
+      <h2 class="legal-section-title">Données personnelles</h2>
+      <p class="legal-p">Les données personnelles collectées lors de la commande (nom, adresse, email, téléphone) sont utilisées exclusivement pour le traitement et la livraison des commandes, ainsi que pour les communications relatives à votre achat.</p>
+      <p class="legal-p">Conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679) et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
+      <ul class="legal-list">
+        <li>Droit d'accès à vos données</li>
+        <li>Droit de rectification</li>
+        <li>Droit à l'effacement (« droit à l'oubli »)</li>
+        <li>Droit d'opposition au traitement</li>
+        <li>Droit à la portabilité</li>
+      </ul>
+      <p class="legal-p">Pour exercer ces droits, contactez-nous à <a href="mailto:contact@alyanco.com">contact@alyanco.com</a>. Vous pouvez également introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés — <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a>).</p>
+    </div>
+
+    <div class="legal-divider"></div>
+
+    <div class="legal-section reveal" id="article-13">
+      <div class="legal-section-number">Article 13</div>
+      <h2 class="legal-section-title">Loi applicable et litiges</h2>
+      <p class="legal-p">Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable sera recherchée en priorité. À défaut, le litige sera soumis aux tribunaux compétents du ressort du siège social de la société ALYA & CO.</p>
+      <p class="legal-p">Conformément à l'article L.616-1 du Code de la consommation, vous pouvez recourir à la médiation de la consommation. En tant que consommateur européen, vous pouvez également utiliser la plateforme de règlement en ligne des litiges mise à disposition par la Commission européenne : <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">ALYA & CO.</div>
+      <div class="footer-tagline">Beauté naturelle, <br>soin ancestral.</div>
+      <div class="footer-socials">
+        <a class="footer-social" href="https://www.instagram.com/alyanco.fr" target="_blank" aria-label="Instagram">&#9674;</a>
+        <a class="footer-social" href="https://www.tiktok.com/@alyanco.fr" target="_blank" aria-label="TikTok">&#8227;</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Collections</div>
+      <ul class="footer-links">
+        <li><a href="collection-siwak.html">Brosse Siwak</a></li>
+        <li><a href="collection-gants.html">Gants Exfoliants</a></li>
+        <li><a href="nos-packs.html">Nos Packs</a></li>
+        <li><a href="collection-siwak.html">Nos Produits</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Informations</div>
+      <ul class="footer-links">
+        <li><a href="notre-histoire.html">Notre Histoire</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cgv.html">CGV</a></li>
+        <li><a href="mentions-legales.html">Mentions Légales</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Service client</div>
+      <ul class="footer-links">
+        <li><a href="mailto:contact@alyanco.com">contact@alyanco.com</a></li>
+        <li><a href="contact.html">FAQ</a></li>
+        <li><a href="cgv.html">Retours & Remboursements</a></li>
+        <li><a href="cgv.html">Livraison</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ALYA & CO. — Tous droits réservés</div>
+    <div class="footer-legal">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv.html">CGV</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+(function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
+document.querySelectorAll('a, button').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover')); el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover')); });
+
+// Mobile nav
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+document.getElementById('menuToggle').addEventListener('click', () => { document.getElementById('mobileNav').classList.toggle('open'); });
+
+// Reveal
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav scroll
+window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
+</script>
+</body>
+</html>

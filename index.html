@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -1207,29 +1207,26 @@ body::before {
 <nav>
   <a href="#" class="nav-logo">ALYA & CO.</a>
   <ul class="nav-links">
-    <li><a href="#siwak">Brosse Siwak</a></li>
-    <li><a href="#gants">Gants Exfoliants</a></li>
-    <li><a href="#gants">Nos Packs</a></li>
-    <li><a href="#histoire">Notre Histoire</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="collection-siwak.html">Brosse Siwak</a></li>
+    <li><a href="collection-gants.html">Gants Exfoliants</a></li>
+    <li><a href="nos-packs.html">Nos Packs</a></li>
+    <li><a href="notre-histoire.html">Notre Histoire</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="#" class="nav-cart">
-      <span class="cart-icon">○</span>
-      Panier
-    </a>
+    <a href="contact.html" class="nav-cart"><span class="cart-icon">→</span> Commander</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="#siwak" onclick="closeMobileNav()">Brosse Siwak</a>
-  <a href="#gants" onclick="closeMobileNav()">Gants Exfoliants</a>
-  <a href="#packs" onclick="closeMobileNav()">Nos Packs</a>
-  <a href="#histoire" onclick="closeMobileNav()">Notre Histoire</a>
-  <a href="#contact" onclick="closeMobileNav()">Contact</a>
-  <a href="#" onclick="closeMobileNav()">○ Panier</a>
+  <a href="collection-siwak.html" onclick="closeMobileNav()">Brosse Siwak</a>
+  <a href="collection-gants.html" onclick="closeMobileNav()">Gants Exfoliants</a>
+  <a href="nos-packs.html" onclick="closeMobileNav()">Nos Packs</a>
+  <a href="notre-histoire.html" onclick="closeMobileNav()">Notre Histoire</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+  <a href="contact.html" onclick="closeMobileNav()">→ Commander</a>
 </div>
 
 <!-- HERO -->
@@ -1245,8 +1242,8 @@ body::before {
       Des soins naturels qui respectent votre peau et notre planète. Siwak ancestral et soie de mûrier, réunis pour votre bien-être quotidien.
     </p>
     <div class="hero-ctas">
-      <a href="#siwak" class="btn-primary">Découvrir</a>
-      <a href="#histoire" class="btn-outline">Notre histoire</a>
+      <a href="collection-siwak.html" class="btn-primary">Découvrir</a>
+      <a href="notre-histoire.html" class="btn-outline">Notre histoire</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -1308,7 +1305,7 @@ body::before {
     <p class="section-sub" style="color:var(--light);">L'hygiène dentaire naturelle, prouvée scientifiquement plus efficace qu'une brosse classique.</p>
   </div>
   <div class="products-grid">
-    <div class="product-card reveal reveal-delay-1">
+    <a href="produits/pack-siwak-complet.html" class="product-card reveal reveal-delay-1" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Packcomplet.jpg" alt="Pack Brosse Siwak Complet brosse + 3 têtes-recharges">
         <div class="product-badge" style="left:auto; right:16px;">Bestseller</div>
@@ -1323,9 +1320,9 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="product-card reveal reveal-delay-2">
+    <a href="produits/brosse-siwak.html" class="product-card reveal reveal-delay-2" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Design-sans_titre_20250111_120704_0000.png" alt="Brosse à dents Siwak rechargeable 100% naturelle">
       </div>
@@ -1340,9 +1337,9 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="product-card reveal reveal-delay-3">
+    <a href="produits/tetes-recharges.html" class="product-card reveal reveal-delay-3" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0004.jpg" alt="Têtes-recharges Siwak 100% naturelles">
       </div>
@@ -1356,9 +1353,9 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="product-card reveal reveal-delay-4">
+    <a href="produits/dentifrice-siwak.html" class="product-card reveal reveal-delay-4" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en poudre bio sans fluor">
       </div>
@@ -1372,7 +1369,7 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -1393,7 +1390,7 @@ body::before {
     <p class="story-text">
       Fabriquée en laboratoires certifiés aux normes européennes, sans produits chimiques, sans additifs artificiels. La nature à l'état pur.
     </p>
-    <a href="#siwak" class="story-link">Découvrir la collection Siwak</a>
+    <a href="collection-siwak.html" class="story-link">Découvrir la collection Siwak</a>
   </div>
 </section>
 
@@ -1405,7 +1402,7 @@ body::before {
     <p class="section-sub">La soie de mûrier, tout simplement la meilleure soie au monde. Naturelle, douce, hypoallergénique.</p>
   </div>
   <div class="products-grid">
-    <div class="product-card reveal reveal-delay-1">
+    <a href="produits/pack-1an-full-body.html" class="product-card reveal reveal-delay-1" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_2.png" alt="Pack 1 An Full Body gant corps et visage">
         <div class="product-badge">Bestseller</div>
@@ -1420,9 +1417,9 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="product-card reveal reveal-delay-2">
+    <a href="produits/gant-corps.html" class="product-card reveal reveal-delay-2" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_3.png" alt="Gant exfoliant corps soie de mûrier OEKO TEX">
         <div class="product-badge">4,7★ 208 avis</div>
@@ -1438,9 +1435,9 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="product-card reveal reveal-delay-3">
+    <a href="produits/gant-visage.html" class="product-card reveal reveal-delay-3" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_5.png" alt="Gant exfoliant visage soie de mûrier doux">
       </div>
@@ -1454,9 +1451,9 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="product-card reveal reveal-delay-4">
+    <a href="produits/chouchou-soie.html" class="product-card reveal reveal-delay-4" style="text-decoration:none;color:inherit;display:block;">
       <div class="product-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_7.png" alt="Chouchou tenue parfaite soie de mûrier">
       </div>
@@ -1470,7 +1467,7 @@ body::before {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -1491,7 +1488,7 @@ body::before {
     <p class="story-text">
       Certifiés OEKO TEX® Standard 100. Sans produit chimique, juste un peu d'eau suffit. Un geste éco-responsable qui prend soin de vous et de notre planète.
     </p>
-    <a href="#gants" class="story-link">Découvrir la collection Gants</a>
+    <a href="collection-gants.html" class="story-link">Découvrir la collection Gants</a>
   </div>
 </section>
 
@@ -1674,30 +1671,30 @@ body::before {
     <div>
       <div class="footer-col-title">Produits</div>
       <ul class="footer-links">
-        <li><a href="#siwak">Brosse Siwak rechargeable</a></li>
-        <li><a href="#siwak">Têtes-recharges Siwak</a></li>
-        <li><a href="#siwak">Dentifrice Siwak en poudre</a></li>
-        <li><a href="#gants">Gant exfoliant corps</a></li>
-        <li><a href="#gants">Gant exfoliant visage</a></li>
-        <li><a href="#gants">Pack 1an Full Body</a></li>
+        <li><a href="produits/brosse-siwak.html">Brosse Siwak rechargeable</a></li>
+        <li><a href="produits/tetes-recharges.html">Têtes-recharges Siwak</a></li>
+        <li><a href="produits/dentifrice-siwak.html">Dentifrice Siwak en poudre</a></li>
+        <li><a href="produits/gant-corps.html">Gant exfoliant corps</a></li>
+        <li><a href="produits/gant-visage.html">Gant exfoliant visage</a></li>
+        <li><a href="produits/pack-1an-full-body.html">Pack 1an Full Body</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Informations</div>
       <ul class="footer-links">
-        <li><a href="#">Suivre ma commande</a></li>
-        <li><a href="#">Politique de retour</a></li>
-        <li><a href="#">Livraison & délais</a></li>
-        <li><a href="#">Nous contacter</a></li>
-        <li><a href="#">Notre histoire</a></li>
-        <li><a href="#">Blog & conseils</a></li>
+        <li><a href="livraison.html">Livraison & retours</a></li>
+        <li><a href="contact.html">Nous contacter</a></li>
+        <li><a href="notre-histoire.html">Notre histoire</a></li>
+        <li><a href="blog.html">Blog & conseils</a></li>
+        <li><a href="cgv.html">CGV</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
         <li><a href="mailto:contact@alyanco.com">contact@alyanco.com</a></li>
-        <li><a href="#">Formulaire de contact</a></li>
+        <li><a href="contact.html">Formulaire de contact</a></li>
         <li style="color:var(--light); font-size:13px; margin-top:16px; line-height:1.8;">Réponse sous 24h<br>Du lundi au vendredi</li>
       </ul>
     </div>
@@ -1705,9 +1702,9 @@ body::before {
   <div class="footer-bottom">
     <div class="footer-copy">© 2025 ALYA & CO. Tous droits réservés.</div>
     <div class="footer-legal">
-      <a href="#">CGV</a>
-      <a href="#">Confidentialité</a>
-      <a href="#">Mentions légales</a>
+      <a href="cgv.html">CGV</a>
+      <a href="mentions-legales.html">Confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
     </div>
   </div>
 </footer>

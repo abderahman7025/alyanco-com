@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dentifrice Siwak en Poudre — ALYA & CO.</title>
+<meta name="description" content="Dentifrice en poudre bio, sans fluor, sans sulfates. À base d'extrait de Siwak. Blancheur naturelle dès 2 semaines. 5,99€ — ALYA & CO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root { --cream: #FAF6F1; --warm: #F2E8DD; --sand: #EAD1BF; --gold: #B8975A; --gold-light: #D4B896; --dark: #1C1612; --charcoal: #2D2520; --mid: #6B5B4E; --light: #A8958A; --white: #FFFFFF; --font-serif: 'Cormorant Garamond', Georgia, serif; --font-sans: 'DM Sans', sans-serif; --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--cream); color: var(--dark); font-family: var(--font-sans); font-weight: 300; overflow-x: hidden; cursor: none; }
+.cursor-dot { width: 8px; height: 8px; background: var(--dark); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; }
+.cursor-ring { width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.15s var(--ease), width 0.4s var(--ease-out), height 0.4s var(--ease-out), opacity 0.3s; opacity: 0.6; }
+body.cursor-hover .cursor-dot { width: 14px; height: 14px; background: var(--gold); }
+body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
+.announcement { background: var(--dark); color: var(--sand); padding: 10px 0; overflow: hidden; position: relative; z-index: 100; }
+.announcement-track { display: flex; width: max-content; animation: ticker 20s linear infinite; }
+.announcement-item { font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 60px; display: flex; align-items: center; gap: 12px; white-space: nowrap; flex-shrink: 0; }
+.announcement-item::before { content: '✦'; color: var(--gold); font-size: 8px; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(250, 246, 241, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(184, 151, 90, 0.12); transition: all 0.4s var(--ease); }
+.nav-logo { font-family: var(--font-serif); font-size: 22px; font-weight: 500; letter-spacing: 0.12em; color: var(--dark); text-decoration: none; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease); }
+.nav-links a:hover { color: var(--dark); }
+.nav-links a:hover::after { width: 100%; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-cart { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 400; }
+.cart-icon { font-size: 18px; }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.menu-toggle span { display: block; width: 22px; height: 1.5px; background: var(--dark); transition: all 0.3s var(--ease); }
+.mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(250, 246, 241, 0.98); backdrop-filter: blur(20px); z-index: 89; padding: 24px 24px 32px; border-bottom: 1px solid rgba(184, 151, 90, 0.15); flex-direction: column; gap: 0; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 13px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(184, 151, 90, 0.1); }
+.mobile-nav a:last-child { border-bottom: none; }
+.breadcrumb { padding: 20px 80px; font-size: 12px; color: var(--light); display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(184,151,90,0.1); }
+.breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.3s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span { color: var(--gold); }
+.product-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; padding: 60px 80px; gap: 80px; align-items: center; }
+.product-hero-image { position: relative; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--warm) 0%, var(--sand) 50%, var(--cream) 100%); aspect-ratio: 1; overflow: hidden; }
+.product-hero-image img { width: 85%; height: 85%; object-fit: contain; filter: drop-shadow(0 30px 60px rgba(28,22,18,0.14)); animation: heroFloat 7s ease-in-out infinite; }
+@keyframes heroFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.product-hero-image-deco { position: absolute; inset: 0; pointer-events: none; }
+.product-hero-image-deco::before { content: ''; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(184,151,90,0.15); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); animation: ringPulse 5s ease-in-out infinite; }
+@keyframes ringPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity:1; } 50% { transform: translate(-50%,-50%) scale(1.05); opacity:0.6; } }
+.product-hero-info { display: flex; flex-direction: column; }
+.product-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
+.product-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.product-title { font-family: var(--font-serif); font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 24px; }
+.product-title em { font-style: italic; color: var(--gold); }
+.product-price-wrap { display: flex; align-items: baseline; gap: 12px; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(184,151,90,0.15); }
+.price-main { font-family: var(--font-serif); font-size: 44px; font-weight: 500; color: var(--gold); line-height: 1; }
+.price-crossed { font-size: 20px; color: var(--light); text-decoration: line-through; }
+.price-promo { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(184,151,90,0.1); padding: 4px 10px; }
+.product-description { font-size: 14px; line-height: 1.9; color: var(--mid); margin-bottom: 28px; }
+.product-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.product-bullets li { font-size: 13px; color: var(--charcoal); display: flex; align-items: center; gap: 10px; }
+.product-bullets li::before { content: '✦'; color: var(--gold); font-size: 8px; flex-shrink: 0; }
+.product-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary { padding: 16px 36px; background: var(--dark); color: var(--cream); font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--dark); transition: all 0.4s var(--ease); display: inline-block; }
+.btn-primary:hover { background: transparent; color: var(--dark); }
+.btn-outline { padding: 16px 36px; background: transparent; color: var(--dark); font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(28, 22, 18, 0.25); transition: all 0.4s var(--ease); display: inline-block; }
+.btn-outline:hover { border-color: var(--dark); background: var(--dark); color: var(--cream); }
+.product-description-section { padding: 80px; background: var(--warm); }
+.section-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
+.section-eyebrow::before, .section-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.section-title { font-family: var(--font-serif); font-size: clamp(32px, 3.5vw, 48px); font-weight: 300; color: var(--dark); line-height: 1.2; margin-bottom: 28px; }
+.section-title em { font-style: italic; color: var(--gold); }
+.desc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+.desc-col p { font-size: 14px; line-height: 1.9; color: var(--mid); margin-bottom: 16px; }
+.desc-col h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 16px; }
+.desc-specs { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.desc-specs li { font-size: 13px; color: var(--charcoal); padding: 12px 16px; background: var(--cream); border-left: 2px solid var(--gold); display: flex; justify-content: space-between; }
+.desc-specs li span { color: var(--mid); }
+.related-section { padding: 80px; }
+.related-section .section-header { text-align: center; margin-bottom: 48px; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.product-card { background: var(--warm); border: 1px solid rgba(184, 151, 90, 0.1); overflow: hidden; transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out); text-decoration: none; color: inherit; display: block; }
+.product-card:hover { box-shadow: 0 30px 80px rgba(28, 22, 18, 0.15); }
+.product-image { aspect-ratio: 1; overflow: hidden; background: linear-gradient(135deg, var(--sand) 0%, var(--warm) 100%); display: flex; align-items: center; justify-content: center; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+.product-card:hover .product-image img { transform: scale(1.05); }
+.product-info { padding: 24px; }
+.product-name { font-family: var(--font-serif); font-size: 17px; font-weight: 400; color: var(--dark); line-height: 1.4; margin-bottom: 8px; }
+.product-desc-short { font-size: 12px; color: var(--light); line-height: 1.6; margin-bottom: 16px; }
+.product-price-row { display: flex; align-items: baseline; gap: 8px; }
+.price-current { font-family: var(--font-serif); font-size: 22px; font-weight: 500; color: var(--dark); }
+.price-old { font-size: 13px; color: var(--light); text-decoration: line-through; }
+.newsletter-section { padding: 80px; background: linear-gradient(135deg, var(--warm) 0%, var(--cream) 100%); text-align: center; position: relative; overflow: hidden; }
+.newsletter-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.newsletter-bg-text { font-family: var(--font-serif); font-size: 200px; font-weight: 600; color: rgba(255,255,255,0.15); white-space: nowrap; user-select: none; }
+.newsletter-content { position: relative; z-index: 1; }
+.newsletter-title { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 56px); font-weight: 300; color: var(--dark); line-height: 1.1; margin-bottom: 20px; }
+.newsletter-title em { font-style: italic; color: var(--gold); }
+.newsletter-sub { font-size: 14px; color: var(--mid); margin-bottom: 40px; line-height: 1.8; }
+.newsletter-form { display: flex; max-width: 480px; margin: 0 auto; border: 1px solid var(--dark); }
+.newsletter-input { flex: 1; padding: 18px 24px; background: transparent; border: none; outline: none; font-family: var(--font-sans); font-size: 13px; color: var(--dark); }
+.newsletter-input::placeholder { color: var(--light); }
+.newsletter-btn { padding: 18px 32px; background: var(--dark); color: var(--cream); border: none; font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; cursor: none; transition: background 0.3s; }
+.newsletter-btn:hover { background: var(--gold); }
+footer { background: var(--dark); color: var(--cream); padding: 80px; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 40px; }
+.footer-logo { font-family: var(--font-serif); font-size: 28px; font-weight: 400; color: var(--cream); margin-bottom: 20px; }
+.footer-tagline { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--light); line-height: 1.7; margin-bottom: 28px; }
+.footer-socials { display: flex; gap: 16px; }
+.footer-social { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--light); text-decoration: none; font-size: 14px; transition: all 0.3s; }
+.footer-social:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { font-size: 13px; color: var(--light); text-decoration: none; transition: color 0.3s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 12px; color: var(--light); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: var(--light); text-decoration: none; transition: color 0.3s; }
+.footer-legal a:hover { color: var(--cream); }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
+@media (max-width: 1200px) { .related-grid { grid-template-columns: repeat(2, 1fr); } .desc-grid { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .breadcrumb { padding: 16px 20px; } .product-hero { grid-template-columns: 1fr; padding: 32px 20px; gap: 40px; } .product-description-section { padding: 48px 20px; } .related-section { padding: 48px 20px; } .related-grid { grid-template-columns: 1fr; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
+</style>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="announcement"><div class="announcement-track"><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Fabriqué sous normes européennes</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Fabriqué sous normes européennes</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div></div></div>
+<nav>
+  <a href="../index.html" class="nav-logo">ALYA & CO.</a>
+  <ul class="nav-links">
+    <li><a href="../collection-siwak.html">Brosse Siwak</a></li>
+    <li><a href="../collection-gants.html">Gants Exfoliants</a></li>
+    <li><a href="../nos-packs.html">Nos Packs</a></li>
+    <li><a href="../notre-histoire.html">Notre Histoire</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="../contact.html" class="nav-cart"><span class="cart-icon">→</span> Commander</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../collection-siwak.html" onclick="closeMobileNav()">Brosse Siwak</a>
+  <a href="../collection-gants.html" onclick="closeMobileNav()">Gants Exfoliants</a>
+  <a href="../nos-packs.html" onclick="closeMobileNav()">Nos Packs</a>
+  <a href="../notre-histoire.html" onclick="closeMobileNav()">Notre Histoire</a>
+  <a href="../contact.html" onclick="closeMobileNav()">Contact</a>
+</div>
+<div class="breadcrumb"><a href="../index.html">Accueil</a><span>›</span><a href="../collection-siwak.html">Collection Siwak</a><span>›</span>Dentifrice Siwak en Poudre</div>
+
+<section class="product-hero">
+  <div class="product-hero-image reveal">
+    <div class="product-hero-image-deco"></div>
+    <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en Poudre ALYA & CO.">
+  </div>
+  <div class="product-hero-info reveal reveal-delay-1">
+    <div class="product-eyebrow">Collection Siwak</div>
+    <h1 class="product-title">Dentifrice Siwak<br><em>en Poudre</em></h1>
+    <div class="product-price-wrap">
+      <span class="price-main">5,99€</span>
+      <span class="price-crossed">7,99€</span>
+      <span class="price-promo">−25%</span>
+    </div>
+    <p class="product-description">Dentifrice en poudre bio, sans fluor, sans sulfates, sans conservateurs. À base d'extrait naturel de Siwak (Salvadora persica). Blancheur naturelle visible dès 2 semaines d'utilisation régulière. 100% naturel, certifié bio.</p>
+    <ul class="product-bullets">
+      <li>Bio certifié — sans additifs synthétiques</li>
+      <li>Sans fluor · Sans sulfates · Sans conservateurs</li>
+      <li>Blancheur naturelle dès 2 semaines</li>
+      <li>Extrait pur de Siwak antibactérien</li>
+      <li>Livraison Mondial Relay 72h</li>
+    </ul>
+    <div class="product-ctas">
+      <a href="../contact.html" class="btn-primary">Commander</a>
+      <a href="../collection-siwak.html" class="btn-outline">← Retour collection</a>
+    </div>
+  </div>
+</section>
+
+<section class="product-description-section">
+  <div class="reveal">
+    <div class="section-eyebrow">Description complète</div>
+    <h2 class="section-title">La blancheur naturelle,<br><em>sans compromis</em></h2>
+  </div>
+  <div class="desc-grid reveal">
+    <div class="desc-col">
+      <p>Notre dentifrice en poudre est la alternative naturelle aux dentifrices conventionnels chargés en fluor, sulfates de lauryle (SLS), parabènes et colorants artificiels. Formulé à partir d'ingrédients d'origine naturelle et d'extraits de Siwak, il nettoie, blanchit et protège en douceur.</p>
+      <p>La texture poudre, une fois humidifiée sur la brosse, forme une légère mousse naturelle qui pénètre entre les dents et sur la gencive. Résultat : haleine fraîche, dents plus blanches, gencives en bonne santé — sans le moindre produit chimique agressif.</p>
+      <p>Idéal pour compléter votre routine Siwak avec la brosse ALYA & CO. et les têtes-recharges biodégradables.</p>
+    </div>
+    <div class="desc-col">
+      <h3>Composition & infos</h3>
+      <ul class="desc-specs">
+        <li>Base <span>Extrait de Siwak naturel</span></li>
+        <li>Sans <span>Fluor, SLS, parabènes</span></li>
+        <li>Certification <span>Bio</span></li>
+        <li>Texture <span>Poudre fine</span></li>
+        <li>Résultats <span>Visibles dès 2 semaines</span></li>
+        <li>Contenance <span>50g (environ 3 mois)</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="related-section">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Vous aimerez aussi</div>
+    <h2 class="section-title">Complétez votre <em>routine</em></h2>
+  </div>
+  <div class="related-grid">
+    <a href="brosse-siwak.html" class="product-card reveal reveal-delay-1">
+      <div class="product-image"><img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Design-sans_titre_20250111_120704_0000.png" alt="Brosse Siwak Rechargeable"></div>
+      <div class="product-info"><div class="product-name">Brosse à dents Siwak Rechargeable</div><div class="product-desc-short">La brosse parfaite pour utiliser avec ce dentifrice bio.</div><div class="product-price-row"><span class="price-current">12,99€</span><span class="price-old">15,99€</span></div></div>
+    </a>
+    <a href="tetes-recharges.html" class="product-card reveal reveal-delay-2">
+      <div class="product-image"><img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0004.jpg" alt="Têtes-Recharges Siwak"></div>
+      <div class="product-info"><div class="product-name">Têtes-Recharges Siwak</div><div class="product-desc-short">Pack de 3 têtes biodégradables. Compatibles avec la brosse ALYA & CO.</div><div class="product-price-row"><span class="price-current">6,99€</span><span class="price-old">8,99€</span></div></div>
+    </a>
+    <a href="pack-siwak-complet.html" class="product-card reveal reveal-delay-3">
+      <div class="product-image"><img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Packcomplet.jpg" alt="Pack Brosse Siwak Complet"></div>
+      <div class="product-info"><div class="product-name">Pack Brosse Siwak Complet</div><div class="product-desc-short">Brosse + têtes-recharges + ce dentifrice. Économisez 30%.</div><div class="product-price-row"><span class="price-current">24,99€</span><span class="price-old">32,99€</span></div></div>
+    </a>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="newsletter-bg"><div class="newsletter-bg-text">NATUREL</div></div>
+  <div class="newsletter-content reveal">
+    <div class="section-eyebrow" style="justify-content:center; margin-bottom:20px;">Rejoindre la famille</div>
+    <h2 class="newsletter-title">Prenez soin de vous,<br><em>naturellement.</em></h2>
+    <p class="newsletter-sub">Recevez nos conseils beauté, nos offres exclusives et soyez les premiers informés de nos nouveautés.</p>
+    <form class="newsletter-form" onsubmit="return false;"><input type="email" class="newsletter-input" placeholder="Votre adresse email"><button type="submit" class="newsletter-btn">S'inscrire</button></form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-logo">ALYA & CO.</div><div class="footer-tagline">"Bien-être, satisfaction, sourire."<br>Votre beauté naturelle, notre passion.</div><div class="footer-socials"><a href="#" class="footer-social">f</a><a href="#" class="footer-social">in</a><a href="#" class="footer-social">tt</a><a href="#" class="footer-social">▶</a></div></div>
+    <div><div class="footer-col-title">Produits</div><ul class="footer-links"><li><a href="brosse-siwak.html">Brosse Siwak rechargeable</a></li><li><a href="tetes-recharges.html">Têtes-recharges Siwak</a></li><li><a href="dentifrice-siwak.html">Dentifrice Siwak en poudre</a></li><li><a href="gant-corps.html">Gant exfoliant corps</a></li><li><a href="gant-visage.html">Gant exfoliant visage</a></li><li><a href="pack-1an-full-body.html">Pack 1an Full Body</a></li></ul></div>
+    <div><div class="footer-col-title">Informations</div><ul class="footer-links"><li><a href="../notre-histoire.html">Notre histoire</a></li><li><a href="../contact.html">Nous contacter</a></li><li><a href="../cgv.html">CGV</a></li><li><a href="../mentions-legales.html">Mentions légales</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:contact@alyanco.com">contact@alyanco.com</a></li><li style="color:var(--light); font-size:13px; margin-top:16px; line-height:1.8;">Réponse sous 24h<br>Du lundi au vendredi</li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2025 ALYA & CO. Tous droits réservés.</div><div class="footer-legal"><a href="../cgv.html">CGV</a><a href="#">Confidentialité</a><a href="../mentions-legales.html">Mentions légales</a></div></div>
+</footer>
+<script>
+const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; });
+function animateRing() { ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12; ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; requestAnimationFrame(animateRing); }
+animateRing();
+document.querySelectorAll('a, button, .product-card').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover')); el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover')); });
+const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
+menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('open'); const s = menuToggle.querySelectorAll('span'); if (mobileNav.classList.contains('open')) { s[0].style.transform = 'translateY(6.5px) rotate(45deg)'; s[1].style.opacity = '0'; s[2].style.transform = 'translateY(-6.5px) rotate(-45deg)'; } else { s[0].style.transform = ''; s[1].style.opacity = ''; s[2].style.transform = ''; } });
+function closeMobileNav() { mobileNav.classList.remove('open'); menuToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; }); }
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
+const nf = document.querySelector('.newsletter-form');
+if (nf) nf.addEventListener('submit', e => { e.preventDefault(); const i = nf.querySelector('input'); if (i.value) { const b = nf.querySelector('button'); b.textContent = '✓ Inscrit !'; b.style.background = 'var(--gold)'; i.value = ''; setTimeout(() => { b.textContent = "S'inscrire"; b.style.background = 'var(--dark)'; }, 3000); } });
+</script>
+</body>
+</html>

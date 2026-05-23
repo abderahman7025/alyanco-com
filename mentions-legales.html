@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions Légales & Politique de Confidentialité — ALYA & CO.</title>
+<meta name="description" content="Mentions légales et politique de confidentialité d'ALYA & CO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root { --cream: #FAF6F1; --warm: #F2E8DD; --sand: #EAD1BF; --gold: #B8975A; --gold-light: #D4B896; --dark: #1C1612; --charcoal: #2D2520; --mid: #6B5B4E; --light: #A8958A; --white: #FFFFFF; --font-serif: 'Cormorant Garamond', Georgia, serif; --font-sans: 'DM Sans', sans-serif; --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--cream); color: var(--dark); font-family: var(--font-sans); font-weight: 300; overflow-x: hidden; cursor: none; }
+.cursor-dot { width: 8px; height: 8px; background: var(--dark); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; }
+.cursor-ring { width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.15s var(--ease), width 0.4s var(--ease-out), height 0.4s var(--ease-out), opacity 0.3s; opacity: 0.6; }
+body.cursor-hover .cursor-dot { width: 14px; height: 14px; background: var(--gold); }
+body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
+.announcement { background: var(--dark); color: var(--sand); padding: 10px 0; overflow: hidden; }
+.announcement-track { display: flex; width: max-content; animation: ticker 20s linear infinite; }
+.announcement-item { font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 60px; display: flex; align-items: center; gap: 12px; white-space: nowrap; flex-shrink: 0; }
+.announcement-item::before { content: '✦'; color: var(--gold); font-size: 8px; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(250, 246, 241, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(184, 151, 90, 0.12); }
+.nav-logo { font-family: var(--font-serif); font-size: 22px; font-weight: 500; letter-spacing: 0.12em; color: var(--dark); text-decoration: none; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease); }
+.nav-links a:hover { color: var(--dark); }
+.nav-links a:hover::after { width: 100%; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-cart { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 400; }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.menu-toggle span { display: block; width: 22px; height: 1.5px; background: var(--dark); transition: all 0.3s var(--ease); }
+.mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(250, 246, 241, 0.98); backdrop-filter: blur(20px); z-index: 89; padding: 24px 24px 32px; border-bottom: 1px solid rgba(184, 151, 90, 0.15); flex-direction: column; gap: 0; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 13px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(184, 151, 90, 0.1); }
+.mobile-nav a:last-child { border-bottom: none; }
+.breadcrumb { padding: 20px 80px; font-size: 12px; color: var(--light); display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(184,151,90,0.1); }
+.breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.3s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span { color: var(--gold); }
+
+/* PAGE HERO */
+.page-hero { background: var(--dark); padding: 80px 80px 60px; position: relative; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.page-hero-bg-text { font-family: var(--font-serif); font-size: 180px; font-weight: 600; color: rgba(255,255,255,0.04); white-space: nowrap; user-select: none; }
+.page-hero-content { position: relative; z-index: 1; max-width: 680px; }
+.page-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
+.page-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold-light); }
+.page-title { font-family: var(--font-serif); font-size: clamp(36px, 4.5vw, 64px); font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 20px; }
+.page-title em { font-style: italic; color: var(--gold-light); }
+.page-sub { font-size: 14px; color: var(--light); line-height: 1.8; }
+
+/* CONTENT */
+.legal-content { max-width: 860px; margin: 0 auto; padding: 80px; }
+.legal-section { margin-bottom: 56px; }
+.legal-section h2 { font-family: var(--font-serif); font-size: 28px; font-weight: 400; color: var(--dark); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(184,151,90,0.2); }
+.legal-section h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 400; color: var(--charcoal); margin: 24px 0 12px; }
+.legal-section p { font-size: 14px; line-height: 1.9; color: var(--mid); margin-bottom: 16px; }
+.legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; padding-left: 0; }
+.legal-section ul li { font-size: 14px; line-height: 1.7; color: var(--mid); padding-left: 20px; position: relative; }
+.legal-section ul li::before { content: '✦'; color: var(--gold); font-size: 8px; position: absolute; left: 0; top: 6px; }
+.legal-section a { color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
+.legal-section a:hover { opacity: 0.7; }
+.info-box { background: var(--warm); border-left: 3px solid var(--gold); padding: 20px 24px; margin-bottom: 24px; font-size: 14px; line-height: 1.8; color: var(--mid); }
+
+/* FOOTER */
+footer { background: var(--dark); color: var(--cream); padding: 80px; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 40px; }
+.footer-logo { font-family: var(--font-serif); font-size: 28px; font-weight: 400; color: var(--cream); margin-bottom: 20px; }
+.footer-tagline { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--light); line-height: 1.7; margin-bottom: 28px; }
+.footer-socials { display: flex; gap: 16px; }
+.footer-social { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--light); text-decoration: none; font-size: 14px; transition: all 0.3s; }
+.footer-social:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { font-size: 13px; color: var(--light); text-decoration: none; transition: color 0.3s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 12px; color: var(--light); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: var(--light); text-decoration: none; transition: color 0.3s; }
+.footer-legal a:hover { color: var(--cream); }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
+@media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .breadcrumb { padding: 16px 20px; } .page-hero { padding: 60px 20px 40px; } .page-hero-bg-text { font-size: 80px; } .legal-content { padding: 40px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
+</style>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="announcement"><div class="announcement-track"><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Fabriqué sous normes européennes</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Fabriqué sous normes européennes</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div></div></div>
+<nav>
+  <a href="index.html" class="nav-logo">ALYA & CO.</a>
+  <ul class="nav-links">
+    <li><a href="collection-siwak.html">Brosse Siwak</a></li>
+    <li><a href="collection-gants.html">Gants Exfoliants</a></li>
+    <li><a href="nos-packs.html">Nos Packs</a></li>
+    <li><a href="notre-histoire.html">Notre Histoire</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cart"><span style="font-size:18px">→</span> Commander</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="collection-siwak.html" onclick="closeMobileNav()">Brosse Siwak</a>
+  <a href="collection-gants.html" onclick="closeMobileNav()">Gants Exfoliants</a>
+  <a href="nos-packs.html" onclick="closeMobileNav()">Nos Packs</a>
+  <a href="notre-histoire.html" onclick="closeMobileNav()">Notre Histoire</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</div>
+<div class="breadcrumb"><a href="index.html">Accueil</a><span>›</span>Mentions Légales</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg"><div class="page-hero-bg-text">LÉGAL</div></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Transparence</div>
+    <h1 class="page-title">Mentions Légales &<br><em>Confidentialité</em></h1>
+    <p class="page-sub">Informations légales et politique de confidentialité d'ALYA & CO. Dernière mise à jour : janvier 2025.</p>
+  </div>
+</section>
+
+<div class="legal-content">
+
+  <div class="legal-section">
+    <h2>1. Mentions Légales</h2>
+    <h3>Éditeur du site</h3>
+    <p>Le site <strong>alyanco.com</strong> est édité par la société <strong>ALYA & CO.</strong></p>
+    <ul>
+      <li>Raison sociale : ALYA & CO.</li>
+      <li>Email : <a href="mailto:contact@alyanco.com">contact@alyanco.com</a></li>
+      <li>Site web : <a href="https://www.alyanco.com">www.alyanco.com</a></li>
+    </ul>
+    <h3>Hébergement</h3>
+    <p>Le site est hébergé par <strong>OVH SAS</strong>, 2 rue Kellermann, 59100 Roubaix, France. Site web : <a href='https://www.ovh.com' target='_blank'>www.ovh.com</a></p>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. Propriété Intellectuelle</h2>
+    <p>L'ensemble du contenu de ce site (textes, images, logos, graphismes, vidéos, photographies) est la propriété exclusive d'ALYA & CO. ou de ses partenaires, et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.</p>
+    <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable d'ALYA & CO.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Politique de Confidentialité</h2>
+    <div class="info-box">
+      ALYA & CO. s'engage à protéger votre vie privée. Nous collectons uniquement les données nécessaires à la bonne gestion de vos commandes et à l'amélioration de votre expérience client.
+    </div>
+    <h3>Données collectées</h3>
+    <p>Lors de vos achats ou de votre inscription à notre newsletter, nous collectons les informations suivantes :</p>
+    <ul>
+      <li>Nom et prénom</li>
+      <li>Adresse email</li>
+      <li>Adresse postale de livraison</li>
+      <li>Numéro de téléphone (optionnel)</li>
+      <li>Données de paiement (traitées via prestataires de paiement sécurisés — non stockées sur nos serveurs)</li>
+    </ul>
+    <h3>Utilisation des données</h3>
+    <p>Vos données personnelles sont utilisées exclusivement pour :</p>
+    <ul>
+      <li>Traiter et expédier vos commandes</li>
+      <li>Vous envoyer des informations relatives à votre commande</li>
+      <li>Vous envoyer notre newsletter (si vous y avez consenti)</li>
+      <li>Améliorer nos services et votre expérience</li>
+      <li>Respecter nos obligations légales</li>
+    </ul>
+    <h3>Conservation des données</h3>
+    <p>Vos données sont conservées pour une durée maximale de 3 ans à compter de la dernière interaction. Les données de facturation sont conservées 10 ans conformément aux obligations légales.</p>
+    <h3>Vos droits</h3>
+    <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
+    <ul>
+      <li>Droit d'accès à vos données personnelles</li>
+      <li>Droit de rectification des données inexactes</li>
+      <li>Droit à l'effacement (droit à l'oubli)</li>
+      <li>Droit à la portabilité de vos données</li>
+      <li>Droit d'opposition au traitement</li>
+      <li>Droit de retirer votre consentement à tout moment</li>
+    </ul>
+    <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@alyanco.com">contact@alyanco.com</a></p>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Cookies</h2>
+    <p>Notre site utilise des cookies pour améliorer votre expérience de navigation. Nous utilisons notamment :</p>
+    <ul>
+      <li><strong>Cookies essentiels :</strong> nécessaires au fonctionnement du panier et de la session de connexion.</li>
+      <li><strong>Cookies analytiques :</strong> Google Analytics (anonymisé) pour comprendre la navigation sur le site.</li>
+      <li><strong>Cookies marketing :</strong> uniquement avec votre consentement explicite.</li>
+    </ul>
+    <p>Vous pouvez configurer votre navigateur pour refuser les cookies. Toutefois, certaines fonctionnalités du site peuvent ne plus être disponibles.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Responsabilité</h2>
+    <p>ALYA & CO. s'efforce de fournir des informations exactes et à jour sur ce site. Cependant, nous ne saurions garantir l'exactitude, la complétude et l'actualité des informations diffusées.</p>
+    <p>ALYA & CO. ne saurait être tenu responsable des dommages directs ou indirects pouvant résulter de l'accès au site ou de l'utilisation de son contenu.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>6. Loi applicable</h2>
+    <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+    <p>Pour toute réclamation, veuillez nous contacter en priorité à <a href="mailto:contact@alyanco.com">contact@alyanco.com</a>. En cas de litige non résolu, vous pouvez recourir à la médiation via la plateforme européenne de règlement en ligne des litiges : <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-logo">ALYA & CO.</div><div class="footer-tagline">"Bien-être, satisfaction, sourire."<br>Votre beauté naturelle, notre passion.</div><div class="footer-socials"><a href="#" class="footer-social">f</a><a href="#" class="footer-social">in</a><a href="#" class="footer-social">tt</a><a href="#" class="footer-social">▶</a></div></div>
+    <div><div class="footer-col-title">Produits</div><ul class="footer-links"><li><a href="produits/brosse-siwak.html">Brosse Siwak rechargeable</a></li><li><a href="produits/tetes-recharges.html">Têtes-recharges Siwak</a></li><li><a href="produits/dentifrice-siwak.html">Dentifrice Siwak en poudre</a></li><li><a href="produits/gant-corps.html">Gant exfoliant corps</a></li><li><a href="produits/gant-visage.html">Gant exfoliant visage</a></li><li><a href="produits/pack-1an-full-body.html">Pack 1an Full Body</a></li></ul></div>
+    <div><div class="footer-col-title">Informations</div><ul class="footer-links"><li><a href="livraison.html">Livraison & retours</a></li><li><a href="contact.html">Nous contacter</a></li><li><a href="notre-histoire.html">Notre histoire</a></li><li><a href="cgv.html">CGV</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:contact@alyanco.com">contact@alyanco.com</a></li><li style="color:var(--light); font-size:13px; margin-top:16px; line-height:1.8;">Réponse sous 24h<br>Du lundi au vendredi</li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2025 ALYA & CO. Tous droits réservés.</div><div class="footer-legal"><a href="cgv.html">CGV</a><a href="mentions-legales.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div></div>
+</footer>
+
+<script>
+const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; });
+function animateRing() { ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12; ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; requestAnimationFrame(animateRing); }
+animateRing();
+document.querySelectorAll('a, button').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover')); el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover')); });
+const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
+menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('open'); const s = menuToggle.querySelectorAll('span'); if (mobileNav.classList.contains('open')) { s[0].style.transform = 'translateY(6.5px) rotate(45deg)'; s[1].style.opacity = '0'; s[2].style.transform = 'translateY(-6.5px) rotate(-45deg)'; } else { s[0].style.transform = ''; s[1].style.opacity = ''; s[2].style.transform = ''; } });
+function closeMobileNav() { mobileNav.classList.remove('open'); menuToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; }); }
+window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
+</script>
+</body>
+</html>
