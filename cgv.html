@@ -120,7 +120,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     <li><a href="contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="contact" class="nav-cart"><span class="cart-icon">○</span> Panier</a>
+    <a href="cart" class="nav-cart"><span class="cart-icon">○</span> Panier<span class="cart-badge" id="cartBadge" style="display:none"></span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -449,5 +449,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // Nav scroll
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
 </script>
+<script src="cart.js"></script>
 </body>
 </html>

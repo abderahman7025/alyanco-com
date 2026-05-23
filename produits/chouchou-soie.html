@@ -142,7 +142,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     <li><a href="../contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="../contact" class="nav-cart"><span class="cart-icon">○</span> Panier</a>
+    <a href="../cart" class="nav-cart"><span class="cart-icon">○</span> Panier<span class="cart-badge" id="cartBadge" style="display:none"></span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -178,7 +178,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <li>Livraison Mondial Relay 72h</li>
     </ul>
     <div class="product-ctas">
-      <a href="../contact" class="btn-primary">Commander</a>
+      <button class="btn-primary btn-atc" onclick="handleATC(event)">Ajouter au panier</button>
       <a href="../collection-gants" class="btn-outline">← Retour collection</a>
     </div>
   </div>
@@ -264,6 +264,21 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
 const nf = document.querySelector('.newsletter-form');
 if (nf) nf.addEventListener('submit', e => { e.preventDefault(); const i = nf.querySelector('input'); if (i.value) { const b = nf.querySelector('button'); b.textContent = '✓ Inscrit !'; b.style.background = 'var(--gold)'; i.value = ''; setTimeout(() => { b.textContent = "S'inscrire"; b.style.background = 'var(--dark)'; }, 3000); } });
+</script>
+<script src="../cart.js"></script>
+<script>
+function handleATC(e) {
+  e.preventDefault();
+  var qtyEl = document.getElementById('qty');
+  var qty = qtyEl ? (parseInt(qtyEl.value) || 1) : 1;
+  addToCart('chouchou-soie', qty);
+  var btn = e.target;
+  var orig = btn.textContent;
+  btn.textContent = 'Ajouté !';
+  btn.style.background = 'var(--gold)';
+  btn.disabled = true;
+  setTimeout(function(){ btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 2000);
+}
 </script>
 </body>
 </html>
