@@ -52,6 +52,7 @@ body {
   border-radius: 50%;
   position: fixed;
   z-index: 99999;
+  pointer-events: none;
   transform: translate(-50%, -50%);
   transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s;
 }
@@ -61,6 +62,7 @@ body {
   border-radius: 50%;
   position: fixed;
   z-index: 99999;
+  pointer-events: none;
   transform: translate(-50%, -50%);
   transition: transform 0.15s var(--ease), width 0.4s var(--ease-out), height 0.4s var(--ease-out), opacity 0.3s;
   opacity: 0.6;
@@ -958,7 +960,7 @@ nav {
 /* ── NEWSLETTER ── */
 .newsletter-section {
   padding: 120px 80px;
-  background: linear-gradient(135deg, var(--sand) 0%, var(--warm) 100%);
+  background: linear-gradient(135deg, var(--warm) 0%, var(--cream) 100%);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1197,7 +1199,9 @@ body::before {
   <ul class="nav-links">
     <li><a href="#siwak">Brosse Siwak</a></li>
     <li><a href="#gants">Gants Exfoliants</a></li>
+    <li><a href="#gants">Nos Packs</a></li>
     <li><a href="#histoire">Notre Histoire</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
     <a href="#" class="nav-cart">
@@ -1251,20 +1255,35 @@ body::before {
   </div>
 
   <div class="hero-right">
-    <div class="hero-photo-scene">
-      <div class="hero-deco-ring"></div>
-      <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_2.png"
-           class="hero-product-img"
-           alt="Pack Gants Exfoliants Soie de Mûrier ALYA &amp; CO.">
-      <div class="hero-glass-badge hero-badge-price">
-        <span class="gb-label">Pack 1 An Full Body</span>
-        <span class="gb-val">29,99€</span>
-      </div>
-      <div class="hero-glass-badge hero-badge-stars">
-        ★★★★★ <span>208 avis</span>
+    <div class="hero-visual">
+      <div class="hero-bg-text">ALYA</div>
+      <div class="floating-orbs">
+        <div class="orb orb-1">
+          <div class="orb-label">
+            Brosse Siwak
+            <span class="orb-price">12,99€</span>
+          </div>
+        </div>
+        <div class="orb orb-2">
+          <div class="orb-label">
+            Gant Soie
+            <span class="orb-price">21,59€</span>
+          </div>
+        </div>
+        <div class="orb orb-3">
+          <div class="orb-label" style="font-size:11px;">
+            Pack 1 an
+            <span class="orb-price" style="font-size:15px;">29,99€</span>
+          </div>
+        </div>
+        <div class="orb orb-4">
+          <div class="orb-label" style="font-size:10px;">
+            ✦ Bio
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-scroll" style="z-index:2;position:relative;">
+    <div class="hero-scroll">
       <span class="scroll-text">Scroll</span>
       <div class="scroll-line"></div>
     </div>
