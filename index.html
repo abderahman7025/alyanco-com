@@ -77,9 +77,9 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   z-index: 100;
 }
 .announcement-track {
-  position: relative;
-  width: 100%;
-  height: 34px;
+  display: flex;
+  width: max-content;
+  animation: ticker 20s linear infinite;
 }
 .announcement-item {
   font-family: var(--font-sans);
@@ -87,25 +87,17 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 0 24px;
+  padding: 0 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 12px;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 0;
   white-space: nowrap;
-  transform: translateY(-50%) translateX(110%);
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-shrink: 0;
 }
 .announcement-item::before { content: '✦'; color: var(--gold); font-size: 8px; }
-.announcement-item.ann-active {
-  transform: translateY(-50%) translateX(0);
-}
-.announcement-item.ann-exit {
-  transform: translateY(-50%) translateX(-110%);
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ── NAVIGATION ── */
@@ -658,7 +650,7 @@ nav {
 .story-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 8s ease;
 }
 .story-section:hover .story-image img { transform: scale(1.04); }
@@ -823,27 +815,39 @@ nav {
   margin-top: 64px;
   position: relative;
 }
+.testimonials-track-wrap::before,
+.testimonials-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+}
+.testimonials-track-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+.testimonials-track-wrap::after  { right: 0; background: linear-gradient(to left,  var(--cream), transparent); }
 .testimonials-track {
-  position: relative;
-  min-height: 290px;
-  overflow: hidden;
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: slideLeft 40s linear infinite;
+}
+.testimonials-track:hover { animation-play-state: paused; }
+@keyframes slideLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .testimonial-card {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: min(600px, 90%);
+  min-width: 340px;
+  max-width: 340px;
   padding: 36px;
   background: var(--warm);
   border: 1px solid rgba(184, 151, 90, 0.1);
-  transform: translateX(calc(-50% + 120vw));
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-.testimonial-card.t-active {
-  transform: translateX(-50%);
-}
-.testimonial-card.t-exit {
-  transform: translateX(calc(-50% - 120vw));
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(28, 22, 18, 0.08);
 }
 .testimonial-stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
 .testimonial-text {
@@ -1090,6 +1094,11 @@ body::before {
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement">
   <div class="announcement-track">
+    <div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div>
+    <div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div>
+    <div class="announcement-item">Certifié OEKO TEX® Standard 100</div>
+    <div class="announcement-item">Fabriqué sous normes européennes</div>
+    <div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div>
     <div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div>
     <div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div>
     <div class="announcement-item">Certifié OEKO TEX® Standard 100</div>
@@ -1344,7 +1353,7 @@ body::before {
 <section class="story-section reverse">
   <div class="story-image">
     <div class="story-image-inner" style="background:linear-gradient(135deg, var(--cream) 0%, var(--sand) 50%, var(--warm) 100%)">
-      <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_2.png" alt="Gants exfoliants soie de mûrier ALYA & CO." style="object-fit:cover;">
+      <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_2.png" alt="Gants exfoliants soie de mûrier ALYA & CO.">
     </div>
     <div class="story-decor">Soie</div>
   </div>
@@ -1403,6 +1412,55 @@ body::before {
   <div class="testimonials-track-wrap">
     <div class="testimonials-track">
       <!-- BATCH 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"J'étais sceptique et je dois dire que j'adore ces gants, ils sont exceptionnels !"</div>
+        <div class="testimonial-author">Anna</div>
+        <div class="testimonial-product">Gant exfoliant corps</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Brosse incroyable, je ne regrette pas d'avoir essayé le Siwak. Mes dents n'ont jamais été aussi blanches."</div>
+        <div class="testimonial-author">Karim</div>
+        <div class="testimonial-product">Brosse Siwak rechargeable</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Ma peau est revitalisée grâce à ce gant, tellement de peaux mortes qui partent, c'est bluffant !"</div>
+        <div class="testimonial-author">Léa</div>
+        <div class="testimonial-product">Pack 1an Full Body</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Un gant qui fait des merveilles. Je l'utilise tout le temps et ma peau n'a jamais été aussi douce."</div>
+        <div class="testimonial-author">Victoria</div>
+        <div class="testimonial-product">Gant exfoliant corps</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Ce gant a vraiment changé ma routine beauté. Fini tous les produits chimiques agressifs !"</div>
+        <div class="testimonial-author">Emma</div>
+        <div class="testimonial-product">Gant exfoliant visage</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Colis arrivé en 48h, produit de qualité premium. Je recommande sans hésitation."</div>
+        <div class="testimonial-author">Thomas</div>
+        <div class="testimonial-product">Brosse Siwak + Pack dentifrice</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Amandine : je ne changerai pour rien au monde ce gant, il est doux, efficace, et sain pour ma peau."</div>
+        <div class="testimonial-author">Amandine</div>
+        <div class="testimonial-product">Gant exfoliant corps</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Désormais un incontournable de ma routine hebdomadaire. Merci ALYA & CO. !"</div>
+        <div class="testimonial-author">Thomas</div>
+        <div class="testimonial-product">Pack 1an Full Body</div>
+      </div>
+      <!-- Doublons pour boucle infinie -->
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
         <div class="testimonial-text">"J'étais sceptique et je dois dire que j'adore ces gants, ils sont exceptionnels !"</div>
@@ -1822,38 +1880,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
     renderer.render(scene, camera);
   })();
-})();
-
-// ── ANNOUNCEMENT SLIDER ──
-(function() {
-  const items = document.querySelectorAll('.announcement-item');
-  if (!items.length) return;
-  let current = 0;
-  items[0].classList.add('ann-active');
-  setInterval(() => {
-    const prev = current;
-    current = (current + 1) % items.length;
-    items[prev].classList.add('ann-exit');
-    items[prev].classList.remove('ann-active');
-    items[current].classList.add('ann-active');
-    setTimeout(() => { items[prev].classList.remove('ann-exit'); }, 650);
-  }, 3500);
-})();
-
-// ── TESTIMONIALS SLIDER ──
-(function() {
-  const cards = document.querySelectorAll('.testimonial-card');
-  if (!cards.length) return;
-  let current = 0;
-  cards[0].classList.add('t-active');
-  setInterval(() => {
-    const prev = current;
-    current = (current + 1) % cards.length;
-    cards[prev].classList.add('t-exit');
-    cards[prev].classList.remove('t-active');
-    cards[current].classList.add('t-active');
-    setTimeout(() => { cards[prev].classList.remove('t-exit'); }, 750);
-  }, 5000);
 })();
 
 // ── VALUES ARROWS ──
