@@ -70,6 +70,7 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .tl-eyebrow::before, .tl-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold-light); }
 .tl-title { font-family: var(--font-serif); font-size: clamp(32px, 3.5vw, 52px); font-weight: 300; color: var(--cream); }
 .tl-title em { font-style: italic; color: var(--gold-light); }
+@media (min-width: 900px) { .tl-title-nowrap { white-space: nowrap; } }
 .timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
 .tl-item { display: grid; grid-template-columns: 100px 1fr; gap: 40px; padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .tl-item:last-child { border-bottom: none; }
@@ -194,7 +195,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 <section class="timeline-section">
   <div class="timeline-header reveal">
     <div class="tl-eyebrow">Notre parcours</div>
-    <h2 class="tl-title">Les étapes qui nous ont<br><em>construites</em></h2>
+    <h2 class="tl-title tl-title-nowrap">Les étapes qui nous ont <em>construites</em></h2>
   </div>
   <div class="timeline reveal">
     <div class="tl-item">
