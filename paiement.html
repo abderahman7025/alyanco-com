@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
 <style>
 :root{--cream:#FAF6F1;--warm:#F2E8DD;--sand:#EAD1BF;--gold:#B8975A;--gold-light:#D4B896;--dark:#1C1612;--charcoal:#2D2520;--mid:#6B5B4E;--light:#A8958A;--white:#FFFFFF;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'DM Sans',sans-serif;--ease:cubic-bezier(0.25,0.46,0.45,0.94);--ease-out:cubic-bezier(0.16,1,0.3,1);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -130,16 +131,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <!-- CARD PAYMENT -->
     <div id="cardSection">
       <div class="card-icons"><span class="card-icon">VISA</span><span class="card-icon">MC</span><span class="card-icon">AMEX</span><span class="card-icon">CB</span></div>
-      <div class="secure-badge">🔒 Paiement chiffré SSL — Vos données bancaires sont protégées et ne sont jamais stockées.</div>
-      <form class="card-form" onsubmit="handlePayment(event)">
-        <div class="form-group"><label class="form-label">Nom sur la carte *</label><input class="form-input" type="text" placeholder="MARIE DUPONT" required></div>
-        <div class="form-group"><label class="form-label">Numéro de carte *</label><input class="form-input" type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" required></div>
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Date d'expiration *</label><input class="form-input" type="text" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)" required></div>
-          <div class="form-group"><label class="form-label">CVV *</label><input class="form-input" type="text" placeholder="123" maxlength="4" required></div>
+      <div class="secure-badge">🔒 Paiement chiffré SSL — Vos données bancaires sont protégées par Stripe et ne sont jamais stockées.</div>
+      <div class="card-form">
+        <div class="form-group">
+          <label class="form-label">Nom sur la carte *</label>
+          <input class="form-input" type="text" id="cardName" placeholder="MARIE DUPONT" autocomplete="cc-name">
         </div>
-        <button type="submit" class="btn-primary" id="payBtn">Payer <span id="totalDisplay"></span></button>
-      </form>
+        <div class="form-group">
+          <label class="form-label">Informations de carte *</label>
+          <div id="stripe-card-element" class="form-input" style="padding:13px 16px;cursor:text;min-height:48px;"></div>
+          <div id="card-errors" style="color:#c0392b;font-size:12px;margin-top:6px;min-height:18px;"></div>
+        </div>
+        <button type="button" class="btn-primary" id="payBtn" onclick="handlePayment(event)">Payer <span id="totalDisplay"></span></button>
+      </div>
     </div>
 
     <!-- PAYPAL -->
@@ -170,9 +174,7 @@ document.querySelectorAll('a,button,input,select').forEach(el=>{el.addEventListe
 const menuToggle=document.getElementById('menuToggle'),mobileNav=document.getElementById('mobileNav');
 menuToggle.addEventListener('click',()=>mobileNav.classList.toggle('open'));
 
-function fmt(n){ return n.toFixed(2).replace('.',',')+' €'; }
-function formatCard(el){el.value=el.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().substring(0,19);}
-function formatExpiry(el){el.value=el.value.replace(/\D/g,'').replace(/^(\d{2})(\d)/,'$1/$2').substring(0,5);}
+function fmt(n){ return parseFloat(n).toFixed(2).replace('.',',')+' €'; }
 
 var items = getCartItems();
 var subtotal = getCartSubtotal();
@@ -205,40 +207,124 @@ function switchPayment(type, btn){
   document.getElementById('paypalSection').classList.toggle('show', type==='paypal');
 }
 
-function handlePayment(e){
+// ── STRIPE INTEGRATION ──────────────────────────────────────────
+var stripe, cardElement, clientSecret;
+
+async function initStripe() {
+  try {
+    var res = await fetch('/api/config');
+    var data = await res.json();
+    if (!data.publishableKey) throw new Error('No publishable key');
+    stripe = Stripe(data.publishableKey);
+
+    var elements = stripe.elements();
+    cardElement = elements.create('card', {
+      style: {
+        base: {
+          fontFamily: '"DM Sans", Helvetica, sans-serif',
+          fontSize: '14px',
+          fontWeight: '300',
+          color: '#1C1612',
+          '::placeholder': { color: '#A8958A' }
+        },
+        invalid: { color: '#c0392b' }
+      },
+      hidePostalCode: true
+    });
+    cardElement.mount('#stripe-card-element');
+    cardElement.on('change', function(e){
+      document.getElementById('card-errors').textContent = e.error ? e.error.message : '';
+    });
+  } catch(err) {
+    console.error('Stripe init failed:', err);
+    document.getElementById('card-errors').textContent = 'Erreur d\'initialisation du paiement. Rechargez la page.';
+  }
+}
+
+async function createPaymentIntent() {
+  try {
+    var res = await fetch('/api/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: total, orderNumber: 'pending' })
+    });
+    var data = await res.json();
+    if (data.clientSecret) clientSecret = data.clientSecret;
+  } catch(err) {
+    console.error('PaymentIntent creation failed:', err);
+  }
+}
+
+// Init on load
+initStripe();
+createPaymentIntent();
+
+async function handlePayment(e) {
   e.preventDefault();
   var btn = document.getElementById('payBtn');
-  var paypalBtn = document.querySelector('.paypal-btn');
-  if(btn){ btn.textContent='Traitement en cours…'; btn.disabled=true; }
-  if(paypalBtn){ paypalBtn.textContent='Traitement en cours…'; paypalBtn.disabled=true; }
 
-  // Génère un numéro de commande
-  var orderNum = 'ALC-' + Date.now().toString().slice(-6);
-  localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
+  if (!stripe || !cardElement) {
+    document.getElementById('card-errors').textContent = 'Paiement non initialisé. Rechargez la page.';
+    return;
+  }
+  if (!clientSecret) {
+    document.getElementById('card-errors').textContent = 'Connexion au serveur de paiement impossible. Réessayez.';
+    return;
+  }
 
-  // Envoie l'email de confirmation via Brevo
-  var emailPayload = {
-    email: delivery.email,
-    prenom: delivery.prenom,
-    nom: delivery.nom,
-    orderNumber: orderNum,
-    items: items,
-    total: total,
-    shippingCost: delivery.shippingCost !== undefined ? delivery.shippingCost : shippingCost,
-    shipping: delivery.shipping,
-    adresse: delivery.adresse,
-    cp: delivery.cp,
-    ville: delivery.ville
-  };
+  btn.textContent = 'Traitement en cours…';
+  btn.disabled = true;
+  document.getElementById('card-errors').textContent = '';
 
-  fetch('/api/send-order', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(emailPayload)
-  }).catch(function(err){ console.warn('Email send failed (non-blocking):', err); });
+  var cardName = (document.getElementById('cardName').value || delivery.prenom + ' ' + delivery.nom).trim();
 
-  // Redirige vers confirmation après 1.2s (sans attendre l'email)
-  setTimeout(function(){ clearCart(); window.location.href = 'confirmation'; }, 1200);
+  try {
+    var result = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: cardElement,
+        billing_details: {
+          name: cardName,
+          email: delivery.email || '',
+          address: {
+            line1: delivery.adresse || '',
+            postal_code: delivery.cp || '',
+            city: delivery.ville || '',
+            country: 'FR'
+          }
+        }
+      }
+    });
+
+    if (result.error) {
+      // Carte refusée, fonds insuffisants, etc.
+      document.getElementById('card-errors').textContent = result.error.message;
+      btn.textContent = 'Payer ' + fmt(total);
+      btn.disabled = false;
+    } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+      // ✅ Paiement accepté
+      var orderNum = 'ALC-' + Date.now().toString().slice(-6);
+      localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
+
+      // Email de confirmation (non bloquant)
+      fetch('/api/send-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: delivery.email, prenom: delivery.prenom, nom: delivery.nom,
+          orderNumber: orderNum, items: items, total: total,
+          shippingCost: shippingCost, shipping: delivery.shipping,
+          adresse: delivery.adresse, cp: delivery.cp, ville: delivery.ville
+        })
+      }).catch(function(){});
+
+      clearCart();
+      window.location.href = 'confirmation';
+    }
+  } catch(err) {
+    document.getElementById('card-errors').textContent = 'Une erreur est survenue. Veuillez réessayer.';
+    btn.textContent = 'Payer ' + fmt(total);
+    btn.disabled = false;
+  }
 }
 </script>
 </body>
