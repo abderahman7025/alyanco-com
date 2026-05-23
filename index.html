@@ -76,9 +76,9 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   z-index: 100;
 }
 .announcement-track {
-  display: flex;
-  animation: ticker 5s linear infinite;
-  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  height: 34px;
 }
 .announcement-item {
   font-family: var(--font-sans);
@@ -86,15 +86,25 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 0 60px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  white-space: nowrap;
+  transform: translateY(-50%) translateX(110%);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .announcement-item::before { content: '✦'; color: var(--gold); font-size: 8px; }
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.announcement-item.ann-active {
+  transform: translateY(-50%) translateX(0);
+}
+.announcement-item.ann-exit {
+  transform: translateY(-50%) translateX(-110%);
 }
 
 /* ── NAVIGATION ── */
@@ -771,6 +781,37 @@ nav {
 .values-section .section-eyebrow::before,
 .values-section .section-eyebrow::after { background: var(--gold-light); }
 
+/* ── VALUES ARROWS ── */
+.values-section { position: relative; }
+.values-arrow-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  color: var(--cream);
+  font-size: 22px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, background 0.3s;
+  padding: 0;
+}
+.values-arrow-btn.show { opacity: 1; pointer-events: auto; }
+.values-arrow-btn:hover { background: rgba(255,255,255,0.22); }
+.values-arr-left { left: 10px; }
+.values-arr-right { right: 10px; }
+@media (max-width: 900px) {
+  .values-arrow-btn { display: flex; }
+}
+
 /* ── TESTIMONIALS ── */
 .testimonials-section {
   padding: 100px 80px;
@@ -781,37 +822,27 @@ nav {
   margin-top: 64px;
   position: relative;
 }
-.testimonials-track-wrap::before,
-.testimonials-track-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 100px;
-  z-index: 2;
-}
-.testimonials-track-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
-.testimonials-track-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
 .testimonials-track {
-  display: flex;
-  gap: 24px;
-  animation: slideLeft 8s linear infinite;
-}
-.testimonials-track:hover { animation-play-state: paused; }
-@keyframes slideLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  position: relative;
+  min-height: 290px;
+  overflow: hidden;
 }
 .testimonial-card {
-  min-width: 320px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(600px, 90%);
   padding: 36px;
   background: var(--warm);
   border: 1px solid rgba(184, 151, 90, 0.1);
-  flex-shrink: 0;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transform: translateX(calc(-50% + 120vw));
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(28, 22, 18, 0.08);
+.testimonial-card.t-active {
+  transform: translateX(-50%);
+}
+.testimonial-card.t-exit {
+  transform: translateX(calc(-50% - 120vw));
 }
 .testimonial-stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
 .testimonial-text {
@@ -1063,11 +1094,6 @@ body::before {
     <div class="announcement-item">Certifié OEKO TEX® Standard 100</div>
     <div class="announcement-item">Fabriqué sous normes européennes</div>
     <div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div>
-    <div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div>
-    <div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div>
-    <div class="announcement-item">Certifié OEKO TEX® Standard 100</div>
-    <div class="announcement-item">Fabriqué sous normes européennes</div>
-    <div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div>
   </div>
 </div>
 
@@ -1211,7 +1237,7 @@ body::before {
 
     <div class="product-card reveal reveal-delay-3">
       <div class="product-image">
-        <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_12.png" alt="Dentifrice Siwak en poudre bio sans fluor">
+        <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en poudre bio sans fluor">
       </div>
       <div class="product-info">
         <div class="product-name">Dentifrice Siwak en Poudre</div>
@@ -1375,6 +1401,8 @@ body::before {
     <div class="section-eyebrow">Nos engagements</div>
     <h2 class="section-title" style="color:var(--cream)">Pourquoi choisir<br><em>ALYA & CO.</em></h2>
   </div>
+  <button class="values-arrow-btn values-arr-left" id="valArrLeft" aria-label="Précédent">&#8249;</button>
+  <button class="values-arrow-btn values-arr-right" id="valArrRight" aria-label="Suivant">&#8250;</button>
   <div class="values-grid">
     <div class="value-card reveal reveal-delay-1">
       <span class="value-icon">🌿</span>
@@ -1409,55 +1437,6 @@ body::before {
   <div class="testimonials-track-wrap">
     <div class="testimonials-track">
       <!-- BATCH 1 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"J'étais sceptique et je dois dire que j'adore ces gants, ils sont exceptionnels !"</div>
-        <div class="testimonial-author">Anna</div>
-        <div class="testimonial-product">Gant exfoliant corps</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Brosse incroyable, je ne regrette pas d'avoir essayé le Siwak. Mes dents n'ont jamais été aussi blanches."</div>
-        <div class="testimonial-author">Karim</div>
-        <div class="testimonial-product">Brosse Siwak rechargeable</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Ma peau est revitalisée grâce à ce gant, tellement de peaux mortes qui partent, c'est bluffant !"</div>
-        <div class="testimonial-author">Léa</div>
-        <div class="testimonial-product">Pack 1an Full Body</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Un gant qui fait des merveilles. Je l'utilise tout le temps et ma peau n'a jamais été aussi douce."</div>
-        <div class="testimonial-author">Victoria</div>
-        <div class="testimonial-product">Gant exfoliant corps</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Ce gant a vraiment changé ma routine beauté. Fini tous les produits chimiques agressifs !"</div>
-        <div class="testimonial-author">Emma</div>
-        <div class="testimonial-product">Gant exfoliant visage</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Colis arrivé en 48h, produit de qualité premium. Je recommande sans hésitation."</div>
-        <div class="testimonial-author">Thomas</div>
-        <div class="testimonial-product">Brosse Siwak + Pack dentifrice</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Amandine : je ne changerai pour rien au monde ce gant, il est doux, efficace, et sain pour ma peau."</div>
-        <div class="testimonial-author">Amandine</div>
-        <div class="testimonial-product">Gant exfoliant corps</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-text">"Désormais un incontournable de ma routine hebdomadaire. Merci ALYA & CO. !"</div>
-        <div class="testimonial-author">Thomas</div>
-        <div class="testimonial-product">Pack 1an Full Body</div>
-      </div>
-      <!-- BATCH 2 (duplicate for infinite loop) -->
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
         <div class="testimonial-text">"J'étais sceptique et je dois dire que j'adore ces gants, ils sont exceptionnels !"</div>
@@ -1699,6 +1678,58 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// ── ANNOUNCEMENT SLIDER ──
+(function() {
+  const items = document.querySelectorAll('.announcement-item');
+  if (!items.length) return;
+  let current = 0;
+  items[0].classList.add('ann-active');
+  setInterval(() => {
+    const prev = current;
+    current = (current + 1) % items.length;
+    items[prev].classList.add('ann-exit');
+    items[prev].classList.remove('ann-active');
+    items[current].classList.add('ann-active');
+    setTimeout(() => { items[prev].classList.remove('ann-exit'); }, 650);
+  }, 3500);
+})();
+
+// ── TESTIMONIALS SLIDER ──
+(function() {
+  const cards = document.querySelectorAll('.testimonial-card');
+  if (!cards.length) return;
+  let current = 0;
+  cards[0].classList.add('t-active');
+  setInterval(() => {
+    const prev = current;
+    current = (current + 1) % cards.length;
+    cards[prev].classList.add('t-exit');
+    cards[prev].classList.remove('t-active');
+    cards[current].classList.add('t-active');
+    setTimeout(() => { cards[prev].classList.remove('t-exit'); }, 750);
+  }, 5000);
+})();
+
+// ── VALUES ARROWS ──
+(function() {
+  const grid = document.querySelector('.values-grid');
+  const btnL = document.getElementById('valArrLeft');
+  const btnR = document.getElementById('valArrRight');
+  if (!grid || !btnL || !btnR) return;
+  function update() {
+    const atStart = grid.scrollLeft <= 5;
+    const atEnd = grid.scrollLeft >= grid.scrollWidth - grid.clientWidth - 5;
+    btnL.classList.toggle('show', !atStart);
+    btnR.classList.toggle('show', !atEnd);
+  }
+  grid.addEventListener('scroll', update);
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+  btnL.addEventListener('click', () => grid.scrollBy({ left: -Math.round(window.innerWidth * 0.75), behavior: 'smooth' }));
+  btnR.addEventListener('click', () => grid.scrollBy({ left: Math.round(window.innerWidth * 0.75), behavior: 'smooth' }));
+})();
 
 // ── NEWSLETTER ──
 const newsletterForm = document.querySelector('.newsletter-form');
