@@ -208,14 +208,14 @@
       body: JSON.stringify({
         sender: {
           name: 'ALYA & CO.',
-          email: 'abder.jah@hotmail.com'
+          email: 'contact@alyanco.com'
         },
         to: [{
           email: email,
           name: prenom + ' ' + nom
         }],
         bcc: [{
-          email: 'abder.jah@hotmail.com',
+          email: 'contact@alyanco.com',
           name: 'ALYA & CO. — Admin'
         }],
         subject: `Confirmation de commande ${orderNumber} — ALYA & CO.`,
