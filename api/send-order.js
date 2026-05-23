@@ -214,6 +214,10 @@ export default async function handler(req, res) {
           email: email,
           name: prenom + ' ' + nom
         }],
+        bcc: [{
+          email: 'abder.jah@hotmail.com',
+          name: 'ALYA & CO. — Admin'
+        }],
         subject: `Confirmation de commande ${orderNumber} — ALYA & CO.`,
         htmlContent: htmlContent
       })
