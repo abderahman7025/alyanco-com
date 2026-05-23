@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+﻿export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -162,7 +162,7 @@ export default async function handler(req, res) {
         <!-- CTA -->
         <tr>
           <td style="padding:8px 48px 40px;text-align:center;">
-            <a href="https://alyanco.fr" style="display:inline-block;padding:16px 40px;background:#1C1612;color:#FAF6F1;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-family:Helvetica,Arial,sans-serif;">
+            <a href="https://alyanco.com" style="display:inline-block;padding:16px 40px;background:#1C1612;color:#FAF6F1;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-family:Helvetica,Arial,sans-serif;">
               Retour à la boutique
             </a>
           </td>
@@ -178,12 +178,12 @@ export default async function handler(req, res) {
               ALYA &amp; CO.
             </div>
             <div style="font-size:11px;color:#6B5B4E;margin-bottom:16px;line-height:1.8;">
-              Des questions ? Contactez-nous à <a href="mailto:contact@alyanco.fr" style="color:#B8975A;text-decoration:none;">contact@alyanco.fr</a>
+              Des questions ? Contactez-nous à <a href="mailto:contact@alyanco.com" style="color:#B8975A;text-decoration:none;">contact@alyanco.com</a>
             </div>
             <div style="font-size:10px;color:#4A3F38;letter-spacing:0.1em;">
               © 2025 ALYA &amp; CO. — Tous droits réservés
-              &nbsp;·&nbsp; <a href="https://alyanco.fr/cgv" style="color:#4A3F38;text-decoration:none;">CGV</a>
-              &nbsp;·&nbsp; <a href="https://alyanco.fr/mentions-legales" style="color:#4A3F38;text-decoration:none;">Mentions légales</a>
+              &nbsp;·&nbsp; <a href="https://alyanco.com/cgv" style="color:#4A3F38;text-decoration:none;">CGV</a>
+              &nbsp;·&nbsp; <a href="https://alyanco.com/mentions-legales" style="color:#4A3F38;text-decoration:none;">Mentions légales</a>
             </div>
           </td>
         </tr>
