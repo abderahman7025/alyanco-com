@@ -463,7 +463,7 @@ window.addEventListener('scroll', () => { const nav = document.querySelector('na
 const newsletterForm = document.querySelector('.newsletter-form');
 if (newsletterForm) { newsletterForm.addEventListener('submit', e => { e.preventDefault(); const input = newsletterForm.querySelector('input'); if (input.value) { const btn = newsletterForm.querySelector('button'); btn.textContent = '✓ Inscrit !'; btn.style.background = 'var(--gold)'; input.value = ''; setTimeout(() => { btn.textContent = "S'inscrire"; btn.style.background = 'var(--dark)'; }, 3000); } }); }
 </script>
-<script src="../cart.js?v=4"></script>
+<script src="../cart.js?v=5"></script>
 <script>
 function handleATC(e) {
   e.preventDefault();
