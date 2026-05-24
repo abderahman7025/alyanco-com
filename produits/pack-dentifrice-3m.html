@@ -62,6 +62,9 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .product-hero-info { display: flex; flex-direction: column; }
 .product-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
 .product-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.product-stars { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; }
+.stars-count { font-size: 12px; color: var(--light); }
 .product-title { font-family: var(--font-serif); font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 24px; }
 .product-title em { font-style: italic; color: var(--gold); }
 .product-price-wrap { display: flex; align-items: baseline; gap: 12px; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(184,151,90,0.15); }
@@ -210,7 +213,11 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
   <div class="product-hero-info reveal reveal-delay-1">
     <div class="product-eyebrow">Nos Packs — Siwak</div>
-    <h1 class="product-title">Pack Dentifrices<br><em>Siwak en Poudre (3 mois)</em></h1>
+        <div class="product-stars">
+      <span class="stars">★★★★★</span>
+      <span class="stars-count">4,8/5 — 22 avis</span>
+    </div>
+<h1 class="product-title">Pack Dentifrices<br><em>Siwak en Poudre (3 mois)</em></h1>
     <div class="product-price-wrap">
       <span class="price-main">15,99€</span>
       <span class="price-crossed">23,99€</span>
