@@ -39,6 +39,8 @@ export default async function handler(req, res) {
   let labelUrl        = null;
   let sendcloudId     = null;
   let sendcloudError  = null;
+  let trackingNumber  = null;
+  let trackingUrl     = null;
 
   if (scPublic && scSecret) {
     try {
@@ -74,7 +76,9 @@ export default async function handler(req, res) {
       const scData = await scRes.json();
 
       if (scRes.ok && scData.parcel) {
-        sendcloudId = scData.parcel.id;
+        sendcloudId    = scData.parcel.id;
+        trackingNumber = scData.parcel.tracking_number || null;
+        trackingUrl    = scData.parcel.tracking_url    || null;
         const label = scData.parcel.label;
         if (label) {
           labelUrl = (label.normal_printer  && label.normal_printer[0])
@@ -206,6 +210,28 @@ export default async function handler(req, res) {
           </table>
         </td>
       </tr>
+
+      <!-- SUIVI -->
+      ${trackingNumber ? `
+      <tr><td style="padding:0 48px;"><div style="height:1px;background:#F0E8DF;"></div></td></tr>
+      <tr>
+        <td style="padding:32px 48px;text-align:center;background:#FAF6F1;">
+          <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">
+            Suivi de votre colis
+          </div>
+          <div style="font-family:Georgia,serif;font-size:22px;letter-spacing:0.08em;color:#1C1612;margin-bottom:8px;">
+            ${trackingNumber}
+          </div>
+          <p style="font-size:12px;color:#A8958A;margin:0 0 20px;line-height:1.6;">
+            Le suivi sera actif dès la prise en charge par le transporteur (sous 24h).
+          </p>
+          ${trackingUrl ? `<a href="${trackingUrl}" style="display:inline-block;padding:13px 32px;background:transparent;
+               border:1px solid #B8975A;color:#B8975A;font-size:11px;letter-spacing:0.15em;
+               text-transform:uppercase;text-decoration:none;font-family:Helvetica,Arial,sans-serif;">
+            Suivre mon colis →
+          </a>` : ''}
+        </td>
+      </tr>` : ''}
 
       <!-- CTA -->
       <tr>
