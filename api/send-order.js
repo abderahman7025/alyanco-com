@@ -410,6 +410,15 @@ export default async function handler(req, res) {
       });
     } catch (e) { console.error('Brevo contact add error:', e); }
 
+    // Retrait de la liste "Abandons Paniers" (#2) — commande passée, plus abandonné
+    try {
+      await fetch('https://api.brevo.com/v3/contacts/lists/2/contacts/remove', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'api-key': brevoKey },
+        body: JSON.stringify({ emails: [email] })
+      });
+    } catch (e) { console.error('Brevo remove from list #2 error:', e); }
+
     return res.status(200).json({ success: true, orderNumber, labelUrl, sendcloudId });
 
   } catch (err) {

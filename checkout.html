@@ -348,6 +348,23 @@ function openRelayPicker() {
   });
 }
 
+// ── ABANDON PANIER — capture email dès la saisie ────────────────
+document.querySelector('input[name="email"]').addEventListener('blur', function() {
+  var email = this.value.trim();
+  if (!email || !email.includes('@')) return;
+  var cartItems = getCartItems();
+  if (!cartItems.length) return;
+  fetch('/api/abandon-cart', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      cartItems: cartItems.map(function(i){ return { name: i.name, qty: i.qty, price: i.price }; }),
+      total: getCartSubtotal()
+    })
+  }).catch(function(){});
+});
+
 // ── SOUMISSION ──────────────────────────────────────────────────
 function handleCheckout(e) {
   e.preventDefault();
