@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparaison de polices — ALYA & CO.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Raleway:wght@300;400&family=Jost:wght@300;400&family=Nunito:wght@300;400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F1;
+    --warm: #F2E8DD;
+    --sand: #EAD1BF;
+    --gold: #B8975A;
+    --dark: #1C1612;
+    --mid: #6B5B4E;
+    --light: #A8958A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    min-height: 100vh;
+    padding: 60px 40px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding: 40px 48px;
+    border-bottom: 1px solid rgba(184, 151, 90, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    transition: background 0.2s;
+  }
+
+  .card:hover {
+    background: var(--warm);
+  }
+
+  .card:first-child {
+    border-top: 1px solid rgba(184, 151, 90, 0.15);
+  }
+
+  .label {
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .label-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .label-tag {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light);
+    font-family: 'Jost', sans-serif;
+  }
+
+  .badge-current {
+    display: inline-block;
+    background: var(--dark);
+    color: var(--sand);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    margin-top: 6px;
+  }
+
+  .badge-old {
+    display: inline-block;
+    background: var(--sand);
+    color: var(--mid);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    margin-top: 6px;
+  }
+
+  .divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(184, 151, 90, 0.2);
+    flex-shrink: 0;
+  }
+
+  .sentence {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--dark);
+    flex: 1;
+  }
+
+  .sentence-sub {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  /* Fonts */
+  .f-raleway { font-family: 'Jost', sans-serif; }
+  .f-jost    { font-family: 'Jost', sans-serif; }
+  .f-nunito  { font-family: 'Nunito', sans-serif; }
+  .f-lato    { font-family: 'Lato', sans-serif; }
+  .f-dmsans  { font-family: 'DM Sans', sans-serif; }
+</style>
+</head>
+<body>
+
+<h1>Comparaison de polices</h1>
+<p class="subtitle">Corps de texte — ALYA & CO.</p>
+
+<div class="grid">
+
+  <!-- Raleway -->
+  <div class="card">
+    <div class="label">
+      <span class="label-name">Raleway</span>
+      <span class="label-tag">Mode · Luxe</span>
+      <span class="badge-current">◉ Actuelle</span>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="sentence f-raleway">Des soins naturels qui respectent votre peau et notre planète. Siwak ancestral et soie de mûrier, réunis pour votre bien-être quotidien.</div>
+      <div class="sentence-sub f-raleway">Livraison Mondial Relay offerte dès 45€ · 100% naturel · Bio & certifié</div>
+    </div>
+  </div>
+
+  <!-- Jost -->
+  <div class="card">
+    <div class="label">
+      <span class="label-name">Jost</span>
+      <span class="label-tag">Épuré · Moderne</span>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="sentence f-jost">Des soins naturels qui respectent votre peau et notre planète. Siwak ancestral et soie de mûrier, réunis pour votre bien-être quotidien.</div>
+      <div class="sentence-sub f-jost">Livraison Mondial Relay offerte dès 45€ · 100% naturel · Bio & certifié</div>
+    </div>
+  </div>
+
+  <!-- Nunito -->
+  <div class="card">
+    <div class="label">
+      <span class="label-name">Nunito</span>
+      <span class="label-tag">Doux · Féminin</span>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="sentence f-nunito">Des soins naturels qui respectent votre peau et notre planète. Siwak ancestral et soie de mûrier, réunis pour votre bien-être quotidien.</div>
+      <div class="sentence-sub f-nunito">Livraison Mondial Relay offerte dès 45€ · 100% naturel · Bio & certifié</div>
+    </div>
+  </div>
+
+  <!-- Lato -->
+  <div class="card">
+    <div class="label">
+      <span class="label-name">Lato</span>
+      <span class="label-tag">Classique · Élégant</span>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="sentence f-lato">Des soins naturels qui respectent votre peau et notre planète. Siwak ancestral et soie de mûrier, réunis pour votre bien-être quotidien.</div>
+      <div class="sentence-sub f-lato">Livraison Mondial Relay offerte dès 45€ · 100% naturel · Bio & certifié</div>
+    </div>
+  </div>
+
+  <!-- DM Sans (ancienne) -->
+  <div class="card">
+    <div class="label">
+      <span class="label-name">DM Sans</span>
+      <span class="label-tag">Neutre · Tech</span>
+      <span class="badge-old">◎ Ancienne</span>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="sentence f-dmsans">Des soins naturels qui respectent votre peau et notre planète. Siwak ancestral et soie de mûrier, réunis pour votre bien-être quotidien.</div>
+      <div class="sentence-sub f-dmsans">Livraison Mondial Relay offerte dès 45€ · 100% naturel · Bio & certifié</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
