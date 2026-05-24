@@ -73,11 +73,6 @@ nav{position:sticky;top:0;z-index:90;padding:0 60px;height:72px;display:flex;ali
 .card-icons{display:flex;gap:8px;margin-bottom:8px;}
 .card-icon{height:28px;padding:4px 8px;border:1px solid rgba(184,151,90,0.2);font-size:10px;color:var(--light);display:flex;align-items:center;font-weight:500;}
 .secure-badge{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--light);padding:12px 16px;background:rgba(184,151,90,0.06);border:1px solid rgba(184,151,90,0.15);margin-bottom:24px;}
-/* PAYPAL */
-.paypal-section{display:none;text-align:center;padding:40px 0;}
-.paypal-section.show{display:block;}
-.paypal-btn{background:#0070BA;color:white;border:none;padding:16px 48px;font-size:16px;cursor:none;font-weight:600;border-radius:4px;letter-spacing:.02em;transition:background .3s;width:100%;}
-.paypal-btn:hover{background:#005EA6;}
 /* APPLE PAY / GOOGLE PAY */
 .wallet-section{display:none;}
 .wallet-section.show{display:block;}
@@ -143,7 +138,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="payment-methods">
       <button class="payment-tab" id="walletTab" onclick="switchPayment('wallet', this)" style="display:none">⚡ Apple / Google Pay</button>
       <button class="payment-tab active" id="cardTab" onclick="switchPayment('card', this)">💳 Carte bancaire</button>
-      <button class="payment-tab" onclick="switchPayment('paypal', this)">PayPal</button>
     </div>
 
     <!-- CARD PAYMENT -->
@@ -170,13 +164,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <p class="wallet-info">🔒 Paiement sécurisé via Stripe. Vos données Apple/Google ne sont jamais partagées.</p>
     </div>
 
-    <!-- PAYPAL -->
-    <div class="paypal-section" id="paypalSection">
-      <p style="font-size:14px;color:var(--mid);margin-bottom:28px;line-height:1.7;">Vous serez redirigé vers PayPal pour finaliser votre paiement en toute sécurité.</p>
-      <button class="paypal-btn" onclick="handlePayment(event)">
-        <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal" style="height:20px;vertical-align:middle;margin-right:8px;">Payer avec PayPal
-      </button>
-    </div>
   </div>
 
   <div class="checkout-summary-col">
@@ -252,7 +239,6 @@ function switchPayment(type, btn){
   document.querySelectorAll('.payment-tab').forEach(function(t){t.classList.remove('active');});
   btn.classList.add('active');
   document.getElementById('cardSection').style.display = type==='card' ? 'block' : 'none';
-  document.getElementById('paypalSection').classList.toggle('show', type==='paypal');
   document.getElementById('walletSection').classList.toggle('show', type==='wallet');
 }
 
