@@ -554,7 +554,7 @@ nav {
   gap: 8px;
 }
 .hero-badge-stars span { color: var(--mid); font-size: 11px; }
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .hero-deco-ring { width: 260px; height: 260px; }
   .hero-product-img { width: 82%; }
   .hero-badge-price { bottom:10%; right:4%; }
@@ -912,7 +912,7 @@ nav {
 .values-arrow-btn:hover { background: rgba(255,255,255,0.22); }
 .values-arr-left { left: 10px; }
 .values-arr-right { right: 10px; }
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .values-arrow-btn { display: flex; }
 }
 
@@ -1151,7 +1151,7 @@ body::before {
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .menu-toggle { display: flex; }
@@ -1188,6 +1188,13 @@ body::before {
   .newsletter-section { padding: 80px 24px; }
   footer { padding: 60px 24px; }
   .footer-top { grid-template-columns: 1fr; }
+}
+
+/* ── PAYSAGE TÉLÉPHONE ── */
+@media (orientation: landscape) and (max-height: 600px) {
+  .hero { min-height: auto; }
+  .hero-left { padding: 40px 40px 40px 60px; }
+  .hero-right { height: 100vmin; }
 }
 </style>
 </head>
