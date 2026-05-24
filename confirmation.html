@@ -140,7 +140,7 @@ function updateCursorColor(x, y) {
   while (el && el !== document.documentElement) {
     var bg = getComputedStyle(el).backgroundColor;
     var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);
-    if (m && (+m[4] === undefined || +m[4] > 0.1)) {
+    if (m && (m[4] === undefined || +m[4] > 0.1)) {
       var lum = (0.299 * +m[1] + 0.587 * +m[2] + 0.114 * +m[3]) / 255;
       dot.style.background = lum < 0.3 ? 'var(--cream)' : 'var(--dark)';
       return;
