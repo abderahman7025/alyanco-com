@@ -1,0 +1,9 @@
+PLACEHOLDER - Replace this file with the one downloaded from your Stripe Dashboard.
+
+Steps:
+1. Go to https://dashboard.stripe.com/settings/payment_methods
+2. Find "Apple Pay" and click "Add domain"
+3. Enter: alyanco.com
+4. Download the domain association file
+5. Replace this file with the downloaded one
+6. Commit and push

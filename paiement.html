@@ -78,6 +78,13 @@ nav{position:sticky;top:0;z-index:90;padding:0 60px;height:72px;display:flex;ali
 .paypal-section.show{display:block;}
 .paypal-btn{background:#0070BA;color:white;border:none;padding:16px 48px;font-size:16px;cursor:none;font-weight:600;border-radius:4px;letter-spacing:.02em;transition:background .3s;width:100%;}
 .paypal-btn:hover{background:#005EA6;}
+/* APPLE PAY / GOOGLE PAY */
+.wallet-section{display:none;}
+.wallet-section.show{display:block;}
+#payment-request-button{margin-bottom:16px;}
+.wallet-info{font-size:12px;color:var(--light);text-align:center;margin-top:12px;}
+.wallet-divider{display:flex;align-items:center;gap:16px;margin:20px 0;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
+.wallet-divider::before,.wallet-divider::after{content:'';flex:1;height:1px;background:rgba(184,151,90,0.2);}
 .btn-primary{padding:18px 40px;background:var(--dark);color:var(--cream);font-family:var(--font-sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--dark);transition:all .4s;display:inline-block;cursor:none;text-align:center;text-decoration:none;width:100%;}
 .btn-primary:hover{background:var(--gold);border-color:var(--gold);}
 /* SUMMARY */
@@ -134,7 +141,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <a href="checkout" class="btn-back">← Retour à la livraison</a>
     <h2 class="form-section-title">Paiement <em style="font-style:italic;color:var(--gold)">sécurisé</em></h2>
     <div class="payment-methods">
-      <button class="payment-tab active" onclick="switchPayment('card', this)">💳 Carte bancaire</button>
+      <button class="payment-tab" id="walletTab" onclick="switchPayment('wallet', this)" style="display:none">⚡ Apple / Google Pay</button>
+      <button class="payment-tab active" id="cardTab" onclick="switchPayment('card', this)">💳 Carte bancaire</button>
       <button class="payment-tab" onclick="switchPayment('paypal', this)">PayPal</button>
     </div>
 
@@ -154,6 +162,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         </div>
         <button type="button" class="btn-primary" id="payBtn" onclick="handlePayment(event)">Payer <span id="totalDisplay"></span></button>
       </div>
+    </div>
+
+    <!-- APPLE PAY / GOOGLE PAY -->
+    <div class="wallet-section" id="walletSection">
+      <div id="payment-request-button"></div>
+      <p class="wallet-info">🔒 Paiement sécurisé via Stripe. Vos données Apple/Google ne sont jamais partagées.</p>
     </div>
 
     <!-- PAYPAL -->
@@ -239,10 +253,33 @@ function switchPayment(type, btn){
   btn.classList.add('active');
   document.getElementById('cardSection').style.display = type==='card' ? 'block' : 'none';
   document.getElementById('paypalSection').classList.toggle('show', type==='paypal');
+  document.getElementById('walletSection').classList.toggle('show', type==='wallet');
 }
 
 // ── STRIPE INTEGRATION ──────────────────────────────────────────
 var stripe, cardElement, clientSecret;
+
+// Factoriser le succès (partagé carte + wallet)
+function handleSuccess(orderNum) {
+  localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
+  fetch('/api/send-order', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: delivery.email, prenom: delivery.prenom, nom: delivery.nom,
+      tel: delivery.tel || '', orderNumber: orderNum, items: items, total: total,
+      shippingCost: shippingCost, shipping: delivery.shipping,
+      adresse: delivery.adresse, cp: delivery.cp, ville: delivery.ville,
+      pays: delivery.pays || 'FR', totalWeight: getCartTotalWeight(),
+      relayPoint: delivery.relayPoint || null
+    })
+  }).catch(function(){});
+  gtag('event','conversion',{'send_to':'AW-17586286447/2rBGCL_NmrIcEO_e5cFB','value':total,'currency':'EUR','transaction_id':orderNum});
+  gtag('event','purchase',{'transaction_id':orderNum,'value':total,'currency':'EUR'});
+  if(typeof fbq!=='undefined') fbq('track','Purchase',{value:total,currency:'EUR'});
+  clearCart();
+  window.location.href = 'confirmation';
+}
 
 async function initStripe() {
   try {
@@ -252,6 +289,8 @@ async function initStripe() {
     stripe = Stripe(data.publishableKey);
 
     var elements = stripe.elements();
+
+    // ── CARD ELEMENT ──────────────────────────────────────────────
     cardElement = elements.create('card', {
       style: {
         base: {
@@ -269,6 +308,80 @@ async function initStripe() {
     cardElement.on('change', function(e){
       document.getElementById('card-errors').textContent = e.error ? e.error.message : '';
     });
+
+    // ── APPLE PAY / GOOGLE PAY ────────────────────────────────────
+    var paymentRequest = stripe.paymentRequest({
+      country: 'FR',
+      currency: 'eur',
+      total: { label: 'ALYA & CO.', amount: Math.round(total * 100) },
+      requestPayerName: true,
+      requestPayerEmail: true,
+    });
+
+    var prButton = elements.create('paymentRequestButton', {
+      paymentRequest: paymentRequest,
+      style: {
+        paymentRequestButton: {
+          type: 'buy',
+          theme: 'dark',
+          height: '52px',
+        }
+      }
+    });
+
+    // Afficher le bouton seulement si Apple Pay ou Google Pay est dispo
+    paymentRequest.canMakePayment().then(function(result) {
+      if (result) {
+        var walletTab = document.getElementById('walletTab');
+        walletTab.style.display = 'flex';
+        prButton.mount('#payment-request-button');
+        // Sur mobile : basculer automatiquement sur Apple/Google Pay
+        if (window.innerWidth < 768) {
+          switchPayment('wallet', walletTab);
+          document.getElementById('cardTab').classList.remove('active');
+        }
+      }
+    });
+
+    // Gestion du paiement wallet
+    paymentRequest.on('paymentmethod', async function(ev) {
+      // S'assurer qu'on a un clientSecret
+      if (!clientSecret) {
+        try {
+          var r = await fetch('/api/create-payment-intent', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ amount: total, orderNumber: 'pending', delivery: delivery, totalWeight: getCartTotalWeight() })
+          });
+          var d = await r.json();
+          clientSecret = d.clientSecret;
+        } catch(e) { ev.complete('fail'); return; }
+      }
+
+      var { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+        clientSecret,
+        { payment_method: ev.paymentMethod.id },
+        { handleActions: false }
+      );
+
+      if (confirmError) {
+        ev.complete('fail');
+        document.getElementById('card-errors').textContent = confirmError.message;
+      } else {
+        ev.complete('success');
+        if (paymentIntent.status === 'requires_action') {
+          var { error } = await stripe.confirmCardPayment(clientSecret);
+          if (error) {
+            document.getElementById('card-errors').textContent = error.message;
+          } else {
+            handleSuccess('ALC-' + Date.now().toString().slice(-6));
+          }
+        } else {
+          handleSuccess('ALC-' + Date.now().toString().slice(-6));
+        }
+      }
+    });
+
   } catch(err) {
     console.error('Stripe init failed:', err);
     document.getElementById('card-errors').textContent = 'Erreur d\'initialisation du paiement. Rechargez la page.';
@@ -335,44 +448,11 @@ async function handlePayment(e) {
     });
 
     if (result.error) {
-      // Carte refusée, fonds insuffisants, etc.
       document.getElementById('card-errors').textContent = result.error.message;
       btn.textContent = 'Payer ' + fmt(total);
       btn.disabled = false;
     } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-      // ✅ Paiement accepté
-      var orderNum = 'ALC-' + Date.now().toString().slice(-6);
-      localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
-
-      // Email de confirmation + étiquette Sendcloud (non bloquant)
-      fetch('/api/send-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email:        delivery.email,
-          prenom:       delivery.prenom,
-          nom:          delivery.nom,
-          tel:          delivery.tel || '',
-          orderNumber:  orderNum,
-          items:        items,
-          total:        total,
-          shippingCost: shippingCost,
-          shipping:     delivery.shipping,
-          adresse:      delivery.adresse,
-          cp:           delivery.cp,
-          ville:        delivery.ville,
-          pays:         delivery.pays || 'FR',
-          totalWeight:  getCartTotalWeight(),
-          relayPoint:   delivery.relayPoint || null
-        })
-      }).catch(function(){});
-
-      // Conversion tracking
-      gtag('event', 'conversion', {'send_to': 'AW-17586286447/2rBGCL_NmrIcEO_e5cFB', 'value': total, 'currency': 'EUR', 'transaction_id': orderNum});
-      gtag('event', 'purchase', {'transaction_id': orderNum, 'value': total, 'currency': 'EUR'});
-      if(typeof fbq !== 'undefined') fbq('track', 'Purchase', {value: total, currency: 'EUR'});
-      clearCart();
-      window.location.href = 'confirmation';
+      handleSuccess('ALC-' + Date.now().toString().slice(-6));
     }
   } catch(err) {
     document.getElementById('card-errors').textContent = 'Une erreur est survenue. Veuillez réessayer.';
