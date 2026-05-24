@@ -267,6 +267,33 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .gallery-thumb.active { border-color: var(--gold); }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
+/* ── AVANT / APRÈS SLIDER ── */
+.ba-section { padding: 80px; background: var(--cream); }
+.ba-header { margin-bottom: 0; }
+.ba-intro { text-align: center; font-size: 13px; color: var(--light); margin-top: 12px; letter-spacing: 0.04em; font-style: italic; }
+.ba-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0; margin: 40px 0 0; border-bottom: 1px solid rgba(184,151,90,0.2); }
+.ba-tab { padding: 12px 24px; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; background: none; font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); cursor: pointer; transition: color 0.3s, border-color 0.3s; white-space: nowrap; }
+.ba-tab:hover { color: var(--dark); }
+.ba-tab.active { color: var(--dark); border-bottom-color: var(--gold); }
+.ba-slider-wrap { display: none; max-width: 760px; margin: 40px auto 0; }
+.ba-slider-wrap.active { display: block; }
+.ba-comparison { position: relative; width: 100%; aspect-ratio: 3/2; overflow: hidden; cursor: ew-resize; border: 1px solid rgba(184,151,90,0.15); user-select: none; -webkit-user-select: none; }
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ba-after { clip-path: inset(0 0 0 50%); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: rgba(255,255,255,0.92); transform: translateX(-50%); z-index: 10; pointer-events: none; overflow: visible; box-shadow: 0 0 12px rgba(0,0,0,0.18); }
+.ba-handle-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 60px; height: 60px; border-radius: 50%; background: white; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.25); overflow: hidden; }
+.ba-handle-circle img { width: 46px; height: 46px; object-fit: contain; }
+.ba-arrows { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: flex; gap: 74px; align-items: center; pointer-events: none; }
+.ba-arrows span { color: white; font-size: 22px; text-shadow: 0 2px 8px rgba(0,0,0,0.6); line-height: 1; font-weight: 300; }
+.ba-label { position: absolute; bottom: 16px; font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: white; background: rgba(0,0,0,0.35); padding: 5px 12px; z-index: 5; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.ba-label-before { left: 16px; }
+.ba-label-after { right: 16px; }
+.ba-caption { text-align: center; font-size: 13px; color: var(--mid); margin-top: 20px; line-height: 1.7; }
+.ba-caption strong { color: var(--dark); font-weight: 500; }
+.ba-caption em { color: var(--light); font-size: 11px; }
+@media (max-width: 600px) { .ba-section { padding: 48px 20px; } .ba-tab { padding: 10px 12px; font-size: 10px; letter-spacing: 0.08em; } .ba-handle-circle { width: 48px; height: 48px; } .ba-handle-circle img { width: 36px; height: 36px; } .ba-arrows { gap: 56px; } .ba-arrows span { font-size: 18px; } }
+@media (min-width: 601px) and (max-width: 900px) { .ba-section { padding: 48px 24px; } }
+
 </style>
 <script type="application/ld+json">
 {
@@ -387,6 +414,90 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <li>Durée de vie <span>2 à 3 ans avec entretien correct</span></li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- ══ AVANT / APRÈS ══ -->
+<section class="ba-section">
+  <div class="ba-header reveal">
+    <div class="section-eyebrow" style="justify-content:center;margin-bottom:16px;">Résultats prouvés</div>
+    <h2 class="section-title" style="text-align:center;">Votre peau, <em>transformée</em></h2>
+    <p class="ba-intro">Faites glisser pour révéler la différence</p>
+  </div>
+
+  <div class="ba-tabs reveal">
+    <button class="ba-tab active" onclick="switchBaTab(this,'peaux-mortes')">Peaux mortes</button>
+    <button class="ba-tab" onclick="switchBaTab(this,'peau-fraise')">Peau fraise</button>
+    <button class="ba-tab" onclick="switchBaTab(this,'points-noirs')">Points noirs</button>
+    <button class="ba-tab" onclick="switchBaTab(this,'peau-terne')">Peau terne</button>
+  </div>
+
+  <!-- PEAUX MORTES -->
+  <div class="ba-slider-wrap active" id="ba-peaux-mortes">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#7a6050 0%,#6a5040 30%,#5c4030 60%,#4e3225 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#f2ddc9 0%,#ebcfb5 40%,#d8b896 70%,#c9a880 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_3.png" alt="Gant ALYA &amp; CO.">
+        </div>
+        <div class="ba-arrows"><span>‹</span><span>›</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Cellules mortes <strong>éliminées à 100%</strong> dès le 1er passage<br><em>📸 Remplacez par votre photo avant/après</em></p>
+  </div>
+
+  <!-- PEAU FRAISE -->
+  <div class="ba-slider-wrap" id="ba-peau-fraise">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#b07070 0%,#9a5858 30%,#864545 60%,#703030 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#f5d5cd 0%,#eec8bf 40%,#e0b5aa 70%,#d0a298 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_3.png" alt="Gant ALYA &amp; CO.">
+        </div>
+        <div class="ba-arrows"><span>‹</span><span>›</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Pores dilatés et follicules <strong>resserrés et affinés</strong> en douceur<br><em>📸 Remplacez par votre photo avant/après</em></p>
+  </div>
+
+  <!-- POINTS NOIRS -->
+  <div class="ba-slider-wrap" id="ba-points-noirs">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#6a6058 0%,#585048 30%,#464038 60%,#362e28 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#f0d8c5 0%,#e8ccb4 40%,#d8b89a 70%,#c8a888 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_3.png" alt="Gant ALYA &amp; CO.">
+        </div>
+        <div class="ba-arrows"><span>‹</span><span>›</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Points noirs et impuretés <strong>éliminés naturellement</strong>, sans produit chimique<br><em>📸 Remplacez par votre photo avant/après</em></p>
+  </div>
+
+  <!-- PEAU TERNE -->
+  <div class="ba-slider-wrap" id="ba-peau-terne">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#9a9088 0%,#848078 30%,#706860 60%,#5c5450 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#fae8d0 0%,#f2d8bc 40%,#e8c9a8 70%,#d8b895 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_3.png" alt="Gant ALYA &amp; CO.">
+        </div>
+        <div class="ba-arrows"><span>‹</span><span>›</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Teint terne <strong>revigoré et lumineux</strong> après exfoliation<br><em>📸 Remplacez par votre photo avant/après</em></p>
   </div>
 </section>
 
@@ -795,6 +906,53 @@ function handleATC(e) {
 })();
 </script>
 <script>
+/* ── AVANT / APRÈS SLIDER ── */
+(function() {
+  function initComparison(comp) {
+    var after = comp.querySelector('.ba-after');
+    var handle = comp.querySelector('.ba-handle');
+    var dragging = false;
+
+    function setPos(clientX) {
+      var rect = comp.getBoundingClientRect();
+      var pct = Math.max(2, Math.min(98, ((clientX - rect.left) / rect.width) * 100));
+      after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+      handle.style.left = pct + '%';
+    }
+
+    comp.addEventListener('mousedown', function(e) { dragging = true; setPos(e.clientX); e.preventDefault(); });
+    document.addEventListener('mousemove', function(e) { if (dragging) setPos(e.clientX); });
+    document.addEventListener('mouseup', function() { dragging = false; });
+
+    comp.addEventListener('touchstart', function(e) {
+      dragging = true;
+      setPos(e.touches[0].clientX);
+    }, { passive: true });
+
+    comp.addEventListener('touchmove', function(e) {
+      if (dragging) { e.preventDefault(); setPos(e.touches[0].clientX); }
+    }, { passive: false });
+
+    document.addEventListener('touchend', function() { dragging = false; });
+  }
+
+  document.querySelectorAll('.ba-comparison').forEach(initComparison);
+})();
+
+function switchBaTab(btn, id) {
+  btn.closest('.ba-tabs').querySelectorAll('.ba-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.ba-slider-wrap').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('ba-' + id);
+  if (target) {
+    target.classList.add('active');
+    var after = target.querySelector('.ba-after');
+    var handle = target.querySelector('.ba-handle');
+    if (after) after.style.clipPath = 'inset(0 0 0 50%)';
+    if (handle) handle.style.left = '50%';
+  }
+}
+
 function switchGallery(el, src) {
   var mainImg = el.closest('.product-hero-image').querySelector('.gallery-main-wrap img');
   mainImg.style.opacity = '0';
