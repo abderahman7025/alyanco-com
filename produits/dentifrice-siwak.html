@@ -265,6 +265,32 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .gallery-thumb:hover { border-color: var(--gold-light); transform: scale(1.05); }
 .gallery-thumb.active { border-color: var(--gold); }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+/* ── AVANT / APRES SLIDER ── */
+.ba-section { padding: 80px; background: var(--cream); }
+.ba-header { margin-bottom: 0; }
+.ba-intro { text-align: center; font-size: 13px; color: var(--light); margin-top: 12px; letter-spacing: 0.04em; font-style: italic; }
+.ba-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0; margin: 40px 0 0; border-bottom: 1px solid rgba(184,151,90,0.2); }
+.ba-tab { padding: 12px 24px; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; background: none; font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); cursor: pointer; transition: color 0.3s, border-color 0.3s; white-space: nowrap; }
+.ba-tab:hover { color: var(--dark); }
+.ba-tab.active { color: var(--dark); border-bottom-color: var(--gold); }
+.ba-slider-wrap { display: none; max-width: 760px; margin: 40px auto 0; }
+.ba-slider-wrap.active { display: block; }
+.ba-comparison { position: relative; width: 100%; aspect-ratio: 3/2; overflow: hidden; cursor: ew-resize; border: 1px solid rgba(184,151,90,0.15); user-select: none; -webkit-user-select: none; }
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ba-after { clip-path: inset(0 0 0 50%); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: rgba(255,255,255,0.92); transform: translateX(-50%); z-index: 10; pointer-events: none; overflow: visible; box-shadow: 0 0 12px rgba(0,0,0,0.18); }
+.ba-handle-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 60px; height: 60px; border-radius: 50%; background: white; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.25); overflow: hidden; }
+.ba-handle-circle img { width: 46px; height: 46px; object-fit: contain; }
+.ba-arrows { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: flex; gap: 74px; align-items: center; pointer-events: none; }
+.ba-arrows span { color: white; font-size: 22px; text-shadow: 0 2px 8px rgba(0,0,0,0.6); line-height: 1; font-weight: 300; }
+.ba-label { position: absolute; bottom: 16px; font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: white; background: rgba(0,0,0,0.35); padding: 5px 12px; z-index: 5; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.ba-label-before { left: 16px; }
+.ba-label-after { right: 16px; }
+.ba-caption { text-align: center; font-size: 13px; color: var(--mid); margin-top: 20px; line-height: 1.7; }
+.ba-caption strong { color: var(--dark); font-weight: 500; }
+.ba-caption em { color: var(--light); font-size: 11px; }
+@media (max-width: 600px) { .ba-section { padding: 48px 20px; } .ba-tab { padding: 10px 12px; font-size: 10px; letter-spacing: 0.08em; } .ba-handle-circle { width: 48px; height: 48px; } .ba-handle-circle img { width: 36px; height: 36px; } .ba-arrows { gap: 56px; } .ba-arrows span { font-size: 18px; } }
+@media (min-width: 601px) and (max-width: 900px) { .ba-section { padding: 48px 24px; } }
 
 </style>
 <script type="application/ld+json">
@@ -384,6 +410,81 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <li>Contenance <span>50g (environ 3 mois)</span></li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- == AVANT / APRES == -->
+<section class="ba-section">
+  <div class="ba-header reveal">
+    <div class="section-eyebrow" style="justify-content:center;margin-bottom:16px;">Résultats prouvés</div>
+    <h2 class="section-title" style="text-align:center;">Votre sourire, <em>transforme</em></h2>
+    <p class="ba-intro">Faites glisser pour révéler la différence</p>
+  </div>
+  <div class="ba-tabs reveal">
+    <button class="ba-tab active" onclick="switchBaTab(this,'blancheur')">Blancheur</button>
+    <button class="ba-tab" onclick="switchBaTab(this,'plaque')">Plaque dentaire</button>
+    <button class="ba-tab" onclick="switchBaTab(this,'haleine')">Mauvaise haleine</button>
+    <button class="ba-tab" onclick="switchBaTab(this,'gencives')">Gencives</button>
+  </div>
+  <div class="ba-slider-wrap active" id="ba-blancheur">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#c8b870 0%,#b8a858 30%,#a89040 60%,#907828 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#f8f5f0 0%,#f2eeea 40%,#ede8e0 70%,#e5dfd5 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="">
+        </div>
+        <div class="ba-arrows"><span>&#8249;</span><span>&#8250;</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Dents jaunies <strong>naturellement blanchies</strong> des les premieres utilisations<br><em>📸 Remplacez par votre photo avant/après</em></p>
+  </div>
+  <div class="ba-slider-wrap" id="ba-plaque">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#b0a068 0%,#a08858 30%,#907848 60%,#806035 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#f5f2ec 0%,#eeeae2 40%,#e5e0d6 70%,#dcd6ca 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="">
+        </div>
+        <div class="ba-arrows"><span>&#8249;</span><span>&#8250;</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Plaque et tartre <strong>dissous et elimines</strong> en douceur<br><em>📸 Remplacez par votre photo avant/après</em></p>
+  </div>
+  <div class="ba-slider-wrap" id="ba-haleine">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#8a9080 0%,#788070 30%,#686e60 60%,#585c50 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#d8f0e8 0%,#c8e8d8 40%,#b8dac8 70%,#a8ccb8 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="">
+        </div>
+        <div class="ba-arrows"><span>&#8249;</span><span>&#8250;</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Mauvaise haleine <strong>neutralisee durablement</strong>, haleine fraiche naturelle<br><em>📸 Remplacez par votre photo avant/après</em></p>
+  </div>
+  <div class="ba-slider-wrap" id="ba-gencives">
+    <div class="ba-comparison">
+      <div class="ba-img ba-before" style="background:linear-gradient(145deg,#c87878 0%,#b06060 30%,#a04848 60%,#883535 100%);"></div>
+      <div class="ba-img ba-after" style="background:linear-gradient(145deg,#f5d5cc 0%,#ecc8bc 40%,#e0b4a8 70%,#d0a098 100%);"></div>
+      <div class="ba-handle">
+        <div class="ba-handle-circle">
+          <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="">
+        </div>
+        <div class="ba-arrows"><span>&#8249;</span><span>&#8250;</span></div>
+      </div>
+      <span class="ba-label ba-label-before">Avant</span>
+      <span class="ba-label ba-label-after">Après</span>
+    </div>
+    <p class="ba-caption">Gencives irritees et enflammees <strong>apaisees et renforcees</strong><br><em>📸 Remplacez par votre photo avant/après</em></p>
   </div>
 </section>
 
@@ -748,6 +849,41 @@ function handleATC(e) {
 })();
 </script>
 <script>
+/* ── AVANT / APRES SLIDER ── */
+(function() {
+  function initComparison(comp) {
+    var after = comp.querySelector('.ba-after');
+    var handle = comp.querySelector('.ba-handle');
+    var dragging = false;
+    function setPos(clientX) {
+      var rect = comp.getBoundingClientRect();
+      var pct = Math.max(2, Math.min(98, ((clientX - rect.left) / rect.width) * 100));
+      after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+      handle.style.left = pct + '%';
+    }
+    comp.addEventListener('mousedown', function(e) { dragging = true; setPos(e.clientX); e.preventDefault(); });
+    document.addEventListener('mousemove', function(e) { if (dragging) setPos(e.clientX); });
+    document.addEventListener('mouseup', function() { dragging = false; });
+    comp.addEventListener('touchstart', function(e) { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+    comp.addEventListener('touchmove', function(e) { if (dragging) { e.preventDefault(); setPos(e.touches[0].clientX); } }, { passive: false });
+    document.addEventListener('touchend', function() { dragging = false; });
+  }
+  document.querySelectorAll('.ba-comparison').forEach(initComparison);
+})();
+function switchBaTab(btn, id) {
+  btn.closest('.ba-tabs').querySelectorAll('.ba-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.ba-slider-wrap').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('ba-' + id);
+  if (target) {
+    target.classList.add('active');
+    var after = target.querySelector('.ba-after');
+    var handle = target.querySelector('.ba-handle');
+    if (after) after.style.clipPath = 'inset(0 0 0 50%)';
+    if (handle) handle.style.left = '50%';
+  }
+}
+
 function switchGallery(el, src) {
   var mainImg = el.closest('.product-hero-image').querySelector('.gallery-main-wrap img');
   mainImg.style.opacity = '0';
