@@ -93,9 +93,21 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 /* TABLE */
 .delivery-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
 .delivery-table th { padding: 14px 20px; background: var(--dark); color: var(--cream); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 400; text-align: left; }
-.delivery-table td { padding: 16px 20px; border-bottom: 1px solid rgba(184,151,90,0.1); font-size: 13px; color: var(--charcoal); background: var(--warm); }
+.delivery-table td { padding: 13px 20px; border-bottom: 1px solid rgba(184,151,90,0.1); font-size: 13px; color: var(--mid); background: var(--warm); }
+.delivery-table tr:nth-child(even) td { background: var(--cream); }
 .delivery-table tr:last-child td { border-bottom: none; }
-.delivery-table td.highlight { color: var(--gold); font-weight: 500; font-family: var(--font-serif); font-size: 16px; }
+.delivery-table td.price { color: var(--gold); font-weight: 500; font-family: var(--font-serif); font-size: 16px; }
+.delivery-table td.free { color: #4a7c59; font-weight: 500; font-size: 13px; }
+.delivery-table td strong { color: var(--dark); }
+.carrier-block { margin-bottom: 56px; }
+.carrier-header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+.carrier-logo { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--dark); }
+.carrier-badge { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; background: var(--gold); color: var(--dark); padding: 4px 12px; }
+.carrier-desc { font-size: 13px; color: var(--mid); margin-bottom: 16px; line-height: 1.7; }
+.free-shipping-note { margin-top: 12px; padding: 16px 20px; background: var(--dark); font-size: 12px; color: var(--sand); letter-spacing: .08em; display: flex; align-items: center; gap: 10px; }
+.free-shipping-note::before { content: '✦'; color: var(--gold); font-size: 10px; flex-shrink: 0; }
+.tarif-note { margin-top: 40px; padding: 20px 24px; border: 1px solid rgba(184,151,90,0.2); background: var(--warm); font-size: 12px; color: var(--light); line-height: 1.8; }
+.tarif-note strong { color: var(--mid); }
 
 /* CTA STRIP */
 .cta-strip { background: var(--dark); padding: 60px 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
@@ -190,46 +202,75 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     </div>
   </div>
 
-  <!-- DELIVERY TABLE -->
+  <!-- DELIVERY TABLES -->
   <div class="reveal">
-    <div class="section-eyebrow">Tarifs de livraison</div>
+    <div class="section-eyebrow">Tarifs de livraison 2026</div>
     <h2 class="section-title">Options de <em>livraison</em></h2>
-    <table class="delivery-table">
-      <thead>
-        <tr>
-          <th>Mode de livraison</th>
-          <th>Délai</th>
-          <th>Tarif</th>
-          <th>Offert dès</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Mondial Relay — Point Relais</strong><br><small style="color:var(--light)">France métropolitaine</small></td>
-          <td>48–72h</td>
-          <td class="highlight">3,90€</td>
-          <td class="highlight">45€</td>
-        </tr>
-        <tr>
-          <td><strong>Colissimo — Domicile</strong><br><small style="color:var(--light)">France métropolitaine</small></td>
-          <td>24–48h</td>
-          <td class="highlight">5,90€</td>
-          <td>Non inclus</td>
-        </tr>
-        <tr>
-          <td><strong>Livraison Express</strong><br><small style="color:var(--light)">France métropolitaine</small></td>
-          <td>24h</td>
-          <td class="highlight">8,90€</td>
-          <td>Non inclus</td>
-        </tr>
-        <tr>
-          <td><strong>Europe</strong><br><small style="color:var(--light)">Belgique, Suisse, Luxembourg...</small></td>
-          <td>3–5 jours</td>
-          <td class="highlight">9,90€</td>
-          <td>Non inclus</td>
-        </tr>
-      </tbody>
-    </table>
+
+    <!-- MONDIAL RELAY -->
+    <div class="carrier-block">
+      <div class="carrier-header">
+        <div class="carrier-logo">Mondial Relay</div>
+        <div class="carrier-badge">Recommandé</div>
+      </div>
+      <p class="carrier-desc">Livraison en point relais en 48–72h. Plus de 15 000 points de retrait en France métropolitaine. Suivi en temps réel inclus.</p>
+      <table class="delivery-table">
+        <thead>
+          <tr>
+            <th>Poids de la commande</th>
+            <th>Délai estimé</th>
+            <th>Tarif 2026</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Jusqu'à 150 g</td><td>48–72h</td><td class="price">3,59 €</td></tr>
+          <tr><td>De 151 g à 250 g</td><td>48–72h</td><td class="price">3,99 €</td></tr>
+          <tr><td>De 251 g à 500 g</td><td>48–72h</td><td class="price">4,49 €</td></tr>
+          <tr><td>De 501 g à 1 kg</td><td>48–72h</td><td class="price">5,19 €</td></tr>
+          <tr><td>De 1 kg à 2 kg</td><td>48–72h</td><td class="price">6,19 €</td></tr>
+          <tr><td>De 2 kg à 5 kg</td><td>48–72h</td><td class="price">7,79 €</td></tr>
+          <tr><td>De 5 kg à 10 kg</td><td>48–72h</td><td class="price">10,39 €</td></tr>
+          <tr><td>De 10 kg à 20 kg</td><td>48–72h</td><td class="price">13,99 €</td></tr>
+          <tr><td>De 20 kg à 30 kg</td><td>48–72h</td><td class="price">18,69 €</td></tr>
+        </tbody>
+      </table>
+      <div class="free-shipping-note">Livraison Mondial Relay OFFERTE pour toute commande de 45 € ou plus</div>
+    </div>
+
+    <!-- COLISSIMO -->
+    <div class="carrier-block">
+      <div class="carrier-header">
+        <div class="carrier-logo">Colissimo</div>
+        <div class="carrier-badge" style="background:var(--warm);border:1px solid rgba(184,151,90,0.3);">À domicile</div>
+      </div>
+      <p class="carrier-desc">Livraison à votre domicile en 24–48h par La Poste. Livraison en boîte aux lettres ou contre signature selon le format. Suivi inclus.</p>
+      <table class="delivery-table">
+        <thead>
+          <tr>
+            <th>Poids de la commande</th>
+            <th>Délai estimé</th>
+            <th>Tarif 2026</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Jusqu'à 250 g</td><td>24–48h</td><td class="price">6,30 €</td></tr>
+          <tr><td>De 251 g à 500 g</td><td>24–48h</td><td class="price">6,75 €</td></tr>
+          <tr><td>De 501 g à 750 g</td><td>24–48h</td><td class="price">7,60 €</td></tr>
+          <tr><td>De 751 g à 1 kg</td><td>24–48h</td><td class="price">8,05 €</td></tr>
+          <tr><td>De 1 kg à 2 kg</td><td>24–48h</td><td class="price">8,95 €</td></tr>
+          <tr><td>De 2 kg à 5 kg</td><td>24–48h</td><td class="price">12,25 €</td></tr>
+          <tr><td>De 5 kg à 10 kg</td><td>24–48h</td><td class="price">17,30 €</td></tr>
+          <tr><td>De 10 kg à 15 kg</td><td>24–48h</td><td class="price">21,25 €</td></tr>
+          <tr><td>De 15 kg à 20 kg</td><td>24–48h</td><td class="price">24,75 €</td></tr>
+          <tr><td>De 20 kg à 25 kg</td><td>24–48h</td><td class="price">28,50 €</td></tr>
+          <tr><td>De 25 kg à 30 kg</td><td>24–48h</td><td class="price">32,25 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tarif-note">
+      <strong>Note :</strong> Ces tarifs sont donnés à titre indicatif sur la base des grilles tarifaires 2026 de Mondial Relay et Colissimo (La Poste). Ils peuvent varier légèrement selon les conditions contractuelles négociées avec les transporteurs. Consultez <a href="https://www.mondialrelay.fr" target="_blank" style="color:var(--gold)">mondialrelay.fr</a> et <a href="https://www.laposte.fr/colissimo" target="_blank" style="color:var(--gold)">laposte.fr/colissimo</a> pour les tarifs officiels en vigueur.
+    </div>
   </div>
 </section>
 
