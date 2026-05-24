@@ -21,7 +21,7 @@ gtag('js',new Date());gtag('config','G-FL7S62N6GC');gtag('config','AW-1758628644
 :root{--cream:#FAF6F1;--warm:#F2E8DD;--sand:#EAD1BF;--gold:#B8975A;--gold-light:#D4B896;--dark:#1C1612;--charcoal:#2D2520;--mid:#6B5B4E;--light:#A8958A;--white:#FFFFFF;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'DM Sans',sans-serif;--ease:cubic-bezier(0.25,0.46,0.45,0.94);--ease-out:cubic-bezier(0.16,1,0.3,1);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}body{background:var(--cream);color:var(--dark);font-family:var(--font-sans);font-weight:300;overflow-x:hidden;cursor:none;}
-.cursor-dot{width:8px;height:8px;background:#fff;mix-blend-mode:difference;border-radius:50%;position:fixed;z-index:99999;pointer-events:none;transform:translate(-50%,-50%);transition:transform .1s,width .3s,height .3s,background .3s;}
+.cursor-dot{width:8px;height:8px;background: var(--dark); border-radius:50%;position:fixed;z-index:99999;pointer-events:none;transform:translate(-50%,-50%);transition:transform .1s,width .3s,height .3s,background .3s;}
 .cursor-ring{width:40px;height:40px;border:1px solid var(--gold);border-radius:50%;position:fixed;z-index:99999;pointer-events:none;transform:translate(-50%,-50%);transition:transform .15s,width .4s,height .4s,opacity .3s;opacity:.6;}
 body.cursor-hover .cursor-dot{width:14px;height:14px;background:var(--gold);}
 body.cursor-hover .cursor-ring{width:60px;height:60px;opacity:.3;}
@@ -177,7 +177,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <script>
 const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+
+// Cursor color adapts to background
+function updateCursorColor(x, y) {
+  var el = document.elementFromPoint(x, y);
+  while (el && el !== document.documentElement) {
+    var bg = getComputedStyle(el).backgroundColor;
+    var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);
+    if (m && (+m[4] === undefined || +m[4] > 0.1)) {
+      var lum = (0.299 * +m[1] + 0.587 * +m[2] + 0.114 * +m[3]) / 255;
+      dot.style.background = lum < 0.3 ? 'var(--cream)' : 'var(--dark)';
+      return;
+    }
+    el = el.parentElement;
+  }
+  dot.style.background = 'var(--dark)';
+}
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';updateCursorColor(mx,my);});
 (function ani(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ani);})();
 document.querySelectorAll('a,button,input,select').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));});
 const menuToggle=document.getElementById('menuToggle'),mobileNav=document.getElementById('mobileNav');

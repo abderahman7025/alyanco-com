@@ -22,7 +22,7 @@ gtag('js',new Date());gtag('config','G-FL7S62N6GC');gtag('config','AW-1758628644
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body { background: var(--cream); color: var(--dark); font-family: var(--font-sans); font-weight: 300; overflow-x: hidden; cursor: none; }
-.cursor-dot { width: 8px; height: 8px; background: #fff; mix-blend-mode: difference; border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; }
+.cursor-dot { width: 8px; height: 8px; background: var(--dark); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; }
 .cursor-ring { width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.15s var(--ease), width 0.4s var(--ease-out), height 0.4s var(--ease-out), opacity 0.3s; opacity: 0.6; }
 body.cursor-hover .cursor-dot { width: 14px; height: 14px; background: var(--gold); }
 body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
@@ -261,7 +261,22 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 <script>
 const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; });
+
+function updateCursorColor(x, y) {
+  var el = document.elementFromPoint(x, y);
+  while (el && el !== document.documentElement) {
+    var bg = getComputedStyle(el).backgroundColor;
+    var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+    if (m && (m[4] === undefined || +m[4] > 0.1)) {
+      var lum = (0.299 * +m[1] + 0.587 * +m[2] + 0.114 * +m[3]) / 255;
+      dot.style.background = lum < 0.3 ? 'var(--cream)' : 'var(--dark)';
+      return;
+    }
+    el = el.parentElement;
+  }
+  dot.style.background = 'var(--dark)';
+}
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; updateCursorColor(mouseX, mouseY); });
 function animateRing() { ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12; ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; requestAnimationFrame(animateRing); }
 animateRing();
 document.querySelectorAll('a, button, .product-card').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover')); el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover')); });

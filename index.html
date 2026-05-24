@@ -1725,11 +1725,28 @@ const ring = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0;
 let ringX = 0, ringY = 0;
 
+// Cursor color adapts to dark/light background
+function updateCursorColor(x, y) {
+  var el = document.elementFromPoint(x, y);
+  while (el && el !== document.documentElement) {
+    var bg = getComputedStyle(el).backgroundColor;
+    var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);
+    if (m && (+m[4] === undefined || +m[4] > 0.1)) {
+      var lum = (0.299 * +m[1] + 0.587 * +m[2] + 0.114 * +m[3]) / 255;
+      dot.style.background = lum < 0.3 ? 'var(--cream)' : 'var(--dark)';
+      return;
+    }
+    el = el.parentElement;
+  }
+  dot.style.background = 'var(--dark)';
+}
+
 document.addEventListener('mousemove', e => {
   mouseX = e.clientX;
   mouseY = e.clientY;
   dot.style.left = mouseX + 'px';
   dot.style.top = mouseY + 'px';
+  updateCursorColor(mouseX, mouseY);
 });
 
 function animateRing() {
