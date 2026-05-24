@@ -311,11 +311,10 @@ window.addEventListener('message', function(e) {
   if (!e.data) return;
   console.log('[SPP message]', e.origin, JSON.stringify(e.data).substring(0, 300));
   var d = (typeof e.data === 'string') ? {} : e.data;
-  var sp = d.servicePoint || d.service_point || d.servicePointObject
-        || (d.type === 'servicePointSelected' ? d.data : null)
-        || (d.type === 'service_point_selected' ? d.data : null);
+  // Format confirmé : { type: "servicePointSelected", point: {...} }
+  var sp = d.point || d.servicePoint || d.service_point || d.servicePointObject;
   if (sp && sp.id) {
-    console.log('[SPP] Point capturé via postMessage:', sp.name);
+    console.log('[SPP] Point capturé :', sp.name);
     handleServicePointSelected(sp);
   }
 });
