@@ -62,11 +62,10 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .legal-layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; align-items: start; max-width: 1200px; margin: 0 auto; padding: 60px 80px; }
 
 /* TABLE OF CONTENTS */
-.legal-toc { position: sticky; top: 92px; padding-right: 40px; background: var(--cream); z-index: 5; align-self: start; max-height: calc(100vh - 110px); overflow-y: auto; scrollbar-width: none; }
-.legal-toc::-webkit-scrollbar { display: none; }
+.legal-toc { padding-right: 40px; background: var(--cream); will-change: transform; }
 .toc-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-.toc-list a { font-size: 12px; color: var(--light); text-decoration: none; padding: 6px 0; border-left: 2px solid transparent; padding-left: 12px; display: block; transition: all 0.3s; line-height: 1.4; }
+.toc-list a { font-size: 12px; color: var(--light); text-decoration: none; padding: 6px 0; border-left: 2px solid transparent; padding-left: 12px; display: block; transition: color 0.3s, border-color 0.3s; line-height: 1.4; }
 .toc-list a:hover { color: var(--dark); border-left-color: var(--gold); }
 .toc-list a.active { color: var(--dark); border-left-color: var(--gold); }
 
@@ -460,24 +459,34 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // Nav scroll
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
 
-// TOC active link highlight on scroll
+// TOC : sticky via JS (fiable sur tous navigateurs)
+const tocEl = document.querySelector('.legal-toc');
+const layoutEl = document.querySelector('.legal-layout');
+const NAV_H = 96; // hauteur nav + marge
+function stickyToc() {
+  if (!tocEl || !layoutEl) return;
+  const layoutTop = layoutEl.getBoundingClientRect().top;
+  const layoutH = layoutEl.offsetHeight;
+  const tocH = tocEl.offsetHeight;
+  let offset = Math.max(0, NAV_H - layoutTop);
+  offset = Math.min(offset, layoutH - tocH);
+  tocEl.style.transform = 'translateY(' + offset + 'px)';
+}
+window.addEventListener('scroll', stickyToc, { passive: true });
+stickyToc();
+
+// TOC : lien actif au scroll
 const sections = document.querySelectorAll('.legal-section[id]');
 const tocLinks = document.querySelectorAll('.toc-list a');
-const tocEl = document.querySelector('.legal-toc');
-function updateToc() {
+function updateActiveToc() {
   let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+  sections.forEach(s => { if (window.scrollY + NAV_H + 20 >= s.offsetTop) current = s.id; });
   tocLinks.forEach(a => {
-    a.classList.remove('active');
-    if (a.getAttribute('href') === '#' + current) {
-      a.classList.add('active');
-      // Auto-scroll TOC to keep active item visible
-      if (tocEl) { const aTop = a.offsetTop - tocEl.offsetTop; tocEl.scrollTop = aTop - 80; }
-    }
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
   });
 }
-window.addEventListener('scroll', updateToc, { passive: true });
-updateToc();
+window.addEventListener('scroll', updateActiveToc, { passive: true });
+updateActiveToc();
 </script>
 <script src="cart.js"></script>
 </body>
