@@ -306,15 +306,16 @@ function handleServicePointSelected(point) {
   console.log('Point relais sélectionné :', point.name, point.id);
 }
 
-// Écoute les postMessage du widget SPP (mécanisme principal dans SPP v1)
+// Écoute TOUS les postMessage (debug + production)
 window.addEventListener('message', function(e) {
   if (!e.data) return;
+  console.log('[SPP message]', e.origin, JSON.stringify(e.data).substring(0, 300));
   var d = (typeof e.data === 'string') ? {} : e.data;
-  // Formats possibles selon la version du widget Sendcloud
   var sp = d.servicePoint || d.service_point || d.servicePointObject
         || (d.type === 'servicePointSelected' ? d.data : null)
         || (d.type === 'service_point_selected' ? d.data : null);
   if (sp && sp.id) {
+    console.log('[SPP] Point capturé via postMessage:', sp.name);
     handleServicePointSelected(sp);
   }
 });
@@ -332,13 +333,18 @@ function openRelayPicker() {
     carriers: ['mondial_relay'],
     postalCode: cp,
     onServicePointObject: function(point) {
+      console.log('[SPP] onServicePointObject:', point);
       handleServicePointSelected(point);
     },
     onSelect: function(point) {
+      console.log('[SPP] onSelect:', point);
       handleServicePointSelected(point);
     },
+    onClose: function() {
+      console.log('[SPP] widget fermé — selectedRelayPoint:', selectedRelayPoint ? selectedRelayPoint.name : 'AUCUN');
+    },
     onError: function(err) {
-      console.error('Sendcloud SPP error:', err);
+      console.error('[SPP] error:', err);
     }
   });
 }
