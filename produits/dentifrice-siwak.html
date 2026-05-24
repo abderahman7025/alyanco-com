@@ -137,9 +137,9 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 @media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .breadcrumb { padding: 16px 20px; } .product-hero { grid-template-columns: 1fr; padding: 32px 20px; gap: 40px; } .product-description-section { padding: 48px 20px; } .related-section { padding: 48px 20px; } .related-grid { grid-template-columns: 1fr; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
 
 /* AVIS CLIENTS */
-.reviews-section { padding: 80px; background: var(--cream); }
-@media(max-width:768px){ .reviews-section { padding: 48px 24px; } }
-.reviews-header { text-align: center; margin-bottom: 48px; }
+.reviews-section { padding: 80px 0; background: var(--cream); overflow: hidden; }
+@media(max-width:768px){ .reviews-section { padding: 48px 0; } }
+.reviews-header { text-align: center; margin-bottom: 48px; padding: 0 24px; }
 .reviews-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 16px; }
 .reviews-eyebrow::before, .reviews-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); }
 .reviews-title { font-family: var(--font-serif); font-size: clamp(28px,3vw,40px); font-weight: 300; color: var(--dark); line-height: 1.2; }
@@ -148,14 +148,18 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .reviews-avg-score { font-family: var(--font-serif); font-size: 40px; font-weight: 500; color: var(--dark); line-height: 1; }
 .reviews-avg-stars { color: var(--gold); font-size: 20px; letter-spacing: 2px; }
 .reviews-avg-count { font-size: 12px; color: var(--light); }
-.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
-.review-card { background: var(--white); border: 1px solid rgba(184,151,90,0.12); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.reviews-track-wrap { position: relative; overflow: hidden; }
+.reviews-track-wrap::before, .reviews-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+.reviews-track-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+.reviews-track-wrap::after  { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+.reviews-track { display: flex; gap: 20px; width: max-content; will-change: transform; padding: 20px 0; }
+.review-card { min-width: 300px; max-width: 300px; background: var(--white); border: 1px solid rgba(184,151,90,0.12); padding: 28px; display: flex; flex-direction: column; gap: 14px; flex-shrink: 0; transition: transform 0.3s, box-shadow 0.3s; }
+.review-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(28,22,18,0.08); }
 .review-top { display: flex; align-items: center; gap: 14px; }
 .review-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sand); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 16px; font-weight: 500; color: var(--dark); flex-shrink: 0; }
 .review-meta { flex: 1; }
 .review-name { font-size: 14px; font-weight: 500; color: var(--dark); }
-.review-date { font-size: 11px; color: var(--light); margin-top: 2px; }
-.review-stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+.review-stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; margin-top: 3px; }
 .review-verified { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 4px; }
 .review-verified::before { content: '✓'; }
 .review-text { font-size: 13px; color: var(--mid); line-height: 1.75; flex: 1; }
@@ -285,126 +289,228 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <span class="reviews-avg-count">sur 26 avis</span>
     </div>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">LM</div>
-        <div class="review-meta">
-          <div class="review-name">Lucie M.</div>
-          <div class="review-date">Avril 2026</div>
+  <div class="reviews-track-wrap">
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">LM</div>
+          <div class="review-meta">
+            <div class="review-name">Lucie M.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">La poudre était étrange au début, mais après 2 semaines mes dents sont top !</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">La poudre était étrange au début, mais après 2 semaines mes dents sont top !</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">SB</div>
-        <div class="review-meta">
-          <div class="review-name">Sarah B.</div>
-          <div class="review-date">Mars 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">SB</div>
+          <div class="review-meta">
+            <div class="review-name">Sarah B.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Naturel, sans produit chimique. Enfin un dentifrice sain.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Naturel, sans produit chimique. Enfin un dentifrice sain.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">JL</div>
-        <div class="review-meta">
-          <div class="review-name">Jade L.</div>
-          <div class="review-date">Mai 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">JL</div>
+          <div class="review-meta">
+            <div class="review-name">Jade L.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Mes dents sont plus blanches. Fini les dentifrices classiques.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Mes dents sont plus blanches. Fini les dentifrices classiques.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">MD</div>
-        <div class="review-meta">
-          <div class="review-name">Marion D.</div>
-          <div class="review-date">Février 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">MD</div>
+          <div class="review-meta">
+            <div class="review-name">Marion D.</div>
+            <div class="review-stars">★★★★☆</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★☆</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Goût différent, il faut s'y habituer. Mais le résultat blancheur est réel.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Goût différent, il faut s'y habituer. Mais le résultat blancheur est réel.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">ER</div>
-        <div class="review-meta">
-          <div class="review-name">Emilie R.</div>
-          <div class="review-date">Janvier 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">ER</div>
+          <div class="review-meta">
+            <div class="review-name">Emilie R.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Super produit naturel ! Je l'ai commandé en lot.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Super produit naturel ! Je l'ai commandé en lot.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">CM</div>
-        <div class="review-meta">
-          <div class="review-name">Clara M.</div>
-          <div class="review-date">Avril 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">CM</div>
+          <div class="review-meta">
+            <div class="review-name">Clara M.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Rapide à livrer, bien emballé. Conforme.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Rapide à livrer, bien emballé. Conforme.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">AV</div>
-        <div class="review-meta">
-          <div class="review-name">Ambre V.</div>
-          <div class="review-date">Mars 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">AV</div>
+          <div class="review-meta">
+            <div class="review-name">Ambre V.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Mon haleine reste fraîche des heures. Vraiment efficace.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Mon haleine reste fraîche des heures. Vraiment efficace.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">CP</div>
-        <div class="review-meta">
-          <div class="review-name">Charlotte P.</div>
-          <div class="review-date">Mai 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">CP</div>
+          <div class="review-meta">
+            <div class="review-name">Charlotte P.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Sans fluor, sans SLS. Exactement ce que je cherchais.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Sans fluor, sans SLS. Exactement ce que je cherchais.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">EN</div>
-        <div class="review-meta">
-          <div class="review-name">Elisa N.</div>
-          <div class="review-date">Février 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">EN</div>
+          <div class="review-meta">
+            <div class="review-name">Elisa N.</div>
+            <div class="review-stars">★★★★☆</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★☆</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Bien. J'aurais aimé une contenance plus grande.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Bien. J'aurais aimé une contenance plus grande.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">ZT</div>
-        <div class="review-meta">
-          <div class="review-name">Zoé T.</div>
-          <div class="review-date">Janvier 2026</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">ZT</div>
+          <div class="review-meta">
+            <div class="review-name">Zoé T.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
-        <div class="review-stars">★★★★★</div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Je recommande vivement ! Mes gencives ne saignent plus.</div>
       </div>
-      <div class="review-verified">Achat vérifié</div>
-      <div class="review-text">Je recommande vivement ! Mes gencives ne saignent plus.</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">LM</div>
+          <div class="review-meta">
+            <div class="review-name">Lucie M.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">La poudre était étrange au début, mais après 2 semaines mes dents sont top !</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">SB</div>
+          <div class="review-meta">
+            <div class="review-name">Sarah B.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Naturel, sans produit chimique. Enfin un dentifrice sain.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">JL</div>
+          <div class="review-meta">
+            <div class="review-name">Jade L.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Mes dents sont plus blanches. Fini les dentifrices classiques.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">MD</div>
+          <div class="review-meta">
+            <div class="review-name">Marion D.</div>
+            <div class="review-stars">★★★★☆</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Goût différent, il faut s'y habituer. Mais le résultat blancheur est réel.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">ER</div>
+          <div class="review-meta">
+            <div class="review-name">Emilie R.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Super produit naturel ! Je l'ai commandé en lot.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">CM</div>
+          <div class="review-meta">
+            <div class="review-name">Clara M.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Rapide à livrer, bien emballé. Conforme.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">AV</div>
+          <div class="review-meta">
+            <div class="review-name">Ambre V.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Mon haleine reste fraîche des heures. Vraiment efficace.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">CP</div>
+          <div class="review-meta">
+            <div class="review-name">Charlotte P.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Sans fluor, sans SLS. Exactement ce que je cherchais.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">EN</div>
+          <div class="review-meta">
+            <div class="review-name">Elisa N.</div>
+            <div class="review-stars">★★★★☆</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Bien. J'aurais aimé une contenance plus grande.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">ZT</div>
+          <div class="review-meta">
+            <div class="review-name">Zoé T.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-verified">Achat vérifié</div>
+        <div class="review-text">Je recommande vivement ! Mes gencives ne saignent plus.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -480,6 +586,26 @@ function handleATC(e) {
   btn.disabled = true;
   setTimeout(function(){ btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 2000);
 }
+</script>
+<script>
+// ── REVIEWS CAROUSEL ──
+(function() {
+  var track = document.getElementById('reviewsTrack');
+  if (!track) return;
+  var x = 0, paused = false;
+  track.addEventListener('mouseenter', function() { paused = true; });
+  track.addEventListener('mouseleave', function() { paused = false; });
+  function tick() {
+    if (!paused) {
+      x += 0.5;
+      var half = track.scrollWidth / 2;
+      if (x >= half) x -= half;
+      track.style.transform = 'translateX(' + (-x) + 'px)';
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
 </script>
 </body>
 </html>
