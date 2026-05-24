@@ -7,11 +7,11 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const resendKey = process.env.RESEND_API_KEY;
-  const scPublic  = process.env.SENDCLOUD_PUBLIC_KEY;
-  const scSecret  = process.env.SENDCLOUD_SECRET_KEY;
+  const brevoKey = process.env.BREVO_API_KEY;
+  const scPublic = process.env.SENDCLOUD_PUBLIC_KEY;
+  const scSecret = process.env.SENDCLOUD_SECRET_KEY;
 
-  if (!resendKey) return res.status(500).json({ error: 'RESEND_API_KEY not configured' });
+  if (!brevoKey) return res.status(500).json({ error: 'BREVO_API_KEY not configured' });
 
   const {
     email, prenom, nom, tel,
@@ -320,33 +320,34 @@ export default async function handler(req, res) {
 </body>
 </html>`;
 
-  // ── ENVOI VIA RESEND ────────────────────────────────────────────
+  // ── ENVOI VIA BREVO ─────────────────────────────────────────────
+  const brevoSend = async (to, toName, subject, html) => {
+    const r = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'api-key': brevoKey },
+      body: JSON.stringify({
+        sender:      { name: 'ALYA & CO.', email: 'contact@alyanco.com' },
+        to:          [{ email: to, name: toName }],
+        subject,
+        htmlContent: html
+      })
+    });
+    if (!r.ok) console.error('Brevo error:', await r.text());
+    return r.ok;
+  };
+
   try {
     // Email client
-    const r1 = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from:    'ALYA & CO. <contact@alyanco.com>',
-        to:      [email],
-        subject: `Confirmation de commande ${orderNumber} — ALYA & CO.`,
-        html:    customerHtml
-      })
-    });
-    if (!r1.ok) console.error('Resend client error:', await r1.text());
+    await brevoSend(email, `${prenom} ${nom}`,
+      `Confirmation de commande ${orderNumber} — ALYA & CO.`,
+      customerHtml
+    );
 
-    // Email marchand (avec étiquette)
-    const r2 = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from:    'ALYA & CO. Commandes <contact@alyanco.com>',
-        to:      ['contact@alyanco.com'],
-        subject: `🛍️ ${orderNumber} — ${prenom} ${nom} — ${fmt(total)}`,
-        html:    merchantHtml
-      })
-    });
-    if (!r2.ok) console.error('Resend marchand error:', await r2.text());
+    // Email marchand (avec étiquette Sendcloud)
+    await brevoSend('contact@alyanco.com', 'ALYA & CO. Admin',
+      `🛍️ ${orderNumber} — ${prenom} ${nom} — ${fmt(total)}`,
+      merchantHtml
+    );
 
     return res.status(200).json({ success: true, orderNumber, labelUrl, sendcloudId });
 
