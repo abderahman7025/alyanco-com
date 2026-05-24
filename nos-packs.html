@@ -79,6 +79,11 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .pack-promo { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(184,151,90,0.1); padding: 4px 10px; }
 .btn-primary { padding: 16px 36px; background: var(--dark); color: var(--cream); font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--dark); transition: all 0.4s var(--ease); display: inline-block; text-align: center; }
 .btn-primary:hover { background: transparent; color: var(--dark); }
+.pack-actions { display: flex; flex-direction: column; gap: 10px; }
+.btn-atc { width: 100%; padding: 15px 20px; background: var(--gold); color: var(--dark); font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s var(--ease); text-align: center; }
+.btn-atc:hover { background: var(--dark); color: var(--cream); }
+.btn-view-pack { width: 100%; padding: 13px 20px; background: transparent; color: var(--mid); font-family: var(--font-sans); font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid rgba(184,151,90,0.3); transition: all 0.3s var(--ease); text-align: center; display: block; }
+.btn-view-pack:hover { border-color: var(--gold); color: var(--dark); }
 
 .section-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 16px; }
 .section-eyebrow::before, .section-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); }
@@ -162,7 +167,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   <div class="section-eyebrow">Nos bestsellers</div>
   <h2 class="section-title">Choisissez votre<br><em>pack idéal</em></h2>
   <div class="packs-grid">
-    <a href="produits/pack-1an-full-body" class="pack-card reveal reveal-delay-1">
+    <a href="produits/pack-1an-full-body" class="pack-card reveal reveal-delay-1" data-pack-id="pack-1an-full-body">
       <div class="pack-card-image">
         <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_2.png" alt="Pack 1 An Full Body">
         <div class="pack-badge">Bestseller #1</div>
@@ -180,7 +185,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <span class="pack-price-old">57,98€</span>
           <span class="pack-promo">−48%</span>
         </div>
-        <span class="btn-primary">Voir le pack</span>
+        <div class="pack-actions">
+          <button class="btn-atc" onclick="event.stopPropagation();addToCart('pack-1an-full-body',1);var b=this;b.textContent='✓ Ajouté !';setTimeout(function(){b.textContent='Ajouter au panier'},1500)">Ajouter au panier</button>
+          <span class="btn-view-pack">Voir le pack →</span>
+        </div>
       </div>
     </a>
     <a href="produits/pack-siwak-complet" class="pack-card reveal reveal-delay-2">
@@ -201,7 +209,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <span class="pack-price-old">32,99€</span>
           <span class="pack-promo">−30%</span>
         </div>
-        <span class="btn-primary">Voir le pack</span>
+        <div class="pack-actions">
+          <button class="btn-atc" onclick="event.stopPropagation();addToCart('pack-siwak-complet',1);var b=this;b.textContent='✓ Ajouté !';setTimeout(function(){b.textContent='Ajouter au panier'},1500)">Ajouter au panier</button>
+          <span class="btn-view-pack">Voir le pack →</span>
+        </div>
       </div>
     </a>
     <a href="produits/pack-tetes-x3" class="pack-card reveal reveal-delay-3">
@@ -221,7 +232,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <span class="pack-price-old">26,99€</span>
           <span class="pack-promo">−33%</span>
         </div>
-        <span class="btn-primary">Voir le pack</span>
+        <div class="pack-actions">
+          <button class="btn-atc" onclick="event.stopPropagation();addToCart('pack-tetes-x3',1);var b=this;b.textContent='✓ Ajouté !';setTimeout(function(){b.textContent='Ajouter au panier'},1500)">Ajouter au panier</button>
+          <span class="btn-view-pack">Voir le pack →</span>
+        </div>
       </div>
     </a>
     <a href="produits/pack-dentifrice-3m" class="pack-card reveal reveal-delay-4">
@@ -241,7 +255,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
           <span class="pack-price-old">23,99€</span>
           <span class="pack-promo">−33%</span>
         </div>
-        <span class="btn-primary">Voir le pack</span>
+        <div class="pack-actions">
+          <button class="btn-atc" onclick="event.stopPropagation();addToCart('pack-dentifrice-3m',1);var b=this;b.textContent='✓ Ajouté !';setTimeout(function(){b.textContent='Ajouter au panier'},1500)">Ajouter au panier</button>
+          <span class="btn-view-pack">Voir le pack →</span>
+        </div>
       </div>
     </a>
   </div>
@@ -294,8 +311,26 @@ function closeMobileNav() { mobileNav.classList.remove('open'); menuToggle.query
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
-const nf = document.querySelector('.newsletter-form');
-if (nf) nf.addEventListener('submit', e => { e.preventDefault(); const i = nf.querySelector('input'); if (i.value) { const b = nf.querySelector('button'); b.textContent = '✓ Inscrit !'; b.style.background = 'var(--gold)'; i.value = ''; setTimeout(() => { b.textContent = "S'inscrire"; b.style.background = 'var(--dark)'; }, 3000); } });
+(function(){
+  var nf = document.querySelector('.newsletter-form');
+  if (!nf) return;
+  nf.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var input = nf.querySelector('input[type="email"]') || nf.querySelector('input');
+    var btn = nf.querySelector('button');
+    var email = input ? input.value.trim() : '';
+    if (!email) return;
+    var origTxt = btn.textContent;
+    btn.textContent = '...'; btn.disabled = true;
+    try {
+      var r = await fetch('/api/newsletter', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:email}) });
+      var d = await r.json();
+      if (d.success) { btn.textContent = '✓ Inscrit !'; btn.style.background = 'var(--gold)'; if(input) input.value = ''; }
+      else { btn.textContent = 'Erreur, réessayez'; btn.style.background = '#c0392b'; }
+    } catch(err) { btn.textContent = 'Erreur réseau'; btn.style.background = '#c0392b'; }
+    setTimeout(function(){ btn.textContent = origTxt; btn.style.background = ''; btn.disabled = false; }, 3000);
+  });
+})();
 </script>
 <script src="cart.js?v=5"></script>
 </body>

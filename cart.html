@@ -99,8 +99,12 @@ nav{position:sticky;top:0;z-index:90;padding:0 60px;height:72px;display:flex;ali
 .summary-line.delivery{color:var(--gold);}
 .summary-line.total{font-family:var(--font-serif);font-size:22px;font-weight:500;color:var(--dark);margin-top:16px;padding-top:16px;border-top:1px solid rgba(184,151,90,0.3);}
 .summary-divider{height:1px;background:rgba(184,151,90,0.2);margin:16px 0;}
-.free-delivery-bar{background:rgba(184,151,90,0.1);border:1px solid rgba(184,151,90,0.2);padding:12px 16px;margin-bottom:24px;font-size:12px;color:var(--mid);line-height:1.6;}
+.free-delivery-bar{background:rgba(184,151,90,0.08);border:1px solid rgba(184,151,90,0.25);padding:14px 18px;margin-bottom:20px;font-size:12px;color:var(--mid);line-height:1.6;border-radius:2px;}
 .free-delivery-bar strong{color:var(--gold);}
+.fdb-track{height:5px;background:rgba(184,151,90,0.18);border-radius:3px;margin-top:10px;overflow:hidden;}
+.fdb-fill{height:100%;background:linear-gradient(90deg,var(--gold-light),var(--gold));border-radius:3px;transition:width 0.8s cubic-bezier(0.16,1,0.3,1);}
+.fdb-reached{background:rgba(74,124,89,0.1);border-color:rgba(74,124,89,0.3);color:#2d6a4f;}
+.fdb-reached strong{color:#2d6a4f;}
 .trust-icons{display:flex;gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(184,151,90,0.15);}
 .trust-icon{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--light);}
 /* CARRIER SELECTOR */
@@ -287,11 +291,13 @@ function renderCart() {
   var deliveryText;
   if (delivery === 0) {
     deliveryText = '<div class="summary-line delivery"><span>Livraison</span><span style="color:#4a7c59;font-weight:500">Offerte ✓</span></div>';
+    deliveryText += '<div class="free-delivery-bar fdb-reached"><strong>✓ Livraison Mondial Relay offerte !</strong><div class="fdb-track"><div class="fdb-fill" style="width:100%"></div></div></div>';
   } else {
     deliveryText = '<div class="summary-line"><span>Livraison<br><small style="color:var(--light);font-size:11px">Poids total : '+weight+' g</small></span><span>'+fmt(delivery)+'</span></div>';
     if (carrier === 'mondial-relay' && subtotal < 45) {
       var remaining = 45 - subtotal;
-      deliveryText += '<div class="free-delivery-bar">Plus que <strong>'+fmt(remaining)+'</strong> pour la livraison Mondial Relay offerte !</div>';
+      var pct = Math.round((subtotal / 45) * 100);
+      deliveryText += '<div class="free-delivery-bar">Plus que <strong>'+fmt(remaining)+'</strong> pour la livraison <strong>Mondial Relay offerte</strong><div class="fdb-track"><div class="fdb-fill" style="width:'+pct+'%"></div></div></div>';
     }
   }
 

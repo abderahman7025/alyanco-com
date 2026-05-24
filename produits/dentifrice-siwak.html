@@ -285,8 +285,26 @@ function closeMobileNav() { mobileNav.classList.remove('open'); menuToggle.query
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
-const nf = document.querySelector('.newsletter-form');
-if (nf) nf.addEventListener('submit', e => { e.preventDefault(); const i = nf.querySelector('input'); if (i.value) { const b = nf.querySelector('button'); b.textContent = '✓ Inscrit !'; b.style.background = 'var(--gold)'; i.value = ''; setTimeout(() => { b.textContent = "S'inscrire"; b.style.background = 'var(--dark)'; }, 3000); } });
+(function(){
+  var nf = document.querySelector('.newsletter-form');
+  if (!nf) return;
+  nf.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var input = nf.querySelector('input[type="email"]') || nf.querySelector('input');
+    var btn = nf.querySelector('button');
+    var email = input ? input.value.trim() : '';
+    if (!email) return;
+    var origTxt = btn.textContent;
+    btn.textContent = '...'; btn.disabled = true;
+    try {
+      var r = await fetch('/api/newsletter', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:email}) });
+      var d = await r.json();
+      if (d.success) { btn.textContent = '✓ Inscrit !'; btn.style.background = 'var(--gold)'; if(input) input.value = ''; }
+      else { btn.textContent = 'Erreur, réessayez'; btn.style.background = '#c0392b'; }
+    } catch(err) { btn.textContent = 'Erreur réseau'; btn.style.background = '#c0392b'; }
+    setTimeout(function(){ btn.textContent = origTxt; btn.style.background = ''; btn.disabled = false; }, 3000);
+  });
+})();
 </script>
 <script src="../cart.js?v=5"></script>
 <script>

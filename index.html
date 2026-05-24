@@ -1893,22 +1893,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 })();
 
 // ── NEWSLETTER ──
-const newsletterForm = document.querySelector('.newsletter-form');
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', e => {
+(function(){
+  var nf = document.querySelector('.newsletter-form');
+  if (!nf) return;
+  nf.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const input = newsletterForm.querySelector('input');
-    if (input.value) {
-      const btn = newsletterForm.querySelector('button');
-      btn.textContent = '✓ Inscrit !';
-      btn.style.background = 'var(--gold)';
-      input.value = '';
-      setTimeout(() => {
-        btn.textContent = "S'inscrire";
-        btn.style.background = 'var(--dark)';
-      }, 3000);
-    }
+    var input = nf.querySelector('input[type="email"]') || nf.querySelector('input');
+    var btn = nf.querySelector('button');
+    var email = input ? input.value.trim() : '';
+    if (!email) return;
+    var origTxt = btn.textContent;
+    btn.textContent = '...'; btn.disabled = true;
+    try {
+      var r = await fetch('/api/newsletter', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:email}) });
+      var d = await r.json();
+      if (d.success) { btn.textContent = '✓ Inscrit !'; btn.style.background = 'var(--gold)'; if(input) input.value = ''; }
+      else { btn.textContent = 'Erreur, réessayez'; btn.style.background = '#c0392b'; }
+    } catch(err) { btn.textContent = 'Erreur réseau'; btn.style.background = '#c0392b'; }
+    setTimeout(function(){ btn.textContent = origTxt; btn.style.background = ''; btn.disabled = false; }, 3000);
   });
+})();
 }
 </script>
 <script src="cart.js?v=5"></script>

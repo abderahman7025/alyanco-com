@@ -195,7 +195,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <div class="product-desc">Brosse + 3 têtes-recharges + dentifrice. Tout pour démarrer l'hygiène naturelle. Économisez 30%.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">24,99€</span><span class="price-old">32,99€</span></div>
-          <button class="btn-add" onclick="window.location.href='produits/pack-siwak-complet'">+</button>
+          <button class="btn-add" onclick="event.stopPropagation();addToCart('pack-siwak-complet',1);var b=this;b.textContent='✓';setTimeout(function(){b.textContent='+'},1500)">+</button>
         </div>
       </div>
     </a>
@@ -209,7 +209,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <div class="product-desc">Bio & 100% naturel, avec 3 têtes-recharges à visser. Antibactérienne, blanchissante.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">12,99€</span><span class="price-old">15,99€</span></div>
-          <button class="btn-add" onclick="window.location.href='produits/brosse-siwak'">+</button>
+          <button class="btn-add" onclick="event.stopPropagation();addToCart('brosse-siwak',1);var b=this;b.textContent='✓';setTimeout(function(){b.textContent='+'},1500)">+</button>
         </div>
       </div>
     </a>
@@ -222,7 +222,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <div class="product-desc">Pack de 3 têtes biodégradables. Compatible avec la brosse ALYA & CO. Zéro plastique.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">6,99€</span><span class="price-old">8,99€</span></div>
-          <button class="btn-add" onclick="window.location.href='produits/tetes-recharges'">+</button>
+          <button class="btn-add" onclick="event.stopPropagation();addToCart('tetes-recharges',1);var b=this;b.textContent='✓';setTimeout(function(){b.textContent='+'},1500)">+</button>
         </div>
       </div>
     </a>
@@ -235,7 +235,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <div class="product-desc">Bio & 100% naturel. Sans fluor, sans sulfates. Blancheur naturelle dès 2 semaines.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">5,99€</span><span class="price-old">7,99€</span></div>
-          <button class="btn-add" onclick="window.location.href='produits/dentifrice-siwak'">+</button>
+          <button class="btn-add" onclick="event.stopPropagation();addToCart('dentifrice-siwak',1);var b=this;b.textContent='✓';setTimeout(function(){b.textContent='+'},1500)">+</button>
         </div>
       </div>
     </a>
@@ -301,8 +301,26 @@ function closeMobileNav() { mobileNav.classList.remove('open'); menuToggle.query
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
-const nf = document.querySelector('.newsletter-form');
-if (nf) nf.addEventListener('submit', e => { e.preventDefault(); const i = nf.querySelector('input'); if (i.value) { const b = nf.querySelector('button'); b.textContent = '✓ Inscrit !'; b.style.background = 'var(--gold)'; i.value = ''; setTimeout(() => { b.textContent = "S'inscrire"; b.style.background = 'var(--dark)'; }, 3000); } });
+(function(){
+  var nf = document.querySelector('.newsletter-form');
+  if (!nf) return;
+  nf.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var input = nf.querySelector('input[type="email"]') || nf.querySelector('input');
+    var btn = nf.querySelector('button');
+    var email = input ? input.value.trim() : '';
+    if (!email) return;
+    var origTxt = btn.textContent;
+    btn.textContent = '...'; btn.disabled = true;
+    try {
+      var r = await fetch('/api/newsletter', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:email}) });
+      var d = await r.json();
+      if (d.success) { btn.textContent = '✓ Inscrit !'; btn.style.background = 'var(--gold)'; if(input) input.value = ''; }
+      else { btn.textContent = 'Erreur, réessayez'; btn.style.background = '#c0392b'; }
+    } catch(err) { btn.textContent = 'Erreur réseau'; btn.style.background = '#c0392b'; }
+    setTimeout(function(){ btn.textContent = origTxt; btn.style.background = ''; btn.disabled = false; }, 3000);
+  });
+})();
 </script>
 <script src="cart.js?v=5"></script>
 </body>
