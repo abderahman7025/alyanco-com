@@ -274,13 +274,31 @@ export default async function handler(req, res) {
     </tr>`)
     .join('');
 
+  // QR code scannable depuis le téléphone (locker Mondial Relay)
+  const qrCodeUrl = trackingNumber
+    ? `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&data=${encodeURIComponent(trackingNumber)}`
+    : null;
+
   const labelBlock = labelUrl
-    ? `<a href="${labelUrl}" style="display:inline-block;padding:14px 32px;background:#1C1612;color:#FAF6F1;
-           text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.05em;margin-top:8px;">
-         📦 Télécharger l'étiquette
-       </a>
-       <p style="font-size:11px;color:#888;margin:8px 0 0;">ID colis Sendcloud : ${sendcloudId}</p>`
-    : `<div style="background:#FFF3F3;border:1px solid #FFB3B3;padding:14px 18px;border-radius:2px;margin-top:8px;">
+    ? `<table cellpadding="0" cellspacing="0" border="0" width="100%">
+         <tr>
+           ${qrCodeUrl ? `<td style="width:140px;padding-right:24px;vertical-align:middle;">
+             <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B8975A;margin-bottom:8px;text-align:center;">QR Code locker</div>
+             <img src="${qrCodeUrl}" width="130" height="130" alt="QR Code ${trackingNumber}"
+               style="display:block;border:1px solid #F0E8DF;">
+             <div style="font-size:10px;color:#A8958A;margin-top:6px;text-align:center;word-break:break-all;">${trackingNumber}</div>
+           </td>` : ''}
+           <td style="vertical-align:middle;">
+             <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B8975A;margin-bottom:12px;">Étiquette PDF</div>
+             <a href="${labelUrl}" style="display:inline-block;padding:14px 24px;background:#1C1612;color:#FAF6F1;
+                text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.04em;">
+               📦 Télécharger l'étiquette
+             </a>
+             <p style="font-size:11px;color:#A8958A;margin:10px 0 0;">ID Sendcloud : ${sendcloudId}</p>
+           </td>
+         </tr>
+       </table>`
+    : `<div style="background:#FFF3F3;border:1px solid #FFB3B3;padding:14px 18px;margin-top:8px;">
          <strong style="color:#c0392b;">⚠️ Étiquette non générée automatiquement</strong><br>
          <span style="font-size:13px;color:#666;">Créer le colis manuellement sur
            <a href="https://panel.sendcloud.sc" style="color:#c0392b;">panel.sendcloud.sc</a>
