@@ -39,7 +39,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body { background: var(--cream); color: var(--dark); font-family: var(--font-sans); font-weight: 300; overflow-x: hidden; cursor: none; }
 
 /* CURSOR */
-.cursor-dot { width: 8px; height: 8px; background: var(--dark); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; }
+.cursor-dot { width: 8px; height: 8px; background: #fff; mix-blend-mode: difference; border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; }
 .cursor-ring { width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; z-index: 99999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.15s var(--ease), width 0.4s var(--ease-out), height 0.4s var(--ease-out), opacity 0.3s; opacity: 0.6; }
 body.cursor-hover .cursor-dot { width: 14px; height: 14px; background: var(--gold); }
 body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
