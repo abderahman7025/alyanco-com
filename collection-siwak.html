@@ -304,6 +304,6 @@ window.addEventListener('scroll', () => { document.querySelector('nav').style.bo
 const nf = document.querySelector('.newsletter-form');
 if (nf) nf.addEventListener('submit', e => { e.preventDefault(); const i = nf.querySelector('input'); if (i.value) { const b = nf.querySelector('button'); b.textContent = '✓ Inscrit !'; b.style.background = 'var(--gold)'; i.value = ''; setTimeout(() => { b.textContent = "S'inscrire"; b.style.background = 'var(--dark)'; }, 3000); } });
 </script>
-<script src="cart.js?v=3"></script>
+<script src="cart.js?v=4"></script>
 </body>
 </html>

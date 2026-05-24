@@ -12,8 +12,8 @@ const PRODUCTS = {
   'gant-visage':        { name: 'Gant Exfoliant Visage — Soie de Mûrier',   price: 13.19, oldPrice: 21.99, weight: 18,  image: 'https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_5.png' },
   'pack-1an-full-body': { name: 'Pack 1 An Full Body',                      price: 29.99, oldPrice: 57.98, weight: 81,  image: 'https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_2.png' },
   'chouchou-soie':      { name: 'Chouchou Soie de Mûrier',                  price: 5.39,  oldPrice: 8.99,  weight: 15,  image: 'https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_7.png' },
-  'pack-tetes-x3':      { name: 'Pack Têtes-recharges Siwak Bio X3',        price: 17.99, oldPrice: 26.99, weight: 30,  image: 'https://www.alyanco.com/cdn/shop/files/Untitled_Project_5.jpg?v=1738509064' },
-  'pack-dentifrice-3m': { name: 'Pack Dentifrices Siwak en Poudre (3mois)', price: 15.99, oldPrice: 23.99, weight: 225, image: 'https://www.alyanco.com/cdn/shop/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_12.png?v=1738506846' },
+  'pack-tetes-x3':      { name: 'Pack Têtes-recharges Siwak Bio X3',        price: 17.99, oldPrice: 26.99, weight: 30,  image: 'https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0004.jpg' },
+  'pack-dentifrice-3m': { name: 'Pack Dentifrices Siwak en Poudre (3mois)', price: 15.99, oldPrice: 23.99, weight: 225, image: 'https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg' },
 };
 
 // Grille Mondial Relay 2026 — France métropolitaine [poids max g, tarif €]
