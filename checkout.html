@@ -289,6 +289,36 @@ updateTotals();
 // ── POINT RELAIS ────────────────────────────────────────────────
 var selectedRelayPoint = null;
 
+// Capture le point relais quel que soit le mécanisme de callback
+function handleServicePointSelected(point) {
+  if (!point || !point.id) return;
+  selectedRelayPoint = point;
+  var street = point.street || point.address || '';
+  var houseNum = point.house_number || point.house_number || '';
+  var postal = point.postal_code || point.postalCode || '';
+  var city = point.city || '';
+  var addr = street + (houseNum ? ' ' + houseNum : '') + ', ' + postal + ' ' + city;
+  document.getElementById('relayChosenName').textContent = point.name || '';
+  document.getElementById('relayChosenAddr').textContent = addr;
+  document.getElementById('relayEmpty').style.display = 'none';
+  document.getElementById('relayChosen').classList.add('show');
+  document.getElementById('relayErr').style.display = 'none';
+  console.log('Point relais sélectionné :', point.name, point.id);
+}
+
+// Écoute les postMessage du widget SPP (mécanisme principal dans SPP v1)
+window.addEventListener('message', function(e) {
+  if (!e.data) return;
+  var d = (typeof e.data === 'string') ? {} : e.data;
+  // Formats possibles selon la version du widget Sendcloud
+  var sp = d.servicePoint || d.service_point || d.servicePointObject
+        || (d.type === 'servicePointSelected' ? d.data : null)
+        || (d.type === 'service_point_selected' ? d.data : null);
+  if (sp && sp.id) {
+    handleServicePointSelected(sp);
+  }
+});
+
 function openRelayPicker() {
   var cp = document.querySelector('input[name="cp"]').value.trim();
   if (typeof window.sendcloud === 'undefined' || !window.sendcloud.servicePoints) {
@@ -302,14 +332,10 @@ function openRelayPicker() {
     carriers: ['mondial_relay'],
     postalCode: cp,
     onServicePointObject: function(point) {
-      selectedRelayPoint = point;
-      var addr = point.street + (point.house_number ? ' ' + point.house_number : '') +
-                 ', ' + point.postal_code + ' ' + point.city;
-      document.getElementById('relayChosenName').textContent = point.name;
-      document.getElementById('relayChosenAddr').textContent = addr;
-      document.getElementById('relayEmpty').style.display  = 'none';
-      document.getElementById('relayChosen').classList.add('show');
-      document.getElementById('relayErr').style.display    = 'none';
+      handleServicePointSelected(point);
+    },
+    onSelect: function(point) {
+      handleServicePointSelected(point);
     },
     onError: function(err) {
       console.error('Sendcloud SPP error:', err);
