@@ -234,13 +234,15 @@ function closeMobileNav(){mobileNav.classList.remove('open');}
 function fmt(n){ return n.toFixed(2).replace('.',',') + ' €'; }
 
 function renderCart() {
+  var section = document.getElementById('cartSection');
+  try {
+
   var items = getCartItems();
   var subtotal = getCartSubtotal();
   var weight = getCartTotalWeight();
   var carrier = getSelectedCarrier();
   var delivery = getShippingCost(carrier);
   var total = subtotal + delivery;
-  var section = document.getElementById('cartSection');
 
   if (items.length === 0) {
     section.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">○</div><h2 class="cart-empty-title">Votre panier est vide</h2><p class="cart-empty-sub">Découvrez nos produits naturels et ajoutez-les à votre panier.</p><a href="collection-siwak" class="btn-primary">Découvrir nos produits</a></div>';
@@ -304,6 +306,19 @@ function renderCart() {
     '<div class="trust-icons"><div class="trust-icon">🔒 Paiement sécurisé</div></div></div>';
 
   section.innerHTML = '<div>' + itemsHtml + '</div>' + summaryHtml;
+
+  } catch(err) {
+    console.error('[ALYA cart] Erreur renderCart:', err);
+    section.innerHTML =
+      '<div style="padding:60px 40px;text-align:center;">' +
+        '<p style="color:#c0392b;font-size:14px;margin-bottom:16px;">Une erreur s\'est produite lors du chargement du panier.</p>' +
+        '<p style="font-size:12px;color:#888;font-family:monospace;margin-bottom:24px;">' + err.message + '</p>' +
+        '<button onclick="localStorage.removeItem(\'alyanco_cart\');location.reload();" ' +
+          'style="padding:12px 28px;background:#1C1612;color:#FAF6F1;border:none;font-family:sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;">' +
+          'Vider le panier et réessayer' +
+        '</button>' +
+      '</div>';
+  }
 }
 
 function selectCarrier(carrier) {
