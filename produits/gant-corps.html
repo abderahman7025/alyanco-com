@@ -168,10 +168,11 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 <body>
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-<div class="announcement"><div class="announcement-track"><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Plus de 200 avis ⭐ 4,7/5</div></div></div>
+<div class="announcement"><div class="announcement-track"><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Plus de 500 avis ⭐ 4,8/5</div><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Plus de 500 avis ⭐ 4,8/5</div></div></div>
 <nav>
   <a href="../index" class="nav-logo">ALYA & CO.</a>
   <ul class="nav-links">
+    <li><a href="../index">Accueil</a></li>
     <li><a href="../collection-siwak">Brosse Siwak</a></li>
     <li><a href="../collection-gants">Gants Exfoliants</a></li>
     <li><a href="../nos-packs">Nos Packs</a></li>
@@ -184,6 +185,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
+  <a href="../index" onclick="closeMobileNav()">Accueil</a>
   <a href="../collection-siwak" onclick="closeMobileNav()">Brosse Siwak</a>
   <a href="../collection-gants" onclick="closeMobileNav()">Gants Exfoliants</a>
   <a href="../nos-packs" onclick="closeMobileNav()">Nos Packs</a>
@@ -203,7 +205,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     <h1 class="product-title">Gant Exfoliant Corps<br><em>Soie de Mûrier</em></h1>
     <div class="product-stars">
       <span class="stars">★★★★★</span>
-      <span class="stars-count">4,7/5 — 208 avis vérifiés</span>
+      <span class="stars-count">4,8/5 — 208 avis vérifiés</span>
     </div>
     <div class="product-price-wrap">
       <span class="price-main">21,59€</span>
@@ -285,74 +287,158 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
 <section class="reviews-section">
   <div class="reviews-header">
-    <div class="reviews-eyebrow">Temoignages clients</div>
-    <h2 class="reviews-title">Ils ont adopte<br><em>la routine naturelle</em></h2>
+    <div class="reviews-eyebrow">Témoignages clients</div>
+    <h2 class="reviews-title">Une peau<br><em>transformée</em></h2>
     <div class="reviews-avg">
       <span class="reviews-avg-score">4,8</span>
-      <span class="reviews-avg-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-      <span class="reviews-avg-count">sur 124 avis</span>
+      <span class="reviews-avg-stars">★★★★★</span>
+      <span class="reviews-avg-count">sur 208 avis</span>
     </div>
   </div>
   <div class="reviews-grid">
     <div class="review-card reveal">
       <div class="review-top">
-        <div class="review-avatar">LD</div>
+        <div class="review-avatar">LH</div>
         <div class="review-meta">
-          <div class="review-name">Lea D.</div>
+          <div class="review-name">Leila H.</div>
+          <div class="review-date">Mai 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Un seul passage et la peau est ultra douce. Magique !</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">SP</div>
+        <div class="review-meta">
+          <div class="review-name">Sandra P.</div>
           <div class="review-date">Avril 2026</div>
         </div>
         <div class="review-stars">★★★★★</div>
       </div>
-      <div class="review-verified">Achat verifie</div>
-      <div class="review-text">Ce gant a completement transforme ma routine beaute. Apres la douche chaude, il retire toute la peau morte en douceur - sans douleur, sans rougeur. Ma peau est incroyablement douce depuis. Je ne comprends pas pourquoi je n'ai pas decouvert ce produit plus tot.</div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Aussi efficace avec juste de l'eau ! Je n'arrive pas à y croire.</div>
     </div>
     <div class="review-card reveal">
       <div class="review-top">
-        <div class="review-avatar">SK</div>
+        <div class="review-avatar">FR</div>
         <div class="review-meta">
-          <div class="review-name">Samira K.</div>
+          <div class="review-name">Fatima R.</div>
           <div class="review-date">Mars 2026</div>
         </div>
         <div class="review-stars">★★★★★</div>
       </div>
-      <div class="review-verified">Achat verifie</div>
-      <div class="review-text">Certifie OEKO TEX, soie de murier veritable - on sent la qualite des le premier contact. Le gommage est parfait, ni trop agressif ni insuffisant. Ma peau absorbe bien mieux la creme apres. Je l'utilise une fois par semaine.</div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">La soie de mûrier c'est d'une douceur... Rien à voir avec un kessa classique.</div>
     </div>
     <div class="review-card reveal">
       <div class="review-top">
-        <div class="review-avatar">JM</div>
+        <div class="review-avatar">IM</div>
         <div class="review-meta">
-          <div class="review-name">Julie M.</div>
+          <div class="review-name">Inès M.</div>
+          <div class="review-date">Février 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Résultats visibles dès la 1ère utilisation. Conquise !</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">NB</div>
+        <div class="review-meta">
+          <div class="review-name">Noémie B.</div>
+          <div class="review-date">Mai 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Peau satinée, sans rougeur. Parfait pour les peaux sensibles.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">YD</div>
+        <div class="review-meta">
+          <div class="review-name">Yasmine D.</div>
+          <div class="review-date">Avril 2026</div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Très bien. Ça valait vraiment l'attente.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">KL</div>
+        <div class="review-meta">
+          <div class="review-name">Kadi L.</div>
+          <div class="review-date">Mars 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Plus d'acné dans le dos depuis 3 semaines. C'est fou !</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">AC</div>
+        <div class="review-meta">
+          <div class="review-name">Amina C.</div>
           <div class="review-date">Janvier 2026</div>
         </div>
         <div class="review-stars">★★★★★</div>
       </div>
-      <div class="review-verified">Achat verifie</div>
-      <div class="review-text">J'offre ce gant a toutes mes amies. C'est vraiment le meilleur gommage que j'ai essaye. Pas de grains abrasifs, juste la soie qui fait le travail en douceur. Ma peau est plus lumineuse et les poils incarnes ont presque disparu.</div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Je l'offre à toutes mes amies. Elles adorent.</div>
     </div>
     <div class="review-card reveal">
       <div class="review-top">
-        <div class="review-avatar">AB</div>
+        <div class="review-avatar">ST</div>
         <div class="review-meta">
-          <div class="review-name">Aicha B.</div>
-          <div class="review-date">Mai 2026</div>
-        </div>
-        <div class="review-stars">★★★★☆</div>
-      </div>
-      <div class="review-verified">Achat verifie</div>
-      <div class="review-text">J'ai commande le gant corps mais il m'est arrive legerement humide dans le packaging. J'ai contacte ALYA & CO. qui m'ont envoye un nouveau gant le lendemain sans poser de questions. Ce genre de SAV, c'est rare. Le gant est parfait.</div>
-    </div>
-    <div class="review-card reveal">
-      <div class="review-top">
-        <div class="review-avatar">CR</div>
-        <div class="review-meta">
-          <div class="review-name">Charlotte R.</div>
-          <div class="review-date">Avril 2026</div>
+          <div class="review-name">Sofia T.</div>
+          <div class="review-date">Février 2026</div>
         </div>
         <div class="review-stars">★★★★★</div>
       </div>
-      <div class="review-verified">Achat verifie</div>
-      <div class="review-text">J'avais des zones rugueuses sur les coudes et sous les bras que rien n'arrivait a adoucir. Depuis 3 semaines avec le gant soie, la peau est lisse et douce. Resultat bluffant. La qualite de la soie est vraiment premium.</div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Gommage parfait. Ma peau n'a jamais été aussi lisse.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">LM</div>
+        <div class="review-meta">
+          <div class="review-name">Laura M.</div>
+          <div class="review-date">Avril 2026</div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Très bien. J'aurais aimé un mode d'emploi plus détaillé.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">NV</div>
+        <div class="review-meta">
+          <div class="review-name">Nadia V.</div>
+          <div class="review-date">Mars 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Certifié OEKO TEX, c'est rassurant. Produit de qualité.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">CP</div>
+        <div class="review-meta">
+          <div class="review-name">Cécile P.</div>
+          <div class="review-date">Mai 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat vérifié</div>
+      <div class="review-text">Coup de cœur absolu. Je rachèterai sans hésiter.</div>
     </div>
   </div>
 </section>
