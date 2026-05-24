@@ -174,10 +174,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     display: grid;
     grid-template-columns: 42% 1fr;
     grid-template-areas:
-      "img eyebrow"
-      "img title"
-      "img stars"
-      "img price"
+      "img info"
       "desc desc"
       "bullets bullets"
       "ctas ctas";
@@ -189,13 +186,30 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   }
   .product-hero-image { grid-area: img; }
   .product-hero-info { display: contents; }
-  .product-eyebrow { grid-area: eyebrow; padding-top: 20px; }
-  .product-title { grid-area: title; font-size: clamp(22px, 3vw, 32px); }
-  .product-stars { grid-area: stars; }
-  .product-price-wrap { grid-area: price; border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-  .product-description { grid-area: desc; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(184,151,90,0.15); }
+  .product-top-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: center;
+    padding: 8px 0;
+  }
+  .product-top-info .product-price-wrap {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .product-top-info .product-stars { margin-bottom: 0; }
+  .product-top-info .product-title { margin-bottom: 0; }
+  .product-description {
+    grid-area: desc;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(184,151,90,0.15);
+    margin-bottom: 20px;
+  }
   .product-bullets { grid-area: bullets; }
-  .product-ctas { grid-area: ctas; flex-wrap: wrap; }
+  .product-ctas { grid-area: ctas; }
   .product-description-section { padding: 48px 24px; }
   .desc-grid { grid-template-columns: 1fr; gap: 24px; }
   .related-section { padding: 48px 24px; }
@@ -241,6 +255,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_7.png" alt="Chouchou Tenue Parfaite Soie de Mûrier ALYA & CO.">
   </div>
   <div class="product-hero-info reveal reveal-delay-1">
+    <div class="product-top-info">
     <div class="product-eyebrow">Collection Gants · Accessoires</div>
     <h1 class="product-title">Chouchou<br><em>Tenue Parfaite — Soie</em></h1>
     <div class="product-stars">
@@ -251,6 +266,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <span class="price-main">5,39€</span>
       <span class="price-crossed">8,99€</span>
       <span class="price-promo">−40%</span>
+    </div>
     </div>
     <p class="product-description">Chouchou en pure soie de mûrier. Préserve vos cheveux, évite la casse, les nœuds et les frisottis. Tenue parfaite toute la journée. Doux pour vos cheveux, résistant à l'usure, élégant au quotidien.</p>
     <ul class="product-bullets">
