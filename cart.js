@@ -73,8 +73,15 @@ function getShippingCost(carrier) {
 }
 
 function getCart() {
-  try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
-  catch(e) { return []; }
+  try {
+    var raw = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+    // Nettoyer les IDs qui n'existent plus dans PRODUCTS
+    var clean = raw.filter(function(i){ return i && i.id && PRODUCTS[i.id]; });
+    if (clean.length !== raw.length) {
+      localStorage.setItem(CART_KEY, JSON.stringify(clean));
+    }
+    return clean;
+  } catch(e) { return []; }
 }
 
 function saveCart(cart) {
