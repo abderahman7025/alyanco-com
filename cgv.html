@@ -49,7 +49,7 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .mobile-nav a:last-child { border-bottom: none; }
 
 /* HERO */
-.legal-hero { padding: 80px; background: var(--warm); border-bottom: 1px solid rgba(184,151,90,0.15); }
+.legal-hero { padding: 80px; background: var(--warm); border-bottom: 1px solid rgba(184,151,90,0.15); position: relative; z-index: 10; }
 .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 32px; }
 .breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.3s; }
 .breadcrumb a:hover { color: var(--gold); }
@@ -62,11 +62,12 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .legal-layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; align-items: start; max-width: 1200px; margin: 0 auto; padding: 60px 80px; }
 
 /* TABLE OF CONTENTS */
-.legal-toc { position: sticky; top: 100px; padding-right: 40px; }
+.legal-toc { position: sticky; top: 92px; padding-right: 40px; background: var(--cream); z-index: 5; align-self: start; }
 .toc-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
 .toc-list a { font-size: 12px; color: var(--light); text-decoration: none; padding: 6px 0; border-left: 2px solid transparent; padding-left: 12px; display: block; transition: all 0.3s; line-height: 1.4; }
 .toc-list a:hover { color: var(--dark); border-left-color: var(--gold); }
+.toc-list a.active { color: var(--dark); border-left-color: var(--gold); }
 
 /* CONTENT */
 .legal-content { padding-left: 60px; border-left: 1px solid rgba(184,151,90,0.15); }
@@ -457,6 +458,20 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Nav scroll
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
+
+// TOC active link highlight on scroll
+const sections = document.querySelectorAll('.legal-section[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateToc() {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+  tocLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();
 </script>
 <script src="cart.js"></script>
 </body>
