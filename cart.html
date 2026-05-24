@@ -206,7 +206,8 @@ function fmt(n){ return n.toFixed(2).replace('.',',') + ' €'; }
 function renderCart() {
   var items = getCartItems();
   var subtotal = getCartSubtotal();
-  var delivery = subtotal >= 45 ? 0 : 4.99;
+  var weight = getCartTotalWeight();
+  var delivery = getShippingCost();
   var total = subtotal + delivery;
   var section = document.getElementById('cartSection');
 
@@ -217,8 +218,10 @@ function renderCart() {
 
   var itemsHtml = '<div class="cart-items-header"><span>Produit</span><span>Quantité</span><span>Total</span><span></span></div>';
   items.forEach(function(item) {
+    var p = PRODUCTS[item.id];
+    var weightInfo = p ? ' · ' + (p.weight * item.qty) + ' g' : '';
     itemsHtml += '<div class="cart-item" id="item-'+item.id+'">' +
-      '<div class="cart-item-info"><img class="cart-item-img" src="'+item.image+'" alt="'+item.name+'"><div><div class="cart-item-name">'+item.name+'</div><div class="cart-item-price-unit">'+fmt(item.price)+' / unité</div></div></div>' +
+      '<div class="cart-item-info"><img class="cart-item-img" src="'+item.image+'" alt="'+item.name+'"><div><div class="cart-item-name">'+item.name+'</div><div class="cart-item-price-unit">'+fmt(item.price)+' / unité'+weightInfo+'</div></div></div>' +
       '<div class="cart-item-qty"><button class="qty-btn" onclick="changeQty(\''+item.id+'\', -1)">−</button><input class="qty-input" type="number" value="'+item.qty+'" min="1" onchange="setQtyInput(\''+item.id+'\', this.value)"><button class="qty-btn" onclick="changeQty(\''+item.id+'\', 1)">+</button></div>' +
       '<div class="cart-item-total">'+fmt(item.total)+'</div>' +
       '<button class="cart-item-remove" onclick="removeItem(\''+item.id+'\')">×</button>' +
@@ -226,17 +229,22 @@ function renderCart() {
   });
   itemsHtml += '<div class="cart-actions"><a href="collection-siwak" class="btn-secondary">← Continuer mes achats</a><a href="checkout" class="btn-primary">Passer la commande →</a></div>';
 
-  var deliveryText = delivery === 0
-    ? '<div class="summary-line delivery">🚚 Livraison offerte !</div>'
-    : '<div class="summary-line"><span>Livraison Mondial Relay</span><span>'+fmt(delivery)+'</span></div><div class="free-delivery-bar">Plus que <strong>'+fmt(45 - subtotal)+'</strong> pour la livraison offerte !</div>';
+  var deliveryText;
+  if (delivery === 0) {
+    deliveryText = '<div class="summary-line delivery"><span>🚚 Livraison Mondial Relay</span><span style="color:#4a7c59;font-weight:500">Offerte ✓</span></div>';
+  } else {
+    var remaining = 45 - subtotal;
+    deliveryText = '<div class="summary-line"><span>Livraison Mondial Relay<br><small style="color:var(--light);font-size:11px">Poids : ' + weight + ' g</small></span><span>'+fmt(delivery)+'</span></div>' +
+      '<div class="free-delivery-bar">Plus que <strong>'+fmt(remaining)+'</strong> pour la livraison offerte !</div>';
+  }
 
   var summaryHtml = '<div class="order-summary"><h3 class="summary-title">Récapitulatif</h3>' +
-    deliveryText +
     '<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>' +
+    deliveryText +
     '<div class="summary-divider"></div>' +
     '<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>' +
     '<br><a href="checkout" class="btn-primary" style="width:100%;display:block;text-align:center;">Commander →</a>' +
-    '<div class="trust-icons"><div class="trust-icon">🔒 Paiement sécurisé</div><div class="trust-icon">↩ 14j retours</div></div></div>';
+    '<div class="trust-icons"><div class="trust-icon">🔒 Paiement sécurisé</div><div class="trust-icon">↩ 30j retours</div></div></div>';
 
   section.innerHTML = '<div>' + itemsHtml + '</div>' + summaryHtml;
 }

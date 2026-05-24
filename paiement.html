@@ -190,7 +190,7 @@ var subtotal = getCartSubtotal();
 var delivery = JSON.parse(localStorage.getItem('alyanco_delivery') || '{}');
 if (items.length === 0) { window.location.href = 'cart'; }
 
-var shippingCost = delivery.shippingCost !== undefined ? parseFloat(delivery.shippingCost) : (subtotal >= 45 ? 0 : 4.99);
+var shippingCost = delivery.shippingCost !== undefined ? parseFloat(delivery.shippingCost) : getShippingCost();
 var total = subtotal + shippingCost;
 
 // Delivery recap
