@@ -103,6 +103,20 @@ nav{position:sticky;top:0;z-index:90;padding:0 60px;height:72px;display:flex;ali
 .free-delivery-bar strong{color:var(--gold);}
 .trust-icons{display:flex;gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(184,151,90,0.15);}
 .trust-icon{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--light);}
+/* CARRIER SELECTOR */
+.carrier-selector{margin:16px 0 8px;}
+.carrier-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--light);margin-bottom:10px;}
+.carrier-option{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid rgba(184,151,90,0.2);margin-bottom:8px;cursor:pointer;transition:all .25s var(--ease);background:transparent;}
+.carrier-option.selected{border-color:var(--gold);background:rgba(184,151,90,0.07);}
+.carrier-option:hover{border-color:rgba(184,151,90,0.45);background:rgba(184,151,90,0.04);}
+.carrier-radio{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--light);flex-shrink:0;position:relative;transition:border-color .2s;}
+.carrier-option.selected .carrier-radio{border-color:var(--gold);}
+.carrier-option.selected .carrier-radio::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.carrier-info{flex:1;display:flex;justify-content:space-between;align-items:center;}
+.carrier-name{font-size:13px;color:var(--dark);}
+.carrier-name small{font-size:11px;color:var(--light);}
+.carrier-price{font-family:var(--font-serif);font-size:15px;color:var(--dark);font-weight:500;}
+.carrier-price.free{color:#4a7c59;font-size:13px;}
 /* NOTIFICATION */
 .cart-notif{position:fixed;bottom:32px;right:32px;z-index:99999;background:var(--dark);color:var(--cream);border-radius:0;padding:0;opacity:0;transform:translateY(20px);transition:all .35s var(--ease-out);pointer-events:none;min-width:300px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
 .cart-notif.show{opacity:1;transform:translateY(0);pointer-events:auto;}
@@ -207,7 +221,8 @@ function renderCart() {
   var items = getCartItems();
   var subtotal = getCartSubtotal();
   var weight = getCartTotalWeight();
-  var delivery = getShippingCost();
+  var carrier = getSelectedCarrier();
+  var delivery = getShippingCost(carrier);
   var total = subtotal + delivery;
   var section = document.getElementById('cartSection');
 
@@ -216,6 +231,7 @@ function renderCart() {
     return;
   }
 
+  /* ── items list ── */
   var itemsHtml = '<div class="cart-items-header"><span>Produit</span><span>Quantité</span><span>Total</span><span></span></div>';
   items.forEach(function(item) {
     var p = PRODUCTS[item.id];
@@ -229,17 +245,42 @@ function renderCart() {
   });
   itemsHtml += '<div class="cart-actions"><a href="collection-siwak" class="btn-secondary">← Continuer mes achats</a><a href="checkout" class="btn-primary">Passer la commande →</a></div>';
 
+  /* ── carrier selector ── */
+  var mrCost = getShippingCost('mondial-relay');
+  var colCost = getShippingCost('colissimo');
+  var mrPriceHtml = mrCost === 0
+    ? '<span class="carrier-price free">Offerte ✓</span>'
+    : '<span class="carrier-price">'+fmt(mrCost)+'</span>';
+  var colPriceHtml = '<span class="carrier-price">'+fmt(colCost)+'</span>';
+
+  var carrierHtml = '<div class="carrier-selector">' +
+    '<div class="carrier-label">Mode de livraison</div>' +
+    '<div class="carrier-option'+(carrier==='mondial-relay'?' selected':'')+'" onclick="selectCarrier(\'mondial-relay\')">' +
+      '<div class="carrier-radio"></div>' +
+      '<div class="carrier-info"><div class="carrier-name">Mondial Relay <small>(72h)</small></div>'+mrPriceHtml+'</div>' +
+    '</div>' +
+    '<div class="carrier-option'+(carrier==='colissimo'?' selected':'')+'" onclick="selectCarrier(\'colissimo\')">' +
+      '<div class="carrier-radio"></div>' +
+      '<div class="carrier-info"><div class="carrier-name">Colissimo domicile <small>(48h)</small></div>'+colPriceHtml+'</div>' +
+    '</div>' +
+    '</div>';
+
+  /* ── shipping summary line ── */
   var deliveryText;
   if (delivery === 0) {
-    deliveryText = '<div class="summary-line delivery"><span>🚚 Livraison Mondial Relay</span><span style="color:#4a7c59;font-weight:500">Offerte ✓</span></div>';
+    deliveryText = '<div class="summary-line delivery"><span>Livraison</span><span style="color:#4a7c59;font-weight:500">Offerte ✓</span></div>';
   } else {
-    var remaining = 45 - subtotal;
-    deliveryText = '<div class="summary-line"><span>Livraison Mondial Relay<br><small style="color:var(--light);font-size:11px">Poids : ' + weight + ' g</small></span><span>'+fmt(delivery)+'</span></div>' +
-      '<div class="free-delivery-bar">Plus que <strong>'+fmt(remaining)+'</strong> pour la livraison offerte !</div>';
+    deliveryText = '<div class="summary-line"><span>Livraison<br><small style="color:var(--light);font-size:11px">Poids total : '+weight+' g</small></span><span>'+fmt(delivery)+'</span></div>';
+    if (carrier === 'mondial-relay' && subtotal < 45) {
+      var remaining = 45 - subtotal;
+      deliveryText += '<div class="free-delivery-bar">Plus que <strong>'+fmt(remaining)+'</strong> pour la livraison Mondial Relay offerte !</div>';
+    }
   }
 
+  /* ── full summary block ── */
   var summaryHtml = '<div class="order-summary"><h3 class="summary-title">Récapitulatif</h3>' +
     '<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>' +
+    carrierHtml +
     deliveryText +
     '<div class="summary-divider"></div>' +
     '<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>' +
@@ -249,6 +290,10 @@ function renderCart() {
   section.innerHTML = '<div>' + itemsHtml + '</div>' + summaryHtml;
 }
 
+function selectCarrier(carrier) {
+  setSelectedCarrier(carrier);
+  renderCart();
+}
 function changeQty(id, delta) {
   var items = getCartItems();
   var item = items.find(function(i){return i.id===id;});

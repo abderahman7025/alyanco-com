@@ -191,42 +191,54 @@ items.forEach(function(item){
 });
 document.getElementById('summaryItems').innerHTML = itemsHtml;
 
-// Shipping options
-var shippingHtml = '';
-var isFree = subtotal >= 45;
-shippingHtml += '<label class="shipping-option selected"><input type="radio" name="shipping" value="mondial-relay" checked><div class="shipping-option-info"><div class="shipping-option-name">Mondial Relay — 72h</div><div class="shipping-option-detail">Livraison en point relais sous 72h</div></div><div class="shipping-option-price">'+(isFree ? '<span style="color:var(--gold)">Offerte</span>' : fmt(4.99))+'</div></label>';
-shippingHtml += '<label class="shipping-option"><input type="radio" name="shipping" value="colissimo"><div class="shipping-option-info"><div class="shipping-option-name">Colissimo — 48h</div><div class="shipping-option-detail">Livraison à domicile sous 48h</div></div><div class="shipping-option-price">'+fmt(6.99)+'</div></label>';
-document.getElementById('shippingOptions').innerHTML = shippingHtml;
-document.querySelectorAll('.shipping-option input').forEach(function(r){r.addEventListener('change',updateTotals);});
+// Shipping options — pre-select carrier saved from cart page
+var savedCarrier = getSelectedCarrier(); // from cart.js
+var mrCost  = getShippingCost('mondial-relay');  // weight-based, from cart.js
+var colCost = getShippingCost('colissimo');       // weight-based, from cart.js
 
-function getShippingCost(){
-  var sel = document.querySelector('input[name="shipping"]:checked');
-  if (!sel) return isFree ? 0 : 4.99;
-  if (sel.value==='mondial-relay') return isFree ? 0 : 4.99;
-  return 6.99;
-}
+var mrPriceHtml  = mrCost === 0 ? '<span style="color:var(--gold)">Offerte</span>' : fmt(mrCost);
+var colPriceHtml = fmt(colCost);
+
+var shippingHtml = '';
+shippingHtml += '<label class="shipping-option'+(savedCarrier==='mondial-relay'?' selected':'')+'"><input type="radio" name="shipping" value="mondial-relay"'+(savedCarrier==='mondial-relay'?' checked':'')+'>'+
+  '<div class="shipping-option-info"><div class="shipping-option-name">Mondial Relay — 72h</div><div class="shipping-option-detail">Livraison en point relais sous 72h</div></div>'+
+  '<div class="shipping-option-price">'+mrPriceHtml+'</div></label>';
+shippingHtml += '<label class="shipping-option'+(savedCarrier==='colissimo'?' selected':'')+'"><input type="radio" name="shipping" value="colissimo"'+(savedCarrier==='colissimo'?' checked':'')+'>'+
+  '<div class="shipping-option-info"><div class="shipping-option-name">Colissimo — 48h</div><div class="shipping-option-detail">Livraison à domicile sous 48h</div></div>'+
+  '<div class="shipping-option-price">'+colPriceHtml+'</div></label>';
+document.getElementById('shippingOptions').innerHTML = shippingHtml;
+document.querySelectorAll('.shipping-option input').forEach(function(r){r.addEventListener('change', updateTotals);});
 
 function updateTotals(){
-  var ship = getShippingCost();
+  var sel = document.querySelector('input[name="shipping"]:checked');
+  var c = sel ? sel.value : 'mondial-relay';
+  setSelectedCarrier(c);                   // keep cart.js localStorage in sync
+  var ship = getShippingCost(c);           // weight-based via cart.js
   var total = subtotal + ship;
-  var deliveryLine = ship === 0 ? '<div class="summary-line free"><span>🚚 Livraison</span><span>Offerte !</span></div>' : '<div class="summary-line"><span>Livraison</span><span>'+fmt(ship)+'</span></div>';
-  document.getElementById('summaryTotals').innerHTML = '<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>'+deliveryLine+'<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
+  var deliveryLine = ship === 0
+    ? '<div class="summary-line free"><span>🚚 Livraison</span><span>Offerte !</span></div>'
+    : '<div class="summary-line"><span>Livraison</span><span>'+fmt(ship)+'</span></div>';
+  document.getElementById('summaryTotals').innerHTML =
+    '<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>'+
+    deliveryLine+
+    '<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
   document.querySelectorAll('.shipping-option').forEach(function(o){o.classList.remove('selected');});
-  var checked = document.querySelector('input[name="shipping"]:checked');
-  if (checked) checked.closest('.shipping-option').classList.add('selected');
+  if (sel) sel.closest('.shipping-option').classList.add('selected');
 }
 updateTotals();
 
 function handleCheckout(e){
   e.preventDefault();
   var form = e.target;
+  var sel = document.querySelector('input[name="shipping"]:checked');
+  var c = sel ? sel.value : 'mondial-relay';
   var data = {
     prenom: form.prenom.value, nom: form.nom.value,
     email: form.email.value, tel: form.tel.value,
     adresse: form.adresse.value, cp: form.cp.value,
     ville: form.ville.value, pays: form.pays.value,
-    shipping: document.querySelector('input[name="shipping"]:checked').value,
-    shippingCost: getShippingCost()
+    shipping: c,
+    shippingCost: getShippingCost(c)       // weight-based via cart.js
   };
   localStorage.setItem('alyanco_delivery', JSON.stringify(data));
   window.location.href = 'paiement';
