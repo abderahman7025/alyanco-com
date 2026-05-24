@@ -139,6 +139,30 @@ footer { background: var(--dark); color: var(--cream); padding: 80px; }
 body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
 @media (max-width: 1200px) { .related-grid { grid-template-columns: repeat(2, 1fr); } .desc-grid { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .breadcrumb { padding: 16px 20px; } .product-hero { grid-template-columns: 1fr; padding: 32px 20px; gap: 40px; } .product-description-section { padding: 48px 20px; } .related-section { padding: 48px 20px; } .related-grid { grid-template-columns: 1fr; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
+
+/* AVIS CLIENTS */
+.reviews-section { padding: 80px; background: var(--cream); }
+@media(max-width:768px){ .reviews-section { padding: 48px 24px; } }
+.reviews-header { text-align: center; margin-bottom: 48px; }
+.reviews-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.reviews-eyebrow::before, .reviews-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.reviews-title { font-family: var(--font-serif); font-size: clamp(28px,3vw,40px); font-weight: 300; color: var(--dark); line-height: 1.2; }
+.reviews-title em { font-style: italic; color: var(--gold); }
+.reviews-avg { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; }
+.reviews-avg-score { font-family: var(--font-serif); font-size: 40px; font-weight: 500; color: var(--dark); line-height: 1; }
+.reviews-avg-stars { color: var(--gold); font-size: 20px; letter-spacing: 2px; }
+.reviews-avg-count { font-size: 12px; color: var(--light); }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+.review-card { background: var(--white); border: 1px solid rgba(184,151,90,0.12); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.review-top { display: flex; align-items: center; gap: 14px; }
+.review-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sand); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 16px; font-weight: 500; color: var(--dark); flex-shrink: 0; }
+.review-meta { flex: 1; }
+.review-name { font-size: 14px; font-weight: 500; color: var(--dark); }
+.review-date { font-size: 11px; color: var(--light); margin-top: 2px; }
+.review-stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+.review-verified { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 4px; }
+.review-verified::before { content: '✓'; }
+.review-text { font-size: 13px; color: var(--mid); line-height: 1.75; flex: 1; }
 </style>
 </head>
 <body>
@@ -258,6 +282,80 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
 </section>
 
+
+<section class="reviews-section">
+  <div class="reviews-header">
+    <div class="reviews-eyebrow">Temoignages clients</div>
+    <h2 class="reviews-title">Ils ont adopte<br><em>la routine naturelle</em></h2>
+    <div class="reviews-avg">
+      <span class="reviews-avg-score">4,8</span>
+      <span class="reviews-avg-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="reviews-avg-count">sur 124 avis</span>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">LD</div>
+        <div class="review-meta">
+          <div class="review-name">Lea D.</div>
+          <div class="review-date">Avril 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">Ce gant a completement transforme ma routine beaute. Apres la douche chaude, il retire toute la peau morte en douceur - sans douleur, sans rougeur. Ma peau est incroyablement douce depuis. Je ne comprends pas pourquoi je n'ai pas decouvert ce produit plus tot.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">SK</div>
+        <div class="review-meta">
+          <div class="review-name">Samira K.</div>
+          <div class="review-date">Mars 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">Certifie OEKO TEX, soie de murier veritable - on sent la qualite des le premier contact. Le gommage est parfait, ni trop agressif ni insuffisant. Ma peau absorbe bien mieux la creme apres. Je l'utilise une fois par semaine.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">JM</div>
+        <div class="review-meta">
+          <div class="review-name">Julie M.</div>
+          <div class="review-date">Janvier 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">J'offre ce gant a toutes mes amies. C'est vraiment le meilleur gommage que j'ai essaye. Pas de grains abrasifs, juste la soie qui fait le travail en douceur. Ma peau est plus lumineuse et les poils incarnes ont presque disparu.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">AB</div>
+        <div class="review-meta">
+          <div class="review-name">Aicha B.</div>
+          <div class="review-date">Mai 2026</div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">J'ai commande le gant corps mais il m'est arrive legerement humide dans le packaging. J'ai contacte ALYA & CO. qui m'ont envoye un nouveau gant le lendemain sans poser de questions. Ce genre de SAV, c'est rare. Le gant est parfait.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">CR</div>
+        <div class="review-meta">
+          <div class="review-name">Charlotte R.</div>
+          <div class="review-date">Avril 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">J'avais des zones rugueuses sur les coudes et sous les bras que rien n'arrivait a adoucir. Depuis 3 semaines avec le gant soie, la peau est lisse et douce. Resultat bluffant. La qualite de la soie est vraiment premium.</div>
+    </div>
+  </div>
+</section>
 <footer>
   <div class="footer-top">
     <div><div class="footer-logo">ALYA & CO.</div><div class="footer-tagline">"Bien-être, satisfaction, sourire."<br>Votre beauté naturelle, notre passion.</div><div class="footer-socials"><a href="#" class="footer-social">f</a><a href="#" class="footer-social">in</a><a href="#" class="footer-social">tt</a><a href="#" class="footer-social">▶</a></div></div>

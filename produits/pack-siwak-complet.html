@@ -143,6 +143,30 @@ footer { background: var(--dark); color: var(--cream); padding: 80px; }
 body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
 @media (max-width: 1200px) { .related-grid { grid-template-columns: repeat(2, 1fr); } .desc-grid { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .breadcrumb { padding: 16px 20px; } .product-hero { grid-template-columns: 1fr; padding: 32px 20px; gap: 40px; } .product-description-section { padding: 48px 20px; } .related-section { padding: 48px 20px; } .related-grid { grid-template-columns: 1fr; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
+
+/* AVIS CLIENTS */
+.reviews-section { padding: 80px; background: var(--cream); }
+@media(max-width:768px){ .reviews-section { padding: 48px 24px; } }
+.reviews-header { text-align: center; margin-bottom: 48px; }
+.reviews-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.reviews-eyebrow::before, .reviews-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.reviews-title { font-family: var(--font-serif); font-size: clamp(28px,3vw,40px); font-weight: 300; color: var(--dark); line-height: 1.2; }
+.reviews-title em { font-style: italic; color: var(--gold); }
+.reviews-avg { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; }
+.reviews-avg-score { font-family: var(--font-serif); font-size: 40px; font-weight: 500; color: var(--dark); line-height: 1; }
+.reviews-avg-stars { color: var(--gold); font-size: 20px; letter-spacing: 2px; }
+.reviews-avg-count { font-size: 12px; color: var(--light); }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+.review-card { background: var(--white); border: 1px solid rgba(184,151,90,0.12); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.review-top { display: flex; align-items: center; gap: 14px; }
+.review-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sand); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 16px; font-weight: 500; color: var(--dark); flex-shrink: 0; }
+.review-meta { flex: 1; }
+.review-name { font-size: 14px; font-weight: 500; color: var(--dark); }
+.review-date { font-size: 11px; color: var(--light); margin-top: 2px; }
+.review-stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+.review-verified { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 4px; }
+.review-verified::before { content: '✓'; }
+.review-text { font-size: 13px; color: var(--mid); line-height: 1.75; flex: 1; }
 </style>
 </head>
 <body>
@@ -262,6 +286,68 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
 </section>
 
+
+<section class="reviews-section">
+  <div class="reviews-header">
+    <div class="reviews-eyebrow">Temoignages clients</div>
+    <h2 class="reviews-title">Ils ont adopte<br><em>la routine naturelle</em></h2>
+    <div class="reviews-avg">
+      <span class="reviews-avg-score">4,8</span>
+      <span class="reviews-avg-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="reviews-avg-count">sur 52 avis</span>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">VM</div>
+        <div class="review-meta">
+          <div class="review-name">Vincent M.</div>
+          <div class="review-date">Avril 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">Le pack complet est vraiment le meilleur moyen de demarrer avec Siwak. Tout est inclus, c'est economique, et la qualite est au rendez-vous. Ma femme a commence a l'utiliser aussi apres avoir vu mes resultats. On est convertis !</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">LS</div>
+        <div class="review-meta">
+          <div class="review-name">Leila S.</div>
+          <div class="review-date">Mars 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">Je voulais essayer le Siwak depuis longtemps. Ce pack etait parfait pour commencer - brosse + tetes + dentifrice, tout pour demarrer. Resultats visibles en 3 semaines. Dents plus blanches, gencives en bien meilleure sante.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">MD</div>
+        <div class="review-meta">
+          <div class="review-name">Marie-Claire D.</div>
+          <div class="review-date">Janvier 2026</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">Cadeau pour mon mari qui avait des problemes de gencives. En moins d'un mois, elles saignent beaucoup moins. On est vraiment surpris par l'efficacite. On va commander le pack dentifrice 3 mois en plus.</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-top">
+        <div class="review-avatar">AK</div>
+        <div class="review-meta">
+          <div class="review-name">Ali K.</div>
+          <div class="review-date">Mai 2026</div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+      </div>
+      <div class="review-verified">Achat verifie</div>
+      <div class="review-text">J'avais recu un pack sans le dentifrice. Apres un email au SAV, ils ont reexpedie le dentifrice le jour meme et m'ont offert des tetes-recharges supplementaires. Je suis bluff par la reactivite. Le pack vaut vraiment son prix.</div>
+    </div>
+  </div>
+</section>
 <footer>
   <div class="footer-top">
     <div><div class="footer-logo">ALYA & CO.</div><div class="footer-tagline">"Bien-être, satisfaction, sourire."<br>Votre beauté naturelle, notre passion.</div><div class="footer-socials"><a href="#" class="footer-social">f</a><a href="#" class="footer-social">in</a><a href="#" class="footer-social">tt</a><a href="#" class="footer-social">▶</a></div></div>
