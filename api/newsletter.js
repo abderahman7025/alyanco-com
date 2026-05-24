@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         email,
         updateEnabled: true,
-        // Ajouter listIds: [X] ici avec l'ID de votre liste Newsletter Brevo
+        listIds: [3]
       })
     });
 

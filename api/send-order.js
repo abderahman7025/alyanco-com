@@ -396,6 +396,20 @@ export default async function handler(req, res) {
       merchantHtml
     );
 
+    // Ajout du client dans la liste Brevo "Clients" (#4)
+    try {
+      await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'api-key': brevoKey },
+        body: JSON.stringify({
+          email,
+          updateEnabled: true,
+          listIds: [4],
+          attributes: { PRENOM: prenom, NOM: nom, SMS: tel || '' }
+        })
+      });
+    } catch (e) { console.error('Brevo contact add error:', e); }
+
     return res.status(200).json({ success: true, orderNumber, labelUrl, sendcloudId });
 
   } catch (err) {
