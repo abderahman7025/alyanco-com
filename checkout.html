@@ -90,6 +90,20 @@ select.form-input{cursor:none;}
 .summary-line{display:flex;justify-content:space-between;font-size:13px;color:var(--mid);margin-bottom:10px;}
 .summary-line.total{font-family:var(--font-serif);font-size:20px;font-weight:500;color:var(--dark);margin-top:12px;padding-top:12px;border-top:1px solid rgba(184,151,90,0.3);}
 .summary-line.free{color:var(--gold);}
+/* RELAY POINT PICKER */
+.relay-section{display:none;margin-top:4px;margin-bottom:24px;padding:20px;background:rgba(184,151,90,0.04);border:1px solid rgba(184,151,90,0.2);}
+.relay-section.show{display:block;}
+.relay-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);margin-bottom:14px;}
+.relay-empty{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.relay-empty-txt{font-size:13px;color:var(--light);}
+.btn-relay{padding:11px 22px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:var(--font-sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;cursor:none;transition:all .3s;flex-shrink:0;}
+.btn-relay:hover{background:var(--gold);color:var(--white);}
+.relay-chosen{display:none;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 16px;background:rgba(184,151,90,0.08);border:1px solid rgba(184,151,90,0.25);}
+.relay-chosen.show{display:flex;}
+.relay-chosen-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:3px;}
+.relay-chosen-addr{font-size:12px;color:var(--mid);}
+.btn-relay-change{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:none;border:none;cursor:none;text-decoration:underline;white-space:nowrap;padding:0;flex-shrink:0;}
+.relay-err{font-size:12px;color:#c0392b;margin-top:8px;display:none;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.4;}
 @media(max-width:900px){nav{padding:0 20px;}.nav-links{display:none;}.menu-toggle{display:flex;}.checkout-layout{grid-template-columns:1fr;}.checkout-form-col{padding:32px 20px;border-right:none;}.checkout-summary-col{padding:32px 20px;}.form-row{grid-template-columns:1fr;}}
 </style>
@@ -157,6 +171,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <div class="shipping-options" id="shippingOptions">
         <!-- Rendered by JS -->
       </div>
+      <!-- POINT RELAIS (visible uniquement si Mondial Relay sélectionné) -->
+      <div id="relaySection" class="relay-section">
+        <div class="relay-label">📍 Point relais *</div>
+        <div id="relayEmpty" class="relay-empty">
+          <span class="relay-empty-txt">Aucun point relais sélectionné</span>
+          <button type="button" class="btn-relay" onclick="openRelayPicker()">Choisir mon point relais →</button>
+        </div>
+        <div id="relayChosen" class="relay-chosen">
+          <div>
+            <div class="relay-chosen-name" id="relayChosenName"></div>
+            <div class="relay-chosen-addr" id="relayChosenAddr"></div>
+          </div>
+          <button type="button" class="btn-relay-change" onclick="openRelayPicker()">Modifier</button>
+        </div>
+        <div class="relay-err" id="relayErr">Veuillez sélectionner un point relais avant de continuer.</div>
+      </div>
+
       <button type="submit" class="btn-primary">Continuer vers le paiement →</button>
     </form>
   </div>
@@ -168,6 +199,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </div>
 
+<!-- Sendcloud Service Point Picker -->
+<script src="https://embed.sendcloud.sc/spp/1.0.0/api.min.js"></script>
 <script src="cart.js"></script>
 <script>
 const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
@@ -194,9 +227,9 @@ document.querySelectorAll('a,button,input,select').forEach(el=>{el.addEventListe
 const menuToggle=document.getElementById('menuToggle'),mobileNav=document.getElementById('mobileNav');
 menuToggle.addEventListener('click',()=>mobileNav.classList.toggle('open'));
 
-function fmt(n){ return n.toFixed(2).replace('.',',') + ' €'; }
+function fmt(n){ return parseFloat(n).toFixed(2).replace('.',',') + ' €'; }
 
-// Render summary
+// ── PANIER ──────────────────────────────────────────────────────
 var items = getCartItems();
 var subtotal = getCartSubtotal();
 if (items.length === 0) { window.location.href = 'cart'; }
@@ -207,11 +240,10 @@ items.forEach(function(item){
 });
 document.getElementById('summaryItems').innerHTML = itemsHtml;
 
-// Shipping options — pre-select carrier saved from cart page
-var savedCarrier = getSelectedCarrier(); // from cart.js
-var mrCost  = getShippingCost('mondial-relay');  // weight-based, from cart.js
-var colCost = getShippingCost('colissimo');       // weight-based, from cart.js
-
+// ── TRANSPORTEURS ───────────────────────────────────────────────
+var savedCarrier = getSelectedCarrier();
+var mrCost  = getShippingCost('mondial-relay');
+var colCost = getShippingCost('colissimo');
 var mrPriceHtml  = mrCost === 0 ? '<span style="color:var(--gold)">Offerte</span>' : fmt(mrCost);
 var colPriceHtml = fmt(colCost);
 
@@ -223,13 +255,13 @@ shippingHtml += '<label class="shipping-option'+(savedCarrier==='colissimo'?' se
   '<div class="shipping-option-info"><div class="shipping-option-name">Colissimo — 48h</div><div class="shipping-option-detail">Livraison à domicile sous 48h</div></div>'+
   '<div class="shipping-option-price">'+colPriceHtml+'</div></label>';
 document.getElementById('shippingOptions').innerHTML = shippingHtml;
-document.querySelectorAll('.shipping-option input').forEach(function(r){r.addEventListener('change', updateTotals);});
+document.querySelectorAll('.shipping-option input').forEach(function(r){ r.addEventListener('change', updateTotals); });
 
-function updateTotals(){
+function updateTotals() {
   var sel = document.querySelector('input[name="shipping"]:checked');
   var c = sel ? sel.value : 'mondial-relay';
-  setSelectedCarrier(c);                   // keep cart.js localStorage in sync
-  var ship = getShippingCost(c);           // weight-based via cart.js
+  setSelectedCarrier(c);
+  var ship = getShippingCost(c);
   var total = subtotal + ship;
   var deliveryLine = ship === 0
     ? '<div class="summary-line free"><span>🚚 Livraison</span><span>Offerte !</span></div>'
@@ -238,23 +270,82 @@ function updateTotals(){
     '<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>'+
     deliveryLine+
     '<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
-  document.querySelectorAll('.shipping-option').forEach(function(o){o.classList.remove('selected');});
+  document.querySelectorAll('.shipping-option').forEach(function(o){ o.classList.remove('selected'); });
   if (sel) sel.closest('.shipping-option').classList.add('selected');
+
+  // Afficher/masquer le sélecteur de point relais
+  var relaySection = document.getElementById('relaySection');
+  if (c === 'mondial-relay') {
+    relaySection.classList.add('show');
+  } else {
+    relaySection.classList.remove('show');
+    selectedRelayPoint = null;
+    document.getElementById('relayEmpty').style.display = 'flex';
+    document.getElementById('relayChosen').classList.remove('show');
+  }
 }
 updateTotals();
 
-function handleCheckout(e){
+// ── POINT RELAIS ────────────────────────────────────────────────
+var selectedRelayPoint = null;
+
+function openRelayPicker() {
+  var cp = document.querySelector('input[name="cp"]').value.trim();
+  if (typeof window.sendcloud === 'undefined' || !window.sendcloud.servicePoints) {
+    alert('Chargement en cours, réessayez dans un instant.');
+    return;
+  }
+  window.sendcloud.servicePoints.open({
+    apiKey:   '12c11270-999e-473c-a652-43540a988edf',
+    country:  document.querySelector('select[name="pays"]').value || 'FR',
+    language: 'fr-FR',
+    carriers: ['mondial_relay'],
+    postalCode: cp,
+    onServicePointObject: function(point) {
+      selectedRelayPoint = point;
+      var addr = point.street + (point.house_number ? ' ' + point.house_number : '') +
+                 ', ' + point.postal_code + ' ' + point.city;
+      document.getElementById('relayChosenName').textContent = point.name;
+      document.getElementById('relayChosenAddr').textContent = addr;
+      document.getElementById('relayEmpty').style.display  = 'none';
+      document.getElementById('relayChosen').classList.add('show');
+      document.getElementById('relayErr').style.display    = 'none';
+    },
+    onError: function(err) {
+      console.error('Sendcloud SPP error:', err);
+    }
+  });
+}
+
+// ── SOUMISSION ──────────────────────────────────────────────────
+function handleCheckout(e) {
   e.preventDefault();
   var form = e.target;
-  var sel = document.querySelector('input[name="shipping"]:checked');
-  var c = sel ? sel.value : 'mondial-relay';
+  var sel  = document.querySelector('input[name="shipping"]:checked');
+  var c    = sel ? sel.value : 'mondial-relay';
+
+  // Validation : point relais obligatoire pour Mondial Relay
+  if (c === 'mondial-relay' && !selectedRelayPoint) {
+    var err = document.getElementById('relayErr');
+    err.style.display = 'block';
+    document.getElementById('relaySection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
   var data = {
     prenom: form.prenom.value, nom: form.nom.value,
-    email: form.email.value, tel: form.tel.value,
+    email:  form.email.value,  tel: form.tel.value,
     adresse: form.adresse.value, cp: form.cp.value,
-    ville: form.ville.value, pays: form.pays.value,
-    shipping: c,
-    shippingCost: getShippingCost(c)       // weight-based via cart.js
+    ville:  form.ville.value,  pays: form.pays.value,
+    shipping:     c,
+    shippingCost: getShippingCost(c),
+    relayPoint: selectedRelayPoint ? {
+      id:     selectedRelayPoint.id,
+      name:   selectedRelayPoint.name,
+      adresse: selectedRelayPoint.street + (selectedRelayPoint.house_number ? ' ' + selectedRelayPoint.house_number : ''),
+      cp:     selectedRelayPoint.postal_code,
+      ville:  selectedRelayPoint.city
+    } : null
   };
   localStorage.setItem('alyanco_delivery', JSON.stringify(data));
   window.location.href = 'paiement';

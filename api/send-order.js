@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   const {
     email, prenom, nom, tel,
     orderNumber, items, total, shippingCost,
-    shipping, adresse, cp, ville, pays, totalWeight
+    shipping, adresse, cp, ville, pays, totalWeight, relayPoint
   } = req.body;
 
   if (!email || !orderNumber) {
@@ -59,15 +59,18 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           parcel: {
             name:        `${prenom} ${nom}`,
-            address:     adresse,
-            city:        ville,
-            postal_code: cp,
+            // Pour Mondial Relay : livraison au point relais, pas au domicile
+            address:     (shipping === 'mondial-relay' && relayPoint) ? relayPoint.adresse : adresse,
+            city:        (shipping === 'mondial-relay' && relayPoint) ? relayPoint.ville   : ville,
+            postal_code: (shipping === 'mondial-relay' && relayPoint) ? relayPoint.cp      : cp,
             country:     { iso_2: pays || 'FR' },
             email:       email,
             telephone:   tel || '',
             weight:      weightKg,
             order_number: orderNumber,
             shipment:    { id: methodId },
+            // ID du point relais (obligatoire pour Mondial Relay)
+            ...(shipping === 'mondial-relay' && relayPoint ? { to_service_point: relayPoint.id } : {}),
             request_label: true
           }
         })

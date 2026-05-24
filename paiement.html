@@ -211,7 +211,15 @@ var total = subtotal + shippingCost;
 
 // Delivery recap
 if (delivery.prenom) {
-  document.getElementById('deliveryRecap').innerHTML = '<strong>Livraison pour</strong>'+delivery.prenom+' '+delivery.nom+'<br>'+delivery.adresse+', '+delivery.cp+' '+delivery.ville+'<br><span style="color:var(--gold)">'+((delivery.shipping==='colissimo') ? 'Colissimo 48h' : 'Mondial Relay 72h')+'</span>';
+  var relayLine = '';
+  if (delivery.shipping === 'mondial-relay' && delivery.relayPoint) {
+    relayLine = '<br><span style="font-size:12px;color:var(--mid);">📍 ' + delivery.relayPoint.name + ' — ' + delivery.relayPoint.adresse + ', ' + delivery.relayPoint.cp + ' ' + delivery.relayPoint.ville + '</span>';
+  }
+  document.getElementById('deliveryRecap').innerHTML =
+    '<strong>Livraison pour</strong>' + delivery.prenom + ' ' + delivery.nom + '<br>' +
+    delivery.adresse + ', ' + delivery.cp + ' ' + delivery.ville + '<br>' +
+    '<span style="color:var(--gold)">' + (delivery.shipping === 'colissimo' ? 'Colissimo 48h' : 'Mondial Relay 72h') + '</span>' +
+    relayLine;
 }
 
 // Summary items
@@ -353,7 +361,8 @@ async function handlePayment(e) {
           cp:           delivery.cp,
           ville:        delivery.ville,
           pays:         delivery.pays || 'FR',
-          totalWeight:  getCartTotalWeight()
+          totalWeight:  getCartTotalWeight(),
+          relayPoint:   delivery.relayPoint || null
         })
       }).catch(function(){});
 
