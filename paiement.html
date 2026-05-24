@@ -271,7 +271,12 @@ async function createPaymentIntent() {
     var res = await fetch('/api/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: total, orderNumber: 'pending' })
+      body: JSON.stringify({
+        amount: total,
+        orderNumber: 'pending',
+        delivery: delivery,
+        totalWeight: getCartTotalWeight()
+      })
     });
     var data = await res.json();
     if (data.clientSecret) clientSecret = data.clientSecret;
@@ -330,15 +335,25 @@ async function handlePayment(e) {
       var orderNum = 'ALC-' + Date.now().toString().slice(-6);
       localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
 
-      // Email de confirmation (non bloquant)
+      // Email de confirmation + étiquette Sendcloud (non bloquant)
       fetch('/api/send-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: delivery.email, prenom: delivery.prenom, nom: delivery.nom,
-          orderNumber: orderNum, items: items, total: total,
-          shippingCost: shippingCost, shipping: delivery.shipping,
-          adresse: delivery.adresse, cp: delivery.cp, ville: delivery.ville
+          email:        delivery.email,
+          prenom:       delivery.prenom,
+          nom:          delivery.nom,
+          tel:          delivery.tel || '',
+          orderNumber:  orderNum,
+          items:        items,
+          total:        total,
+          shippingCost: shippingCost,
+          shipping:     delivery.shipping,
+          adresse:      delivery.adresse,
+          cp:           delivery.cp,
+          ville:        delivery.ville,
+          pays:         delivery.pays || 'FR',
+          totalWeight:  getCartTotalWeight()
         })
       }).catch(function(){});
 
