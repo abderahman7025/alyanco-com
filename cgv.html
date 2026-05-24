@@ -62,7 +62,8 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .legal-layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; align-items: start; max-width: 1200px; margin: 0 auto; padding: 60px 80px; }
 
 /* TABLE OF CONTENTS */
-.legal-toc { position: sticky; top: 92px; padding-right: 40px; background: var(--cream); z-index: 5; align-self: start; }
+.legal-toc { position: sticky; top: 92px; padding-right: 40px; background: var(--cream); z-index: 5; align-self: start; max-height: calc(100vh - 110px); overflow-y: auto; scrollbar-width: none; }
+.legal-toc::-webkit-scrollbar { display: none; }
 .toc-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
 .toc-list a { font-size: 12px; color: var(--light); text-decoration: none; padding: 6px 0; border-left: 2px solid transparent; padding-left: 12px; display: block; transition: all 0.3s; line-height: 1.4; }
@@ -182,7 +183,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     <div class="legal-section reveal" id="article-1">
       <div class="legal-section-number">Article 1</div>
       <h2 class="legal-section-title">Objet et champ<br><em>d'application</em></h2>
-      <p class="legal-p">Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre la société ALYA & CO. (ci-après « le Vendeur ») et toute personne physique non commerçante effectuant un achat via le site internet <strong>alyanco.com</strong> ou <strong>alyanco.com</strong> (ci-après « l'Acheteur »).</p>
+      <p class="legal-p">Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre la société ALYA & CO. (ci-après « le Vendeur ») et toute personne physique non commerçante effectuant un achat via le site internet <strong><a href="https://www.alyanco.com" target="_blank">www.alyanco.com</a></strong> (ci-après « l'Acheteur »).</p>
       <p class="legal-p">Toute commande passée sur le site implique l'acceptation pleine et entière des présentes CGV. Ces CGV prévalent sur tout autre document, notamment les conditions générales d'achat de l'Acheteur.</p>
       <p class="legal-p">Le Vendeur se réserve le droit de modifier ses CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de la commande.</p>
     </div>
@@ -462,12 +463,17 @@ window.addEventListener('scroll', () => { document.querySelector('nav').style.bo
 // TOC active link highlight on scroll
 const sections = document.querySelectorAll('.legal-section[id]');
 const tocLinks = document.querySelectorAll('.toc-list a');
+const tocEl = document.querySelector('.legal-toc');
 function updateToc() {
   let current = '';
   sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
   tocLinks.forEach(a => {
     a.classList.remove('active');
-    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    if (a.getAttribute('href') === '#' + current) {
+      a.classList.add('active');
+      // Auto-scroll TOC to keep active item visible
+      if (tocEl) { const aTop = a.offsetTop - tocEl.offsetTop; tocEl.scrollTop = aTop - 80; }
+    }
   });
 }
 window.addEventListener('scroll', updateToc, { passive: true });
