@@ -354,7 +354,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 }
 </script>
 </head>
-<body>
+<body data-product-id="tetes-recharges">
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
@@ -440,6 +440,8 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <li>Livraison Mondial Relay 72h</li>
     </ul>
     <div class="product-ctas">
+<div id="stock-badge"></div>
+
       <button class="btn-primary btn-atc" onclick="handleATC(event)">Ajouter au panier</button>
       <a href="../collection-siwak" class="btn-outline">← Retour collection</a>
     </div>
@@ -1032,5 +1034,6 @@ function switchGallery(el, src) {
 }
 </script>
 <script src="/newsletter-popup.js"></script>
+<script src="/js/stock-display.js"></script>
 </body>
 </html>

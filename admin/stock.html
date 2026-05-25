@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des stocks — ALYA & CO.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:  #FAF6F1;
+      --warm:   #F2E8DD;
+      --sand:   #EAD1BF;
+      --gold:   #B8975A;
+      --dark:   #1C1612;
+      --mid:    #6B5B4E;
+      --light:  #A8958A;
+      --danger: #b52020;
+      --warn:   #b05e0a;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background: var(--cream);
+      color: var(--dark);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────────────── */
+    header {
+      background: var(--dark);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      letter-spacing: .12em;
+      color: #FAF6F1;
+    }
+    .logo span { color: var(--gold); }
+    .badge-admin {
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(184,151,90,.4);
+      padding: 4px 10px;
+    }
+
+    /* ── MAIN ───────────────────────────────────────────────────── */
+    main { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .subtitle { font-size: 14px; color: var(--light); margin-bottom: 36px; }
+
+    /* ── AUTH FORM ──────────────────────────────────────────────── */
+    #auth-section { max-width: 420px; }
+    .field-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    input[type="password"], input[type="number"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--sand);
+      background: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      color: var(--dark);
+      outline: none;
+      transition: border-color .2s;
+    }
+    input[type="password"]:focus, input[type="number"]:focus {
+      border-color: var(--gold);
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: opacity .2s;
+    }
+    .btn:hover { opacity: .85; }
+    .btn-dark { background: var(--dark); color: #FAF6F1; }
+    .btn-gold { background: var(--gold); color: #fff; }
+    .btn-sm { padding: 8px 18px; font-size: 10px; }
+    .btn-danger { background: var(--danger); color: #fff; }
+
+    /* ── STOCK TABLE ─────────────────────────────────────────────── */
+    #stock-section { display: none; }
+
+    .section-title {
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .stock-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      margin-bottom: 32px;
+    }
+    .stock-table thead th {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--warm);
+      font-weight: 600;
+    }
+    .stock-table tbody tr {
+      border-bottom: 1px solid var(--warm);
+      transition: background .15s;
+    }
+    .stock-table tbody tr:hover { background: var(--cream); }
+    .stock-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    .product-name { font-weight: 500; }
+    .product-type {
+      font-size: 11px;
+      color: var(--light);
+      margin-top: 2px;
+      letter-spacing: .03em;
+    }
+
+    /* ── STATUS BADGE ────────────────────────────────────────────── */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 3px;
+      letter-spacing: .04em;
+    }
+    .status-pill.ok       { background: rgba(50,160,90,.1); color: #287840; border: 1px solid rgba(50,160,90,.2); }
+    .status-pill.faible   { background: rgba(200,110,20,.1); color: var(--warn); border: 1px solid rgba(200,110,20,.25); }
+    .status-pill.critique { background: rgba(190,40,40,.08); color: var(--danger); border: 1px solid rgba(190,40,40,.2); }
+    .status-pill.rupture  { background: rgba(100,100,100,.08); color: #888; border: 1px solid rgba(100,100,100,.18); }
+
+    /* ── INLINE EDIT ─────────────────────────────────────────────── */
+    .edit-row { display: flex; gap: 8px; align-items: center; }
+    .edit-row input { width: 90px; padding: 7px 10px; }
+    .pack-info { font-size: 12px; color: var(--light); font-style: italic; }
+
+    /* ── ACTIONS ─────────────────────────────────────────────────── */
+    .actions-bar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    /* ── TOAST ───────────────────────────────────────────────────── */
+    #toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 4px;
+      background: var(--dark);
+      color: #FAF6F1;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      z-index: 999;
+      max-width: 320px;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+    #toast.error { background: var(--danger); }
+    #toast.success { background: #287840; }
+
+    /* ── LOADING ─────────────────────────────────────────────────── */
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(184,151,90,.3);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .refresh-link {
+      font-size: 12px;
+      color: var(--gold);
+      cursor: pointer;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      font-family: 'Jost', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ALYA <span>&</span> CO.</div>
+  <div class="badge-admin">Administration stocks</div>
+</header>
+
+<main>
+  <h1>Gestion des stocks</h1>
+  <p class="subtitle">Visualisez et mettez à jour les niveaux de stock de vos produits en temps réel.</p>
+
+  <!-- ── AUTH ─────────────────────────────────────────────────────── -->
+  <div id="auth-section">
+    <label class="field-label" for="secret-input">Mot de passe administrateur</label>
+    <div style="display:flex;gap:10px;margin-top:0;">
+      <input type="password" id="secret-input" placeholder="••••••••••••" style="flex:1;" onkeydown="if(event.key==='Enter')login()">
+      <button class="btn btn-dark" onclick="login()">Accéder</button>
+    </div>
+    <p id="auth-error" style="font-size:12px;color:var(--danger);margin-top:10px;display:none;">Mot de passe incorrect.</p>
+  </div>
+
+  <!-- ── STOCK PANEL ───────────────────────────────────────────────── -->
+  <div id="stock-section">
+
+    <div class="actions-bar">
+      <button class="btn btn-gold btn-sm" onclick="saveAll()">Enregistrer les modifications</button>
+      <button class="btn btn-dark btn-sm" onclick="loadStocks()">↻ Rafraîchir</button>
+      <button class="btn btn-sm" style="background:var(--warm);color:var(--dark);" onclick="confirmInit()">
+        Réinitialiser aux valeurs par défaut
+      </button>
+    </div>
+
+    <!-- Produits individuels -->
+    <p class="section-title">Produits individuels (stock réel)</p>
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th style="width:40%">Produit</th>
+          <th>Stock actuel</th>
+          <th>Statut</th>
+          <th>Nouveau stock</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="individual-tbody"></tbody>
+    </table>
+
+    <!-- Packs (calculés) -->
+    <p class="section-title">Packs (stock calculé automatiquement)</p>
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th style="width:40%">Pack</th>
+          <th>Stock calculé</th>
+          <th>Statut</th>
+          <th colspan="2">Composition</th>
+        </tr>
+      </thead>
+      <tbody id="packs-tbody"></tbody>
+    </table>
+
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<script>
+  /* ── CONFIG ─────────────────────────────────────────────────────── */
+  const INDIVIDUAL = [
+    { id: 'brosse-siwak',    name: 'Brosse à dents Siwak rechargeable' },
+    { id: 'tetes-recharges', name: 'Têtes-recharges Siwak' },
+    { id: 'dentifrice-siwak',name: 'Dentifrice Siwak en poudre' },
+    { id: 'gant-corps',      name: 'Gant exfoliant corps' },
+    { id: 'gant-visage',     name: 'Gant exfoliant visage' },
+    { id: 'chouchou-soie',   name: 'Chouchou soie' }
+  ];
+
+  const PACKS = [
+    { id: 'pack-siwak-complet', name: 'Pack Brosse Siwak Complet',
+      composition: '1× Brosse + 1× Têtes + 1× Dentifrice' },
+    { id: 'pack-1an-full-body', name: 'Pack 1 An Full Body',
+      composition: '1× Gant corps + 1× Gant visage' },
+    { id: 'pack-tetes-x3',     name: 'Pack Têtes ×3',
+      composition: '3× Têtes-recharges' },
+    { id: 'pack-dentifrice-3m', name: 'Pack Dentifrice 3 mois',
+      composition: '3× Dentifrice Siwak' }
+  ];
+
+  const DEFAULTS = {
+    'brosse-siwak': 900, 'tetes-recharges': 900, 'dentifrice-siwak': 900,
+    'gant-corps': 400, 'gant-visage': 150, 'chouchou-soie': 80
+  };
+
+  let SECRET = '';
+
+  /* ── AUTH ───────────────────────────────────────────────────────── */
+  function login() {
+    const input = document.getElementById('secret-input');
+    SECRET = input.value.trim();
+    if (!SECRET) return;
+
+    // Test secret by calling set-stock with a dummy batch (empty)
+    // Actually let's just try loading stocks — if that works, secret is fine
+    // We validate secret on first save. For now, just proceed.
+    document.getElementById('auth-section').style.display = 'none';
+    document.getElementById('stock-section').style.display = 'block';
+    loadStocks();
+  }
+
+  /* ── STATUS PILL ────────────────────────────────────────────────── */
+  function statusPill(status, stock) {
+    const labels = {
+      ok:       'En stock',
+      faible:   'Faible (' + stock + ')',
+      critique: 'Critique (' + stock + ')',
+      rupture:  'Rupture'
+    };
+    return `<span class="status-pill ${status}">${labels[status] || status}</span>`;
+  }
+
+  /* ── LOAD ───────────────────────────────────────────────────────── */
+  async function loadStocks() {
+    const tbody1 = document.getElementById('individual-tbody');
+    const tbody2 = document.getElementById('packs-tbody');
+    tbody1.innerHTML = '<tr><td colspan="5" style="padding:20px;color:var(--light);"><span class="spinner"></span> Chargement…</td></tr>';
+    tbody2.innerHTML = '<tr><td colspan="5" style="padding:20px;color:var(--light);"><span class="spinner"></span> Chargement…</td></tr>';
+
+    try {
+      const r = await fetch('/api/stock');
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const data = await r.json();
+
+      // Individual rows
+      tbody1.innerHTML = INDIVIDUAL.map(p => {
+        const s = data[p.id] || { stock: 0, status: 'rupture' };
+        return `<tr>
+          <td>
+            <div class="product-name">${p.name}</div>
+            <div class="product-type">Produit individuel</div>
+          </td>
+          <td><strong>${s.stock}</strong></td>
+          <td>${statusPill(s.status, s.stock)}</td>
+          <td>
+            <input type="number" min="0" max="9999" value="${s.stock}"
+                   id="input-${p.id}" onkeydown="if(event.key==='Enter')saveSingle('${p.id}')">
+          </td>
+          <td>
+            <button class="btn btn-gold btn-sm" onclick="saveSingle('${p.id}')">Enregistrer</button>
+          </td>
+        </tr>`;
+      }).join('');
+
+      // Pack rows (read-only, calculated)
+      tbody2.innerHTML = PACKS.map(p => {
+        const s = data[p.id] || { stock: 0, status: 'rupture' };
+        return `<tr>
+          <td>
+            <div class="product-name">${p.name}</div>
+            <div class="product-type">Pack composé</div>
+          </td>
+          <td><strong>${s.stock}</strong></td>
+          <td>${statusPill(s.status, s.stock)}</td>
+          <td colspan="2"><span class="pack-info">${p.composition}</span></td>
+        </tr>`;
+      }).join('');
+
+    } catch (e) {
+      tbody1.innerHTML = `<tr><td colspan="5" style="padding:20px;color:var(--danger);">Erreur : ${e.message}</td></tr>`;
+      tbody2.innerHTML = '';
+    }
+  }
+
+  /* ── SAVE SINGLE ────────────────────────────────────────────────── */
+  async function saveSingle(id) {
+    const input = document.getElementById('input-' + id);
+    const stock = parseInt(input.value, 10);
+    if (isNaN(stock) || stock < 0) { showToast('Valeur invalide', 'error'); return; }
+
+    try {
+      const r = await fetch('/api/set-stock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret: SECRET, id, stock })
+      });
+      const data = await r.json();
+      if (!r.ok) {
+        if (r.status === 401) { showToast('Mot de passe incorrect', 'error'); return; }
+        throw new Error(data.error || 'Erreur serveur');
+      }
+      showToast('Stock mis à jour : ' + stock, 'success');
+      setTimeout(loadStocks, 600);
+    } catch (e) {
+      showToast(e.message, 'error');
+    }
+  }
+
+  /* ── SAVE ALL ───────────────────────────────────────────────────── */
+  async function saveAll() {
+    const batch = INDIVIDUAL.map(p => {
+      const input = document.getElementById('input-' + p.id);
+      return { id: p.id, stock: parseInt(input ? input.value : '0', 10) };
+    }).filter(x => !isNaN(x.stock) && x.stock >= 0);
+
+    if (!batch.length) { showToast('Aucune valeur à enregistrer', 'error'); return; }
+
+    try {
+      const r = await fetch('/api/set-stock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret: SECRET, batch })
+      });
+      const data = await r.json();
+      if (!r.ok) {
+        if (r.status === 401) { showToast('Mot de passe incorrect', 'error'); return; }
+        throw new Error(data.error || 'Erreur serveur');
+      }
+      showToast('Tous les stocks ont été mis à jour ✓', 'success');
+      setTimeout(loadStocks, 600);
+    } catch (e) {
+      showToast(e.message, 'error');
+    }
+  }
+
+  /* ── INIT ───────────────────────────────────────────────────────── */
+  async function confirmInit() {
+    const msg = 'Réinitialiser tous les stocks aux valeurs initiales ?\n\n'
+      + Object.entries(DEFAULTS).map(([id, qty]) => `  ${id}: ${qty}`).join('\n');
+    if (!confirm(msg)) return;
+
+    try {
+      const r = await fetch('/api/set-stock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret: SECRET, init: true })
+      });
+      const data = await r.json();
+      if (!r.ok) {
+        if (r.status === 401) { showToast('Mot de passe incorrect', 'error'); return; }
+        throw new Error(data.error || 'Erreur serveur');
+      }
+      showToast('Stocks réinitialisés aux valeurs par défaut ✓', 'success');
+      setTimeout(loadStocks, 600);
+    } catch (e) {
+      showToast(e.message, 'error');
+    }
+  }
+
+  /* ── TOAST ──────────────────────────────────────────────────────── */
+  let toastTimer;
+  function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'show ' + (type || '');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.className = '', 3500);
+  }
+</script>
+</body>
+</html>

@@ -1,3 +1,41 @@
+// ── STOCK MANAGEMENT ────────────────────────────────────────────
+const PACK_COMPOSITIONS = {
+  'pack-siwak-complet':  [{ id: 'brosse-siwak', qty: 1 }, { id: 'tetes-recharges', qty: 1 }, { id: 'dentifrice-siwak', qty: 1 }],
+  'pack-1an-full-body':  [{ id: 'gant-corps', qty: 1 }, { id: 'gant-visage', qty: 1 }],
+  'pack-tetes-x3':       [{ id: 'tetes-recharges', qty: 3 }],
+  'pack-dentifrice-3m':  [{ id: 'dentifrice-siwak', qty: 3 }]
+};
+
+async function decrementStock(items) {
+  const { KV_REST_API_URL: url, KV_REST_API_TOKEN: token } = process.env;
+  if (!url || !token || !items?.length) return;
+
+  // Flatten: compute how many units to deduct from each individual product
+  const decrements = {};
+  for (const item of items) {
+    const comp = PACK_COMPOSITIONS[item.id];
+    if (comp) {
+      // Pack → decrement its component products
+      for (const c of comp) {
+        decrements[c.id] = (decrements[c.id] || 0) + c.qty * item.qty;
+      }
+    } else {
+      // Individual product
+      decrements[item.id] = (decrements[item.id] || 0) + item.qty;
+    }
+  }
+
+  // Fire all decrements in parallel (atomic DECRBY via Vercel KV REST)
+  await Promise.all(
+    Object.entries(decrements).map(([pid, amt]) =>
+      fetch(`${url}/decrby/${encodeURIComponent('stock:' + pid)}/${amt}`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` }
+      }).catch(e => console.error(`Stock decrement failed for ${pid}:`, e))
+    )
+  );
+}
+
 export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -422,6 +460,9 @@ export default async function handler(req, res) {
         body: JSON.stringify({ emails: [email] })
       });
     } catch (e) { console.error('Brevo remove from list #2 error:', e); }
+
+    // Décrémentation du stock après commande confirmée
+    await decrementStock(items);
 
     return res.status(200).json({ success: true, orderNumber, labelUrl, sendcloudId });
 

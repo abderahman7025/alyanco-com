@@ -357,7 +357,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 }
 </script>
 </head>
-<body>
+<body data-product-id="gant-corps">
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="announcement"><div class="announcement-track"><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Plus de 500 avis ⭐ 4,8/5</div><div class="announcement-item">Livraison Mondial Relay 72h OFFERTE dès 45€</div><div class="announcement-item">100% Naturel · Bio · Éco-Responsable</div><div class="announcement-item">Certifié OEKO TEX® Standard 100</div><div class="announcement-item">Plus de 500 avis ⭐ 4,8/5</div></div></div>
@@ -425,6 +425,8 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <li>Livraison Mondial Relay 72h</li>
     </ul>
     <div class="product-ctas">
+<div id="stock-badge"></div>
+
       <button class="btn-primary btn-atc" onclick="handleATC(event)">Ajouter au panier</button>
       <a href="../collection-gants" class="btn-outline">← Retour collection</a>
     </div>
@@ -1034,5 +1036,6 @@ function switchGallery(el, src) {
 }
 </script>
 <script src="/newsletter-popup.js"></script>
+<script src="/js/stock-display.js"></script>
 </body>
 </html>
