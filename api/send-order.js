@@ -7,8 +7,8 @@ const PACK_COMPOSITIONS = {
 };
 
 async function decrementStock(items) {
-  const url   = process.env.UPSTASH_REDIS_REST_URL   || process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  const url   = process.env.upstash_redis_rest_KV_REST_API_URL   || process.env.UPSTASH_REDIS_REST_URL   || process.env.KV_REST_API_URL;
+  const token = process.env.upstash_redis_rest_KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
   if (!url || !token || !items?.length) return;
 
   // Flatten: compute how many units to deduct from each individual product
