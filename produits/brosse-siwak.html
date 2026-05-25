@@ -8,15 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!-- Google Analytics 4 + Google Ads -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FL7S62N6GC"></script>
-<script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-FL7S62N6GC');gtag('config','AW-17586286447');
-</script>
-<!-- Meta Pixel -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','520134214238349');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=520134214238349&ev=PageView&noscript=1"/></noscript>
+<script src="/cookies.js"></script>
 <style>
 :root {
   --cream: #FAF6F1;
@@ -363,6 +355,20 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
 .faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
+
+/* ── BUNDLE UPSELL ── */
+.bundle-upsell{position:relative;border:1.5px solid var(--gold);padding:20px 22px;margin-bottom:20px;background:linear-gradient(135deg,rgba(184,151,90,0.06) 0%,rgba(234,209,191,0.12) 100%);}
+.bundle-upsell-badge{position:absolute;top:-11px;left:20px;background:var(--gold);color:#fff;font-family:var(--font-sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:4px 12px;}
+.bundle-upsell-content{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px;}
+.bundle-upsell-left{flex:1;}
+.bundle-upsell-title{font-family:var(--font-serif);font-size:17px;font-weight:400;color:var(--dark);margin-bottom:4px;}
+.bundle-upsell-desc{font-size:12px;color:var(--mid);font-weight:300;margin-bottom:6px;}
+.bundle-upsell-saving{font-size:11px;letter-spacing:0.08em;color:var(--gold);font-weight:400;text-transform:uppercase;}
+.bundle-upsell-right{text-align:right;flex-shrink:0;}
+.bundle-upsell-price{font-family:var(--font-serif);font-size:26px;font-weight:500;color:var(--gold);line-height:1;}
+.bundle-upsell-old{font-size:12px;color:var(--light);text-decoration:line-through;margin-top:2px;}
+.bundle-upsell-btn{display:block;width:100%;text-align:center;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:12px;text-decoration:none;transition:all 0.3s;}
+.bundle-upsell-btn:hover{background:var(--gold);color:#fff;}
 </style>
 <script type="application/ld+json">
 {
@@ -483,6 +489,22 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <li>Compatible avec toute la famille</li>
       <li>Livraison Mondial Relay 72h</li>
     </ul>
+    
+    <div class="bundle-upsell">
+      <div class="bundle-upsell-badge">Meilleur choix</div>
+      <div class="bundle-upsell-content">
+        <div class="bundle-upsell-left">
+          <div class="bundle-upsell-title">Pack Brosse Siwak Complet</div>
+          <div class="bundle-upsell-desc">Brosse + 3 têtes-recharges + Dentifrice en poudre</div>
+          <div class="bundle-upsell-saving">Economisez 9€ vs achat separé</div>
+        </div>
+        <div class="bundle-upsell-right">
+          <div class="bundle-upsell-price">24,99€</div>
+          <div class="bundle-upsell-old">33,97€</div>
+        </div>
+      </div>
+      <a href="../produits/pack-siwak-complet" class="bundle-upsell-btn">Choisir le Pack Complet</a>
+    </div>
     <div class="product-ctas">
       <button class="btn-primary btn-atc" onclick="handleATC(event)">Ajouter au panier</button>
       <a href="../collection-siwak" class="btn-outline">← Retour collection</a>
@@ -1153,5 +1175,6 @@ function switchGallery(el, src) {
   el.classList.add('active');
 }
 </script>
+<script src="/newsletter-popup.js"></script>
 </body>
 </html>
