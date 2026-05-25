@@ -39,11 +39,9 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed' });
 
-  const {
-    STOCK_ADMIN_SECRET: adminSecret,
-    KV_REST_API_URL: url,
-    KV_REST_API_TOKEN: token
-  } = process.env;
+  const adminSecret = process.env.STOCK_ADMIN_SECRET;
+  const url         = process.env.UPSTASH_REDIS_REST_URL   || process.env.KV_REST_API_URL;
+  const token       = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
 
   if (!adminSecret || !url || !token) {
     return res.status(503).json({ error: 'Service not configured' });
