@@ -201,7 +201,10 @@ var delivery = JSON.parse(localStorage.getItem('alyanco_delivery') || '{}');
 if (items.length === 0) { window.location.href = 'cart'; }
 
 var shippingCost = delivery.shippingCost !== undefined ? parseFloat(delivery.shippingCost) : getShippingCost();
-var total = subtotal + shippingCost;
+// Promo
+var _promo = JSON.parse(localStorage.getItem('alyanco_promo') || 'null');
+var promoDiscount = _promo ? Math.round(subtotal * _promo.rate * 100) / 100 : 0;
+var total = Math.round((subtotal - promoDiscount + shippingCost) * 100) / 100;
 
 // Delivery recap
 if (delivery.prenom) {
@@ -224,7 +227,8 @@ items.forEach(function(item){
 document.getElementById('summaryItems').innerHTML=itemsHtml;
 
 var delivLine = shippingCost===0 ? '<div class="summary-line free"><span>Livraison</span><span>Offerte !</span></div>' : '<div class="summary-line"><span>Livraison</span><span>'+fmt(shippingCost)+'</span></div>';
-document.getElementById('summaryTotals').innerHTML='<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>'+delivLine+'<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
+var promoLine = promoDiscount > 0 ? '<div class="summary-line" style="color:var(--gold)"><span>Code '+_promo.code+' (-'+Math.round(_promo.rate*100)+'%)</span><span>-'+fmt(promoDiscount)+'</span></div>' : '';
+document.getElementById('summaryTotals').innerHTML='<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>'+delivLine+promoLine+'<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
 document.getElementById('totalDisplay').textContent=fmt(total);
 
 function switchPayment(type, btn){
@@ -256,6 +260,7 @@ function handleSuccess(orderNum) {
   gtag('event','purchase',{'transaction_id':orderNum,'value':total,'currency':'EUR'});
   if(typeof fbq!=='undefined') fbq('track','Purchase',{value:total,currency:'EUR'});
   clearCart();
+  localStorage.removeItem('alyanco_promo');
   window.location.href = 'confirmation';
 }
 
