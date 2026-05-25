@@ -253,7 +253,8 @@ function handleSuccess(orderNum) {
       shippingCost: shippingCost, shipping: delivery.shipping,
       adresse: delivery.adresse, cp: delivery.cp, ville: delivery.ville,
       pays: delivery.pays || 'FR', totalWeight: getCartTotalWeight(),
-      relayPoint: delivery.relayPoint || null
+      relayPoint: delivery.relayPoint || null,
+      promoCode: _promo ? _promo.code : null
     })
   }).catch(function(){});
   gtag('event','conversion',{'send_to':'AW-17586286447/2rBGCL_NmrIcEO_e5cFB','value':total,'currency':'EUR','transaction_id':orderNum});

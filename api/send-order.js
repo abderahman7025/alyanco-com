@@ -16,7 +16,8 @@ export default async function handler(req, res) {
   const {
     email, prenom, nom, tel,
     orderNumber, items, total, shippingCost,
-    shipping, adresse, cp, ville, pays, totalWeight, relayPoint
+    shipping, adresse, cp, ville, pays, totalWeight, relayPoint,
+    promoCode
   } = req.body;
 
   if (!email || !orderNumber) {
@@ -398,6 +399,9 @@ export default async function handler(req, res) {
 
     // Ajout du client dans la liste Brevo "Clients" (#4)
     try {
+      const brevoAttrs = { PRENOM: prenom, NOM: nom, SMS: tel || '' };
+      // Marquer le code promo comme utilisé pour cet email
+      if (promoCode) brevoAttrs.PROMO_USED = promoCode.toUpperCase();
       await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'api-key': brevoKey },
@@ -405,7 +409,7 @@ export default async function handler(req, res) {
           email,
           updateEnabled: true,
           listIds: [4],
-          attributes: { PRENOM: prenom, NOM: nom, SMS: tel || '' }
+          attributes: brevoAttrs
         })
       });
     } catch (e) { console.error('Brevo contact add error:', e); }

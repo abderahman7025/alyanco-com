@@ -317,6 +317,47 @@ function updateTotals() {
 }
 updateTotals();
 
+// ── CODE PROMO ──────────────────────────────────────────────────
+async function applyPromo() {
+  var code = (document.getElementById('promoInput').value || '').trim().toUpperCase();
+  var emailInput = document.querySelector('input[name="email"]');
+  var email = emailInput ? emailInput.value.trim() : '';
+  var msg = document.getElementById('promoMsg');
+  var inp = document.getElementById('promoInput');
+  var btn = document.getElementById('promoBtn');
+  if (!code) { msg.textContent = 'Veuillez entrer un code.'; msg.className = 'promo-msg err'; return; }
+  if (!email || !email.includes('@')) {
+    msg.textContent = "Veuillez d'abord renseigner votre adresse email.";
+    msg.className = 'promo-msg err'; return;
+  }
+  btn.textContent = '...'; btn.disabled = true;
+  try {
+    var r = await fetch('/api/validate-promo', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: email, code: code})
+    });
+    var data = await r.json();
+    if (data.valid) {
+      var rate = data.discount;
+      promoDiscount = Math.round(subtotal * rate * 100) / 100;
+      localStorage.setItem('alyanco_promo', JSON.stringify({code: code, rate: rate, email: email}));
+      inp.disabled = true; btn.disabled = true;
+      msg.textContent = '✓ Code appliqué — -' + Math.round(rate * 100) + '% sur votre commande !';
+      msg.className = 'promo-msg ok';
+      updateTotals();
+    } else {
+      msg.textContent = data.reason || 'Code invalide.';
+      msg.className = 'promo-msg err';
+      btn.textContent = 'Appliquer'; btn.disabled = false;
+    }
+  } catch(err) {
+    msg.textContent = 'Erreur de connexion. Réessayez.';
+    msg.className = 'promo-msg err';
+    btn.textContent = 'Appliquer'; btn.disabled = false;
+  }
+}
+
 // ── POINT RELAIS ────────────────────────────────────────────────
 var selectedRelayPoint = null;
 
