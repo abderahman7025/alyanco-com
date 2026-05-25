@@ -276,6 +276,12 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   .desc-specs li { flex-wrap: wrap; gap: 4px; }
   .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
 }
+/* ── BOUTONS MOBILE : côte à côte ── */
+@media (max-width: 600px) {
+  .product-ctas { flex-wrap: nowrap; }
+  .product-ctas .btn-primary,
+  .product-ctas .btn-outline { flex: 1; text-align: center; padding: 14px 8px; min-width: 0; font-size: 10px; letter-spacing: 0.1em; }
+}
 </style>
 <script type="application/ld+json">
 {
