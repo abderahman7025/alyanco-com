@@ -274,42 +274,57 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
       <div style="margin-top:20px;">
         <div style="font-family:var(--font-serif);font-size:17px;color:var(--dark);margin-bottom:14px;font-weight:500;">Mondial Relay — Points relais Europe</div>
-        <table class="delivery-table">
-          <thead>
-            <tr>
-              <th>Destination</th>
-              <th>Délai</th>
-              <th>≤ 1 kg</th>
-              <th>≤ 5 kg</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Belgique, Luxembourg, Allemagne, Pays-Bas</td><td>3–4 jours</td><td class="price">10,40 €</td><td class="price">13,70 €</td></tr>
-            <tr><td>Espagne, Portugal</td><td>4–5 jours</td><td class="price">12,50 €</td><td class="price">16,10 €</td></tr>
-            <tr><td>Italie, Autriche</td><td>5–6 jours</td><td class="price">13,40 €</td><td class="price">17,00 €</td></tr>
-          </tbody>
-        </table>
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+          <table class="delivery-table" style="min-width:620px;">
+            <thead>
+              <tr>
+                <th>Poids</th>
+                <th>Belgique / Luxembourg</th>
+                <th>Allemagne</th>
+                <th>Pays-Bas</th>
+                <th>Espagne / Portugal</th>
+                <th>Italie</th>
+                <th>Autriche</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>500 g</td><td class="price">4,60 €</td><td class="price">6,80 €</td><td class="price">5,55 €</td><td class="price">10,40 €</td><td class="price">12,50 €</td><td class="price">13,40 €</td></tr>
+              <tr><td>1 kg</td><td class="price">5,40 €</td><td class="price">7,20 €</td><td class="price">6,05 €</td><td class="price">10,40 €</td><td class="price">12,50 €</td><td class="price">13,40 €</td></tr>
+              <tr><td>2 kg</td><td class="price">6,80 €</td><td class="price">8,10 €</td><td class="price">7,05 €</td><td class="price">12,00 €</td><td class="price">12,50 €</td><td class="price">13,40 €</td></tr>
+              <tr><td>3 kg</td><td class="price">7,10 €</td><td class="price">9,00 €</td><td class="price">7,95 €</td><td class="price">12,00 €</td><td class="price">16,10 €</td><td class="price">17,00 €</td></tr>
+              <tr><td>5 kg</td><td class="price">11,30 €</td><td class="price">10,80 €</td><td class="price">11,30 €</td><td class="price">13,70 €</td><td class="price">16,10 €</td><td class="price">17,00 €</td></tr>
+              <tr><td>7 kg</td><td class="price">13,30 €</td><td class="price">12,60 €</td><td class="price">13,30 €</td><td class="price">16,10 €</td><td class="price">22,20 €</td><td class="price">24,10 €</td></tr>
+              <tr><td>10 kg</td><td class="price">14,40 €</td><td class="price">15,30 €</td><td class="price">14,40 €</td><td class="price">21,60 €</td><td class="price">22,20 €</td><td class="price">24,10 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size:12px;color:var(--light);margin-top:8px;font-style:italic;">Livraison en point relais · 3 à 6 jours ouvrés selon la destination</div>
       </div>
 
-      <div style="margin-top:28px;">
+      <div style="margin-top:32px;">
         <div style="font-family:var(--font-serif);font-size:17px;color:var(--dark);margin-bottom:14px;font-weight:500;">Colissimo — Livraison à domicile</div>
-        <table class="delivery-table">
-          <thead>
-            <tr>
-              <th>Zone</th>
-              <th>Pays couverts</th>
-              <th>Délai</th>
-              <th>À partir de</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Zone A</td><td>UE + Suisse (Allemagne, Belgique, Espagne, Italie, Portugal, Pays-Bas…)</td><td>3–5 jours</td><td class="price">14,99 €</td></tr>
-            <tr><td>Zone A + supplément Brexit</td><td>Royaume-Uni</td><td>3–5 jours</td><td class="price">18,99 €</td></tr>
-            <tr><td>Zone B</td><td>Maroc, Algérie, Tunisie, Norvège, Europe de l'Est hors UE</td><td>5–10 jours</td><td class="price">23,79 €</td></tr>
-          </tbody>
-        </table>
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+          <table class="delivery-table" style="min-width:500px;">
+            <thead>
+              <tr>
+                <th>Poids</th>
+                <th>Zone A — UE + Suisse</th>
+                <th>Royaume-Uni</th>
+                <th>Zone B — Est, Norvège, Maghreb</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>500 g</td><td class="price">14,99 €</td><td class="price">18,99 €</td><td class="price">23,79 €</td></tr>
+              <tr><td>1 kg</td><td class="price">19,39 €</td><td class="price">23,39 €</td><td class="price">28,39 €</td></tr>
+              <tr><td>2 kg</td><td class="price">22,19 €</td><td class="price">26,19 €</td><td class="price">31,09 €</td></tr>
+              <tr><td>5 kg</td><td class="price">28,59 €</td><td class="price">32,59 €</td><td class="price">39,89 €</td></tr>
+              <tr><td>10 kg</td><td class="price">46,99 €</td><td class="price">50,99 €</td><td class="price">66,09 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size:12px;color:var(--light);margin-top:8px;font-style:italic;">Livraison à domicile · Zone A : 3–5 jours · Zone B : 5–10 jours · +4 € de supplément Brexit pour le Royaume-Uni</div>
       </div>
-      <div class="free-shipping-note" style="margin-top:16px;background:rgba(184,151,90,0.06);">Tarifs indicatifs 2026 calculés pour un colis standard (≤ 500 g). Les frais exacts sont calculés au moment de la commande.</div>
+      <div class="free-shipping-note" style="margin-top:20px;background:rgba(184,151,90,0.06);">Tarifs indicatifs 2026. Les frais exacts sont calculés au moment de la commande selon votre adresse de livraison.</div>
     </div>
 
     <div class="tarif-note">
