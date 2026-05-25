@@ -294,6 +294,19 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 @media (max-width: 600px) { .ba-section { padding: 48px 20px; } .ba-tab { padding: 10px 12px; font-size: 10px; letter-spacing: 0.08em; } .ba-handle-circle { width: 48px; height: 48px; } .ba-handle-circle img { width: 36px; height: 36px; } .ba-arrows { gap: 56px; } .ba-arrows span { font-size: 18px; } }
 @media (min-width: 601px) and (max-width: 900px) { .ba-section { padding: 48px 24px; } }
 
+
+/* ── FAQ ACCORDION ── */
+.faq-section { padding: 80px; background: var(--warm); }
+@media(max-width:768px){ .faq-section { padding: 60px 24px; } }
+.faq-list { max-width: 760px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid rgba(184,151,90,0.2); }
+.faq-item:first-child { border-top: 1px solid rgba(184,151,90,0.2); }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-serif); font-size: 19px; font-weight: 400; color: var(--dark); line-height: 1.3; }
+.faq-question:hover { color: var(--gold); }
+.faq-icon { font-size: 22px; color: var(--gold); font-weight: 300; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94); line-height: 1; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+.faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
 </style>
 <script type="application/ld+json">
 {
@@ -499,6 +512,21 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     </div>
     <p class="ba-caption">Teint terne <strong>revigoré et lumineux</strong> après exfoliation</p>
   </div>
+</section>
+
+
+<section class="faq-section reveal">
+  <div class="section-header">
+    <div class="section-eyebrow">Vos questions</div>
+    <h2 class="section-title">Questions <em>fréquentes</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Combien de fois par semaine utiliser le gant ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>1 à 2 fois par semaine suffit pour la plupart des peaux. Les peaux très sèches peuvent l'utiliser jusqu'à 3 fois. Évitez d'en faire trop — votre peau a besoin de se régénérer entre chaque gommage.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>L'exfoliation est-elle douloureuse ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Non. Le gant en soie de mûrier est conçu pour un gommage doux et sans douleur. Contrairement aux brosses abrasives, la soie respecte l'épiderme tout en éliminant efficacement les cellules mortes. Résultat : une peau lisse sans irritation.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Convient-il aux peaux sensibles ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Oui. Notre gant est certifié OEKO TEX® et fabriqué en pure soie de mûrier hypoallergénique, sans aucun produit chimique. Il est adapté à tous types de peau, y compris les peaux réactives et atopiques.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Comment nettoyer et entretenir le gant ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Rincez-le à l'eau claire après chaque utilisation, essorez-le sans le tordre et laissez-le sécher à l'air libre. Un lavage en machine à 30°C en filet est possible une fois par semaine pour une hygiène optimale.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Dois-je utiliser un produit avec le gant ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Non, il fonctionne très bien avec de l'eau seule sous la douche. Vous pouvez l'associer à votre gel douche habituel si vous le souhaitez, mais ce n'est pas nécessaire. L'efficacité vient de la soie elle-même.</p></div></div>
+    </div>
 </section>
 
 <section class="related-section">
@@ -950,6 +978,21 @@ function switchBaTab(btn, id) {
     var handle = target.querySelector('.ba-handle');
     if (after) after.style.clipPath = 'inset(0 0 0 50%)';
     if (handle) handle.style.left = '50%';
+  }
+}
+
+
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.faq-answer').style.maxHeight = null;
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    var ans = item.querySelector('.faq-answer');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
   }
 }
 

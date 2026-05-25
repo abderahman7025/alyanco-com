@@ -266,6 +266,19 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .gallery-thumb.active { border-color: var(--gold); }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
+
+/* ── FAQ ACCORDION ── */
+.faq-section { padding: 80px; background: var(--warm); }
+@media(max-width:768px){ .faq-section { padding: 60px 24px; } }
+.faq-list { max-width: 760px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid rgba(184,151,90,0.2); }
+.faq-item:first-child { border-top: 1px solid rgba(184,151,90,0.2); }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-serif); font-size: 19px; font-weight: 400; color: var(--dark); line-height: 1.3; }
+.faq-question:hover { color: var(--gold); }
+.faq-icon { font-size: 22px; color: var(--gold); font-weight: 300; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94); line-height: 1; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+.faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
 </style>
 <script type="application/ld+json">
 {
@@ -386,6 +399,20 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </ul>
     </div>
   </div>
+</section>
+
+
+<section class="faq-section reveal">
+  <div class="section-header">
+    <div class="section-eyebrow">Vos questions</div>
+    <h2 class="section-title">Questions <em>fréquentes</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Comment entretenir le chouchou en soie ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Lavez-le à la main avec un savon doux ou en machine à 30°C dans un filet de lavage. Ne l'essorez pas — posez-le à plat ou suspendez-le pour sécher à l'air libre. Évitez absolument le sèche-linge, qui abîme les fibres de soie.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Convient-il à tous types de cheveux ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Oui. La soie de mûrier est bénéfique pour tous : cheveux bouclés, frisés, lisses, fins ou épais. Elle est particulièrement recommandée pour les cheveux colorés, chimiquement traités, ou sujets à la casse et aux frisottis.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Laisse-t-il des marques dans les cheveux ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Non — c'est l'un de ses plus grands avantages. Contrairement aux élastiques classiques, la soie ne crée pas de pliures ni de marques dans les cheveux, même après plusieurs heures de port. Parfait pour dormir avec les cheveux attachés.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Quelle est la différence avec un élastique classique ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>L'élastique classique crée des frottements qui cassent les cheveux et laissent des traces inesthétiques. Le chouchou en soie de mûrier glisse sur le cheveu sans aucune friction, préserve la fibre capillaire et apporte brillance et souplesse.</p></div></div>
+    </div>
 </section>
 
 <section class="related-section">
@@ -749,6 +776,21 @@ function handleATC(e) {
 })();
 </script>
 <script>
+
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.faq-answer').style.maxHeight = null;
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    var ans = item.querySelector('.faq-answer');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+  }
+}
+
 function switchGallery(el, src) {
   var mainImg = el.closest('.product-hero-image').querySelector('.gallery-main-wrap img');
   mainImg.style.opacity = '0';

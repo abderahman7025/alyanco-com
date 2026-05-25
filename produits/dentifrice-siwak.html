@@ -292,6 +292,19 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 @media (max-width: 600px) { .ba-section { padding: 48px 20px; } .ba-tab { padding: 10px 12px; font-size: 10px; letter-spacing: 0.08em; } .ba-handle-circle { width: 48px; height: 48px; } .ba-handle-circle img { width: 36px; height: 36px; } .ba-arrows { gap: 56px; } .ba-arrows span { font-size: 18px; } }
 @media (min-width: 601px) and (max-width: 900px) { .ba-section { padding: 48px 24px; } }
 
+
+/* ── FAQ ACCORDION ── */
+.faq-section { padding: 80px; background: var(--warm); }
+@media(max-width:768px){ .faq-section { padding: 60px 24px; } }
+.faq-list { max-width: 760px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid rgba(184,151,90,0.2); }
+.faq-item:first-child { border-top: 1px solid rgba(184,151,90,0.2); }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-serif); font-size: 19px; font-weight: 400; color: var(--dark); line-height: 1.3; }
+.faq-question:hover { color: var(--gold); }
+.faq-icon { font-size: 22px; color: var(--gold); font-weight: 300; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94); line-height: 1; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+.faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
 </style>
 <script type="application/ld+json">
 {
@@ -428,8 +441,8 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
   <div class="ba-slider-wrap active" id="ba-blancheur">
     <div class="ba-comparison">
-      <div class="ba-img ba-before" style="background:url('../images/ba/siwakblancheur-avant2.jpeg') center/cover no-repeat;"></div>
-      <div class="ba-img ba-after" style="background:url('../images/ba/siwakblancheur-apres.jpeg') center/cover no-repeat;"></div>
+      <div class="ba-img ba-before" style="background:url('../images/ba/siwakblancheur-avant2.webp') center/cover no-repeat;"></div>
+      <div class="ba-img ba-after" style="background:url('../images/ba/siwakblancheur-apres.webp') center/cover no-repeat;"></div>
       <div class="ba-handle">
         <div class="ba-handle-circle">
           <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en poudre bio sans fluor ALYA & CO.">
@@ -443,8 +456,8 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
   <div class="ba-slider-wrap" id="ba-plaque">
     <div class="ba-comparison">
-      <div class="ba-img ba-before" style="background:url('../images/ba/siwaktartre-avant.jpeg') center/cover no-repeat;"></div>
-      <div class="ba-img ba-after" style="background:url('../images/ba/siwaktartre-apres.jpeg') center/cover no-repeat;"></div>
+      <div class="ba-img ba-before" style="background:url('../images/ba/siwaktartre-avant.webp') center/cover no-repeat;"></div>
+      <div class="ba-img ba-after" style="background:url('../images/ba/siwaktartre-apres.webp') center/cover no-repeat;"></div>
       <div class="ba-handle">
         <div class="ba-handle-circle">
           <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en poudre bio sans fluor ALYA & CO.">
@@ -458,8 +471,8 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
   <div class="ba-slider-wrap" id="ba-haleine">
     <div class="ba-comparison">
-      <div class="ba-img ba-before" style="background:url('../images/ba/siwakhaleine-avant.jpeg') center/cover no-repeat;"></div>
-      <div class="ba-img ba-after" style="background:url('../images/ba/siwakhaleine-apres.jpeg') center/cover no-repeat;"></div>
+      <div class="ba-img ba-before" style="background:url('../images/ba/siwakhaleine-avant.webp') center/cover no-repeat;"></div>
+      <div class="ba-img ba-after" style="background:url('../images/ba/siwakhaleine-apres.webp') center/cover no-repeat;"></div>
       <div class="ba-handle">
         <div class="ba-handle-circle">
           <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en poudre bio sans fluor ALYA & CO.">
@@ -473,8 +486,8 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   </div>
   <div class="ba-slider-wrap" id="ba-gencives">
     <div class="ba-comparison">
-      <div class="ba-img ba-before" style="background:url('../images/ba/siwakgencives-avant.jpeg') center/cover no-repeat;"></div>
-      <div class="ba-img ba-after" style="background:url('../images/ba/siwakgencives-apres.jpeg') center/cover no-repeat;"></div>
+      <div class="ba-img ba-before" style="background:url('../images/ba/siwakgencives-avant.webp') center/cover no-repeat;"></div>
+      <div class="ba-img ba-after" style="background:url('../images/ba/siwakgencives-apres.webp') center/cover no-repeat;"></div>
       <div class="ba-handle">
         <div class="ba-handle-circle">
           <img src="https://cdn.shopify.com/s/files/1/0779/8259/7466/files/IMG-20250111-WA0005.jpg" alt="Dentifrice Siwak en poudre bio sans fluor ALYA & CO.">
@@ -486,6 +499,21 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     </div>
     <p class="ba-caption">Gencives irritees et enflammees <strong>apaisees et renforcees</strong></p>
   </div>
+</section>
+
+
+<section class="faq-section reveal">
+  <div class="section-header">
+    <div class="section-eyebrow">Vos questions</div>
+    <h2 class="section-title">Questions <em>fréquentes</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Le dentifrice en poudre mousse-t-il ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Non, et c'est tout à fait normal. Notre dentifrice ne contient pas de SLS (sulfate lauryl sodique), le détergent responsable de la mousse dans les dentifrices classiques. Son absence n'affecte pas l'efficacité — au contraire, c'est meilleur pour vos gencives.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Comment l'utiliser ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Trempez votre brosse légèrement humide dans le pot (ou versez une petite pincée sur la tête), puis brossez normalement pendant 2 minutes. Une toute petite quantité suffit — le pot dure en moyenne 4 à 6 semaines.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Pourquoi sans fluor ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Notre dentifrice est volontairement sans fluor de synthèse, pour ceux qui préfèrent une hygiène 100% naturelle. Le Siwak contient naturellement du fluor organique ainsi que des minéraux reminéralisants (silice, calcium) qui protègent l'émail de manière naturelle.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Convient-il aux dents sensibles ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Oui. Sans abrasifs agressifs, sans SLS, sans conservateurs artificiels — sa formule ultra-douce convient parfaitement aux dents sensibles et aux gencives fragilisées. Beaucoup de nos clients avec des dents sensibles l'adoptent définitivement.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Combien de temps dure un pot ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Un pot de 40g dure environ 4 à 6 semaines avec une utilisation deux fois par jour. C'est l'équivalent économique et écologique d'un tube de dentifrice classique, avec zéro plastique et zéro déchet.</p></div></div>
+    </div>
 </section>
 
 <section class="related-section">
@@ -881,6 +909,21 @@ function switchBaTab(btn, id) {
     var handle = target.querySelector('.ba-handle');
     if (after) after.style.clipPath = 'inset(0 0 0 50%)';
     if (handle) handle.style.left = '50%';
+  }
+}
+
+
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.faq-answer').style.maxHeight = null;
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    var ans = item.querySelector('.faq-answer');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
   }
 }
 

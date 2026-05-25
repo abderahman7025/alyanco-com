@@ -300,6 +300,19 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 @media (max-width: 600px) { .ba-section { padding: 48px 20px; } .ba-tab { padding: 10px 12px; font-size: 10px; letter-spacing: 0.08em; } .ba-handle-circle { width: 48px; height: 48px; } .ba-handle-circle img { width: 36px; height: 36px; } .ba-arrows { gap: 56px; } .ba-arrows span { font-size: 18px; } }
 @media (min-width: 601px) and (max-width: 900px) { .ba-section { padding: 48px 24px; } }
 
+
+/* ── FAQ ACCORDION ── */
+.faq-section { padding: 80px; background: var(--warm); }
+@media(max-width:768px){ .faq-section { padding: 60px 24px; } }
+.faq-list { max-width: 760px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid rgba(184,151,90,0.2); }
+.faq-item:first-child { border-top: 1px solid rgba(184,151,90,0.2); }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-serif); font-size: 19px; font-weight: 400; color: var(--dark); line-height: 1.3; }
+.faq-question:hover { color: var(--gold); }
+.faq-icon { font-size: 22px; color: var(--gold); font-weight: 300; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94); line-height: 1; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+.faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
 </style>
 <script type="application/ld+json">
 {
@@ -500,6 +513,21 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     </div>
     <p class="ba-caption">Teint terne <strong>revigoré et lumineux</strong> apres exfoliation</p>
   </div>
+</section>
+
+
+<section class="faq-section reveal">
+  <div class="section-header">
+    <div class="section-eyebrow">Vos questions</div>
+    <h2 class="section-title">Questions <em>fréquentes</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Combien de fois par semaine utiliser les gants ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Pour le gant corps : 1 à 2 fois par semaine. Pour le gant visage : 1 à 2 fois par semaine aussi, mais jamais le même jour que le corps si votre peau est sensible. Laissez la peau se régénérer entre chaque gommage.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>L'exfoliation est-elle douloureuse ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Non. La soie de mûrier offre un gommage doux et sans douleur. Contrairement aux brosses abrasives ou aux gommages au sel, elle respecte l'épiderme tout en éliminant efficacement les cellules mortes. Résultat : peau lisse, sans rougeur.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Les gants conviennent-ils aux peaux sensibles ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Oui. Tous nos gants sont certifiés OEKO TEX® en pure soie de mûrier hypoallergénique, sans produits chimiques. Ils conviennent à tous types de peau, y compris les peaux réactives, atopiques et les peaux post-épilation.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Comment entretenir les gants ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Rincez-les à l'eau claire après chaque utilisation, essorez sans tordre et laissez sécher à l'air libre. Lavage en machine à 30°C en filet possible une fois par semaine. Ne partagez pas les gants pour des raisons d'hygiène.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Quelle est la durée de vie des gants ?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Avec un entretien soigneux, chaque gant dure plusieurs mois. La soie de mûrier est une fibre naturellement résistante. Remplacez le gant lorsque les fibres se détériorent ou perdent leur texture douce.</p></div></div>
+    </div>
 </section>
 
 <section class="related-section">
@@ -895,6 +923,21 @@ function switchBaTab(btn, id) {
     var handle = target.querySelector('.ba-handle');
     if (after) after.style.clipPath = 'inset(0 0 0 50%)';
     if (handle) handle.style.left = '50%';
+  }
+}
+
+
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.faq-answer').style.maxHeight = null;
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    var ans = item.querySelector('.faq-answer');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
   }
 }
 
