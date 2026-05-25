@@ -271,6 +271,11 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
 .faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
+/* ── DESC-SPECS MOBILE : texte long ── */
+@media (max-width: 500px) {
+  .desc-specs li { flex-wrap: wrap; gap: 4px; }
+  .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -393,12 +398,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 </section>
 
 <section class="product-description-section">
-  <div class="reveal">
-    <div class="section-eyebrow">Description complète</div>
-    <h2 class="section-title">Vos cheveux méritent<br><em>la soie</em></h2>
-  </div>
-  <div class="desc-grid reveal">
+  <div class="desc-grid reveal" style="margin-top:0">
     <div class="desc-col">
+      <div class="section-eyebrow">Description complète</div>
+      <h2 class="section-title" style="margin-bottom:24px;">Vos cheveux méritent<br><em>la soie</em></h2>
       <p>Les élastiques et chouchous ordinaires en coton ou synthétique malmènent vos cheveux à chaque utilisation : traction, casse, nœuds, marques... Notre chouchou en soie de mûrier change tout.</p>
       <p>La surface ultra-lisse de la soie glisse sur le cheveu sans l'accrocher ni le stresser. Résultat : zéro casse, zéro nœud, zéro marque. Vos cheveux restent doux, brillants et en bonne santé, même portés haut ou noués toute la journée.</p>
       <p>Idéal aussi comme accessoire de nuit : nouer vos cheveux avec un chouchou en soie pendant le sommeil protège les pointes et réduit les frisottis au réveil. Le petit luxe quotidien que vos cheveux méritent vraiment.</p>

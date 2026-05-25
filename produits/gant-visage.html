@@ -298,6 +298,11 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
 .faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
+/* ── DESC-SPECS MOBILE : texte long ── */
+@media (max-width: 500px) {
+  .desc-specs li { flex-wrap: wrap; gap: 4px; }
+  .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -426,12 +431,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 </section>
 
 <section class="product-description-section">
-  <div class="reveal">
-    <div class="section-eyebrow">Description complète</div>
-    <h2 class="section-title">Votre peau retrouve<br><em>son éclat naturel</em></h2>
-  </div>
-  <div class="desc-grid reveal">
+  <div class="desc-grid reveal" style="margin-top:0">
     <div class="desc-col">
+      <div class="section-eyebrow">Description complète</div>
+      <h2 class="section-title" style="margin-bottom:24px;">Votre peau retrouve<br><em>son éclat naturel</em></h2>
       <p>La peau du visage est la plus exposée et la plus fragile. Elle mérite un traitement particulier. Notre gant visage est tissé avec une soie de mûrier spécialement sélectionnée pour sa finesse et sa douceur — beaucoup plus souple que le gant corps.</p>
       <p>Utilisé 1 à 2 fois par semaine sur peau humide sous la douche ou au-dessus du lavabo, il élimine en douceur les cellules mortes accumulées, désobstrue les pores, réduit les points noirs et aide à améliorer l'apparence de l'acné. Aucun produit cosmétique supplémentaire n'est nécessaire — l'eau tiède suffit.</p>
       <p>Résultat : un teint plus lumineux, une texture de peau plus lisse et une meilleure absorption de vos soins habituels (crèmes, sérums). Le duo parfait avec votre routine beauté actuelle.</p>

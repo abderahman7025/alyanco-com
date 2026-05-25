@@ -50,7 +50,7 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .product-hero-image-deco { position: absolute; inset: 0; pointer-events: none; }
 .product-hero-image-deco::before { content: ''; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(184,151,90,0.15); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); animation: ringPulse 5s ease-in-out infinite; }
 @keyframes ringPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity:1; } 50% { transform: translate(-50%,-50%) scale(1.05); opacity:0.6; } }
-.badge-bestseller { position: absolute; top: 24px; right: 24px; background: var(--gold); color: var(--white); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 14px; }
+.badge-bestseller { position: absolute; top: 24px; right: 24px; background: var(--gold); color: var(--white); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 14px; z-index: 10; }
 .product-hero-info { display: flex; flex-direction: column; }
 .product-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
 .product-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
@@ -279,6 +279,11 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
 .faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
+/* ── DESC-SPECS MOBILE : texte long ── */
+@media (max-width: 500px) {
+  .desc-specs li { flex-wrap: wrap; gap: 4px; }
+  .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -379,12 +384,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 </section>
 
 <section class="product-description-section">
-  <div class="reveal">
-    <div class="section-eyebrow">Description complète</div>
-    <h2 class="section-title">L'hygiène naturelle,<br><em>pour des mois</em></h2>
-  </div>
-  <div class="desc-grid reveal">
+  <div class="desc-grid reveal" style="margin-top:0">
     <div class="desc-col">
+      <div class="section-eyebrow">Description complète</div>
+      <h2 class="section-title" style="margin-bottom:24px;">L'hygiène naturelle,<br><em>pour des mois</em></h2>
       <p>Le Pack Têtes-recharges Siwak Bio X3 est la solution intelligente pour ceux qui ont déjà adopté la brosse Siwak rechargeable et souhaitent recharger en stock. Trois boîtes de 6 têtes pour plus d'un an et demi d'hygiène dentaire 100% naturelle.</p>
       <p>Fabriquées à partir du bois Arak (Salvadora persica), ces têtes-recharges contiennent naturellement des agents antibactériens, blanchissants et des minéraux bénéfiques pour les gencives. Elles se vissent facilement sur le manche de la brosse Siwak rechargeable ALYA & CO.</p>
       <p>En choisissant ce pack, vous réduisez vos déchets plastiques tout en faisant des économies. Un geste simple pour votre santé et pour la planète.</p>

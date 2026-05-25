@@ -297,6 +297,11 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
 .faq-answer p { padding: 0 0 22px; font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; }
+/* ── DESC-SPECS MOBILE : texte long ── */
+@media (max-width: 500px) {
+  .desc-specs li { flex-wrap: wrap; gap: 4px; }
+  .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -412,12 +417,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 </section>
 
 <section class="product-description-section">
-  <div class="reveal">
-    <div class="section-eyebrow">Description complète</div>
-    <h2 class="section-title">La blancheur naturelle,<br><em>sans compromis</em></h2>
-  </div>
-  <div class="desc-grid reveal">
+  <div class="desc-grid reveal" style="margin-top:0">
     <div class="desc-col">
+      <div class="section-eyebrow">Description complète</div>
+      <h2 class="section-title" style="margin-bottom:24px;">La blancheur naturelle,<br><em>sans compromis</em></h2>
       <p>Notre dentifrice en poudre est la alternative naturelle aux dentifrices conventionnels chargés en fluor, sulfates de lauryle (SLS), parabènes et colorants artificiels. Formulé à partir d'ingrédients d'origine naturelle et d'extraits de Siwak, il nettoie, blanchit et protège en douceur.</p>
       <p>La texture poudre, une fois humidifiée sur la brosse, forme une légère mousse naturelle qui pénètre entre les dents et sur la gencive. Résultat : haleine fraîche, dents plus blanches, gencives en bonne santé — sans le moindre produit chimique agressif.</p>
       <p>Idéal pour compléter votre routine Siwak avec la brosse ALYA & CO. et les têtes-recharges biodégradables.</p>

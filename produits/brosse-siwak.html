@@ -75,7 +75,7 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .product-hero-image-deco { position: absolute; inset: 0; pointer-events: none; }
 .product-hero-image-deco::before { content: ''; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(184,151,90,0.15); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); animation: ringPulse 5s ease-in-out infinite; }
 @keyframes ringPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity:1; } 50% { transform: translate(-50%,-50%) scale(1.05); opacity:0.6; } }
-.badge-bestseller { position: absolute; top: 24px; right: 24px; background: var(--gold); color: var(--white); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 14px; font-weight: 400; }
+.badge-bestseller { position: absolute; top: 24px; right: 24px; background: var(--gold); color: var(--white); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 14px; font-weight: 400; z-index: 10; }
 
 .product-hero-info { display: flex; flex-direction: column; gap: 0; }
 .product-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
@@ -369,6 +369,11 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 .bundle-upsell-old{font-size:12px;color:var(--light);text-decoration:line-through;margin-top:2px;}
 .bundle-upsell-btn{display:block;width:100%;text-align:center;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:12px;text-decoration:none;transition:all 0.3s;}
 .bundle-upsell-btn:hover{background:var(--gold);color:#fff;}
+/* ── DESC-SPECS MOBILE : texte long ── */
+@media (max-width: 500px) {
+  .desc-specs li { flex-wrap: wrap; gap: 4px; }
+  .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -548,12 +553,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 
 <!-- DESCRIPTION COMPLÈTE -->
 <section class="product-description-section">
-  <div class="reveal">
-    <div class="section-eyebrow">Description complète</div>
-    <h2 class="section-title">L'hygiène bucco-dentaire<br><em>réinventée</em></h2>
-  </div>
-  <div class="desc-grid reveal">
+  <div class="desc-grid reveal" style="margin-top:0">
     <div class="desc-col">
+      <div class="section-eyebrow">Description complète</div>
+      <h2 class="section-title" style="margin-bottom:24px;">L'hygiène bucco-dentaire<br><em>réinventée</em></h2>
       <p>Le Siwak (ou Miswak) est une branche de l'arbre Salvadora persica utilisée depuis des millénaires dans les traditions arabes, africaines et asiatiques pour l'hygiène bucco-dentaire. Aujourd'hui, de nombreuses études scientifiques confirment son efficacité supérieure à celle d'une brosse à dents classique.</p>
       <p>La brosse ALYA & CO. modernise ce geste ancestral en proposant un système de têtes-recharges vissées, pratiques et 100% biodégradables. Plus besoin de jeter une brosse entière tous les 3 mois — seule la tête se remplace.</p>
       <p>Fabriquée en laboratoires certifiés aux normes européennes, sans produits chimiques, sans additifs artificiels. La nature à l'état pur, pour des résultats visibles dès les premières utilisations.</p>
