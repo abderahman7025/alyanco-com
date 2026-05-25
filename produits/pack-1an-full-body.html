@@ -50,7 +50,7 @@ nav { position: sticky; top: 0; z-index: 90; padding: 0 60px; height: 72px; disp
 .product-hero-image-deco { position: absolute; inset: 0; pointer-events: none; }
 .product-hero-image-deco::before { content: ''; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(184,151,90,0.15); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); animation: ringPulse 5s ease-in-out infinite; }
 @keyframes ringPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity:1; } 50% { transform: translate(-50%,-50%) scale(1.05); opacity:0.6; } }
-.badge-bestseller { position: absolute; top: 24px; left: 24px; background: var(--gold); color: var(--white); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 14px; }
+.badge-bestseller { position: absolute; top: 24px; left: 24px; background: var(--gold); color: var(--white); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 14px; z-index: 10; }
 .product-hero-info { display: flex; flex-direction: column; }
 .product-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
 .product-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
@@ -138,6 +138,12 @@ footer { background: var(--dark); color: var(--cream); padding: 80px; }
 body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
 @media (max-width: 1200px) { .related-grid { grid-template-columns: repeat(2, 1fr); } .desc-grid { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 600px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .breadcrumb { padding: 16px 20px; } .product-hero { grid-template-columns: 1fr; padding: 32px 20px; gap: 40px; } .product-description-section { padding: 48px 20px; } .related-section { padding: 48px 20px; } .related-grid { grid-template-columns: 1fr; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
+
+/* ── DESC-SPECS MOBILE : texte long ── */
+@media (max-width: 500px) {
+  .desc-specs li { flex-wrap: wrap; gap: 4px; }
+  .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
+}
 
 /* AVIS CLIENTS */
 .reviews-section { padding: 80px 0; background: var(--cream); overflow: hidden; }
@@ -438,12 +444,10 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 </section>
 
 <section class="product-description-section">
-  <div class="reveal">
-    <div class="section-eyebrow">Description complète</div>
-    <h2 class="section-title">Peau parfaite<br><em>de la tête aux pieds</em></h2>
-  </div>
-  <div class="desc-grid reveal">
+  <div class="desc-grid reveal" style="margin-top:0">
     <div class="desc-col">
+      <div class="section-eyebrow">Description complète</div>
+      <h2 class="section-title" style="margin-bottom:24px;">Peau parfaite<br><em>de la tête aux pieds</em></h2>
       <p>Le Pack 1 An Full Body est notre offre la plus populaire, et pour cause : il réunit les deux gants essentiels pour une peau impeccable de la tête aux pieds. Corps et visage, rien n'est laissé au hasard.</p>
       <p>Le gant corps s'occupe de tout le reste du corps sous la douche — bras, jambes, dos, ventre — en éliminant 100% des cellules mortes en un seul passage. Le gant visage prend soin de votre peau la plus délicate, désobstrues les pores et réduit l'apparence des points noirs et de l'acné.</p>
       <p>Résultat dès la 1ère utilisation : une peau plus douce, plus lumineuse, qui absorbe mieux vos crèmes et sérums. À vie, sans produit chimique. Juste de l'eau chaude.</p>
