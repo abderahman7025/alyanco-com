@@ -2,6 +2,19 @@
   var KEY = 'alya_nl_done';
   if (localStorage.getItem(KEY)) return;
 
+  /* ── Traductions ── */
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var NLT = {
+    fr: { ey:'Offre exclusive', title:'Un cadeau<br><em>pour vous</em>', sub:'Inscrivez-vous et recevez <strong>-10%</strong> sur votre<br>première commande — livraison offerte dès 45€.', ph:'Votre adresse e-mail', btn:"J'obtiens mon -10%", skip:'Non merci, je paye plein tarif', close:'Fermer', code_lbl:'Votre code de réduction :', code_hint:'Copiez ce code et appliquez-le lors de votre commande.<br>Valable sur votre premier achat, non cumulable.' },
+    en: { ey:'Exclusive offer', title:'A gift<br><em>for you</em>', sub:'Sign up and get <strong>-10%</strong> off your<br>first order — free shipping from €45.', ph:'Your email address', btn:'Get my -10%', skip:"No thanks, I'll pay full price", close:'Close', code_lbl:'Your discount code:', code_hint:'Copy this code and apply it at checkout.<br>Valid on your first purchase, non-cumulative.' },
+    nl: { ey:'Exclusief aanbod', title:'Een cadeau<br><em>voor u</em>', sub:'Schrijf u in en ontvang <strong>-10%</strong> op uw<br>eerste bestelling — gratis verzending vanaf €45.', ph:'Uw e-mailadres', btn:'Mijn -10% krijgen', skip:'Nee bedankt, ik betaal de volle prijs', close:'Sluiten', code_lbl:'Uw kortingscode:', code_hint:'Kopieer deze code en pas hem toe bij het afrekenen.<br>Geldig op uw eerste aankoop, niet cumuleerbaar.' },
+    de: { ey:'Exklusives Angebot', title:'Ein Geschenk<br><em>für Sie</em>', sub:'Melden Sie sich an und erhalten Sie <strong>-10%</strong> auf Ihre<br>erste Bestellung — kostenloser Versand ab €45.', ph:'Ihre E-Mail-Adresse', btn:'Meine -10% erhalten', skip:'Nein danke, ich zahle den vollen Preis', close:'Schließen', code_lbl:'Ihr Rabattcode:', code_hint:'Kopieren Sie diesen Code und wenden Sie ihn beim Checkout an.<br>Gültig für Ihren ersten Kauf, nicht kombinierbar.' },
+    it: { ey:'Offerta esclusiva', title:'Un regalo<br><em>per te</em>', sub:'Iscriviti e ricevi <strong>-10%</strong> sul tuo<br>primo ordine — spedizione gratuita da €45.', ph:'Il tuo indirizzo e-mail', btn:'Ottengo il mio -10%', skip:'No grazie, pago prezzo pieno', close:'Chiudi', code_lbl:'Il tuo codice sconto:', code_hint:'Copia questo codice e applicalo al momento del pagamento.<br>Valido sul tuo primo acquisto, non cumulabile.' },
+    pt: { ey:'Oferta exclusiva', title:'Um presente<br><em>para si</em>', sub:'Inscreva-se e receba <strong>-10%</strong> na sua<br>primeira encomenda — entrega grátis a partir de €45.', ph:'O seu endereço de e-mail', btn:'Obter o meu -10%', skip:'Não obrigado, pago preço cheio', close:'Fechar', code_lbl:'O seu código de desconto:', code_hint:'Copie este código e aplique-o no checkout.<br>Válido na sua primeira compra, não acumulável.' },
+    es: { ey:'Oferta exclusiva', title:'Un regalo<br><em>para ti</em>', sub:'Regístrate y obtén <strong>-10%</strong> en tu<br>primer pedido — envío gratis desde €45.', ph:'Tu dirección de correo electrónico', btn:'Obtener mi -10%', skip:'No gracias, pago precio completo', close:'Cerrar', code_lbl:'Tu código de descuento:', code_hint:'Copia este código y aplícalo al momento del pago.<br>Válido en tu primera compra, no acumulable.' }
+  };
+  var t = NLT[lang] || NLT.fr;
+
   // Attendre 7s — si banner cookie visible, attendre qu'il soit fermé
   function tryShow() {
     var banner = document.getElementById('cookieBanner');
@@ -64,16 +77,16 @@
     el.id = 'nlOverlay';
     el.innerHTML =
       '<div class="nl-card">' +
-        '<button class="nl-close" onclick="nlClose()" aria-label="Fermer">&times;</button>' +
-        '<div class="nl-eyebrow">Offre exclusive</div>' +
-        '<h2 class="nl-title">Un cadeau<br><em>pour vous</em></h2>' +
-        '<p class="nl-sub">Inscrivez-vous et recevez <strong>-10%</strong> sur votre<br>première commande — livraison offerte dès 45€.</p>' +
+        '<button class="nl-close" onclick="nlClose()" aria-label="' + t.close + '">&times;</button>' +
+        '<div class="nl-eyebrow">' + t.ey + '</div>' +
+        '<h2 class="nl-title">' + t.title + '</h2>' +
+        '<p class="nl-sub">' + t.sub + '</p>' +
         '<div id="nlForm">' +
           '<form class="nl-form" onsubmit="nlSubmit(event)">' +
-            '<input id="nlEmail" class="nl-input" type="email" placeholder="Votre adresse e-mail" required autocomplete="email">' +
-            '<button type="submit" class="nl-btn">J\'obtiens mon -10%</button>' +
+            '<input id="nlEmail" class="nl-input" type="email" placeholder="' + t.ph + '" required autocomplete="email">' +
+            '<button type="submit" class="nl-btn">' + t.btn + '</button>' +
           '</form>' +
-          '<button class="nl-skip" onclick="nlClose()">Non merci, je paye plein tarif</button>' +
+          '<button class="nl-skip" onclick="nlClose()">' + t.skip + '</button>' +
         '</div>' +
       '</div>';
 
@@ -99,9 +112,9 @@
     // Afficher le code immédiatement
     document.getElementById('nlForm').innerHTML =
       '<div class="nl-success">' +
-        '<p style="color:#6B5B4E;font-size:14px;margin-bottom:4px;">Votre code de réduction :</p>' +
+        '<p style="color:#6B5B4E;font-size:14px;margin-bottom:4px;">' + t.code_lbl + '</p>' +
         '<div class="nl-code-wrap"><span class="nl-code">ALYA10</span></div>' +
-        '<p class="nl-code-hint">Copiez ce code et appliquez-le lors de votre commande.<br>Valable sur votre premier achat, non cumulable.</p>' +
+        '<p class="nl-code-hint">' + t.code_hint + '</p>' +
       '</div>';
 
     // Enregistrer l'email en arrière-plan

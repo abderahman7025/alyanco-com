@@ -190,22 +190,42 @@
 
   <div class="divider"></div>
 
-  <h1>Cette page est introuvable</h1>
-  <p>La page que vous cherchez a peut-être été déplacée ou n'existe plus. Pas de panique — notre boutique est toujours là pour vous.</p>
+  <h1 id="_404h">Cette page est introuvable</h1>
+  <p id="_404p">La page que vous cherchez a peut-être été déplacée ou n'existe plus. Pas de panique — notre boutique est toujours là pour vous.</p>
 
   <div class="actions">
-    <a href="/" class="btn btn-dark">Retour à l'accueil</a>
-    <a href="/collection-siwak" class="btn btn-outline">Voir nos produits</a>
+    <a href="/" class="btn btn-dark" id="_404home">Retour à l'accueil</a>
+    <a href="/collection-siwak" class="btn btn-outline" id="_404shop">Voir nos produits</a>
   </div>
 
   <div class="quick-links">
-    <p>Raccourcis</p>
-    <a href="/collection-siwak">Collection Siwak</a>
-    <a href="/collection-gants">Gants exfoliants</a>
-    <a href="/nos-packs">Nos packs</a>
+    <p id="_404sh">Raccourcis</p>
+    <a href="/collection-siwak" id="_404lnk1">Collection Siwak</a>
+    <a href="/collection-gants" id="_404lnk2">Gants exfoliants</a>
+    <a href="/nos-packs" id="_404lnk3">Nos packs</a>
     <a href="/faq">FAQ</a>
     <a href="/contact">Contact</a>
   </div>
+
+  <script>
+    (function(){
+      var lang = localStorage.getItem('alya_lang') || 'fr';
+      var T = {
+        fr:{ h:'Cette page est introuvable', p:"La page que vous cherchez a peut-être été déplacée ou n'existe plus. Pas de panique — notre boutique est toujours là pour vous.", home:"Retour à l'accueil", shop:'Voir nos produits', sh:'Raccourcis', l1:'Collection Siwak', l2:'Gants exfoliants', l3:'Nos packs' },
+        en:{ h:'Page not found', p:"The page you're looking for may have been moved or no longer exists. Don't worry — our shop is still here for you.", home:'Back to home', shop:'View our products', sh:'Quick links', l1:'Siwak Collection', l2:'Exfoliating Gloves', l3:'Our Packs' },
+        nl:{ h:'Pagina niet gevonden', p:'De pagina die u zoekt is mogelijk verplaatst of bestaat niet meer. Geen paniek — onze winkel is er altijd voor u.', home:'Terug naar huis', shop:'Onze producten bekijken', sh:'Snelkoppelingen', l1:'Siwak Collectie', l2:'Exfolierende Handschoenen', l3:'Onze Pakketten' },
+        de:{ h:'Seite nicht gefunden', p:'Die gesuchte Seite wurde möglicherweise verschoben oder existiert nicht mehr. Kein Stress — unser Shop ist immer für Sie da.', home:'Zurück zur Startseite', shop:'Produkte ansehen', sh:'Schnelllinks', l1:'Siwak Kollektion', l2:'Peeling Handschuhe', l3:'Unsere Sets' },
+        it:{ h:'Pagina non trovata', p:'La pagina che stai cercando potrebbe essere stata spostata o non esiste più. Niente panico — il nostro negozio è sempre qui per te.', home:'Torna alla home', shop:'Vedi i prodotti', sh:'Collegamenti rapidi', l1:'Collezione Siwak', l2:'Guanti Esfolianti', l3:'I nostri pack' },
+        pt:{ h:'Página não encontrada', p:'A página que procura pode ter sido movida ou já não existe. Não se preocupe — a nossa loja está sempre aqui para si.', home:'Voltar ao início', shop:'Ver os nossos produtos', sh:'Atalhos', l1:'Coleção Siwak', l2:'Luvas Esfoliantes', l3:'Os nossos packs' },
+        es:{ h:'Página no encontrada', p:'La página que buscas puede haber sido movida o ya no existe. No te preocupes — nuestra tienda siempre está aquí para ti.', home:'Volver al inicio', shop:'Ver nuestros productos', sh:'Accesos rápidos', l1:'Colección Siwak', l2:'Guantes Exfoliantes', l3:'Nuestros packs' }
+      };
+      var d = T[lang] || T.fr;
+      function set(id, txt){ var e=document.getElementById(id); if(e) e.textContent=txt; }
+      set('_404h', d.h); set('_404p', d.p); set('_404home', d.home); set('_404shop', d.shop);
+      set('_404sh', d.sh); set('_404lnk1', d.l1); set('_404lnk2', d.l2); set('_404lnk3', d.l3);
+      document.title = d.h + ' — ALYA & CO.';
+    })();
+  </script>
 
 <script src="/js/i18n.js"></script>
 </body>

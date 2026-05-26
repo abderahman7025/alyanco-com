@@ -4,6 +4,19 @@
   var FB_ID  = '520134214238349';
   var KEY    = 'alya_cookie_consent';
 
+  /* ── Traductions ── */
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var CKT = {
+    fr: { strong:'Ce site utilise des cookies', body:' analytiques et publicitaires (Google Analytics, Meta Pixel) pour mesurer ses performances. Vous pouvez accepter ou refuser leur utilisation. ', link:'En savoir plus', accept:'Tout accepter', refuse:'Refuser' },
+    en: { strong:'This site uses cookies', body:' for analytics and advertising (Google Analytics, Meta Pixel) to measure performance. You can accept or decline. ', link:'Learn more', accept:'Accept all', refuse:'Decline' },
+    nl: { strong:'Deze site gebruikt cookies', body:' voor analyse en reclame (Google Analytics, Meta Pixel) om de prestaties te meten. U kunt accepteren of weigeren. ', link:'Meer weten', accept:'Alles accepteren', refuse:'Weigeren' },
+    de: { strong:'Diese Seite verwendet Cookies', body:' für Analyse und Werbung (Google Analytics, Meta Pixel) zur Leistungsmessung. Sie können akzeptieren oder ablehnen. ', link:'Mehr erfahren', accept:'Alle akzeptieren', refuse:'Ablehnen' },
+    it: { strong:'Questo sito usa i cookie', body:' analitici e pubblicitari (Google Analytics, Meta Pixel) per misurare le prestazioni. Puoi accettare o rifiutare. ', link:'Per saperne di più', accept:'Accetta tutto', refuse:'Rifiuta' },
+    pt: { strong:'Este site usa cookies', body:' analíticos e publicitários (Google Analytics, Meta Pixel) para medir o desempenho. Pode aceitar ou recusar. ', link:'Saber mais', accept:'Aceitar tudo', refuse:'Recusar' },
+    es: { strong:'Este sitio usa cookies', body:' analíticas y publicitarias (Google Analytics, Meta Pixel) para medir el rendimiento. Puede aceptar o rechazar. ', link:'Saber más', accept:'Aceptar todo', refuse:'Rechazar' }
+  };
+  var c = CKT[lang] || CKT.fr;
+
   var consent = localStorage.getItem(KEY);
   if (consent === 'accepted') loadAnalytics();
   if (!consent) document.addEventListener('DOMContentLoaded', showBanner);
@@ -54,13 +67,11 @@
     var el = document.createElement('div');
     el.id = 'cookieBanner';
     el.innerHTML =
-      '<p><strong>Ce site utilise des cookies</strong> analytiques et publicitaires ' +
-      '(Google Analytics, Meta Pixel) pour mesurer ses performances. ' +
-      'Vous pouvez accepter ou refuser leur utilisation. ' +
-      '<a href="/cgv">En savoir plus</a></p>' +
+      '<p><strong>' + c.strong + '</strong>' + c.body +
+      '<a href="/cgv">' + c.link + '</a></p>' +
       '<div class="ck-btns">' +
-      '<button class="ck-accept" onclick="cookieAccept()">Tout accepter</button>' +
-      '<button class="ck-refuse" onclick="cookieRefuse()">Refuser</button>' +
+      '<button class="ck-accept" onclick="cookieAccept()">' + c.accept + '</button>' +
+      '<button class="ck-refuse" onclick="cookieRefuse()">' + c.refuse + '</button>' +
       '</div>';
     document.body.appendChild(el);
     setTimeout(function(){ el.classList.add('visible'); }, 80);

@@ -526,7 +526,7 @@ nav {
   align-items: center;
   justify-content: center;
   box-shadow: 0 20px 60px rgba(28, 22, 18, 0.1), inset 0 0 0 1px rgba(255,255,255,0.5);
-  transition: translate 0.5s cubic-bezier(.23,1,.32,1);
+  will-change: transform;
 }
 .orb-1 { width: 220px; height: 220px; top: 10%; left: 10%; animation: float1 12s ease-in-out infinite; }
 .orb-2 { width: 160px; height: 160px; top: 55%; right: 8%; animation: float2 15s ease-in-out infinite; }
@@ -1984,28 +1984,48 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// ── FLEEING ORBS ──
+// ── FLEEING ORBS — lerp doux, loin ──
 (function() {
-  var orbsContainer = document.querySelector('.floating-orbs');
-  if (!orbsContainer) return;
-  orbsContainer.addEventListener('mousemove', function(e) {
-    var rect = orbsContainer.getBoundingClientRect();
+  var container = document.querySelector('.floating-orbs');
+  if (!container) return;
+  var orbs    = Array.from(document.querySelectorAll('.orb'));
+  var targets = orbs.map(function(){ return { x:0, y:0 }; });
+  var cur     = orbs.map(function(){ return { x:0, y:0 }; });
+  var rafId   = null;
+
+  function step() {
+    rafId = requestAnimationFrame(step);
+    var still = true;
+    orbs.forEach(function(orb, i) {
+      cur[i].x += (targets[i].x - cur[i].x) * 0.04;  /* 0.04 = léger et lent */
+      cur[i].y += (targets[i].y - cur[i].y) * 0.04;
+      if (Math.abs(cur[i].x) > 0.05 || Math.abs(cur[i].y) > 0.05) still = false;
+      orb.style.translate = cur[i].x.toFixed(1) + 'px ' + cur[i].y.toFixed(1) + 'px';
+    });
+    /* Arrêter rAF quand tout est stable */
+    if (still && targets[0].x === 0 && targets[0].y === 0) {
+      cancelAnimationFrame(rafId); rafId = null;
+    }
+  }
+
+  container.addEventListener('mousemove', function(e) {
+    if (!rafId) step();
+    var rect = container.getBoundingClientRect();
     var mx = e.clientX - rect.left, my = e.clientY - rect.top;
-    document.querySelectorAll('.orb').forEach(function(orb) {
+    orbs.forEach(function(orb, i) {
       var oc = orb.getBoundingClientRect();
       var ox = (oc.left + oc.right) / 2 - rect.left;
       var oy = (oc.top + oc.bottom) / 2 - rect.top;
       var dx = ox - mx, dy = oy - my;
-      var dist = Math.sqrt(dx * dx + dy * dy) || 1;
-      var force = Math.max(0, 260 - dist) / 260;
-      var push = force * force * 180;
-      orb.style.translate = (dx / dist * push).toFixed(1) + 'px ' + (dy / dist * push).toFixed(1) + 'px';
+      var dist = Math.sqrt(dx*dx + dy*dy) || 1;
+      var force = Math.max(0, 320 - dist) / 320;   /* rayon large */
+      targets[i].x = dx / dist * force * 210;       /* loin : 210px max */
+      targets[i].y = dy / dist * force * 210;
     });
   });
-  orbsContainer.addEventListener('mouseleave', function() {
-    document.querySelectorAll('.orb').forEach(function(orb) {
-      orb.style.translate = '0px 0px';
-    });
+
+  container.addEventListener('mouseleave', function() {
+    orbs.forEach(function(orb, i) { targets[i].x = 0; targets[i].y = 0; });
   });
 })();
 
