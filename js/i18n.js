@@ -71,8 +71,8 @@
       'font-family:inherit;font-size:10px;letter-spacing:.12em;text-transform:uppercase;',
       'color:var(--mid,#6B5B4E);cursor:pointer;transition:all .25s;}',
       '.mob-lang-btn.active,.mob-lang-btn:hover{border-color:var(--gold,#B8975A);color:var(--gold,#B8975A);}',
-      /* Logo toujours sur une ligne */
-      '.nav-logo{white-space:nowrap!important;}',
+      /* Logo toujours sur une ligne + prend l'espace restant */
+      '.nav-logo{white-space:nowrap!important;flex:1!important;}',
       /* Icône panier SVG */
       '.nav-cart-icon{display:inline-flex;align-items:center;vertical-align:middle;}',
       '.nav-cart-icon svg{display:block;}',
@@ -300,6 +300,17 @@
 
     /* ── Hero ── */
     set('.hero-badge', h.badge);
+    /* Titre hero (3 spans : "Bien-être, / satisfaction, / sourire.") */
+    var titleSpans = qsa('.hero-title span');
+    if (titleSpans[0] && h.title1) titleSpans[0].textContent = h.title1;
+    if (titleSpans[1] && h.title2) titleSpans[1].textContent = h.title2;
+    if (titleSpans[2] && h.title3) titleSpans[2].textContent = h.title3;
+    /* Bulles flottantes (orbs) */
+    var orbLabels = qsa('.orb .orb-label');
+    if (orbLabels[0] && h.orb1) replaceTextNode(orbLabels[0], 'Brosse Siwak', h.orb1);
+    if (orbLabels[1] && h.orb2) replaceTextNode(orbLabels[1], 'Gant Soie',   h.orb2);
+    if (orbLabels[2] && h.orb3) replaceTextNode(orbLabels[2], 'Pack 1 an',   h.orb3);
+    if (orbLabels[3] && h.orb4) orbLabels[3].textContent = h.orb4;
     set('.hero-sub', h.sub);
     var heroBtns = qsa('.hero-ctas a');
     if (heroBtns[0]) heroBtns[0].textContent = h.discover;

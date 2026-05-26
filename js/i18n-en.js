@@ -128,7 +128,16 @@ window.ALYA_T_EN = {
     nl_sub:      'Receive our beauty tips, exclusive offers<br>and be the first to hear about our new products.',
     nl_ph:       'Your email address',
     nl_btn:      'Subscribe',
-    nl_note:     'By subscribing, you agree to receive our emails. Unsubscribe at any time.'
+    nl_note:     'By subscribing, you agree to receive our emails. Unsubscribe at any time.',
+
+    /* Hero title & floating orbs */
+    title1: 'Well-being,',
+    title2: 'satisfaction,',
+    title3: 'smile.',
+    orb1: 'Siwak Brush',
+    orb2: 'Silk Glove',
+    orb3: '1-yr Pack',
+    orb4: '✦ Organic'
   },
 
   /* ── FAQ ── */

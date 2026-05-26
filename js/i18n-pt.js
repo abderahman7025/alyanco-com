@@ -116,7 +116,16 @@ window.ALYA_T_PT = {
     nl_sub:      'Recebe os nossos conselhos de beleza, ofertas exclusivas<br>e sê o primeiro a saber das nossas novidades.',
     nl_ph:       'O teu endereço de email',
     nl_btn:      'Subscrever',
-    nl_note:     'Ao subscrever, concordas em receber os nossos emails. Cancelamento possível a qualquer momento.'
+    nl_note:     'Ao subscrever, concordas em receber os nossos emails. Cancelamento possível a qualquer momento.',
+
+    /* Hero title & floating orbs */
+    title1: 'Bem-estar,',
+    title2: 'satisfação,',
+    title3: 'sorriso.',
+    orb1: 'Escova Siwak',
+    orb2: 'Luva de Seda',
+    orb3: 'Pack 1 ano',
+    orb4: '✦ Bio'
   },
 
   faq: {

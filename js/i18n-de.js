@@ -116,7 +116,16 @@ window.ALYA_T_DE = {
     nl_sub:      'Erhalten Sie unsere Schönheitstipps, exklusive Angebote<br>und seien Sie die Ersten, die von unseren Neuheiten erfahren.',
     nl_ph:       'Ihre E-Mail-Adresse',
     nl_btn:      'Anmelden',
-    nl_note:     'Mit der Anmeldung erklären Sie sich einverstanden, unsere E-Mails zu erhalten. Abmeldung jederzeit möglich.'
+    nl_note:     'Mit der Anmeldung erklären Sie sich einverstanden, unsere E-Mails zu erhalten. Abmeldung jederzeit möglich.',
+
+    /* Hero title & floating orbs */
+    title1: 'Wohlbefinden,',
+    title2: 'Zufriedenheit,',
+    title3: 'Lächeln.',
+    orb1: 'Siwak-Zahnbürste',
+    orb2: 'Seiden-Handschuh',
+    orb3: '1-J.-Paket',
+    orb4: '✦ Biologisch'
   },
 
   faq: {

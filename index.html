@@ -526,6 +526,7 @@ nav {
   align-items: center;
   justify-content: center;
   box-shadow: 0 20px 60px rgba(28, 22, 18, 0.1), inset 0 0 0 1px rgba(255,255,255,0.5);
+  transition: translate 0.7s cubic-bezier(.23,1,.32,1);
 }
 .orb-1 { width: 220px; height: 220px; top: 10%; left: 10%; animation: float1 12s ease-in-out infinite; }
 .orb-2 { width: 160px; height: 160px; top: 55%; right: 8%; animation: float2 15s ease-in-out infinite; }
@@ -1982,6 +1983,31 @@ window.addEventListener('scroll', () => {
       ` translateY(${scrolled * speed}px)`;
   });
 });
+
+// ── FLEEING ORBS ──
+(function() {
+  var orbsContainer = document.querySelector('.floating-orbs');
+  if (!orbsContainer) return;
+  orbsContainer.addEventListener('mousemove', function(e) {
+    var rect = orbsContainer.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    document.querySelectorAll('.orb').forEach(function(orb) {
+      var oc = orb.getBoundingClientRect();
+      var ox = (oc.left + oc.right) / 2 - rect.left;
+      var oy = (oc.top + oc.bottom) / 2 - rect.top;
+      var dx = ox - mx, dy = oy - my;
+      var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      var force = Math.max(0, 170 - dist) / 170;
+      var push = force * 90;
+      orb.style.translate = (dx / dist * push).toFixed(1) + 'px ' + (dy / dist * push).toFixed(1) + 'px';
+    });
+  });
+  orbsContainer.addEventListener('mouseleave', function() {
+    document.querySelectorAll('.orb').forEach(function(orb) {
+      orb.style.translate = '0px 0px';
+    });
+  });
+})();
 
 // ── NAV SCROLL ──
 window.addEventListener('scroll', () => {

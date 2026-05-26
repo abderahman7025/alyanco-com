@@ -116,7 +116,16 @@ window.ALYA_T_IT = {
     nl_sub:      'Ricevi i nostri consigli di bellezza, offerte esclusive<br>e sii il primo a conoscere le nostre novità.',
     nl_ph:       'Il tuo indirizzo email',
     nl_btn:      'Iscriviti',
-    nl_note:     'Iscrivendoti accetti di ricevere le nostre email. Cancellazione possibile in qualsiasi momento.'
+    nl_note:     'Iscrivendoti accetti di ricevere le nostre email. Cancellazione possibile in qualsiasi momento.',
+
+    /* Hero title & floating orbs */
+    title1: 'Benessere,',
+    title2: 'soddisfazione,',
+    title3: 'sorriso.',
+    orb1: 'Spazzolino Siwak',
+    orb2: 'Guanto di Seta',
+    orb3: 'Pack 1 anno',
+    orb4: '✦ Bio'
   },
 
   faq: {

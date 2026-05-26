@@ -116,7 +116,16 @@ window.ALYA_T_ES = {
     nl_sub:      'Recibe nuestros consejos de belleza, ofertas exclusivas<br>y sé el primero en conocer nuestras novedades.',
     nl_ph:       'Tu dirección de email',
     nl_btn:      'Suscribirse',
-    nl_note:     'Al suscribirte, aceptas recibir nuestros emails. Darse de baja en cualquier momento.'
+    nl_note:     'Al suscribirte, aceptas recibir nuestros emails. Darse de baja en cualquier momento.',
+
+    /* Hero title & floating orbs */
+    title1: 'Bienestar,',
+    title2: 'satisfacción,',
+    title3: 'sonrisa.',
+    orb1: 'Cepillo Siwak',
+    orb2: 'Guante de Seda',
+    orb3: 'Pack 1 año',
+    orb4: '✦ Orgánico'
   },
 
   faq: {

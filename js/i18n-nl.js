@@ -116,7 +116,16 @@ window.ALYA_T_NL = {
     nl_sub:      'Ontvang onze schoonheidstips, exclusieve aanbiedingen<br>en wees als eerste op de hoogte van onze nieuwtjes.',
     nl_ph:       'Uw e-mailadres',
     nl_btn:      'Inschrijven',
-    nl_note:     'Door u in te schrijven gaat u akkoord met het ontvangen van onze e-mails. Op elk moment uitschrijven.'
+    nl_note:     'Door u in te schrijven gaat u akkoord met het ontvangen van onze e-mails. Op elk moment uitschrijven.',
+
+    /* Hero title & floating orbs */
+    title1: 'Welzijn,',
+    title2: 'tevredenheid,',
+    title3: 'glimlach.',
+    orb1: 'Siwak Borstel',
+    orb2: 'Zijden Handschoen',
+    orb3: '1-j. Pakket',
+    orb4: '✦ Biologisch'
   },
 
   faq: {
