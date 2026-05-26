@@ -124,7 +124,7 @@
     var btn = document.createElement('button');
     btn.className = 'lang-btn';
     btn.setAttribute('aria-label', 'Language / Langue');
-    btn.innerHTML = '<span>' + LANG_FLAGS[currentLang] + '</span><span>' + currentLang.toUpperCase() + '</span><span style="font-size:8px">▾</span>';
+    btn.innerHTML = '<span style="font-size:16px;line-height:1">' + LANG_FLAGS[currentLang] + '</span><span>' + currentLang.toUpperCase() + '</span><span style="font-size:8px">▾</span>';
 
     var drop = document.createElement('div');
     drop.className = 'lang-drop';
@@ -132,7 +132,7 @@
     Object.keys(LANG_LABELS).forEach(function(l){
       var opt = document.createElement('button');
       opt.className = 'lang-opt' + (l === currentLang ? ' active' : '');
-      opt.innerHTML = LANG_FLAGS[l] + ' ' + LANG_LABELS[l];
+      opt.innerHTML = '<span style="font-size:15px">' + LANG_FLAGS[l] + '</span> ' + LANG_LABELS[l];
       opt.addEventListener('click', function(){ setLang(l); });
       drop.appendChild(opt);
     });
