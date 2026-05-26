@@ -526,7 +526,7 @@ nav {
   align-items: center;
   justify-content: center;
   box-shadow: 0 20px 60px rgba(28, 22, 18, 0.1), inset 0 0 0 1px rgba(255,255,255,0.5);
-  transition: translate 0.7s cubic-bezier(.23,1,.32,1);
+  transition: translate 0.5s cubic-bezier(.23,1,.32,1);
 }
 .orb-1 { width: 220px; height: 220px; top: 10%; left: 10%; animation: float1 12s ease-in-out infinite; }
 .orb-2 { width: 160px; height: 160px; top: 55%; right: 8%; animation: float2 15s ease-in-out infinite; }
@@ -1997,8 +1997,8 @@ window.addEventListener('scroll', () => {
       var oy = (oc.top + oc.bottom) / 2 - rect.top;
       var dx = ox - mx, dy = oy - my;
       var dist = Math.sqrt(dx * dx + dy * dy) || 1;
-      var force = Math.max(0, 170 - dist) / 170;
-      var push = force * 90;
+      var force = Math.max(0, 260 - dist) / 260;
+      var push = force * force * 180;
       orb.style.translate = (dx / dist * push).toFixed(1) + 'px ' + (dy / dist * push).toFixed(1) + 'px';
     });
   });

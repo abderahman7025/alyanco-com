@@ -8,6 +8,13 @@
 
   var LANG_LABELS = { fr:'Français', en:'English', nl:'Nederlands', it:'Italiano', pt:'Português', es:'Español', de:'Deutsch' };
   var LANG_FLAGS  = { fr:'🇫🇷', en:'🇬🇧', nl:'🇳🇱', it:'🇮🇹', pt:'🇵🇹', es:'🇪🇸', de:'🇩🇪' };
+  /* Codes ISO 3166-1 alpha-2 pour flagcdn.com */
+  var LANG_FLAG_CC = { fr:'fr', en:'gb', nl:'nl', it:'it', pt:'pt', es:'es', de:'de' };
+  function langFlag(cc, w) {
+    w = w || 20;
+    var h = Math.round(w * 3 / 4);
+    return '<img src="https://flagcdn.com/w' + w + '/' + LANG_FLAG_CC[cc] + '.png" width="' + w + '" height="' + h + '" alt="" loading="eager" style="display:inline-block;vertical-align:middle;border-radius:2px;">';
+  }
 
   /* ── HELPERS ── */
   function getLang()  { return localStorage.getItem('alya_lang') || 'fr'; }
@@ -78,7 +85,7 @@
       '.nav-cart-icon svg{display:block;}',
       /* Mobile : masquer le texte "Panier" */
       '@media(max-width:768px){',
-        '.nav-logo{font-size:15px!important;letter-spacing:.06em!important;}',
+        '.nav-logo{font-size:20px!important;letter-spacing:.08em!important;}',
         '.nav-cart-text{display:none!important;}',
         '.nav-cart{gap:4px!important;}',
       '}'
@@ -124,7 +131,7 @@
     var btn = document.createElement('button');
     btn.className = 'lang-btn';
     btn.setAttribute('aria-label', 'Language / Langue');
-    btn.innerHTML = '<span style="font-size:16px;line-height:1">' + LANG_FLAGS[currentLang] + '</span><span>' + currentLang.toUpperCase() + '</span><span style="font-size:8px">▾</span>';
+    btn.innerHTML = langFlag(currentLang, 20) + ' <span>' + currentLang.toUpperCase() + '</span><span style="font-size:8px;margin-left:2px">▾</span>';
 
     var drop = document.createElement('div');
     drop.className = 'lang-drop';
@@ -132,7 +139,7 @@
     Object.keys(LANG_LABELS).forEach(function(l){
       var opt = document.createElement('button');
       opt.className = 'lang-opt' + (l === currentLang ? ' active' : '');
-      opt.innerHTML = '<span style="font-size:15px">' + LANG_FLAGS[l] + '</span> ' + LANG_LABELS[l];
+      opt.innerHTML = langFlag(l, 20) + ' ' + LANG_LABELS[l];
       opt.addEventListener('click', function(){ setLang(l); });
       drop.appendChild(opt);
     });
@@ -157,7 +164,7 @@
       Object.keys(LANG_LABELS).forEach(function(l){
         var mb = document.createElement('button');
         mb.className = 'mob-lang-btn' + (l === currentLang ? ' active' : '');
-        mb.textContent = LANG_FLAGS[l] + ' ' + l.toUpperCase();
+        mb.innerHTML = langFlag(l, 16) + ' ' + l.toUpperCase();
         mb.addEventListener('click', function(){ setLang(l); });
         mobWrap.appendChild(mb);
       });
