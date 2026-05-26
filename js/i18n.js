@@ -13,7 +13,9 @@
   function langFlag(cc, w) {
     w = w || 20;
     var h = Math.round(w * 3 / 4);
-    return '<img src="https://flagcdn.com/w' + w + '/' + LANG_FLAG_CC[cc] + '.png" width="' + w + '" height="' + h + '" alt="" loading="eager" style="display:inline-block;vertical-align:middle;border-radius:2px;">';
+    /* flagcdn.com : taille minimale disponible = w20 */
+    var srcW = w < 20 ? 20 : w;
+    return '<img src="https://flagcdn.com/w' + srcW + '/' + LANG_FLAG_CC[cc] + '.png" width="' + w + '" height="' + h + '" alt="" loading="eager" style="display:inline-block;vertical-align:middle;border-radius:2px;">';
   }
 
   /* ── HELPERS ── */
@@ -78,13 +80,17 @@
       'font-family:inherit;font-size:10px;letter-spacing:.12em;text-transform:uppercase;',
       'color:var(--mid,#6B5B4E);cursor:pointer;transition:all .25s;}',
       '.mob-lang-btn.active,.mob-lang-btn:hover{border-color:var(--gold,#B8975A);color:var(--gold,#B8975A);}',
-      /* Logo toujours sur une ligne + prend l'espace restant */
-      '.nav-logo{white-space:nowrap!important;flex:1!important;}',
+      /* Nav : grid 3 colonnes — logo gauche | liens centrés | droite */
+      'nav{display:grid!important;grid-template-columns:1fr auto 1fr!important;align-items:center!important;}',
+      '.nav-logo{white-space:nowrap!important;}',
+      '.nav-links{justify-self:center!important;}',
+      '.nav-right{justify-self:end!important;}',
       /* Icône panier SVG */
       '.nav-cart-icon{display:inline-flex;align-items:center;vertical-align:middle;}',
       '.nav-cart-icon svg{display:block;}',
-      /* Mobile : masquer le texte "Panier" */
+      /* Mobile : logo prend tout l'espace, texte "Panier" masqué */
       '@media(max-width:768px){',
+        'nav{grid-template-columns:1fr auto!important;}',
         '.nav-logo{font-size:20px!important;letter-spacing:.08em!important;}',
         '.nav-cart-text{display:none!important;}',
         '.nav-cart{gap:4px!important;}',
