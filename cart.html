@@ -176,17 +176,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <div class="page-hero">
   <div class="page-hero-bg"><div class="page-hero-bg-text">PANIER</div></div>
   <div class="page-hero-content">
-    <div class="page-eyebrow">Votre sélection</div>
-    <h1 class="page-title">Mon <em style="font-style:italic;color:var(--gold-light)">Panier</em></h1>
+    <div class="page-eyebrow" id="_ct_ey">Votre sélection</div>
+    <h1 class="page-title" id="_ct_title">Mon <em style="font-style:italic;color:var(--gold-light)">Panier</em></h1>
   </div>
 </div>
 
 <div class="progress-bar">
-  <div class="progress-step active"><span class="progress-num">1</span><span>Panier</span></div>
+  <div class="progress-step active"><span class="progress-num">1</span><span id="_ct_s1">Panier</span></div>
   <div class="progress-divider"></div>
-  <div class="progress-step"><span class="progress-num">2</span><span>Livraison</span></div>
+  <div class="progress-step"><span class="progress-num">2</span><span id="_ct_s2">Livraison</span></div>
   <div class="progress-divider"></div>
-  <div class="progress-step"><span class="progress-num">3</span><span>Paiement</span></div>
+  <div class="progress-step"><span class="progress-num">3</span><span id="_ct_s3">Paiement</span></div>
 </div>
 
 <section class="cart-section" id="cartSection">
@@ -232,6 +232,88 @@ function closeMobileNav(){mobileNav.classList.remove('open');}
 
 function fmt(n){ return n.toFixed(2).replace('.',',') + ' €'; }
 
+/* ── Traductions panier ── */
+var CT = (function(){
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var all = {
+    fr:{ ey:'Votre sélection', title:'Mon <em style="font-style:italic;color:var(--gold-light)">Panier</em>', s1:'Panier', s2:'Livraison', s3:'Paiement',
+      empty_title:'Votre panier est vide', empty_sub:'Découvrez nos produits naturels et ajoutez-les à votre panier.', empty_btn:'Découvrir nos produits',
+      col_product:'Produit', col_qty:'Quantité', col_total:'Total', unit:'unité',
+      continue:'← Continuer mes achats', order:'Passer la commande →',
+      carrier_label:'Mode de livraison', carrier_mr:'Mondial Relay', carrier_col:'Colissimo domicile',
+      free:'Offerte ✓', delivery:'Livraison', weight_pre:'Poids total : ', weight_suf:' g',
+      mr_ok:'✓ Livraison Mondial Relay offerte !', mr_rem:'Plus que {amt} pour la livraison <strong>Mondial Relay offerte</strong>',
+      summary:'Récapitulatif', subtotal:'Sous-total', total:'Total', checkout:'Commander →',
+      secure:'🔒 Paiement sécurisé', err_msg:"Une erreur s'est produite lors du chargement du panier.", err_btn:'Vider le panier et réessayer' },
+    en:{ ey:'Your selection', title:'My <em style="font-style:italic;color:var(--gold-light)">Cart</em>', s1:'Cart', s2:'Shipping', s3:'Payment',
+      empty_title:'Your cart is empty', empty_sub:'Explore our natural products and add them to your cart.', empty_btn:'Discover our products',
+      col_product:'Product', col_qty:'Quantity', col_total:'Total', unit:'unit',
+      continue:'← Continue shopping', order:'Place order →',
+      carrier_label:'Delivery method', carrier_mr:'Mondial Relay', carrier_col:'Colissimo home delivery',
+      free:'Free ✓', delivery:'Shipping', weight_pre:'Total weight: ', weight_suf:' g',
+      mr_ok:'✓ Free Mondial Relay delivery!', mr_rem:'Only {amt} more for <strong>free Mondial Relay delivery</strong>',
+      summary:'Order summary', subtotal:'Subtotal', total:'Total', checkout:'Checkout →',
+      secure:'🔒 Secure payment', err_msg:'An error occurred while loading your cart.', err_btn:'Clear cart and retry' },
+    nl:{ ey:'Uw selectie', title:'Mijn <em style="font-style:italic;color:var(--gold-light)">Winkelwagen</em>', s1:'Winkelwagen', s2:'Verzending', s3:'Betaling',
+      empty_title:'Uw winkelwagen is leeg', empty_sub:'Ontdek onze natuurlijke producten en voeg ze toe aan uw winkelwagen.', empty_btn:'Onze producten bekijken',
+      col_product:'Product', col_qty:'Aantal', col_total:'Totaal', unit:'stuk',
+      continue:'← Verder winkelen', order:'Bestelling plaatsen →',
+      carrier_label:'Bezorgmethode', carrier_mr:'Mondial Relay', carrier_col:'Colissimo thuisbezorging',
+      free:'Gratis ✓', delivery:'Verzending', weight_pre:'Totaalgewicht: ', weight_suf:' g',
+      mr_ok:'✓ Gratis Mondial Relay levering!', mr_rem:'Nog {amt} voor <strong>gratis Mondial Relay levering</strong>',
+      summary:'Besteloverzicht', subtotal:'Subtotaal', total:'Totaal', checkout:'Bestellen →',
+      secure:'🔒 Veilige betaling', err_msg:'Er is een fout opgetreden bij het laden van uw winkelwagen.', err_btn:'Winkelwagen leegmaken en opnieuw proberen' },
+    de:{ ey:'Ihre Auswahl', title:'Mein <em style="font-style:italic;color:var(--gold-light)">Warenkorb</em>', s1:'Warenkorb', s2:'Versand', s3:'Zahlung',
+      empty_title:'Ihr Warenkorb ist leer', empty_sub:'Entdecken Sie unsere natürlichen Produkte und fügen Sie sie Ihrem Warenkorb hinzu.', empty_btn:'Unsere Produkte entdecken',
+      col_product:'Produkt', col_qty:'Menge', col_total:'Gesamt', unit:'Stück',
+      continue:'← Weiter einkaufen', order:'Bestellung aufgeben →',
+      carrier_label:'Liefermethode', carrier_mr:'Mondial Relay', carrier_col:'Colissimo Hauszustellung',
+      free:'Kostenlos ✓', delivery:'Versand', weight_pre:'Gesamtgewicht: ', weight_suf:' g',
+      mr_ok:'✓ Kostenlose Mondial Relay Lieferung!', mr_rem:'Noch {amt} für <strong>kostenlose Mondial Relay Lieferung</strong>',
+      summary:'Bestellübersicht', subtotal:'Zwischensumme', total:'Gesamt', checkout:'Bestellen →',
+      secure:'🔒 Sichere Zahlung', err_msg:'Beim Laden Ihres Warenkorbs ist ein Fehler aufgetreten.', err_btn:'Warenkorb leeren und erneut versuchen' },
+    it:{ ey:'La tua selezione', title:'Il mio <em style="font-style:italic;color:var(--gold-light)">Carrello</em>', s1:'Carrello', s2:'Spedizione', s3:'Pagamento',
+      empty_title:'Il tuo carrello è vuoto', empty_sub:'Scopri i nostri prodotti naturali e aggiungili al carrello.', empty_btn:'Scopri i nostri prodotti',
+      col_product:'Prodotto', col_qty:'Quantità', col_total:'Totale', unit:'unità',
+      continue:'← Continua gli acquisti', order:'Effettua ordine →',
+      carrier_label:'Metodo di consegna', carrier_mr:'Mondial Relay', carrier_col:'Colissimo a domicilio',
+      free:'Gratuita ✓', delivery:'Spedizione', weight_pre:'Peso totale: ', weight_suf:' g',
+      mr_ok:'✓ Consegna Mondial Relay gratuita!', mr_rem:'Ancora {amt} per la <strong>consegna Mondial Relay gratuita</strong>',
+      summary:'Riepilogo ordine', subtotal:'Subtotale', total:'Totale', checkout:'Ordina →',
+      secure:'🔒 Pagamento sicuro', err_msg:'Si è verificato un errore durante il caricamento del carrello.', err_btn:'Svuota carrello e riprova' },
+    pt:{ ey:'A sua seleção', title:'O meu <em style="font-style:italic;color:var(--gold-light)">Carrinho</em>', s1:'Carrinho', s2:'Envio', s3:'Pagamento',
+      empty_title:'O seu carrinho está vazio', empty_sub:'Descubra os nossos produtos naturais e adicione-os ao seu carrinho.', empty_btn:'Descobrir os nossos produtos',
+      col_product:'Produto', col_qty:'Quantidade', col_total:'Total', unit:'unidade',
+      continue:'← Continuar a comprar', order:'Efetuar encomenda →',
+      carrier_label:'Método de entrega', carrier_mr:'Mondial Relay', carrier_col:'Colissimo ao domicílio',
+      free:'Grátis ✓', delivery:'Envio', weight_pre:'Peso total: ', weight_suf:' g',
+      mr_ok:'✓ Entrega Mondial Relay gratuita!', mr_rem:'Ainda {amt} para <strong>entrega Mondial Relay gratuita</strong>',
+      summary:'Resumo da encomenda', subtotal:'Subtotal', total:'Total', checkout:'Encomendar →',
+      secure:'🔒 Pagamento seguro', err_msg:'Ocorreu um erro ao carregar o seu carrinho.', err_btn:'Limpar carrinho e tentar novamente' },
+    es:{ ey:'Tu selección', title:'Mi <em style="font-style:italic;color:var(--gold-light)">Carrito</em>', s1:'Carrito', s2:'Envío', s3:'Pago',
+      empty_title:'Tu carrito está vacío', empty_sub:'Descubre nuestros productos naturales y añádelos a tu carrito.', empty_btn:'Descubrir nuestros productos',
+      col_product:'Producto', col_qty:'Cantidad', col_total:'Total', unit:'unidad',
+      continue:'← Seguir comprando', order:'Realizar pedido →',
+      carrier_label:'Método de entrega', carrier_mr:'Mondial Relay', carrier_col:'Colissimo a domicilio',
+      free:'Gratis ✓', delivery:'Envío', weight_pre:'Peso total: ', weight_suf:' g',
+      mr_ok:'✓ ¡Envío Mondial Relay gratuito!', mr_rem:'Solo {amt} más para <strong>envío Mondial Relay gratuito</strong>',
+      summary:'Resumen del pedido', subtotal:'Subtotal', total:'Total', checkout:'Pedir →',
+      secure:'🔒 Pago seguro', err_msg:'Se ha producido un error al cargar tu carrito.', err_btn:'Vaciar carrito e intentar de nuevo' }
+  };
+  var ct = all[lang] || all.fr;
+  /* Appliquer les éléments statiques */
+  document.addEventListener('DOMContentLoaded', function(){
+    var set = function(id, v, asHtml){ var e=document.getElementById(id); if(e){ if(asHtml) e.innerHTML=v; else e.textContent=v; } };
+    set('_ct_ey',    ct.ey);
+    set('_ct_title', ct.title, true);
+    set('_ct_s1',    ct.s1);
+    set('_ct_s2',    ct.s2);
+    set('_ct_s3',    ct.s3);
+    document.title = ct.s1 + ' — ALYA & CO.';
+  });
+  return ct;
+})();
+
 function renderCart() {
   var section = document.getElementById('cartSection');
   try {
@@ -244,67 +326,67 @@ function renderCart() {
   var total = subtotal + delivery;
 
   if (items.length === 0) {
-    section.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">○</div><h2 class="cart-empty-title">Votre panier est vide</h2><p class="cart-empty-sub">Découvrez nos produits naturels et ajoutez-les à votre panier.</p><a href="collection-siwak" class="btn-primary">Découvrir nos produits</a></div>';
+    section.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">○</div><h2 class="cart-empty-title">'+CT.empty_title+'</h2><p class="cart-empty-sub">'+CT.empty_sub+'</p><a href="collection-siwak" class="btn-primary">'+CT.empty_btn+'</a></div>';
     return;
   }
 
   /* ── items list ── */
-  var itemsHtml = '<div class="cart-items-header"><span>Produit</span><span>Quantité</span><span>Total</span><span></span></div>';
+  var itemsHtml = '<div class="cart-items-header"><span>'+CT.col_product+'</span><span>'+CT.col_qty+'</span><span>'+CT.col_total+'</span><span></span></div>';
   items.forEach(function(item) {
     var p = PRODUCTS[item.id];
     var weightInfo = p ? ' · ' + (p.weight * item.qty) + ' g' : '';
     itemsHtml += '<div class="cart-item" id="item-'+item.id+'">' +
-      '<div class="cart-item-info"><img class="cart-item-img" src="'+item.image+'" alt="'+item.name+'"><div><div class="cart-item-name">'+item.name+'</div><div class="cart-item-price-unit">'+fmt(item.price)+' / unité'+weightInfo+'</div></div></div>' +
+      '<div class="cart-item-info"><img class="cart-item-img" src="'+item.image+'" alt="'+item.name+'"><div><div class="cart-item-name">'+item.name+'</div><div class="cart-item-price-unit">'+fmt(item.price)+' / '+CT.unit+weightInfo+'</div></div></div>' +
       '<div class="cart-item-qty"><button class="qty-btn" onclick="changeQty(\''+item.id+'\', -1)">−</button><input class="qty-input" type="number" value="'+item.qty+'" min="1" onchange="setQtyInput(\''+item.id+'\', this.value)"><button class="qty-btn" onclick="changeQty(\''+item.id+'\', 1)">+</button></div>' +
       '<div class="cart-item-total">'+fmt(item.total)+'</div>' +
       '<button class="cart-item-remove" onclick="removeItem(\''+item.id+'\')">×</button>' +
       '</div>';
   });
-  itemsHtml += '<div class="cart-actions"><a href="collection-siwak" class="btn-secondary">← Continuer mes achats</a><a href="checkout" class="btn-primary">Passer la commande →</a></div>';
+  itemsHtml += '<div class="cart-actions"><a href="collection-siwak" class="btn-secondary">'+CT.continue+'</a><a href="checkout" class="btn-primary">'+CT.order+'</a></div>';
 
   /* ── carrier selector ── */
   var mrCost = getShippingCost('mondial-relay');
   var colCost = getShippingCost('colissimo');
   var mrPriceHtml = mrCost === 0
-    ? '<span class="carrier-price free">Offerte ✓</span>'
+    ? '<span class="carrier-price free">'+CT.free+'</span>'
     : '<span class="carrier-price">'+fmt(mrCost)+'</span>';
   var colPriceHtml = '<span class="carrier-price">'+fmt(colCost)+'</span>';
 
   var carrierHtml = '<div class="carrier-selector">' +
-    '<div class="carrier-label">Mode de livraison</div>' +
+    '<div class="carrier-label">'+CT.carrier_label+'</div>' +
     '<div class="carrier-option'+(carrier==='mondial-relay'?' selected':'')+'" onclick="selectCarrier(\'mondial-relay\')">' +
       '<div class="carrier-radio"></div>' +
-      '<div class="carrier-info"><div class="carrier-name">Mondial Relay <small>(72h)</small></div>'+mrPriceHtml+'</div>' +
+      '<div class="carrier-info"><div class="carrier-name">'+CT.carrier_mr+' <small>(72h)</small></div>'+mrPriceHtml+'</div>' +
     '</div>' +
     '<div class="carrier-option'+(carrier==='colissimo'?' selected':'')+'" onclick="selectCarrier(\'colissimo\')">' +
       '<div class="carrier-radio"></div>' +
-      '<div class="carrier-info"><div class="carrier-name">Colissimo domicile <small>(48h)</small></div>'+colPriceHtml+'</div>' +
+      '<div class="carrier-info"><div class="carrier-name">'+CT.carrier_col+' <small>(48h)</small></div>'+colPriceHtml+'</div>' +
     '</div>' +
     '</div>';
 
   /* ── shipping summary line ── */
   var deliveryText;
   if (delivery === 0) {
-    deliveryText = '<div class="summary-line delivery"><span>Livraison</span><span style="color:#4a7c59;font-weight:500">Offerte ✓</span></div>';
-    deliveryText += '<div class="free-delivery-bar fdb-reached"><strong>✓ Livraison Mondial Relay offerte !</strong><div class="fdb-track"><div class="fdb-fill" style="width:100%"></div></div></div>';
+    deliveryText = '<div class="summary-line delivery"><span>'+CT.delivery+'</span><span style="color:#4a7c59;font-weight:500">'+CT.free+'</span></div>';
+    deliveryText += '<div class="free-delivery-bar fdb-reached"><strong>'+CT.mr_ok+'</strong><div class="fdb-track"><div class="fdb-fill" style="width:100%"></div></div></div>';
   } else {
-    deliveryText = '<div class="summary-line"><span>Livraison<br><small style="color:var(--light);font-size:11px">Poids total : '+weight+' g</small></span><span>'+fmt(delivery)+'</span></div>';
+    deliveryText = '<div class="summary-line"><span>'+CT.delivery+'<br><small style="color:var(--light);font-size:11px">'+CT.weight_pre+weight+CT.weight_suf+'</small></span><span>'+fmt(delivery)+'</span></div>';
     if (carrier === 'mondial-relay' && subtotal < 45) {
       var remaining = 45 - subtotal;
       var pct = Math.round((subtotal / 45) * 100);
-      deliveryText += '<div class="free-delivery-bar">Plus que <strong>'+fmt(remaining)+'</strong> pour la livraison <strong>Mondial Relay offerte</strong><div class="fdb-track"><div class="fdb-fill" style="width:'+pct+'%"></div></div></div>';
+      deliveryText += '<div class="free-delivery-bar">'+CT.mr_rem.replace('{amt}', fmt(remaining))+'<div class="fdb-track"><div class="fdb-fill" style="width:'+pct+'%"></div></div></div>';
     }
   }
 
   /* ── full summary block ── */
-  var summaryHtml = '<div class="order-summary"><h3 class="summary-title">Récapitulatif</h3>' +
-    '<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>' +
+  var summaryHtml = '<div class="order-summary"><h3 class="summary-title">'+CT.summary+'</h3>' +
+    '<div class="summary-line"><span>'+CT.subtotal+'</span><span>'+fmt(subtotal)+'</span></div>' +
     carrierHtml +
     deliveryText +
     '<div class="summary-divider"></div>' +
-    '<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>' +
-    '<br><a href="checkout" class="btn-primary" style="width:100%;display:block;text-align:center;">Commander →</a>' +
-    '<div class="trust-icons"><div class="trust-icon">🔒 Paiement sécurisé</div></div></div>';
+    '<div class="summary-line total"><span>'+CT.total+'</span><span>'+fmt(total)+'</span></div>' +
+    '<br><a href="checkout" class="btn-primary" style="width:100%;display:block;text-align:center;">'+CT.checkout+'</a>' +
+    '<div class="trust-icons"><div class="trust-icon">'+CT.secure+'</div></div></div>';
 
   section.innerHTML = '<div>' + itemsHtml + '</div>' + summaryHtml;
 
@@ -312,11 +394,11 @@ function renderCart() {
     console.error('[ALYA cart] Erreur renderCart:', err);
     section.innerHTML =
       '<div style="padding:60px 40px;text-align:center;">' +
-        '<p style="color:#c0392b;font-size:14px;margin-bottom:16px;">Une erreur s\'est produite lors du chargement du panier.</p>' +
+        '<p style="color:#c0392b;font-size:14px;margin-bottom:16px;">'+CT.err_msg+'</p>' +
         '<p style="font-size:12px;color:#888;font-family:monospace;margin-bottom:24px;">' + err.message + '</p>' +
         '<button onclick="localStorage.removeItem(\'alyanco_cart\');location.reload();" ' +
           'style="padding:12px 28px;background:#1C1612;color:#FAF6F1;border:none;font-family:sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;">' +
-          'Vider le panier et réessayer' +
+          CT.err_btn +
         '</button>' +
       '</div>';
   }
