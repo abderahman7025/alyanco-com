@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { email, cartItems, total } = req.body || {};
+  const { email, cartItems, total, lang } = req.body || {};
   if (!email || !email.includes('@')) return res.status(400).json({ error: 'Email invalide' });
 
   const brevoKey = process.env.BREVO_API_KEY;
@@ -24,7 +24,8 @@ export default async function handler(req, res) {
         listIds: [2],
         attributes: {
           PANIER_CONTENU: cartText,
-          PANIER_TOTAL: String(parseFloat(total || 0).toFixed(2))
+          PANIER_TOTAL: String(parseFloat(total || 0).toFixed(2)),
+          LANGUE: lang || 'fr'
         }
       })
     });

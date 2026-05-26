@@ -1,3 +1,161 @@
+// ── EMAIL TRANSLATIONS (7 languages) ────────────────────────────
+const EMAIL_T = {
+  fr: {
+    subject:         (num)          => `Confirmation de commande ${num} — ALYA & CO.`,
+    preheader:       (prenom, num)  => `Merci ${prenom} ! Votre commande ${num} a bien été confirmée. ✦ ALYA & CO.`,
+    thank_you:       (prenom)       => `Merci, <em style="color:#B8975A;">${prenom} !</em>`,
+    confirmed:       'Votre commande a bien été confirmée.<br>Nous la préparons avec soin.',
+    order_title:     'Votre commande',
+    subtotal:        'Sous-total',
+    total_paid:      'Total payé',
+    colissimo:       'Colissimo — 48h',
+    mondial_relay:   'Mondial Relay — 72h',
+    delivery_addr:   'Adresse de livraison',
+    shipping_method: 'Mode d\'expédition',
+    dispatch_time:   'Expédition sous 24–48h',
+    tracking_email:  'Un email de suivi vous sera envoyé dès le départ de votre colis.',
+    tracking_title:  'Suivi de votre colis',
+    tracking_active: 'Le suivi sera actif dès la prise en charge par le transporteur (sous 24h).',
+    track_btn:       'Suivre mon colis →',
+    back_to_shop:    'Retour à la boutique',
+    questions:       'Des questions ?',
+    free:            'Offerte',
+    qty:             'Quantité : '
+  },
+  en: {
+    subject:         (num)          => `Order confirmation ${num} — ALYA & CO.`,
+    preheader:       (prenom, num)  => `Thank you ${prenom}! Your order ${num} has been confirmed. ✦ ALYA & CO.`,
+    thank_you:       (prenom)       => `Thank you, <em style="color:#B8975A;">${prenom}!</em>`,
+    confirmed:       'Your order has been confirmed.<br>We are preparing it with care.',
+    order_title:     'Your order',
+    subtotal:        'Subtotal',
+    total_paid:      'Total paid',
+    colissimo:       'Colissimo — 48h',
+    mondial_relay:   'Mondial Relay — 72h',
+    delivery_addr:   'Delivery address',
+    shipping_method: 'Shipping method',
+    dispatch_time:   'Dispatched within 24–48h',
+    tracking_email:  'A tracking email will be sent once your parcel has been shipped.',
+    tracking_title:  'Track your parcel',
+    tracking_active: 'Tracking will be active once the carrier has collected your parcel (within 24h).',
+    track_btn:       'Track my parcel →',
+    back_to_shop:    'Back to the shop',
+    questions:       'Questions?',
+    free:            'Free',
+    qty:             'Quantity: '
+  },
+  nl: {
+    subject:         (num)          => `Orderbevestiging ${num} — ALYA & CO.`,
+    preheader:       (prenom, num)  => `Bedankt ${prenom}! Uw bestelling ${num} is bevestigd. ✦ ALYA & CO.`,
+    thank_you:       (prenom)       => `Bedankt, <em style="color:#B8975A;">${prenom}!</em>`,
+    confirmed:       'Uw bestelling is bevestigd.<br>We bereiden het met zorg voor.',
+    order_title:     'Uw bestelling',
+    subtotal:        'Subtotaal',
+    total_paid:      'Totaal betaald',
+    colissimo:       'Colissimo — 48u',
+    mondial_relay:   'Mondial Relay — 72u',
+    delivery_addr:   'Bezorgadres',
+    shipping_method: 'Verzendmethode',
+    dispatch_time:   'Verzonden binnen 24–48u',
+    tracking_email:  'U ontvangt een track & trace-e-mail zodra uw pakket is verzonden.',
+    tracking_title:  'Volg uw pakket',
+    tracking_active: 'Tracking is actief zodra de vervoerder uw pakket heeft opgehaald (binnen 24u).',
+    track_btn:       'Mijn pakket volgen →',
+    back_to_shop:    'Terug naar de winkel',
+    questions:       'Vragen?',
+    free:            'Gratis',
+    qty:             'Aantal: '
+  },
+  de: {
+    subject:         (num)          => `Bestellbestätigung ${num} — ALYA & CO.`,
+    preheader:       (prenom, num)  => `Danke ${prenom}! Ihre Bestellung ${num} wurde bestätigt. ✦ ALYA & CO.`,
+    thank_you:       (prenom)       => `Danke, <em style="color:#B8975A;">${prenom}!</em>`,
+    confirmed:       'Ihre Bestellung wurde bestätigt.<br>Wir bereiten sie sorgfältig vor.',
+    order_title:     'Ihre Bestellung',
+    subtotal:        'Zwischensumme',
+    total_paid:      'Gesamt bezahlt',
+    colissimo:       'Colissimo — 48h',
+    mondial_relay:   'Mondial Relay — 72h',
+    delivery_addr:   'Lieferadresse',
+    shipping_method: 'Versandmethode',
+    dispatch_time:   'Versand innerhalb von 24–48h',
+    tracking_email:  'Eine Tracking-E-Mail wird gesendet, sobald Ihr Paket verschickt wurde.',
+    tracking_title:  'Ihr Paket verfolgen',
+    tracking_active: 'Das Tracking wird aktiv, sobald der Spediteur Ihr Paket abgeholt hat (innerhalb von 24h).',
+    track_btn:       'Mein Paket verfolgen →',
+    back_to_shop:    'Zurück zum Shop',
+    questions:       'Fragen?',
+    free:            'Kostenlos',
+    qty:             'Menge: '
+  },
+  it: {
+    subject:         (num)          => `Conferma ordine ${num} — ALYA & CO.`,
+    preheader:       (prenom, num)  => `Grazie ${prenom}! Il tuo ordine ${num} è stato confermato. ✦ ALYA & CO.`,
+    thank_you:       (prenom)       => `Grazie, <em style="color:#B8975A;">${prenom}!</em>`,
+    confirmed:       'Il tuo ordine è stato confermato.<br>Lo stiamo preparando con cura.',
+    order_title:     'Il tuo ordine',
+    subtotal:        'Subtotale',
+    total_paid:      'Totale pagato',
+    colissimo:       'Colissimo — 48h',
+    mondial_relay:   'Mondial Relay — 72h',
+    delivery_addr:   'Indirizzo di consegna',
+    shipping_method: 'Metodo di spedizione',
+    dispatch_time:   'Spedizione entro 24–48h',
+    tracking_email:  'Una email di tracciamento verrà inviata non appena il tuo pacco sarà spedito.',
+    tracking_title:  'Traccia il tuo pacco',
+    tracking_active: 'Il tracciamento sarà attivo non appena il corriere avrà ritirato il tuo pacco (entro 24h).',
+    track_btn:       'Traccia il mio pacco →',
+    back_to_shop:    'Torna al negozio',
+    questions:       'Domande?',
+    free:            'Gratuita',
+    qty:             'Quantità: '
+  },
+  pt: {
+    subject:         (num)          => `Confirmação de encomenda ${num} — ALYA & CO.`,
+    preheader:       (prenom, num)  => `Obrigado ${prenom}! A sua encomenda ${num} foi confirmada. ✦ ALYA & CO.`,
+    thank_you:       (prenom)       => `Obrigado, <em style="color:#B8975A;">${prenom}!</em>`,
+    confirmed:       'A sua encomenda foi confirmada.<br>Estamos a prepará-la com cuidado.',
+    order_title:     'A sua encomenda',
+    subtotal:        'Subtotal',
+    total_paid:      'Total pago',
+    colissimo:       'Colissimo — 48h',
+    mondial_relay:   'Mondial Relay — 72h',
+    delivery_addr:   'Endereço de entrega',
+    shipping_method: 'Método de envio',
+    dispatch_time:   'Enviado em 24–48h',
+    tracking_email:  'Um email de rastreamento será enviado assim que a sua encomenda for despachada.',
+    tracking_title:  'Rastrear a sua encomenda',
+    tracking_active: 'O rastreamento ficará ativo assim que a transportadora recolher a sua encomenda (dentro de 24h).',
+    track_btn:       'Rastrear a minha encomenda →',
+    back_to_shop:    'Voltar à loja',
+    questions:       'Dúvidas?',
+    free:            'Grátis',
+    qty:             'Quantidade: '
+  },
+  es: {
+    subject:         (num)          => `Confirmación de pedido ${num} — ALYA & CO.`,
+    preheader:       (prenom, num)  => `¡Gracias ${prenom}! Tu pedido ${num} ha sido confirmado. ✦ ALYA & CO.`,
+    thank_you:       (prenom)       => `¡Gracias, <em style="color:#B8975A;">${prenom}!</em>`,
+    confirmed:       'Tu pedido ha sido confirmado.<br>Lo estamos preparando con cuidado.',
+    order_title:     'Tu pedido',
+    subtotal:        'Subtotal',
+    total_paid:      'Total pagado',
+    colissimo:       'Colissimo — 48h',
+    mondial_relay:   'Mondial Relay — 72h',
+    delivery_addr:   'Dirección de entrega',
+    shipping_method: 'Método de envío',
+    dispatch_time:   'Enviado en 24–48h',
+    tracking_email:  'Se enviará un email de seguimiento cuando tu paquete haya sido enviado.',
+    tracking_title:  'Seguir tu paquete',
+    tracking_active: 'El seguimiento estará activo cuando el transportista recoja tu paquete (en 24h).',
+    track_btn:       'Seguir mi paquete →',
+    back_to_shop:    'Volver a la tienda',
+    questions:       '¿Preguntas?',
+    free:            'Gratis',
+    qty:             'Cantidad: '
+  }
+};
+
 // ── STOCK MANAGEMENT ────────────────────────────────────────────
 const PACK_COMPOSITIONS = {
   'pack-siwak-complet':  [{ id: 'brosse-siwak', qty: 1 }, { id: 'tetes-recharges', qty: 1 }, { id: 'dentifrice-siwak', qty: 1 }],
@@ -56,8 +214,10 @@ export default async function handler(req, res) {
     email, prenom, nom, tel,
     orderNumber, items, total, shippingCost,
     shipping, adresse, cp, ville, pays, totalWeight, relayPoint,
-    promoCode
+    promoCode, lang
   } = req.body;
+
+  const t = EMAIL_T[lang] || EMAIL_T.fr;
 
   if (!email || !orderNumber) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -65,10 +225,10 @@ export default async function handler(req, res) {
 
   // ── FORMAT HELPERS ──────────────────────────────────────────────
   const fmt = (n) => parseFloat(n).toFixed(2).replace('.', ',') + ' €';
-  const shippingLabel = shipping === 'colissimo' ? 'Colissimo — 48h' : 'Mondial Relay — 72h';
-  const shippingLineTxt = parseFloat(shippingCost) === 0 ? 'Offerte' : fmt(shippingCost);
+  const shippingLabel = shipping === 'colissimo' ? t.colissimo : t.mondial_relay;
+  const shippingLineTxt = parseFloat(shippingCost) === 0 ? t.free : fmt(shippingCost);
   const shippingLineHtml = parseFloat(shippingCost) === 0
-    ? '<span style="color:#B8975A;font-weight:500;">Offerte</span>'
+    ? `<span style="color:#B8975A;font-weight:500;">${t.free}</span>`
     : fmt(shippingCost);
 
   // ── SENDCLOUD — CRÉATION DU COLIS & ÉTIQUETTE ──────────────────
@@ -150,7 +310,7 @@ export default async function handler(req, res) {
             </td>
             <td style="vertical-align:middle;">
               <div style="font-family:Georgia,serif;font-size:15px;color:#1C1612;margin-bottom:4px;">${item.name}</div>
-              <div style="font-size:12px;color:#A8958A;letter-spacing:0.1em;">Quantité : ${item.qty}</div>
+              <div style="font-size:12px;color:#A8958A;letter-spacing:0.1em;">${t.qty}${item.qty}</div>
             </td>
           </tr>
         </table>
@@ -170,7 +330,7 @@ export default async function handler(req, res) {
 </head>
 <body style="margin:0;padding:0;background:#FAF6F1;font-family:'DM Sans',Helvetica,Arial,sans-serif;font-weight:300;color:#1C1612;">
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-  Merci ${prenom} ! Votre commande ${orderNumber} a bien été confirmée. ✦ ALYA &amp; CO.
+  ${t.preheader(prenom, orderNumber)}
 </div>
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FAF6F1;min-height:100vh;">
   <tr><td align="center" style="padding:40px 20px;">
@@ -191,10 +351,10 @@ export default async function handler(req, res) {
           <div style="width:64px;height:64px;background:#B8975A;border-radius:50%;margin:0 auto 24px;
                       font-size:28px;line-height:64px;text-align:center;color:#FFFFFF;">✓</div>
           <h1 style="font-family:Georgia,serif;font-size:32px;font-weight:400;color:#1C1612;margin:0 0 12px;line-height:1.2;">
-            Merci, <em style="color:#B8975A;">${prenom} !</em>
+            ${t.thank_you(prenom)}
           </h1>
           <p style="font-size:15px;color:#6B5B4E;margin:0 0 20px;line-height:1.7;">
-            Votre commande a bien été confirmée.<br>Nous la préparons avec soin.
+            ${t.confirmed}
           </p>
           <div style="display:inline-block;background:rgba(184,151,90,0.1);border:1px solid rgba(184,151,90,0.3);
                       color:#B8975A;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:10px 24px;">
@@ -209,12 +369,12 @@ export default async function handler(req, res) {
       <tr>
         <td style="padding:32px 48px;">
           <h2 style="font-family:Georgia,serif;font-size:18px;font-weight:400;color:#1C1612;margin:0 0 20px;letter-spacing:0.05em;">
-            Votre commande
+            ${t.order_title}
           </h2>
           <table width="100%" cellpadding="0" cellspacing="0" border="0">
             ${itemsRows}
             <tr>
-              <td style="padding:12px 0 6px;font-size:13px;color:#6B5B4E;">Sous-total</td>
+              <td style="padding:12px 0 6px;font-size:13px;color:#6B5B4E;">${t.subtotal}</td>
               <td style="padding:12px 0 6px;font-size:13px;color:#6B5B4E;text-align:right;">${fmt(total - parseFloat(shippingCost))}</td>
             </tr>
             <tr>
@@ -222,7 +382,7 @@ export default async function handler(req, res) {
               <td style="padding:6px 0;font-size:13px;text-align:right;">${shippingLineHtml}</td>
             </tr>
             <tr>
-              <td style="padding:16px 0 0;border-top:1px solid #EAD1BF;font-family:Georgia,serif;font-size:20px;color:#1C1612;font-weight:400;">Total payé</td>
+              <td style="padding:16px 0 0;border-top:1px solid #EAD1BF;font-family:Georgia,serif;font-size:20px;color:#1C1612;font-weight:400;">${t.total_paid}</td>
               <td style="padding:16px 0 0;border-top:1px solid #EAD1BF;font-family:Georgia,serif;font-size:20px;color:#B8975A;text-align:right;font-weight:400;">${fmt(total)}</td>
             </tr>
           </table>
@@ -237,16 +397,16 @@ export default async function handler(req, res) {
           <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td width="50%" style="padding-right:16px;vertical-align:top;">
-                <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#B8975A;margin-bottom:12px;">Adresse de livraison</div>
+                <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#B8975A;margin-bottom:12px;">${t.delivery_addr}</div>
                 <div style="font-size:14px;color:#1C1612;line-height:1.8;">
                   <strong>${prenom} ${nom}</strong><br>${adresse}<br>${cp} ${ville}<br>France
                 </div>
               </td>
               <td width="50%" style="padding-left:16px;vertical-align:top;border-left:1px solid #F0E8DF;">
-                <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#B8975A;margin-bottom:12px;">Mode d'expédition</div>
+                <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#B8975A;margin-bottom:12px;">${t.shipping_method}</div>
                 <div style="font-size:14px;color:#1C1612;line-height:1.8;">
-                  <strong>${shippingLabel}</strong><br>Expédition sous 24–48h<br>
-                  <span style="color:#6B5B4E;font-size:12px;">Un email de suivi vous sera envoyé dès le départ de votre colis.</span>
+                  <strong>${shippingLabel}</strong><br>${t.dispatch_time}<br>
+                  <span style="color:#6B5B4E;font-size:12px;">${t.tracking_email}</span>
                 </div>
               </td>
             </tr>
@@ -260,18 +420,18 @@ export default async function handler(req, res) {
       <tr>
         <td style="padding:32px 48px;text-align:center;background:#FAF6F1;">
           <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">
-            Suivi de votre colis
+            ${t.tracking_title}
           </div>
           <div style="font-family:Georgia,serif;font-size:22px;letter-spacing:0.08em;color:#1C1612;margin-bottom:8px;">
             ${trackingNumber}
           </div>
           <p style="font-size:12px;color:#A8958A;margin:0 0 20px;line-height:1.6;">
-            Le suivi sera actif dès la prise en charge par le transporteur (sous 24h).
+            ${t.tracking_active}
           </p>
           ${trackingUrl ? `<a href="${trackingUrl}" style="display:inline-block;padding:13px 32px;background:transparent;
                border:1px solid #B8975A;color:#B8975A;font-size:11px;letter-spacing:0.15em;
                text-transform:uppercase;text-decoration:none;font-family:Helvetica,Arial,sans-serif;">
-            Suivre mon colis →
+            ${t.track_btn}
           </a>` : ''}
         </td>
       </tr>` : ''}
@@ -281,7 +441,7 @@ export default async function handler(req, res) {
         <td style="padding:8px 48px 40px;text-align:center;">
           <a href="https://alyanco.com" style="display:inline-block;padding:16px 40px;background:#1C1612;color:#FAF6F1;
                    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-family:Helvetica,Arial,sans-serif;">
-            Retour à la boutique
+            ${t.back_to_shop}
           </a>
         </td>
       </tr>
@@ -293,7 +453,7 @@ export default async function handler(req, res) {
         <td style="background:#1C1612;padding:32px 48px;text-align:center;">
           <div style="font-family:Georgia,serif;font-size:16px;color:#FAF6F1;margin-bottom:8px;letter-spacing:0.1em;">ALYA &amp; CO.</div>
           <div style="font-size:11px;color:#6B5B4E;margin-bottom:16px;line-height:1.8;">
-            Des questions ? <a href="mailto:contact@alyanco.com" style="color:#B8975A;text-decoration:none;">contact@alyanco.com</a>
+            ${t.questions} <a href="mailto:contact@alyanco.com" style="color:#B8975A;text-decoration:none;">contact@alyanco.com</a>
           </div>
           <div style="font-size:10px;color:#4A3F38;letter-spacing:0.1em;">
             © 2026 ALYA &amp; CO. — Tous droits réservés
@@ -426,7 +586,7 @@ export default async function handler(req, res) {
   try {
     // Email client
     await brevoSend(email, `${prenom} ${nom}`,
-      `Confirmation de commande ${orderNumber} — ALYA & CO.`,
+      t.subject(orderNumber),
       customerHtml
     );
 
@@ -438,7 +598,7 @@ export default async function handler(req, res) {
 
     // Ajout du client dans la liste Brevo "Clients" (#4)
     try {
-      const brevoAttrs = { PRENOM: prenom, NOM: nom, SMS: tel || '' };
+      const brevoAttrs = { PRENOM: prenom, NOM: nom, SMS: tel || '', LANGUE: lang || 'fr' };
       // Marquer le code promo comme utilisé pour cet email
       if (promoCode) brevoAttrs.PROMO_USED = promoCode.toUpperCase();
       await fetch('https://api.brevo.com/v3/contacts', {

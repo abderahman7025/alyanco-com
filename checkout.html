@@ -693,7 +693,8 @@ document.querySelector('input[name="email"]').addEventListener('blur', function(
     body: JSON.stringify({
       email: email,
       cartItems: cartItems.map(function(i){ return { name: i.name, qty: i.qty, price: i.price }; }),
-      total: getCartSubtotal()
+      total: getCartSubtotal(),
+      lang: localStorage.getItem('alya_lang') || 'fr'
     })
   }).catch(function(){});
 });
