@@ -139,18 +139,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 
 <div class="progress-bar">
-  <div class="progress-step done"><span class="progress-num">✓</span><span>Panier</span></div>
+  <div class="progress-step done"><span class="progress-num">✓</span><span id="_co_s1">Panier</span></div>
   <div class="progress-divider"></div>
-  <div class="progress-step active"><span class="progress-num">2</span><span>Livraison</span></div>
+  <div class="progress-step active"><span class="progress-num">2</span><span id="_co_s2">Livraison</span></div>
   <div class="progress-divider"></div>
-  <div class="progress-step"><span class="progress-num">3</span><span>Paiement</span></div>
+  <div class="progress-step"><span class="progress-num">3</span><span id="_co_s3">Paiement</span></div>
 </div>
 
 <div class="checkout-layout">
   <div class="checkout-form-col">
     <a href="cart" class="btn-back">← Retour au panier</a>
     <form id="checkoutForm" onsubmit="handleCheckout(event)">
-      <h2 class="form-section-title">Informations de <em style="font-style:italic;color:var(--gold)">livraison</em></h2>
+      <h2 class="form-section-title" id="_co_sec1">Informations de <em style="font-style:italic;color:var(--gold)">livraison</em></h2>
       <div class="form-row">
         <div class="form-group"><label class="form-label">Prénom *</label><input class="form-input" type="text" name="prenom" placeholder="Marie" required></div>
         <div class="form-group"><label class="form-label">Nom *</label><input class="form-input" type="text" name="nom" placeholder="Dupont" required></div>
@@ -174,23 +174,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         </div>
       </div>
       <div class="form-divider"></div>
-      <h2 class="form-section-title" style="margin-bottom:20px;">Mode de <em style="font-style:italic;color:var(--gold)">livraison</em></h2>
+      <h2 class="form-section-title" id="_co_sec2" style="margin-bottom:20px;">Mode de <em style="font-style:italic;color:var(--gold)">livraison</em></h2>
       <div class="shipping-options" id="shippingOptions">
         <!-- Rendered by JS -->
       </div>
       <!-- POINT RELAIS (visible uniquement si Mondial Relay sélectionné) -->
       <div id="relaySection" class="relay-section">
-        <div class="relay-label">📍 Point relais *</div>
+        <div class="relay-label" id="_co_relay_lbl">📍 Point relais *</div>
         <div id="relayEmpty" class="relay-empty">
-          <span class="relay-empty-txt">Aucun point relais sélectionné</span>
-          <button type="button" class="btn-relay" onclick="openRelayPicker()">Choisir mon point relais →</button>
+          <span class="relay-empty-txt" id="_co_relay_empty">Aucun point relais sélectionné</span>
+          <button type="button" class="btn-relay" id="_co_relay_choose" onclick="openRelayPicker()">Choisir mon point relais →</button>
         </div>
         <div id="relayChosen" class="relay-chosen">
           <div>
             <div class="relay-chosen-name" id="relayChosenName"></div>
             <div class="relay-chosen-addr" id="relayChosenAddr"></div>
           </div>
-          <button type="button" class="btn-relay-change" onclick="openRelayPicker()">Modifier</button>
+          <button type="button" class="btn-relay-change" id="_co_relay_change" onclick="openRelayPicker()">Modifier</button>
         </div>
         <div class="relay-err" id="relayErr">Veuillez sélectionner un point relais avant de continuer.</div>
       </div>
@@ -217,6 +217,266 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <script src="https://embed.sendcloud.sc/spp/1.0.0/api.min.js"></script>
 <script src="cart.js?v=5"></script>
 <script>
+/* ── Traductions checkout ── */
+var CHT = (function(){
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var all = {
+    fr:{ step_cart:'Panier', step_ship:'Livraison', step_pay:'Paiement',
+      back:'← Retour au panier',
+      sec_info:'Informations de <em style="font-style:italic;color:var(--gold)">livraison</em>',
+      sec_ship:'Mode de <em style="font-style:italic;color:var(--gold)">livraison</em>',
+      lbl_prenom:'Prénom *', lbl_nom:'Nom *', lbl_email:'Email *',
+      lbl_tel:'Téléphone *', lbl_adresse:'Adresse *', lbl_cp:'Code postal *',
+      lbl_ville:'Ville *', lbl_pays:'Pays *',
+      ph_prenom:'Marie', ph_nom:'Dupont', ph_tel:'06 XX XX XX XX',
+      ph_adresse:'12 rue des Fleurs', ph_cp:'75001', ph_ville:'Paris',
+      opt_BE:'Belgique', opt_CH:'Suisse', opt_LU:'Luxembourg',
+      opt_ES:'Espagne', opt_IT:'Italie', opt_DE:'Allemagne',
+      mr_detail:'Livraison en point relais sous 72h',
+      col_detail:'Livraison à domicile sous 48h',
+      free:'Offerte',
+      relay_lbl:'📍 Point relais *',
+      relay_empty:'Aucun point relais sélectionné',
+      relay_choose:'Choisir mon point relais →',
+      relay_change:'Modifier',
+      relay_err:'Veuillez sélectionner un point relais avant de continuer.',
+      submit:'Continuer vers le paiement →',
+      summary_title:'Votre commande',
+      promo_ph:'Code promo', promo_btn:'Appliquer',
+      promo_ok:'✓ Code appliqué — -{pct}% sur votre commande !',
+      promo_err_code:'Veuillez entrer un code.',
+      promo_err_email:"Veuillez d'abord renseigner votre adresse email.",
+      promo_err_conn:'Erreur de connexion. Réessayez.',
+      promo_invalid:'Code invalide.',
+      delivery_lbl:'🚚 Livraison', delivery_free:'Offerte !',
+      subtotal:'Sous-total', delivery:'Livraison',
+      promo_line:'Code promo (-{pct}%)', total:'Total' },
+    en:{ step_cart:'Cart', step_ship:'Shipping', step_pay:'Payment',
+      back:'← Back to cart',
+      sec_info:'Shipping <em style="font-style:italic;color:var(--gold)">information</em>',
+      sec_ship:'Delivery <em style="font-style:italic;color:var(--gold)">method</em>',
+      lbl_prenom:'First name *', lbl_nom:'Last name *', lbl_email:'Email *',
+      lbl_tel:'Phone *', lbl_adresse:'Address *', lbl_cp:'Postcode *',
+      lbl_ville:'City *', lbl_pays:'Country *',
+      ph_prenom:'Marie', ph_nom:'Dupont', ph_tel:'+33 6 XX XX XX XX',
+      ph_adresse:'12 Rue des Fleurs', ph_cp:'75001', ph_ville:'Paris',
+      opt_BE:'Belgium', opt_CH:'Switzerland', opt_LU:'Luxembourg',
+      opt_ES:'Spain', opt_IT:'Italy', opt_DE:'Germany',
+      mr_detail:'Pickup point delivery within 72h',
+      col_detail:'Home delivery within 48h',
+      free:'Free',
+      relay_lbl:'📍 Pickup point *',
+      relay_empty:'No pickup point selected',
+      relay_choose:'Choose my pickup point →',
+      relay_change:'Change',
+      relay_err:'Please select a pickup point before continuing.',
+      submit:'Continue to payment →',
+      summary_title:'Your order',
+      promo_ph:'Promo code', promo_btn:'Apply',
+      promo_ok:'✓ Code applied — -{pct}% off your order!',
+      promo_err_code:'Please enter a code.',
+      promo_err_email:'Please enter your email address first.',
+      promo_err_conn:'Connection error. Please retry.',
+      promo_invalid:'Invalid code.',
+      delivery_lbl:'🚚 Shipping', delivery_free:'Free!',
+      subtotal:'Subtotal', delivery:'Shipping',
+      promo_line:'Promo code (-{pct}%)', total:'Total' },
+    nl:{ step_cart:'Winkelwagen', step_ship:'Verzending', step_pay:'Betaling',
+      back:'← Terug naar winkelwagen',
+      sec_info:'Verzending<em style="font-style:italic;color:var(--gold)"> informatie</em>',
+      sec_ship:'Bezorg<em style="font-style:italic;color:var(--gold)">methode</em>',
+      lbl_prenom:'Voornaam *', lbl_nom:'Achternaam *', lbl_email:'E-mail *',
+      lbl_tel:'Telefoon *', lbl_adresse:'Adres *', lbl_cp:'Postcode *',
+      lbl_ville:'Stad *', lbl_pays:'Land *',
+      ph_prenom:'Marie', ph_nom:'Dupont', ph_tel:'+32 X XX XX XX XX',
+      ph_adresse:'Rue des Fleurs 12', ph_cp:'75001', ph_ville:'Paris',
+      opt_BE:'België', opt_CH:'Zwitserland', opt_LU:'Luxemburg',
+      opt_ES:'Spanje', opt_IT:'Italië', opt_DE:'Duitsland',
+      mr_detail:'Levering op afhaalpunt binnen 72u',
+      col_detail:'Thuisbezorging binnen 48u',
+      free:'Gratis',
+      relay_lbl:'📍 Afhaalpunt *',
+      relay_empty:'Geen afhaalpunt geselecteerd',
+      relay_choose:'Kies mijn afhaalpunt →',
+      relay_change:'Wijzigen',
+      relay_err:'Selecteer een afhaalpunt voordat u verdergaat.',
+      submit:'Doorgaan naar betaling →',
+      summary_title:'Uw bestelling',
+      promo_ph:'Promotiecode', promo_btn:'Toepassen',
+      promo_ok:'✓ Code toegepast — -{pct}% op uw bestelling!',
+      promo_err_code:'Voer een code in.',
+      promo_err_email:'Voer eerst uw e-mailadres in.',
+      promo_err_conn:'Verbindingsfout. Probeer opnieuw.',
+      promo_invalid:'Ongeldige code.',
+      delivery_lbl:'🚚 Verzending', delivery_free:'Gratis!',
+      subtotal:'Subtotaal', delivery:'Verzending',
+      promo_line:'Promotiecode (-{pct}%)', total:'Totaal' },
+    de:{ step_cart:'Warenkorb', step_ship:'Versand', step_pay:'Zahlung',
+      back:'← Zurück zum Warenkorb',
+      sec_info:'Liefer<em style="font-style:italic;color:var(--gold)">informationen</em>',
+      sec_ship:'Liefer<em style="font-style:italic;color:var(--gold)">methode</em>',
+      lbl_prenom:'Vorname *', lbl_nom:'Nachname *', lbl_email:'E-Mail *',
+      lbl_tel:'Telefon *', lbl_adresse:'Adresse *', lbl_cp:'Postleitzahl *',
+      lbl_ville:'Stadt *', lbl_pays:'Land *',
+      ph_prenom:'Marie', ph_nom:'Dupont', ph_tel:'+49 XXX XXXXXXX',
+      ph_adresse:'Musterstraße 12', ph_cp:'10115', ph_ville:'Berlin',
+      opt_BE:'Belgien', opt_CH:'Schweiz', opt_LU:'Luxemburg',
+      opt_ES:'Spanien', opt_IT:'Italien', opt_DE:'Deutschland',
+      mr_detail:'Lieferung an Abholpunkt innerhalb 72h',
+      col_detail:'Hauszustellung innerhalb 48h',
+      free:'Kostenlos',
+      relay_lbl:'📍 Abholpunkt *',
+      relay_empty:'Kein Abholpunkt ausgewählt',
+      relay_choose:'Abholpunkt wählen →',
+      relay_change:'Ändern',
+      relay_err:'Bitte wählen Sie einen Abholpunkt, bevor Sie fortfahren.',
+      submit:'Weiter zur Zahlung →',
+      summary_title:'Ihre Bestellung',
+      promo_ph:'Rabattcode', promo_btn:'Anwenden',
+      promo_ok:'✓ Code angewendet — -{pct}% auf Ihre Bestellung!',
+      promo_err_code:'Bitte geben Sie einen Code ein.',
+      promo_err_email:'Bitte geben Sie zuerst Ihre E-Mail-Adresse ein.',
+      promo_err_conn:'Verbindungsfehler. Bitte erneut versuchen.',
+      promo_invalid:'Ungültiger Code.',
+      delivery_lbl:'🚚 Versand', delivery_free:'Kostenlos!',
+      subtotal:'Zwischensumme', delivery:'Versand',
+      promo_line:'Rabattcode (-{pct}%)', total:'Gesamt' },
+    it:{ step_cart:'Carrello', step_ship:'Spedizione', step_pay:'Pagamento',
+      back:'← Torna al carrello',
+      sec_info:'Informazioni di <em style="font-style:italic;color:var(--gold)">spedizione</em>',
+      sec_ship:'Metodo di <em style="font-style:italic;color:var(--gold)">consegna</em>',
+      lbl_prenom:'Nome *', lbl_nom:'Cognome *', lbl_email:'Email *',
+      lbl_tel:'Telefono *', lbl_adresse:'Indirizzo *', lbl_cp:'CAP *',
+      lbl_ville:'Città *', lbl_pays:'Paese *',
+      ph_prenom:'Marie', ph_nom:'Dupont', ph_tel:'+39 XXX XXX XXXX',
+      ph_adresse:'Via dei Fiori 12', ph_cp:'00100', ph_ville:'Roma',
+      opt_BE:'Belgio', opt_CH:'Svizzera', opt_LU:'Lussemburgo',
+      opt_ES:'Spagna', opt_IT:'Italia', opt_DE:'Germania',
+      mr_detail:'Consegna in punto di ritiro entro 72h',
+      col_detail:'Consegna a domicilio entro 48h',
+      free:'Gratuita',
+      relay_lbl:'📍 Punto di ritiro *',
+      relay_empty:'Nessun punto di ritiro selezionato',
+      relay_choose:'Scegli il mio punto di ritiro →',
+      relay_change:'Cambia',
+      relay_err:'Seleziona un punto di ritiro prima di continuare.',
+      submit:'Continua al pagamento →',
+      summary_title:'Il tuo ordine',
+      promo_ph:'Codice promozionale', promo_btn:'Applica',
+      promo_ok:'✓ Codice applicato — -{pct}% sul tuo ordine!',
+      promo_err_code:'Inserisci un codice.',
+      promo_err_email:'Inserisci prima il tuo indirizzo email.',
+      promo_err_conn:'Errore di connessione. Riprova.',
+      promo_invalid:'Codice non valido.',
+      delivery_lbl:'🚚 Spedizione', delivery_free:'Gratuita!',
+      subtotal:'Subtotale', delivery:'Spedizione',
+      promo_line:'Codice promozionale (-{pct}%)', total:'Totale' },
+    pt:{ step_cart:'Carrinho', step_ship:'Envio', step_pay:'Pagamento',
+      back:'← Voltar ao carrinho',
+      sec_info:'Informações de <em style="font-style:italic;color:var(--gold)">envio</em>',
+      sec_ship:'Método de <em style="font-style:italic;color:var(--gold)">entrega</em>',
+      lbl_prenom:'Primeiro nome *', lbl_nom:'Apelido *', lbl_email:'E-mail *',
+      lbl_tel:'Telefone *', lbl_adresse:'Morada *', lbl_cp:'Código postal *',
+      lbl_ville:'Cidade *', lbl_pays:'País *',
+      ph_prenom:'Marie', ph_nom:'Dupont', ph_tel:'+351 XXX XXX XXX',
+      ph_adresse:'Rua das Flores 12', ph_cp:'1000-001', ph_ville:'Lisboa',
+      opt_BE:'Bélgica', opt_CH:'Suíça', opt_LU:'Luxemburgo',
+      opt_ES:'Espanha', opt_IT:'Itália', opt_DE:'Alemanha',
+      mr_detail:'Entrega em ponto de recolha em 72h',
+      col_detail:'Entrega ao domicílio em 48h',
+      free:'Grátis',
+      relay_lbl:'📍 Ponto de recolha *',
+      relay_empty:'Nenhum ponto de recolha selecionado',
+      relay_choose:'Escolher o meu ponto de recolha →',
+      relay_change:'Alterar',
+      relay_err:'Selecione um ponto de recolha antes de continuar.',
+      submit:'Continuar para o pagamento →',
+      summary_title:'A sua encomenda',
+      promo_ph:'Código promocional', promo_btn:'Aplicar',
+      promo_ok:'✓ Código aplicado — -{pct}% na sua encomenda!',
+      promo_err_code:'Introduza um código.',
+      promo_err_email:'Introduza primeiro o seu e-mail.',
+      promo_err_conn:'Erro de ligação. Tente novamente.',
+      promo_invalid:'Código inválido.',
+      delivery_lbl:'🚚 Envio', delivery_free:'Grátis!',
+      subtotal:'Subtotal', delivery:'Envio',
+      promo_line:'Código promocional (-{pct}%)', total:'Total' },
+    es:{ step_cart:'Carrito', step_ship:'Envío', step_pay:'Pago',
+      back:'← Volver al carrito',
+      sec_info:'Información de <em style="font-style:italic;color:var(--gold)">envío</em>',
+      sec_ship:'Método de <em style="font-style:italic;color:var(--gold)">entrega</em>',
+      lbl_prenom:'Nombre *', lbl_nom:'Apellidos *', lbl_email:'Email *',
+      lbl_tel:'Teléfono *', lbl_adresse:'Dirección *', lbl_cp:'Código postal *',
+      lbl_ville:'Ciudad *', lbl_pays:'País *',
+      ph_prenom:'Marie', ph_nom:'Dupont', ph_tel:'+34 XXX XXX XXX',
+      ph_adresse:'Calle de las Flores 12', ph_cp:'28001', ph_ville:'Madrid',
+      opt_BE:'Bélgica', opt_CH:'Suiza', opt_LU:'Luxemburgo',
+      opt_ES:'España', opt_IT:'Italia', opt_DE:'Alemania',
+      mr_detail:'Entrega en punto de recogida en 72h',
+      col_detail:'Entrega a domicilio en 48h',
+      free:'Gratis',
+      relay_lbl:'📍 Punto de recogida *',
+      relay_empty:'Ningún punto de recogida seleccionado',
+      relay_choose:'Elegir mi punto de recogida →',
+      relay_change:'Cambiar',
+      relay_err:'Selecciona un punto de recogida antes de continuar.',
+      submit:'Continuar al pago →',
+      summary_title:'Tu pedido',
+      promo_ph:'Código promocional', promo_btn:'Aplicar',
+      promo_ok:'✓ Código aplicado — -{pct}% en tu pedido!',
+      promo_err_code:'Introduce un código.',
+      promo_err_email:'Introduce primero tu dirección de email.',
+      promo_err_conn:'Error de conexión. Inténtalo de nuevo.',
+      promo_invalid:'Código inválido.',
+      delivery_lbl:'🚚 Envío', delivery_free:'¡Gratis!',
+      subtotal:'Subtotal', delivery:'Envío',
+      promo_line:'Código promocional (-{pct}%)', total:'Total' }
+  };
+  var cht = all[lang] || all.fr;
+  document.addEventListener('DOMContentLoaded', function(){
+    function sid(id, v, asHtml){ var e=document.getElementById(id); if(e){ if(asHtml) e.innerHTML=v; else e.textContent=v; } }
+    function sq(sel, v, asHtml){ var e=document.querySelector(sel); if(e){ if(asHtml) e.innerHTML=v; else e.textContent=v; } }
+    /* Progress */
+    sid('_co_s1', cht.step_cart); sid('_co_s2', cht.step_ship); sid('_co_s3', cht.step_pay);
+    /* Back */
+    sq('.btn-back', cht.back);
+    /* Section titles */
+    sq('#_co_sec1', cht.sec_info, true);
+    sq('#_co_sec2', cht.sec_ship, true);
+    /* Labels */
+    var lbls = document.querySelectorAll('.form-label');
+    var lkeys = ['lbl_prenom','lbl_nom','lbl_email','lbl_tel','lbl_adresse','lbl_cp','lbl_ville','lbl_pays'];
+    lbls.forEach(function(el,i){ if(lkeys[i] && cht[lkeys[i]]) el.textContent=cht[lkeys[i]]; });
+    /* Placeholders */
+    var fn=document.querySelector('input[name="prenom"]'); if(fn) fn.placeholder=cht.ph_prenom;
+    var ln=document.querySelector('input[name="nom"]'); if(ln) ln.placeholder=cht.ph_nom;
+    var te=document.querySelector('input[name="tel"]'); if(te) te.placeholder=cht.ph_tel;
+    var ad=document.querySelector('input[name="adresse"]'); if(ad) ad.placeholder=cht.ph_adresse;
+    var cp=document.querySelector('input[name="cp"]'); if(cp) cp.placeholder=cht.ph_cp;
+    var vi=document.querySelector('input[name="ville"]'); if(vi) vi.placeholder=cht.ph_ville;
+    /* Country options */
+    var sel=document.querySelector('select[name="pays"]');
+    if(sel){ var m={'BE':'opt_BE','CH':'opt_CH','LU':'opt_LU','ES':'opt_ES','IT':'opt_IT','DE':'opt_DE'};
+      Array.from(sel.options).forEach(function(o){ if(m[o.value] && cht[m[o.value]]) o.text=cht[m[o.value]]; }); }
+    /* Relay */
+    sid('_co_relay_lbl', cht.relay_lbl);
+    sid('_co_relay_empty', cht.relay_empty);
+    sid('_co_relay_choose', cht.relay_choose);
+    sid('_co_relay_change', cht.relay_change);
+    sid('relayErr', cht.relay_err);
+    /* Submit */
+    sq('button[type="submit"].btn-primary', cht.submit);
+    /* Summary title */
+    sq('.summary-title', cht.summary_title);
+    /* Promo */
+    var pi=document.getElementById('promoInput'); if(pi) pi.placeholder=cht.promo_ph;
+    sid('promoBtn', cht.promo_btn);
+    /* Page title */
+    document.title = cht.step_ship + ' — ALYA & CO.';
+  });
+  return cht;
+})();
+
 const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
 
@@ -258,7 +518,7 @@ if (savedPromo) {
     var msg = document.getElementById('promoMsg');
     if (inp) { inp.value = savedPromo.code; inp.disabled = true; }
     if (btn) btn.disabled = true;
-    if (msg) { msg.textContent = "✓ Code appliqué — -10% sur votre commande !"; msg.className = 'promo-msg ok'; }
+    if (msg) { msg.textContent = CHT.promo_ok.replace('{pct}', Math.round(savedPromo.rate*100)); msg.className = 'promo-msg ok'; }
   });
 }
 if (items.length === 0) { window.location.href = 'cart'; }
@@ -273,15 +533,15 @@ document.getElementById('summaryItems').innerHTML = itemsHtml;
 var savedCarrier = getSelectedCarrier();
 var mrCost  = getShippingCost('mondial-relay');
 var colCost = getShippingCost('colissimo');
-var mrPriceHtml  = mrCost === 0 ? '<span style="color:var(--gold)">Offerte</span>' : fmt(mrCost);
+var mrPriceHtml  = mrCost === 0 ? '<span style="color:var(--gold)">' + CHT.free + '</span>' : fmt(mrCost);
 var colPriceHtml = fmt(colCost);
 
 var shippingHtml = '';
 shippingHtml += '<label class="shipping-option'+(savedCarrier==='mondial-relay'?' selected':'')+'"><input type="radio" name="shipping" value="mondial-relay"'+(savedCarrier==='mondial-relay'?' checked':'')+'>'+
-  '<div class="shipping-option-info"><div class="shipping-option-name">Mondial Relay — 72h</div><div class="shipping-option-detail">Livraison en point relais sous 72h</div></div>'+
+  '<div class="shipping-option-info"><div class="shipping-option-name">Mondial Relay — 72h</div><div class="shipping-option-detail">'+CHT.mr_detail+'</div></div>'+
   '<div class="shipping-option-price">'+mrPriceHtml+'</div></label>';
 shippingHtml += '<label class="shipping-option'+(savedCarrier==='colissimo'?' selected':'')+'"><input type="radio" name="shipping" value="colissimo"'+(savedCarrier==='colissimo'?' checked':'')+'>'+
-  '<div class="shipping-option-info"><div class="shipping-option-name">Colissimo — 48h</div><div class="shipping-option-detail">Livraison à domicile sous 48h</div></div>'+
+  '<div class="shipping-option-info"><div class="shipping-option-name">Colissimo — 48h</div><div class="shipping-option-detail">'+CHT.col_detail+'</div></div>'+
   '<div class="shipping-option-price">'+colPriceHtml+'</div></label>';
 document.getElementById('shippingOptions').innerHTML = shippingHtml;
 document.querySelectorAll('.shipping-option input').forEach(function(r){ r.addEventListener('change', updateTotals); });
@@ -293,14 +553,15 @@ function updateTotals() {
   var ship = getShippingCost(c);
   var total = Math.round((subtotal - promoDiscount + ship) * 100) / 100;
   var deliveryLine = ship === 0
-    ? '<div class="summary-line free"><span>🚚 Livraison</span><span>Offerte !</span></div>'
-    : '<div class="summary-line"><span>Livraison</span><span>'+fmt(ship)+'</span></div>';
-  var promoLine = promoDiscount > 0 ? '<div class="summary-line" style="color:var(--gold)"><span>Code promo (-10%)</span><span>-'+fmt(promoDiscount)+'</span></div>' : '';
+    ? '<div class="summary-line free"><span>'+CHT.delivery_lbl+'</span><span>'+CHT.delivery_free+'</span></div>'
+    : '<div class="summary-line"><span>'+CHT.delivery+'</span><span>'+fmt(ship)+'</span></div>';
+  var pct = savedPromo ? Math.round(savedPromo.rate * 100) : 10;
+  var promoLine = promoDiscount > 0 ? '<div class="summary-line" style="color:var(--gold)"><span>'+CHT.promo_line.replace('{pct}',pct)+'</span><span>-'+fmt(promoDiscount)+'</span></div>' : '';
   document.getElementById('summaryTotals').innerHTML =
-    '<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>'+
+    '<div class="summary-line"><span>'+CHT.subtotal+'</span><span>'+fmt(subtotal)+'</span></div>'+
     deliveryLine+
     promoLine+
-    '<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
+    '<div class="summary-line total"><span>'+CHT.total+'</span><span>'+fmt(total)+'</span></div>';
   document.querySelectorAll('.shipping-option').forEach(function(o){ o.classList.remove('selected'); });
   if (sel) sel.closest('.shipping-option').classList.add('selected');
 
@@ -325,9 +586,9 @@ async function applyPromo() {
   var msg = document.getElementById('promoMsg');
   var inp = document.getElementById('promoInput');
   var btn = document.getElementById('promoBtn');
-  if (!code) { msg.textContent = 'Veuillez entrer un code.'; msg.className = 'promo-msg err'; return; }
+  if (!code) { msg.textContent = CHT.promo_err_code; msg.className = 'promo-msg err'; return; }
   if (!email || !email.includes('@')) {
-    msg.textContent = "Veuillez d'abord renseigner votre adresse email.";
+    msg.textContent = CHT.promo_err_email;
     msg.className = 'promo-msg err'; return;
   }
   btn.textContent = '...'; btn.disabled = true;
@@ -343,18 +604,18 @@ async function applyPromo() {
       promoDiscount = Math.round(subtotal * rate * 100) / 100;
       localStorage.setItem('alyanco_promo', JSON.stringify({code: code, rate: rate, email: email}));
       inp.disabled = true; btn.disabled = true;
-      msg.textContent = '✓ Code appliqué — -' + Math.round(rate * 100) + '% sur votre commande !';
+      msg.textContent = CHT.promo_ok.replace('{pct}', Math.round(rate * 100));
       msg.className = 'promo-msg ok';
       updateTotals();
     } else {
-      msg.textContent = data.reason || 'Code invalide.';
+      msg.textContent = data.reason || CHT.promo_invalid;
       msg.className = 'promo-msg err';
-      btn.textContent = 'Appliquer'; btn.disabled = false;
+      btn.textContent = CHT.promo_btn; btn.disabled = false;
     }
   } catch(err) {
-    msg.textContent = 'Erreur de connexion. Réessayez.';
+    msg.textContent = CHT.promo_err_conn;
     msg.className = 'promo-msg err';
-    btn.textContent = 'Appliquer'; btn.disabled = false;
+    btn.textContent = CHT.promo_btn; btn.disabled = false;
   }
 }
 

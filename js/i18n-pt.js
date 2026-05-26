@@ -418,7 +418,7 @@ window.ALYA_T_PT = {
       cta_title: 'Experimenta a escova<br><em>Siwak natural</em>',
       cta_sub: 'Comprovadamente mais eficaz do que uma escova de dentes clássica.',
       cta_btn: 'Comprar agora →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'siwak-7-proprietes': {
       title: '7 propriedades comprovadas <em>do Siwak</em>',
@@ -427,7 +427,7 @@ window.ALYA_T_PT = {
       cta_title: 'A escova natural <em>Siwak</em>',
       cta_sub: 'Experimenta as 7 propriedades do Siwak por ti mesmo.',
       cta_btn: 'Comprar agora →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'dents-blanches-naturel': {
       title: 'Dentes brancos naturalmente: <em>o guia completo</em>',
@@ -436,7 +436,7 @@ window.ALYA_T_PT = {
       cta_title: 'O Siwak: <em>branqueamento natural</em>',
       cta_sub: 'Dentes mais brancos sem agentes químicos agressivos.',
       cta_btn: 'Descobrir →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'exfoliation-erreurs': {
       title: 'Os 5 erros de esfoliação <em>que danificam a tua pele</em>',
@@ -445,7 +445,7 @@ window.ALYA_T_PT = {
       cta_title: 'A luva <em>de seda de amoreira</em>',
       cta_sub: 'Esfoliar corretamente, sem danificar a pele.',
       cta_btn: 'Descobrir →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'peau-sensible-exfoliation': {
       title: 'Pele sensível e esfoliação: <em>o guia completo</em>',
@@ -454,7 +454,7 @@ window.ALYA_T_PT = {
       cta_title: 'A luva facial <em>de seda de amoreira</em>',
       cta_sub: 'Esfoliação ultra-suave, certificada OEKO TEX®.',
       cta_btn: 'Descobrir →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'routine-beaute-naturelle': {
       title: 'A rotina de beleza natural completa: <em>passo a passo</em>',
@@ -463,7 +463,7 @@ window.ALYA_T_PT = {
       cta_title: 'O kit de <em>beleza natural</em>',
       cta_sub: 'Tudo o que precisas para uma rotina natural completa.',
       cta_btn: 'Ver os packs →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'routine-kbeauty-eco': {
       title: 'K-beauty encontra eco: <em>a rotina coreana sustentável</em>',
@@ -472,7 +472,7 @@ window.ALYA_T_PT = {
       cta_title: 'Beleza <em>eco-responsável</em>',
       cta_sub: 'O melhor do K-beauty, sem desperdício.',
       cta_btn: 'Descobrir →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'soie-murier-superieure-gants': {
       title: 'Porque a seda de amoreira é superior <em>a outras luvas esfoliantes</em>',
@@ -481,7 +481,7 @@ window.ALYA_T_PT = {
       cta_title: 'A luva <em>de seda de amoreira</em>',
       cta_sub: 'A única luva que esfolia, hidrata e respeita a tua pele.',
       cta_btn: 'Descobrir →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'empreinte-carbone-beaute': {
       title: 'A pegada de carbono da beleza: <em>como a reduzir</em>',
@@ -490,7 +490,7 @@ window.ALYA_T_PT = {
       cta_title: 'Produtos naturais e <em>sustentáveis</em>',
       cta_sub: 'Reduz a tua pegada de carbono com ALYA & CO.',
       cta_btn: 'Descobrir →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     },
     'zero-dechet-salle-de-bain': {
       title: 'Casa de banho zero waste: <em>o guia completo</em>',
@@ -499,7 +499,7 @@ window.ALYA_T_PT = {
       cta_title: 'O kit de beleza <em>zero waste</em>',
       cta_sub: 'Biodegradável, reutilizável, natural — o kit completo.',
       cta_btn: 'Descobrir →',
-      lang_notice: 'Este artigo está disponível em português. Algum conteúdo secundário pode estar em francês.'
+      lang_notice: 'Este artigo está escrito em francês.'
     }
   },
 

@@ -116,11 +116,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 
 <div class="progress-bar">
-  <div class="progress-step done"><span class="progress-num">✓</span><span>Panier</span></div>
+  <div class="progress-step done"><span class="progress-num">✓</span><span id="_pa_s1">Panier</span></div>
   <div class="progress-divider"></div>
-  <div class="progress-step done"><span class="progress-num">✓</span><span>Livraison</span></div>
+  <div class="progress-step done"><span class="progress-num">✓</span><span id="_pa_s2">Livraison</span></div>
   <div class="progress-divider"></div>
-  <div class="progress-step active"><span class="progress-num">3</span><span>Paiement</span></div>
+  <div class="progress-step active"><span class="progress-num">3</span><span id="_pa_s3">Paiement</span></div>
 </div>
 
 <div class="checkout-layout">
@@ -146,7 +146,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <div id="stripe-card-element" class="form-input" style="padding:13px 16px;cursor:text;min-height:48px;"></div>
           <div id="card-errors" style="color:#c0392b;font-size:12px;margin-top:6px;min-height:18px;"></div>
         </div>
-        <button type="button" class="btn-primary" id="payBtn" onclick="handlePayment(event)">Payer <span id="totalDisplay"></span></button>
+        <button type="button" class="btn-primary" id="payBtn" onclick="handlePayment(event)"><span id="_pa_pay_btn">Payer</span> <span id="totalDisplay"></span></button>
       </div>
     </div>
 
@@ -169,6 +169,142 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <script src="cart.js?v=5"></script>
 <script>
+/* ── Traductions paiement ── */
+var PAT = (function(){
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var all = {
+    fr:{ step_cart:'Panier', step_ship:'Livraison', step_pay:'Paiement',
+      back:'← Retour à la livraison',
+      title:'Paiement <em style="font-style:italic;color:var(--gold)">sécurisé</em>',
+      tab_card:'💳 Carte bancaire',
+      secure:'🔒 Paiement chiffré SSL — Vos données bancaires sont protégées par Stripe et ne sont jamais stockées.',
+      lbl_name:'Nom sur la carte *', lbl_card:'Informations de carte *',
+      pay_btn:'Payer', pay_processing:'Traitement en cours…',
+      wallet_info:'🔒 Paiement sécurisé via Stripe. Vos données Apple/Google ne sont jamais partagées.',
+      summary_title:'Récapitulatif', delivery_for:'Livraison pour',
+      delivery_lbl:'Livraison', delivery_free:'Offerte !',
+      subtotal:'Sous-total', total:'Total',
+      promo_tpl:'Code {code} (-{pct}%)',
+      err_init:"Erreur d'initialisation du paiement. Rechargez la page.",
+      err_noinit:'Paiement non initialisé. Rechargez la page.',
+      err_nosecret:'Connexion au serveur de paiement impossible. Réessayez.',
+      err_generic:'Une erreur est survenue. Veuillez réessayer.' },
+    en:{ step_cart:'Cart', step_ship:'Shipping', step_pay:'Payment',
+      back:'← Back to shipping',
+      title:'Secure <em style="font-style:italic;color:var(--gold)">payment</em>',
+      tab_card:'💳 Bank card',
+      secure:'🔒 SSL encrypted payment — Your bank details are protected by Stripe and never stored.',
+      lbl_name:'Name on card *', lbl_card:'Card information *',
+      pay_btn:'Pay', pay_processing:'Processing…',
+      wallet_info:'🔒 Secure payment via Stripe. Your Apple/Google data is never shared.',
+      summary_title:'Order summary', delivery_for:'Delivery for',
+      delivery_lbl:'Shipping', delivery_free:'Free!',
+      subtotal:'Subtotal', total:'Total',
+      promo_tpl:'Code {code} (-{pct}%)',
+      err_init:'Payment initialisation error. Please reload the page.',
+      err_noinit:'Payment not initialised. Please reload the page.',
+      err_nosecret:'Unable to connect to payment server. Please retry.',
+      err_generic:'An error occurred. Please try again.' },
+    nl:{ step_cart:'Winkelwagen', step_ship:'Verzending', step_pay:'Betaling',
+      back:'← Terug naar verzending',
+      title:'Veilige <em style="font-style:italic;color:var(--gold)">betaling</em>',
+      tab_card:'💳 Bankkaart',
+      secure:'🔒 SSL-versleutelde betaling — Uw bankgegevens worden beschermd door Stripe en nooit opgeslagen.',
+      lbl_name:'Naam op kaart *', lbl_card:'Kaartinformatie *',
+      pay_btn:'Betalen', pay_processing:'Verwerken…',
+      wallet_info:'🔒 Veilige betaling via Stripe. Uw Apple/Google-gegevens worden nooit gedeeld.',
+      summary_title:'Besteloverzicht', delivery_for:'Levering voor',
+      delivery_lbl:'Verzending', delivery_free:'Gratis!',
+      subtotal:'Subtotaal', total:'Totaal',
+      promo_tpl:'Code {code} (-{pct}%)',
+      err_init:'Betalingsinitialisatiefout. Herlaad de pagina.',
+      err_noinit:'Betaling niet geïnitialiseerd. Herlaad de pagina.',
+      err_nosecret:'Kan geen verbinding maken met de betalingsserver. Probeer opnieuw.',
+      err_generic:'Er is een fout opgetreden. Probeer het opnieuw.' },
+    de:{ step_cart:'Warenkorb', step_ship:'Versand', step_pay:'Zahlung',
+      back:'← Zurück zum Versand',
+      title:'Sichere <em style="font-style:italic;color:var(--gold)">Zahlung</em>',
+      tab_card:'💳 Bankkarte',
+      secure:'🔒 SSL-verschlüsselte Zahlung — Ihre Bankdaten werden von Stripe geschützt und niemals gespeichert.',
+      lbl_name:'Name auf der Karte *', lbl_card:'Karteninformationen *',
+      pay_btn:'Zahlen', pay_processing:'Wird verarbeitet…',
+      wallet_info:'🔒 Sichere Zahlung über Stripe. Ihre Apple/Google-Daten werden niemals weitergegeben.',
+      summary_title:'Bestellübersicht', delivery_for:'Lieferung für',
+      delivery_lbl:'Versand', delivery_free:'Kostenlos!',
+      subtotal:'Zwischensumme', total:'Gesamt',
+      promo_tpl:'Code {code} (-{pct}%)',
+      err_init:'Fehler bei der Zahlungsinitialisierung. Seite neu laden.',
+      err_noinit:'Zahlung nicht initialisiert. Seite neu laden.',
+      err_nosecret:'Verbindung zum Zahlungsserver nicht möglich. Erneut versuchen.',
+      err_generic:'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.' },
+    it:{ step_cart:'Carrello', step_ship:'Spedizione', step_pay:'Pagamento',
+      back:'← Torna alla spedizione',
+      title:'Pagamento <em style="font-style:italic;color:var(--gold)">sicuro</em>',
+      tab_card:'💳 Carta bancaria',
+      secure:'🔒 Pagamento crittografato SSL — I tuoi dati bancari sono protetti da Stripe e non vengono mai memorizzati.',
+      lbl_name:'Nome sulla carta *', lbl_card:'Informazioni sulla carta *',
+      pay_btn:'Paga', pay_processing:'In elaborazione…',
+      wallet_info:'🔒 Pagamento sicuro via Stripe. I tuoi dati Apple/Google non vengono mai condivisi.',
+      summary_title:'Riepilogo ordine', delivery_for:'Consegna per',
+      delivery_lbl:'Spedizione', delivery_free:'Gratuita!',
+      subtotal:'Subtotale', total:'Totale',
+      promo_tpl:'Codice {code} (-{pct}%)',
+      err_init:'Errore di inizializzazione pagamento. Ricarica la pagina.',
+      err_noinit:'Pagamento non inizializzato. Ricarica la pagina.',
+      err_nosecret:'Impossibile connettersi al server di pagamento. Riprova.',
+      err_generic:'Si è verificato un errore. Riprova.' },
+    pt:{ step_cart:'Carrinho', step_ship:'Envio', step_pay:'Pagamento',
+      back:'← Voltar ao envio',
+      title:'Pagamento <em style="font-style:italic;color:var(--gold)">seguro</em>',
+      tab_card:'💳 Cartão bancário',
+      secure:'🔒 Pagamento encriptado SSL — Os seus dados bancários são protegidos pela Stripe e nunca armazenados.',
+      lbl_name:'Nome no cartão *', lbl_card:'Informações do cartão *',
+      pay_btn:'Pagar', pay_processing:'A processar…',
+      wallet_info:'🔒 Pagamento seguro via Stripe. Os seus dados Apple/Google nunca são partilhados.',
+      summary_title:'Resumo da encomenda', delivery_for:'Entrega para',
+      delivery_lbl:'Envio', delivery_free:'Grátis!',
+      subtotal:'Subtotal', total:'Total',
+      promo_tpl:'Código {code} (-{pct}%)',
+      err_init:'Erro de inicialização do pagamento. Recarregue a página.',
+      err_noinit:'Pagamento não inicializado. Recarregue a página.',
+      err_nosecret:'Impossível ligar ao servidor de pagamento. Tente novamente.',
+      err_generic:'Ocorreu um erro. Por favor tente novamente.' },
+    es:{ step_cart:'Carrito', step_ship:'Envío', step_pay:'Pago',
+      back:'← Volver al envío',
+      title:'Pago <em style="font-style:italic;color:var(--gold)">seguro</em>',
+      tab_card:'💳 Tarjeta bancaria',
+      secure:'🔒 Pago cifrado SSL — Sus datos bancarios están protegidos por Stripe y nunca se almacenan.',
+      lbl_name:'Nombre en la tarjeta *', lbl_card:'Información de la tarjeta *',
+      pay_btn:'Pagar', pay_processing:'Procesando…',
+      wallet_info:'🔒 Pago seguro via Stripe. Tus datos de Apple/Google nunca se comparten.',
+      summary_title:'Resumen del pedido', delivery_for:'Entrega para',
+      delivery_lbl:'Envío', delivery_free:'¡Gratis!',
+      subtotal:'Subtotal', total:'Total',
+      promo_tpl:'Código {code} (-{pct}%)',
+      err_init:'Error de inicialización del pago. Recarga la página.',
+      err_noinit:'Pago no inicializado. Recarga la página.',
+      err_nosecret:'No se puede conectar al servidor de pago. Inténtalo de nuevo.',
+      err_generic:'Ha ocurrido un error. Por favor inténtalo de nuevo.' }
+  };
+  var pat = all[lang] || all.fr;
+  document.addEventListener('DOMContentLoaded', function(){
+    function sid(id,v,h){ var e=document.getElementById(id); if(e){ if(h) e.innerHTML=v; else e.textContent=v; } }
+    function sq(sel,v,h){ var e=document.querySelector(sel); if(e){ if(h) e.innerHTML=v; else e.textContent=v; } }
+    sid('_pa_s1', pat.step_cart); sid('_pa_s2', pat.step_ship); sid('_pa_s3', pat.step_pay);
+    sq('.btn-back', pat.back);
+    sq('.form-section-title', pat.title, true);
+    sid('cardTab', pat.tab_card);
+    sq('.secure-badge', pat.secure);
+    var lbls=document.querySelectorAll('.form-label');
+    if(lbls[0]) lbls[0].textContent=pat.lbl_name;
+    if(lbls[1]) lbls[1].textContent=pat.lbl_card;
+    sq('.summary-title', pat.summary_title);
+    sq('.wallet-info', pat.wallet_info);
+    document.title = pat.step_pay + ' — ALYA & CO.';
+  });
+  return pat;
+})();
+
 const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
 
@@ -213,7 +349,7 @@ if (delivery.prenom) {
     relayLine = '<br><span style="font-size:12px;color:var(--mid);">📍 ' + delivery.relayPoint.name + ' — ' + delivery.relayPoint.adresse + ', ' + delivery.relayPoint.cp + ' ' + delivery.relayPoint.ville + '</span>';
   }
   document.getElementById('deliveryRecap').innerHTML =
-    '<strong>Livraison pour</strong>' + delivery.prenom + ' ' + delivery.nom + '<br>' +
+    '<strong>' + PAT.delivery_for + '</strong> ' + delivery.prenom + ' ' + delivery.nom + '<br>' +
     delivery.adresse + ', ' + delivery.cp + ' ' + delivery.ville + '<br>' +
     '<span style="color:var(--gold)">' + (delivery.shipping === 'colissimo' ? 'Colissimo 48h' : 'Mondial Relay 72h') + '</span>' +
     relayLine;
@@ -226,9 +362,9 @@ items.forEach(function(item){
 });
 document.getElementById('summaryItems').innerHTML=itemsHtml;
 
-var delivLine = shippingCost===0 ? '<div class="summary-line free"><span>Livraison</span><span>Offerte !</span></div>' : '<div class="summary-line"><span>Livraison</span><span>'+fmt(shippingCost)+'</span></div>';
-var promoLine = promoDiscount > 0 ? '<div class="summary-line" style="color:var(--gold)"><span>Code '+_promo.code+' (-'+Math.round(_promo.rate*100)+'%)</span><span>-'+fmt(promoDiscount)+'</span></div>' : '';
-document.getElementById('summaryTotals').innerHTML='<div class="summary-line"><span>Sous-total</span><span>'+fmt(subtotal)+'</span></div>'+delivLine+promoLine+'<div class="summary-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
+var delivLine = shippingCost===0 ? '<div class="summary-line free"><span>'+PAT.delivery_lbl+'</span><span>'+PAT.delivery_free+'</span></div>' : '<div class="summary-line"><span>'+PAT.delivery_lbl+'</span><span>'+fmt(shippingCost)+'</span></div>';
+var promoLine = promoDiscount > 0 ? '<div class="summary-line" style="color:var(--gold)"><span>'+PAT.promo_tpl.replace('{code}',_promo.code).replace('{pct}',Math.round(_promo.rate*100))+'</span><span>-'+fmt(promoDiscount)+'</span></div>' : '';
+document.getElementById('summaryTotals').innerHTML='<div class="summary-line"><span>'+PAT.subtotal+'</span><span>'+fmt(subtotal)+'</span></div>'+delivLine+promoLine+'<div class="summary-line total"><span>'+PAT.total+'</span><span>'+fmt(total)+'</span></div>';
 document.getElementById('totalDisplay').textContent=fmt(total);
 
 function switchPayment(type, btn){
@@ -266,6 +402,10 @@ function handleSuccess(orderNum) {
 }
 
 async function initStripe() {
+  /* Set pay button label */
+  var _pbspan = document.getElementById('_pa_pay_btn');
+  if (_pbspan) _pbspan.textContent = PAT.pay_btn;
+
   try {
     var res = await fetch('/api/config');
     var data = await res.json();
@@ -368,7 +508,7 @@ async function initStripe() {
 
   } catch(err) {
     console.error('Stripe init failed:', err);
-    document.getElementById('card-errors').textContent = 'Erreur d\'initialisation du paiement. Rechargez la page.';
+    document.getElementById('card-errors').textContent = PAT.err_init;
   }
 }
 
@@ -400,15 +540,15 @@ async function handlePayment(e) {
   var btn = document.getElementById('payBtn');
 
   if (!stripe || !cardElement) {
-    document.getElementById('card-errors').textContent = 'Paiement non initialisé. Rechargez la page.';
+    document.getElementById('card-errors').textContent = PAT.err_noinit;
     return;
   }
   if (!clientSecret) {
-    document.getElementById('card-errors').textContent = 'Connexion au serveur de paiement impossible. Réessayez.';
+    document.getElementById('card-errors').textContent = PAT.err_nosecret;
     return;
   }
 
-  btn.textContent = 'Traitement en cours…';
+  btn.textContent = PAT.pay_processing;
   btn.disabled = true;
   document.getElementById('card-errors').textContent = '';
 
@@ -433,14 +573,14 @@ async function handlePayment(e) {
 
     if (result.error) {
       document.getElementById('card-errors').textContent = result.error.message;
-      btn.textContent = 'Payer ' + fmt(total);
+      btn.textContent = PAT.pay_btn + ' ' + fmt(total);
       btn.disabled = false;
     } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
       handleSuccess('ALC-' + Date.now().toString().slice(-6));
     }
   } catch(err) {
-    document.getElementById('card-errors').textContent = 'Une erreur est survenue. Veuillez réessayer.';
-    btn.textContent = 'Payer ' + fmt(total);
+    document.getElementById('card-errors').textContent = PAT.err_generic;
+    btn.textContent = PAT.pay_btn + ' ' + fmt(total);
     btn.disabled = false;
   }
 }

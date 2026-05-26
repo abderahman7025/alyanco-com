@@ -418,7 +418,7 @@ window.ALYA_T_IT = {
       cta_title: 'Prova lo spazzolino<br><em>Siwak naturale</em>',
       cta_sub: 'Dimostrato più efficace di uno spazzolino classico.',
       cta_btn: 'Acquista ora →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'siwak-7-proprietes': {
       title: '7 proprietà dimostrate <em>del Siwak</em>',
@@ -427,7 +427,7 @@ window.ALYA_T_IT = {
       cta_title: 'Lo spazzolino naturale <em>Siwak</em>',
       cta_sub: 'Sperimenta le 7 proprietà del Siwak in prima persona.',
       cta_btn: 'Acquista ora →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'dents-blanches-naturel': {
       title: 'Denti bianchi naturalmente: <em>la guida completa</em>',
@@ -436,7 +436,7 @@ window.ALYA_T_IT = {
       cta_title: 'Il Siwak: <em>sbiancamento naturale</em>',
       cta_sub: 'Denti più bianchi senza agenti chimici aggressivi.',
       cta_btn: 'Scopri →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'exfoliation-erreurs': {
       title: 'I 5 errori di esfoliazione <em>che danneggiano la tua pelle</em>',
@@ -445,7 +445,7 @@ window.ALYA_T_IT = {
       cta_title: 'Il guanto <em>di seta di gelso</em>',
       cta_sub: 'Esfoliare correttamente, senza danneggiare la pelle.',
       cta_btn: 'Scopri →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'peau-sensible-exfoliation': {
       title: 'Pelle sensibile ed esfoliazione: <em>la guida completa</em>',
@@ -454,7 +454,7 @@ window.ALYA_T_IT = {
       cta_title: 'Il guanto viso <em>di seta di gelso</em>',
       cta_sub: 'Esfoliazione ultra-delicata, certificata OEKO TEX®.',
       cta_btn: 'Scopri →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'routine-beaute-naturelle': {
       title: 'La routine di bellezza naturale completa: <em>passo dopo passo</em>',
@@ -463,7 +463,7 @@ window.ALYA_T_IT = {
       cta_title: 'Il kit di <em>bellezza naturale</em>',
       cta_sub: 'Tutto ciò di cui hai bisogno per una routine naturale completa.',
       cta_btn: 'Vedi i pack →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'routine-kbeauty-eco': {
       title: 'K-beauty incontra eco: <em>la routine coreana sostenibile</em>',
@@ -472,7 +472,7 @@ window.ALYA_T_IT = {
       cta_title: 'Bellezza <em>eco-responsabile</em>',
       cta_sub: 'Il meglio del K-beauty, senza sprechi.',
       cta_btn: 'Scopri →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'soie-murier-superieure-gants': {
       title: 'Perché la seta di gelso è superiore <em>ad altri guanti esfolianti</em>',
@@ -481,7 +481,7 @@ window.ALYA_T_IT = {
       cta_title: 'Il guanto <em>di seta di gelso</em>',
       cta_sub: 'L\'unico guanto che esfolia, idrata e rispetta la tua pelle.',
       cta_btn: 'Scopri →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'empreinte-carbone-beaute': {
       title: 'L\'impronta carbonica della bellezza: <em>come ridurla</em>',
@@ -490,7 +490,7 @@ window.ALYA_T_IT = {
       cta_title: 'Prodotti naturali e <em>sostenibili</em>',
       cta_sub: 'Riduci la tua impronta carbonica con ALYA & CO.',
       cta_btn: 'Scopri →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     },
     'zero-dechet-salle-de-bain': {
       title: 'Bagno zero waste: <em>la guida completa</em>',
@@ -499,7 +499,7 @@ window.ALYA_T_IT = {
       cta_title: 'Il kit di bellezza <em>zero waste</em>',
       cta_sub: 'Biodegradabile, riutilizzabile, naturale — il kit completo.',
       cta_btn: 'Scopri →',
-      lang_notice: 'Questo articolo è disponibile in italiano. Alcuni contenuti secondari potrebbero essere in francese.'
+      lang_notice: 'Questo articolo è scritto in francese.'
     }
   },
 

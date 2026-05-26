@@ -418,7 +418,7 @@ window.ALYA_T_NL = {
       cta_title: 'Probeer de natuurlijke<br><em>Siwak borstel</em>',
       cta_sub: 'Bewezen effectiever dan een gewone tandenborstel.',
       cta_btn: 'Nu winkelen →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'siwak-7-proprietes': {
       title: '7 bewezen eigenschappen <em>van Siwak</em>',
@@ -427,7 +427,7 @@ window.ALYA_T_NL = {
       cta_title: 'De natuurlijke <em>Siwak borstel</em>',
       cta_sub: 'Ervaar de 7 eigenschappen van Siwak zelf.',
       cta_btn: 'Nu winkelen →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'dents-blanches-naturel': {
       title: 'Natuurlijk witte tanden: <em>de complete gids</em>',
@@ -436,7 +436,7 @@ window.ALYA_T_NL = {
       cta_title: 'Siwak: <em>natuurlijk bleken</em>',
       cta_sub: 'Witter tanden zonder agressieve chemicaliën.',
       cta_btn: 'Ontdekken →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'exfoliation-erreurs': {
       title: 'De 5 exfoliatie-fouten <em>die uw huid beschadigen</em>',
@@ -445,7 +445,7 @@ window.ALYA_T_NL = {
       cta_title: 'De moerbeizijde <em>handschoen</em>',
       cta_sub: 'Exfolieer correct, zonder uw huid te beschadigen.',
       cta_btn: 'Ontdekken →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'peau-sensible-exfoliation': {
       title: 'Gevoelige huid en exfoliatie: <em>de complete gids</em>',
@@ -454,7 +454,7 @@ window.ALYA_T_NL = {
       cta_title: 'De moerbeizijde <em>gezichtshandschoen</em>',
       cta_sub: 'Ultra-zachte exfoliatie, OEKO TEX® gecertificeerd.',
       cta_btn: 'Ontdekken →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'routine-beaute-naturelle': {
       title: 'De complete natuurlijke schoonheidsroutine: <em>stap voor stap</em>',
@@ -463,7 +463,7 @@ window.ALYA_T_NL = {
       cta_title: 'Het <em>starterpack</em> voor natuurlijke schoonheid',
       cta_sub: 'Alles wat u nodig heeft voor een complete natuurlijke routine.',
       cta_btn: 'Zie de pakketten →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'routine-kbeauty-eco': {
       title: 'K-beauty meets eco: <em>de duurzame Koreaanse routine</em>',
@@ -472,7 +472,7 @@ window.ALYA_T_NL = {
       cta_title: 'Milieuvriendelijke <em>schoonheid</em>',
       cta_sub: 'Het beste van K-beauty, zonder afval.',
       cta_btn: 'Ontdekken →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'soie-murier-superieure-gants': {
       title: 'Waarom moerbeizijde superieur is <em>aan andere exfoliatiehandschoenen</em>',
@@ -481,7 +481,7 @@ window.ALYA_T_NL = {
       cta_title: 'De moerbeizijde <em>handschoen</em>',
       cta_sub: 'De enige handschoen die exfolieert, hydrateert en uw huid respecteert.',
       cta_btn: 'Ontdekken →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'empreinte-carbone-beaute': {
       title: 'De koolstofvoetafdruk van schoonheid: <em>hoe die te verkleinen</em>',
@@ -490,7 +490,7 @@ window.ALYA_T_NL = {
       cta_title: 'Natuurlijke en <em>duurzame</em> producten',
       cta_sub: 'Verklein uw koolstofvoetafdruk met ALYA & CO.',
       cta_btn: 'Ontdekken →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'zero-dechet-salle-de-bain': {
       title: 'Zero-waste badkamer: <em>de complete gids</em>',
@@ -499,7 +499,7 @@ window.ALYA_T_NL = {
       cta_title: 'Het <em>zero-waste</em> schoonheidskit',
       cta_sub: 'Biologisch afbreekbaar, herbruikbaar, natuurlijk — het complete kit.',
       cta_btn: 'Ontdekken →',
-      lang_notice: 'Dit artikel is beschikbaar in het Nederlands. Sommige secundaire inhoud kan in het Frans zijn.'
+      lang_notice: 'Dit artikel is geschreven in het Frans.'
     }
   },
 

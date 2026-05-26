@@ -444,7 +444,7 @@ window.ALYA_T_EN = {
       cta_title:   'Try the natural<br><em>Siwak brush</em>',
       cta_sub:     'Proven more effective than a classic toothbrush by over 400 scientific studies.',
       cta_btn:     'Shop now →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'siwak-7-proprietes': {
       title:       '7 proven properties <em>of Siwak</em>',
@@ -453,7 +453,7 @@ window.ALYA_T_EN = {
       cta_title:   'The natural <em>Siwak brush</em>',
       cta_sub:     'Experience the 7 properties of Siwak for yourself.',
       cta_btn:     'Shop now →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'dents-blanches-naturel': {
       title:       'Naturally white teeth: <em>the complete guide</em>',
@@ -462,7 +462,7 @@ window.ALYA_T_EN = {
       cta_title:   'The Siwak: <em>natural whitening</em>',
       cta_sub:     'Whiter teeth without harsh chemicals.',
       cta_btn:     'Discover →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'exfoliation-erreurs': {
       title:       'The 5 exfoliation mistakes <em>that damage your skin</em>',
@@ -471,7 +471,7 @@ window.ALYA_T_EN = {
       cta_title:   'The mulberry silk <em>glove</em>',
       cta_sub:     'The right way to exfoliate — without damaging your skin.',
       cta_btn:     'Discover →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'peau-sensible-exfoliation': {
       title:       'Sensitive skin and exfoliation: <em>the complete guide</em>',
@@ -480,7 +480,7 @@ window.ALYA_T_EN = {
       cta_title:   'The mulberry silk <em>face glove</em>',
       cta_sub:     'Ultra-gentle exfoliation, certified OEKO TEX®.',
       cta_btn:     'Discover →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'routine-beaute-naturelle': {
       title:       'The complete natural beauty routine: <em>step by step</em>',
@@ -489,7 +489,7 @@ window.ALYA_T_EN = {
       cta_title:   'The natural beauty <em>starter kit</em>',
       cta_sub:     'Everything you need for a complete natural routine.',
       cta_btn:     'See the packs →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'routine-kbeauty-eco': {
       title:       'K-beauty meets eco: <em>the sustainable Korean routine</em>',
@@ -498,7 +498,7 @@ window.ALYA_T_EN = {
       cta_title:   'Eco-responsible <em>beauty</em>',
       cta_sub:     'The best of K-beauty, without the waste.',
       cta_btn:     'Discover →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'soie-murier-superieure-gants': {
       title:       'Why mulberry silk is superior <em>to other exfoliating gloves</em>',
@@ -507,7 +507,7 @@ window.ALYA_T_EN = {
       cta_title:   'The mulberry silk <em>glove</em>',
       cta_sub:     'The only glove that exfoliates, hydrates and respects your skin.',
       cta_btn:     'Discover →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'empreinte-carbone-beaute': {
       title:       'The carbon footprint of beauty: <em>how to reduce yours</em>',
@@ -516,7 +516,7 @@ window.ALYA_T_EN = {
       cta_title:   'Natural and <em>sustainable</em> products',
       cta_sub:     'Reduce your carbon footprint with ALYA & CO.',
       cta_btn:     'Discover →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     },
     'zero-dechet-salle-de-bain': {
       title:       'Zero waste bathroom: <em>the complete guide</em>',
@@ -525,7 +525,7 @@ window.ALYA_T_EN = {
       cta_title:   'The <em>zero waste</em> beauty kit',
       cta_sub:     'Biodegradable, reusable, natural — the complete kit.',
       cta_btn:     'Discover →',
-      lang_notice: 'This article is available in English. Some secondary content may be in French.'
+      lang_notice: 'This article is written in French.'
     }
   },
 

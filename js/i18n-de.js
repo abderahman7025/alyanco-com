@@ -418,7 +418,7 @@ window.ALYA_T_DE = {
       cta_title: 'Probieren Sie die natürliche<br><em>Siwak Zahnbürste</em>',
       cta_sub: 'Wissenschaftlich als effektiver als eine klassische Zahnbürste bewiesen.',
       cta_btn: 'Jetzt einkaufen →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'siwak-7-proprietes': {
       title: '7 bewiesene Eigenschaften <em>des Siwak</em>',
@@ -427,7 +427,7 @@ window.ALYA_T_DE = {
       cta_title: 'Die natürliche <em>Siwak Zahnbürste</em>',
       cta_sub: 'Erlebe die 7 Eigenschaften des Siwak selbst.',
       cta_btn: 'Jetzt einkaufen →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'dents-blanches-naturel': {
       title: 'Natürlich weiße Zähne: <em>der vollständige Leitfaden</em>',
@@ -436,7 +436,7 @@ window.ALYA_T_DE = {
       cta_title: 'Siwak: <em>natürliches Aufhellen</em>',
       cta_sub: 'Weißere Zähne ohne aggressive Chemikalien.',
       cta_btn: 'Entdecken →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'exfoliation-erreurs': {
       title: 'Die 5 Peeling-Fehler <em>die Ihre Haut schädigen</em>',
@@ -445,7 +445,7 @@ window.ALYA_T_DE = {
       cta_title: 'Der Maulbeerseide <em>Handschuh</em>',
       cta_sub: 'Richtig peelen — ohne Ihre Haut zu schädigen.',
       cta_btn: 'Entdecken →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'peau-sensible-exfoliation': {
       title: 'Empfindliche Haut und Peeling: <em>der vollständige Leitfaden</em>',
@@ -454,7 +454,7 @@ window.ALYA_T_DE = {
       cta_title: 'Der Maulbeerseide <em>Gesichtshandschuh</em>',
       cta_sub: 'Ultra-sanftes Peeling, OEKO TEX® zertifiziert.',
       cta_btn: 'Entdecken →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'routine-beaute-naturelle': {
       title: 'Die vollständige natürliche Schönheitsroutine: <em>Schritt für Schritt</em>',
@@ -463,7 +463,7 @@ window.ALYA_T_DE = {
       cta_title: 'Das <em>Starter-Kit</em> für natürliche Schönheit',
       cta_sub: 'Alles was du für eine vollständige natürliche Routine brauchst.',
       cta_btn: 'Sets ansehen →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'routine-kbeauty-eco': {
       title: 'K-Beauty trifft Eco: <em>die nachhaltige koreanische Routine</em>',
@@ -472,7 +472,7 @@ window.ALYA_T_DE = {
       cta_title: 'Umweltfreundliche <em>Schönheit</em>',
       cta_sub: 'Das Beste aus K-Beauty, ohne den Abfall.',
       cta_btn: 'Entdecken →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'soie-murier-superieure-gants': {
       title: 'Warum Maulbeerseide überlegener ist <em>als andere Peeling-Handschuhe</em>',
@@ -481,7 +481,7 @@ window.ALYA_T_DE = {
       cta_title: 'Der <em>Maulbeerseide</em> Handschuh',
       cta_sub: 'Der einzige Handschuh, der pellt, hydratisiert und Ihre Haut respektiert.',
       cta_btn: 'Entdecken →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'empreinte-carbone-beaute': {
       title: 'Der CO₂-Fußabdruck der Schönheit: <em>wie Sie ihn reduzieren</em>',
@@ -490,7 +490,7 @@ window.ALYA_T_DE = {
       cta_title: 'Natürliche und <em>nachhaltige</em> Produkte',
       cta_sub: 'Reduzieren Sie Ihren CO₂-Fußabdruck mit ALYA & CO.',
       cta_btn: 'Entdecken →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'zero-dechet-salle-de-bain': {
       title: 'Zero-Waste Badezimmer: <em>der vollständige Leitfaden</em>',
@@ -499,7 +499,7 @@ window.ALYA_T_DE = {
       cta_title: 'Das <em>Zero-Waste</em> Schönheits-Kit',
       cta_sub: 'Biologisch abbaubar, wiederverwendbar, natürlich — das komplette Kit.',
       cta_btn: 'Entdecken →',
-      lang_notice: 'Dieser Artikel ist auf Deutsch verfügbar. Einige sekundäre Inhalte können auf Französisch sein.'
+      lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     }
   },
 

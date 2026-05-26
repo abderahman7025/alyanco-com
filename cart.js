@@ -2,6 +2,105 @@
 
 const CART_KEY = 'alyanco_cart';
 
+/* ── Noms produits traduits ── */
+var PRODUCT_NAMES = {
+  fr: {
+    'brosse-siwak':       'Brosse à dents Siwak Rechargeable',
+    'tetes-recharges':    'Têtes-recharges Siwak Bio',
+    'dentifrice-siwak':   'Dentifrice Siwak en Poudre',
+    'pack-siwak-complet': 'Pack Brosse Siwak Complet',
+    'gant-corps':         'Gant Exfoliant Corps — Soie de Mûrier',
+    'gant-visage':        'Gant Exfoliant Visage — Soie de Mûrier',
+    'pack-1an-full-body': 'Pack 1 An Full Body',
+    'chouchou-soie':      'Chouchou Soie de Mûrier',
+    'pack-tetes-x3':      'Pack Têtes-recharges Siwak Bio ×3',
+    'pack-dentifrice-3m': 'Pack Dentifrices Siwak en Poudre (3 mois)'
+  },
+  en: {
+    'brosse-siwak':       'Rechargeable Siwak Toothbrush',
+    'tetes-recharges':    'Siwak Bio Replacement Heads',
+    'dentifrice-siwak':   'Siwak Powder Toothpaste',
+    'pack-siwak-complet': 'Complete Siwak Brush Pack',
+    'gant-corps':         'Body Exfoliating Glove — Mulberry Silk',
+    'gant-visage':        'Face Exfoliating Glove — Mulberry Silk',
+    'pack-1an-full-body': '1-Year Full Body Pack',
+    'chouchou-soie':      'Mulberry Silk Hair Scrunchie',
+    'pack-tetes-x3':      'Siwak Bio Replacement Heads ×3',
+    'pack-dentifrice-3m': 'Siwak Powder Toothpaste Pack (3 months)'
+  },
+  nl: {
+    'brosse-siwak':       'Oplaadbare Siwak Tandenborstel',
+    'tetes-recharges':    'Siwak Bio Opzetborstels',
+    'dentifrice-siwak':   'Siwak Tandenpoets in Poedervorm',
+    'pack-siwak-complet': 'Compleet Siwak Borstel Pakket',
+    'gant-corps':         'Lichaam Exfoliërende Handschoen — Moerbeizijde',
+    'gant-visage':        'Gezicht Exfoliërende Handschoen — Moerbeizijde',
+    'pack-1an-full-body': '1 Jaar Full Body Pakket',
+    'chouchou-soie':      'Moerbeizijden Haarelastiek',
+    'pack-tetes-x3':      'Siwak Bio Opzetborstels Pakket ×3',
+    'pack-dentifrice-3m': 'Siwak Tandenpoets Pakket (3 maanden)'
+  },
+  de: {
+    'brosse-siwak':       'Wiederaufladbare Siwak-Zahnbürste',
+    'tetes-recharges':    'Bio-Siwak-Ersatzköpfe',
+    'dentifrice-siwak':   'Siwak-Zahnpulver',
+    'pack-siwak-complet': 'Komplettes Siwak-Zahnbürsten-Set',
+    'gant-corps':         'Körper-Peeling-Handschuh — Maulbeerseide',
+    'gant-visage':        'Gesichts-Peeling-Handschuh — Maulbeerseide',
+    'pack-1an-full-body': '1-Jahres Full-Body-Set',
+    'chouchou-soie':      'Maulbeerseide Haargummi',
+    'pack-tetes-x3':      'Bio-Siwak-Ersatzköpfe Set ×3',
+    'pack-dentifrice-3m': 'Siwak-Zahnpulver Set (3 Monate)'
+  },
+  it: {
+    'brosse-siwak':       'Spazzolino Siwak Ricaricabile',
+    'tetes-recharges':    'Testine Siwak Bio di Ricambio',
+    'dentifrice-siwak':   'Dentifricio Siwak in Polvere',
+    'pack-siwak-complet': 'Pack Spazzolino Siwak Completo',
+    'gant-corps':         'Guanto Esfoliante Corpo — Seta di Gelso',
+    'gant-visage':        'Guanto Esfoliante Viso — Seta di Gelso',
+    'pack-1an-full-body': 'Pack 1 Anno Full Body',
+    'chouchou-soie':      'Elastico per Capelli in Seta di Gelso',
+    'pack-tetes-x3':      'Pack Testine Siwak Bio di Ricambio ×3',
+    'pack-dentifrice-3m': 'Pack Dentifrici Siwak in Polvere (3 mesi)'
+  },
+  pt: {
+    'brosse-siwak':       'Escova de Dentes Siwak Recarregável',
+    'tetes-recharges':    'Cabeças de Substituição Siwak Bio',
+    'dentifrice-siwak':   'Dentífrico Siwak em Pó',
+    'pack-siwak-complet': 'Pack Escova Siwak Completo',
+    'gant-corps':         'Luva Esfoliante Corpo — Seda de Amoreira',
+    'gant-visage':        'Luva Esfoliante Rosto — Seda de Amoreira',
+    'pack-1an-full-body': 'Pack 1 Ano Full Body',
+    'chouchou-soie':      'Elástico de Seda de Amoreira',
+    'pack-tetes-x3':      'Pack Cabeças de Substituição Siwak Bio ×3',
+    'pack-dentifrice-3m': 'Pack Dentífricos Siwak em Pó (3 meses)'
+  },
+  es: {
+    'brosse-siwak':       'Cepillo de Dientes Siwak Recargable',
+    'tetes-recharges':    'Cabezales de Recambio Siwak Bio',
+    'dentifrice-siwak':   'Dentífrico Siwak en Polvo',
+    'pack-siwak-complet': 'Pack Cepillo Siwak Completo',
+    'gant-corps':         'Guante Exfoliante Cuerpo — Seda de Morera',
+    'gant-visage':        'Guante Exfoliante Rostro — Seda de Morera',
+    'pack-1an-full-body': 'Pack 1 Año Full Body',
+    'chouchou-soie':      'Coletero de Seda de Morera',
+    'pack-tetes-x3':      'Pack Cabezales de Recambio Siwak Bio ×3',
+    'pack-dentifrice-3m': 'Pack Dentífricos Siwak en Polvo (3 meses)'
+  }
+};
+
+/* ── Traductions notification panier ── */
+var CART_NOTIF_T = {
+  fr: { added: 'Ajouté au panier',           view: 'Voir le panier' },
+  en: { added: 'Added to cart',              view: 'View cart' },
+  nl: { added: 'Toegevoegd aan winkelwagen', view: 'Winkelwagen bekijken' },
+  de: { added: 'In den Warenkorb gelegt',    view: 'Warenkorb ansehen' },
+  it: { added: 'Aggiunto al carrello',       view: 'Vedi carrello' },
+  pt: { added: 'Adicionado ao carrinho',     view: 'Ver carrinho' },
+  es: { added: 'Añadido al carrito',         view: 'Ver carrito' }
+};
+
 const PRODUCTS = {
   // poids réels en grammes (source : Shopify)
   'brosse-siwak':       { name: 'Brosse à dents Siwak Rechargeable',       price: 12.99, oldPrice: 15.99, weight: 60,  image: 'https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Design-sans_titre_20250111_120704_0000.png' },
@@ -97,7 +196,7 @@ function addToCart(productId, qty) {
   if (existing) { existing.qty += qty; }
   else { cart.push({ id: productId, qty: qty }); }
   saveCart(cart);
-  showCartNotification(PRODUCTS[productId].name);
+  showCartNotification(productId);
 }
 
 function removeFromCart(productId) {
@@ -111,10 +210,13 @@ function setQty(productId, qty) {
 }
 
 function getCartItems() {
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var names = PRODUCT_NAMES[lang] || PRODUCT_NAMES.fr;
   return getCart().map(function(item) {
     var p = PRODUCTS[item.id];
     if (!p) return null;
-    return { id: item.id, qty: item.qty, name: p.name, price: p.price, oldPrice: p.oldPrice, image: p.image, total: p.price * item.qty };
+    var name = names[item.id] || p.name;
+    return { id: item.id, qty: item.qty, name: name, price: p.price, oldPrice: p.oldPrice, image: p.image, total: p.price * item.qty };
   }).filter(Boolean);
 }
 
@@ -139,14 +241,18 @@ function updateCartBadge() {
   });
 }
 
-function showCartNotification(name) {
+function showCartNotification(productId) {
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var nt = CART_NOTIF_T[lang] || CART_NOTIF_T.fr;
+  var names = PRODUCT_NAMES[lang] || PRODUCT_NAMES.fr;
+  var name = names[productId] || (PRODUCTS[productId] ? PRODUCTS[productId].name : productId);
   var existing = document.querySelector('.cart-notif');
   if (existing) existing.remove();
   var n = document.createElement('div');
   n.className = 'cart-notif';
   // Detect if we're in produits/ subfolder
   var prefix = window.location.pathname.indexOf('/produits/') !== -1 ? '../' : '';
-  n.innerHTML = '<div class="cart-notif-inner"><span class="cart-notif-check">✓</span><div class="cart-notif-text"><strong>' + name + '</strong><span>Ajouté au panier</span></div><a href="' + prefix + 'cart" class="cart-notif-btn">Voir le panier</a></div>';
+  n.innerHTML = '<div class="cart-notif-inner"><span class="cart-notif-check">✓</span><div class="cart-notif-text"><strong>' + name + '</strong><span>' + nt.added + '</span></div><a href="' + prefix + 'cart" class="cart-notif-btn">' + nt.view + '</a></div>';
   document.body.appendChild(n);
   setTimeout(function(){ n.classList.add('show'); }, 10);
   setTimeout(function(){ n.classList.remove('show'); setTimeout(function(){ n.remove(); }, 400); }, 3000);
