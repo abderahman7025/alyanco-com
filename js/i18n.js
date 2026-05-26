@@ -70,9 +70,44 @@
       '.mob-lang-btn{background:none;border:1px solid rgba(184,151,90,.28);padding:5px 10px;',
       'font-family:inherit;font-size:10px;letter-spacing:.12em;text-transform:uppercase;',
       'color:var(--mid,#6B5B4E);cursor:pointer;transition:all .25s;}',
-      '.mob-lang-btn.active,.mob-lang-btn:hover{border-color:var(--gold,#B8975A);color:var(--gold,#B8975A);}'
+      '.mob-lang-btn.active,.mob-lang-btn:hover{border-color:var(--gold,#B8975A);color:var(--gold,#B8975A);}',
+      /* Logo toujours sur une ligne */
+      '.nav-logo{white-space:nowrap!important;}',
+      /* Icône panier SVG */
+      '.nav-cart-icon{display:inline-flex;align-items:center;vertical-align:middle;}',
+      '.nav-cart-icon svg{display:block;}',
+      /* Mobile : masquer le texte "Panier" */
+      '@media(max-width:768px){',
+        '.nav-logo{font-size:15px!important;letter-spacing:.06em!important;}',
+        '.nav-cart-text{display:none!important;}',
+        '.nav-cart{gap:4px!important;}',
+      '}'
     ].join('');
     document.head.appendChild(s);
+  }
+
+  /* ================================================================
+     UPGRADE ICÔNE PANIER + FIX MOBILE LOGO
+     ================================================================ */
+  function upgradeNavCart() {
+    var navCart = qs('.nav-cart');
+    if (!navCart || navCart.dataset.upgraded) return;
+    navCart.dataset.upgraded = '1';
+    /* Remplace ○ par un SVG sac de courses */
+    var cartIcon = navCart.querySelector('.cart-icon');
+    if (cartIcon) {
+      cartIcon.className = 'nav-cart-icon';
+      cartIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>';
+    }
+    /* Enveloppe le texte "Panier" dans un span masquable */
+    Array.from(navCart.childNodes).forEach(function(n) {
+      if (n.nodeType === 3 && n.textContent.trim()) {
+        var sp = document.createElement('span');
+        sp.className = 'nav-cart-text';
+        sp.textContent = n.textContent;
+        navCart.replaceChild(sp, n);
+      }
+    });
   }
 
   /* ================================================================
@@ -146,7 +181,9 @@
     setAll('.nav-links a[href$="notre-histoire"]',   t.nav_histoire);
     setAll('.nav-links a[href$="blog"]',             t.nav_blog);
     setAll('.nav-links a[href$="contact"]',          t.nav_contact);
-    replaceTextNode(qs('.nav-cart'), 'Panier', t.nav_cart);
+    var cartTxt = qs('.nav-cart-text');
+    if (cartTxt) cartTxt.textContent = ' ' + t.nav_cart;
+    else replaceTextNode(qs('.nav-cart'), 'Panier', t.nav_cart);
 
     /* Nav mobile */
     qsa('.mobile-nav a').forEach(function(a){
@@ -795,6 +832,7 @@
   /* ── INIT ── */
   document.addEventListener('DOMContentLoaded', function(){
     injectCSS();
+    upgradeNavCart();
     var lang = getLang();
     injectSelector(lang);
     if (lang !== 'fr') loadAndApply(lang);
