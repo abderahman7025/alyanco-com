@@ -94,6 +94,11 @@
         '.nav-logo{font-size:20px!important;letter-spacing:.08em!important;}',
         '.nav-cart-text{display:none!important;}',
         '.nav-cart{gap:4px!important;}',
+      '}',
+      /* Curseur custom masqué sur mobile / écrans tactiles */
+      '@media(hover:none),(pointer:coarse){',
+        '.cursor-dot,.cursor-ring{display:none!important;}',
+        'body{cursor:auto!important;}',
       '}'
     ].join('');
     document.head.appendChild(s);
