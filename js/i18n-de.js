@@ -692,7 +692,18 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Sie haben die natürliche<br><em>Routine übernommen</em>'
+      reviews_title:   'Sie haben die natürliche<br><em>Routine übernommen</em>',
+      ba_before: 'Vorher', ba_after: 'Nachher',
+      ba_section_eyebrow: 'Bewiesene Ergebnisse',
+      ba_section_title: 'Ihr Lächeln, <em>verwandelt</em>',
+      ba_intro: 'Schieben zum Vergleich',
+      ba_tabs: ['Aufhellung', 'Zahnbelag', 'Mundgeruch', 'Zahnfleisch'],
+      ba_captions: [
+        'Vergilbte Zähne <strong>natürlich aufgehellt</strong> ab den ersten Anwendungen',
+        'Belag und Zahnstein <strong>sanft aufgelöst und eliminiert</strong>',
+        'Mundgeruch <strong>dauerhaft neutralisiert</strong>, natürlich frischer Atem',
+        'Gereizte Zahnfleisch <strong>beruhigt und gestärkt</strong>'
+      ]
     },
     'tetes-recharges': {
       breadcrumb:   'Siwak-Ersatzköpfe',
@@ -735,7 +746,18 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Immer<br><em>gut ausgestattet</em>'
+      reviews_title:   'Immer<br><em>gut ausgestattet</em>',
+      ba_before: 'Vorher', ba_after: 'Nachher',
+      ba_section_eyebrow: 'Bewiesene Ergebnisse',
+      ba_section_title: 'Ihr Lächeln, <em>verwandelt</em>',
+      ba_intro: 'Schieben zum Vergleich',
+      ba_tabs: ['Aufhellung', 'Zahnbelag', 'Mundgeruch', 'Zahnfleisch'],
+      ba_captions: [
+        'Vergilbte Zähne <strong>natürlich aufgehellt</strong> ab den ersten Anwendungen',
+        'Belag und Zahnstein <strong>sanft aufgelöst und eliminiert</strong>',
+        'Mundgeruch <strong>dauerhaft neutralisiert</strong>, natürlich frischer Atem',
+        'Gereizte Zahnfleisch <strong>beruhigt und gestärkt</strong>'
+      ]
     },
     'dentifrice-siwak': {
       breadcrumb:   'Siwak-Zahnpulver',
@@ -778,7 +800,18 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Ein Lächeln<br><em>wirklich natürlich</em>'
+      reviews_title:   'Ein Lächeln<br><em>wirklich natürlich</em>',
+      ba_before: 'Vorher', ba_after: 'Nachher',
+      ba_section_eyebrow: 'Bewiesene Ergebnisse',
+      ba_section_title: 'Ihr Lächeln, <em>verwandelt</em>',
+      ba_intro: 'Schieben zum Vergleich',
+      ba_tabs: ['Aufhellung', 'Zahnbelag', 'Mundgeruch', 'Zahnfleisch'],
+      ba_captions: [
+        'Vergilbte Zähne <strong>natürlich aufgehellt</strong> ab den ersten Anwendungen',
+        'Belag und Zahnstein <strong>sanft aufgelöst und eliminiert</strong>',
+        'Mundgeruch <strong>dauerhaft neutralisiert</strong>, natürlich frischer Atem',
+        'Gereizte Zahnfleisch <strong>beruhigt und gestärkt</strong>'
+      ]
     },
     'gant-corps': {
       breadcrumb:   'Körper-Peeling-Handschuh',
@@ -936,6 +969,12 @@ window.ALYA_T_DE = {
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
       reviews_title:   'Ein Jahr natürlicher<br><em>Schönheit</em>',
+      ba_intro: 'Schieben zum Vergleich',
+      pack_contents_title: 'Inhalt des Pakets',
+      pack_items: [
+        ['1 × Körper-Peeling-Handschuh — Maulbeerseide', 'Wert: 21,59€ (Normalpreis 35,99€)'],
+        ['1 × Gesichts-Peeling-Handschuh — Maulbeerseide', 'Wert: 13,19€ (Normalpreis 21,99€)']
+      ],
       ba_before: 'Vorher', ba_after: 'Nachher',
       ba_section_eyebrow: 'Bewiesene Ergebnisse',
       ba_section_title: 'Ihre Haut, <em>verwandelt</em>',
@@ -988,7 +1027,24 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Das perfekte Kit<br><em>für den Start</em>'
+      reviews_title:   'Das perfekte Kit<br><em>für den Start</em>',
+      ba_before: 'Vorher', ba_after: 'Nachher',
+      ba_section_eyebrow: 'Bewiesene Ergebnisse',
+      ba_section_title: 'Ihr Lächeln, <em>verwandelt</em>',
+      ba_intro: 'Schieben zum Vergleich',
+      ba_tabs: ['Aufhellung', 'Zahnbelag', 'Mundgeruch', 'Zahnfleisch'],
+      ba_captions: [
+        'Vergilbte Zähne <strong>natürlich aufgehellt</strong> ab den ersten Anwendungen',
+        'Belag und Zahnstein <strong>sanft aufgelöst und eliminiert</strong>',
+        'Mundgeruch <strong>dauerhaft neutralisiert</strong>, natürlich frischer Atem',
+        'Gereizte Zahnfleisch <strong>beruhigt und gestärkt</strong>'
+      ],
+      pack_contents_title: 'Inhalt des Pakets',
+      pack_items: [
+        ['1 × Wiederaufladbarer Siwak Zahnbürste', 'Wert: 12,99€'],
+        ['3 × Zusätzliche Siwak Ersatzköpfe', 'Wert: 6,99€'],
+        ['1 × Siwak Zahnpulver', 'Wert: 5,99€']
+      ]
     },
     'pack-tetes-x3': {
       breadcrumb:   'Siwak-Ersatzköpfe Pack × 3',
@@ -1031,7 +1087,12 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Immer<br><em>gut bevorratet</em>'
+      reviews_title:   'Immer<br><em>gut bevorratet</em>',
+      pack_contents_title: 'Inhalt des Pakets',
+      pack_items: [
+        ['3 × Packungen à 6 bio Siwak Ersatzköpfe', '= 18 Köpfe · Wert: 26,99€'],
+        ['100% natürlich · Biologisch abbaubar · Schraubbar', 'Kompatibel mit ALYA & CO. Siwak Zahnbürste']
+      ]
     },
     'pack-dentifrice-3m': {
       breadcrumb:   'Siwak-Zahnpulver 3-Monats-Pack',
@@ -1074,7 +1135,12 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Drei Monate<br><em>natürliches Lächeln</em>'
+      reviews_title:   'Drei Monate<br><em>natürliches Lächeln</em>',
+      pack_contents_title: 'Inhalt des Pakets',
+      pack_items: [
+        ['3 × Gläser bio Siwak Zahnpulver', '= 3 Monate Vorrat · Wert: 23,99€'],
+        ['Ohne Fluorid · Ohne SLS · Ohne Parabene', '100% natürlich · Bio · Aufhellung ab 2 Wochen sichtbar']
+      ]
     }
   }
 };

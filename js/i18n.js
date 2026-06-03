@@ -424,6 +424,20 @@
     /* Section titre avant/après */
     if (pd.ba_section_eyebrow) set('.ba-section .section-eyebrow', pd.ba_section_eyebrow);
     if (pd.ba_section_title)   set('.ba-section .section-title', pd.ba_section_title, true);
+    if (pd.ba_intro)           set('.ba-intro', pd.ba_intro);
+
+    /* Section contenu du pack */
+    if (pd.pack_contents_title) set('.pack-contents-title', pd.pack_contents_title);
+    if (pd.pack_items) {
+      var items = qsa('.pack-item');
+      pd.pack_items.forEach(function(item, i) {
+        if (!items[i]) return;
+        var nm = items[i].querySelector('.pack-item-name');
+        var pr = items[i].querySelector('.pack-item-price');
+        if (nm && item[0]) nm.textContent = item[0];
+        if (pr && item[1]) pr.textContent = item[1];
+      });
+    }
   }
 
   function applyChouchouSoie(t) {

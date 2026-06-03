@@ -693,7 +693,18 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Zij namen de<br><em>natuurlijke routine over</em>'
+      reviews_title:   'Zij namen de<br><em>natuurlijke routine over</em>',
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw glimlach, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
+      ba_tabs: ['Bleken', 'Tandplak', 'Slechte adem', 'Tandvlees'],
+      ba_captions: [
+        'Vergeelde tanden <strong>natuurlijk gebleekt</strong> vanaf het eerste gebruik',
+        'Tandplak en tandsteen <strong>zacht opgelost en verwijderd</strong>',
+        'Slechte adem <strong>duurzaam geneutraliseerd</strong>, natuurlijk frisse adem',
+        'Tandvlees <strong>gekalmeerd en versterkt</strong>'
+      ]
     },
     'tetes-recharges': {
       breadcrumb:   'Siwak vervangende opzetkopjes',
@@ -736,7 +747,18 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Altijd<br><em>goed uitgerust</em>'
+      reviews_title:   'Altijd<br><em>goed uitgerust</em>',
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw glimlach, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
+      ba_tabs: ['Bleken', 'Tandplak', 'Slechte adem', 'Tandvlees'],
+      ba_captions: [
+        'Vergeelde tanden <strong>natuurlijk gebleekt</strong> vanaf het eerste gebruik',
+        'Tandplak en tandsteen <strong>zacht opgelost en verwijderd</strong>',
+        'Slechte adem <strong>duurzaam geneutraliseerd</strong>, natuurlijk frisse adem',
+        'Tandvlees <strong>gekalmeerd en versterkt</strong>'
+      ]
     },
     'dentifrice-siwak': {
       breadcrumb:   'Siwak tandpoeder',
@@ -779,7 +801,18 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Een glimlach<br><em>echt natuurlijk</em>'
+      reviews_title:   'Een glimlach<br><em>echt natuurlijk</em>',
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw glimlach, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
+      ba_tabs: ['Bleken', 'Tandplak', 'Slechte adem', 'Tandvlees'],
+      ba_captions: [
+        'Vergeelde tanden <strong>natuurlijk gebleekt</strong> vanaf het eerste gebruik',
+        'Tandplak en tandsteen <strong>zacht opgelost en verwijderd</strong>',
+        'Slechte adem <strong>duurzaam geneutraliseerd</strong>, natuurlijk frisse adem',
+        'Tandvlees <strong>gekalmeerd en versterkt</strong>'
+      ]
     },
     'gant-corps': {
       breadcrumb:   'Exfolierende lichaamshandschoen',
@@ -937,6 +970,18 @@ window.ALYA_T_NL = {
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
       reviews_title:   'Een jaar van<br><em>natuurlijke schoonheid</em>',
+      ba_intro: 'Schuif om het verschil te zien',
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['1 × Exfolierende Lichaamshandschoen — Moerbeizijde', 'Waarde: 21,59€ (normale prijs 35,99€)'],
+        ['1 × Exfolierende Gezichtshandschoen — Moerbeizijde', 'Waarde: 13,19€ (normale prijs 21,99€)']
+      ],
+      ba_intro: 'Schuif om het verschil te zien',
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['1 x Exfolierende Lichaamshandschoen - Moerbeizijde', 'Waarde: 21,59EUR (normale prijs 35,99EUR)'],
+        ['1 x Exfolierende Gezichtshandschoen - Moerbeizijde', 'Waarde: 13,19EUR (normale prijs 21,99EUR)']
+      ],
       ba_before: 'Voor', ba_after: 'Na',
       ba_section_eyebrow: 'Bewezen resultaten',
       ba_section_title: 'Uw huid, <em>getransformeerd</em>',
@@ -989,7 +1034,41 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Het perfecte kit<br><em>om te beginnen</em>'
+      reviews_title:   'Het perfecte kit<br><em>om te beginnen</em>',
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw glimlach, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
+      ba_tabs: ['Bleken', 'Tandplak', 'Slechte adem', 'Tandvlees'],
+      ba_captions: [
+        'Vergeelde tanden <strong>natuurlijk gebleekt</strong> vanaf het eerste gebruik',
+        'Tandplak en tandsteen <strong>zacht opgelost en verwijderd</strong>',
+        'Slechte adem <strong>duurzaam geneutraliseerd</strong>, natuurlijk frisse adem',
+        'Tandvlees <strong>gekalmeerd en versterkt</strong>'
+      ],
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['1 × Oplaadbare Siwak Tandenborstel', 'Waarde: 12,99€'],
+        ['3 × Aanvullende Siwak Opzetborstels', 'Waarde: 6,99€'],
+        ['1 × Siwak Tandpoeder', 'Waarde: 5,99€']
+      ],
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw glimlach, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
+      ba_tabs: ['Bleken', 'Tandplak', 'Slechte adem', 'Tandvlees'],
+      ba_captions: [
+        'Vergeelde tanden <strong>natuurlijk gebleekt</strong> vanaf het eerste gebruik',
+        'Tandplak en tandsteen <strong>zacht opgelost en verwijderd</strong>',
+        'Slechte adem <strong>duurzaam geneutraliseerd</strong>, natuurlijk frisse adem',
+        'Tandvlees <strong>gekalmeerd en versterkt</strong>'
+      ],
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['1 x Oplaadbare Siwak Tandenborstel', 'Waarde: 12,99EUR'],
+        ['3 x Aanvullende Siwak Opzetborstels', 'Waarde: 6,99EUR'],
+        ['1 x Siwak Tandpoeder', 'Waarde: 5,99EUR']
+      ]
     },
     'pack-tetes-x3': {
       breadcrumb:   'Siwak opzetkopjes pakket × 3',
@@ -1032,7 +1111,17 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Altijd<br><em>goed bevoorraad</em>'
+      reviews_title:   'Altijd<br><em>goed bevoorraad</em>',
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['3 × dozen met 6 bio Siwak opzetborstels', '= 18 koppen · Waarde: 26,99€'],
+        ['100% natuurlijk · Biologisch afbreekbaar · Schroefbaar', 'Compatibel met ALYA & CO. Siwak tandenborstel']
+      ],
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['3 x dozen met 6 bio Siwak opzetborstels', '= 18 koppen - Waarde: 26,99EUR'],
+        ['100% natuurlijk - Biologisch afbreekbaar - Schroefbaar', 'Compatibel met ALYA & CO. Siwak tandenborstel']
+      ]
     },
     'pack-dentifrice-3m': {
       breadcrumb:   'Siwak tandpoeder 3-maandenpakket',
@@ -1075,7 +1164,17 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Drie maanden<br><em>van natuurlijke glimlachen</em>'
+      reviews_title:   'Drie maanden<br><em>van natuurlijke glimlachen</em>',
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['3 × potten bio Siwak tandpoeder', '= 3 maanden gebruik · Waarde: 23,99€'],
+        ['Zonder fluoride · Zonder SLS · Zonder parabenen', '100% natuurlijk · Bio · Zichtbaar wittend in 2 weken']
+      ],
+      pack_contents_title: 'Inhoud van het pakket',
+      pack_items: [
+        ['3 x potten bio Siwak tandpoeder', '= 3 maanden gebruik - Waarde: 23,99EUR'],
+        ['Zonder fluoride - Zonder SLS - Zonder parabenen', '100% natuurlijk - Bio - Zichtbaar wittend in 2 weken']
+      ]
     }
   }
 };

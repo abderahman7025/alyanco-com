@@ -776,7 +776,18 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'They\'ve adopted<br><em>the natural routine</em>'
+      reviews_title:   'They\'ve adopted<br><em>the natural routine</em>',
+      ba_before: 'Before', ba_after: 'After',
+      ba_section_eyebrow: 'Proven results',
+      ba_section_title: 'Your smile, <em>transformed</em>',
+      ba_intro: 'Slide to reveal the difference',
+      ba_tabs: ['Whitening', 'Dental plaque', 'Bad breath', 'Gums'],
+      ba_captions: [
+        'Yellowed teeth <strong>naturally whitened</strong> from the first uses',
+        'Plaque and tartar <strong>dissolved and gently eliminated</strong>',
+        'Bad breath <strong>permanently neutralised</strong>, naturally fresh breath',
+        'Irritated and inflamed gums <strong>soothed and strengthened</strong>'
+      ]
     },
     'tetes-recharges': {
       breadcrumb:   'Siwak Replacement Heads',
@@ -819,7 +830,18 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'Always<br><em>well equipped</em>'
+      reviews_title:   'Always<br><em>well equipped</em>',
+      ba_before: 'Before', ba_after: 'After',
+      ba_section_eyebrow: 'Proven results',
+      ba_section_title: 'Your smile, <em>transformed</em>',
+      ba_intro: 'Slide to reveal the difference',
+      ba_tabs: ['Whitening', 'Dental plaque', 'Bad breath', 'Gums'],
+      ba_captions: [
+        'Yellowed teeth <strong>naturally whitened</strong> from the first uses',
+        'Plaque and tartar <strong>dissolved and gently eliminated</strong>',
+        'Bad breath <strong>permanently neutralised</strong>, naturally fresh breath',
+        'Irritated and inflamed gums <strong>soothed and strengthened</strong>'
+      ]
     },
     'dentifrice-siwak': {
       breadcrumb:   'Siwak Toothpowder',
@@ -862,7 +884,18 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'A smile<br><em>truly natural</em>'
+      reviews_title:   'A smile<br><em>truly natural</em>',
+      ba_before: 'Before', ba_after: 'After',
+      ba_section_eyebrow: 'Proven results',
+      ba_section_title: 'Your smile, <em>transformed</em>',
+      ba_intro: 'Slide to reveal the difference',
+      ba_tabs: ['Whitening', 'Dental plaque', 'Bad breath', 'Gums'],
+      ba_captions: [
+        'Yellowed teeth <strong>naturally whitened</strong> from the first uses',
+        'Plaque and tartar <strong>dissolved and gently eliminated</strong>',
+        'Bad breath <strong>permanently neutralised</strong>, naturally fresh breath',
+        'Irritated and inflamed gums <strong>soothed and strengthened</strong>'
+      ]
     },
     'gant-corps': {
       breadcrumb:   'Body Exfoliating Glove',
@@ -1020,6 +1053,12 @@ window.ALYA_T_EN = {
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
       reviews_title:   'A year of natural<br><em>beauty</em>',
+      ba_intro: 'Slide to reveal the difference',
+      pack_contents_title: 'Pack contents',
+      pack_items: [
+        ['1 × Body Exfoliating Glove — Mulberry Silk', 'Value: €21.59 (normal price €35.99)'],
+        ['1 × Face Exfoliating Glove — Mulberry Silk', 'Value: €13.19 (normal price €21.99)']
+      ],
       ba_before: 'Before', ba_after: 'After',
       ba_section_eyebrow: 'Proven results',
       ba_section_title: 'Your skin, <em>transformed</em>',
@@ -1072,7 +1111,24 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'The perfect kit<br><em>to get started</em>'
+      reviews_title:   'The perfect kit<br><em>to get started</em>',
+      ba_before: 'Before', ba_after: 'After',
+      ba_section_eyebrow: 'Proven results',
+      ba_section_title: 'Your smile, <em>transformed</em>',
+      ba_intro: 'Slide to reveal the difference',
+      ba_tabs: ['Whitening', 'Dental plaque', 'Bad breath', 'Gums'],
+      ba_captions: [
+        'Yellowed teeth <strong>naturally whitened</strong> from the first uses',
+        'Plaque and tartar <strong>dissolved and gently eliminated</strong>',
+        'Bad breath <strong>permanently neutralised</strong>, naturally fresh breath',
+        'Irritated and inflamed gums <strong>soothed and strengthened</strong>'
+      ],
+      pack_contents_title: 'Pack contents',
+      pack_items: [
+        ['1 × Rechargeable Siwak Toothbrush', 'Value: €12.99'],
+        ['3 × Additional Siwak Replacement Heads', 'Value: €6.99'],
+        ['1 × Siwak Toothpowder', 'Value: €5.99']
+      ]
     },
     'pack-tetes-x3': {
       breadcrumb:   'Siwak Replacement Heads Pack × 3',
@@ -1115,7 +1171,12 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'Always<br><em>well stocked</em>'
+      reviews_title:   'Always<br><em>well stocked</em>',
+      pack_contents_title: 'Pack contents',
+      pack_items: [
+        ['3 × boxes of 6 organic Siwak replacement heads', '= 18 heads total · Value: €26.99'],
+        ['100% natural · Biodegradable · Screw-on', 'Compatible with ALYA & CO. rechargeable Siwak brush']
+      ]
     },
     'pack-dentifrice-3m': {
       breadcrumb:   'Siwak Toothpowder 3-month Pack',
@@ -1158,7 +1219,12 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'Three months<br><em>of natural smiles</em>'
+      reviews_title:   'Three months<br><em>of natural smiles</em>',
+      pack_contents_title: 'Pack contents',
+      pack_items: [
+        ['3 × jars of organic Siwak toothpowder', '= 3 months\' use · Value: €23.99'],
+        ['Fluoride-free · SLS-free · Paraben-free', '100% natural · Organic · Visible whitening in 2 weeks']
+      ]
     }
   }
 };

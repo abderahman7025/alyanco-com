@@ -693,7 +693,18 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Adotaram a rotina<br><em>natural</em>'
+      reviews_title:   'Adotaram a rotina<br><em>natural</em>',
+      ba_before: 'Antes', ba_after: 'Depois',
+      ba_section_eyebrow: 'Resultados comprovados',
+      ba_section_title: 'O teu sorriso, <em>transformado</em>',
+      ba_intro: 'Desliza para revelar a diferença',
+      ba_tabs: ['Branqueamento', 'Placa dentária', 'Mau hálito', 'Gengivas'],
+      ba_captions: [
+        'Dentes amarelados <strong>naturalmente branqueados</strong> desde os primeiros usos',
+        'Placa e tártaro <strong>dissolvidos e eliminados</strong> suavemente',
+        'Mau hálito <strong>neutralizado de forma duradoura</strong>, hálito fresco natural',
+        'Gengivas irritadas e inflamadas <strong>aliviadas e fortalecidas</strong>'
+      ]
     },
     'tetes-recharges': {
       breadcrumb:   'Cabeças de substituição Siwak',
@@ -736,7 +747,18 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Sempre<br><em>bem equipados</em>'
+      reviews_title:   'Sempre<br><em>bem equipados</em>',
+      ba_before: 'Antes', ba_after: 'Depois',
+      ba_section_eyebrow: 'Resultados comprovados',
+      ba_section_title: 'O teu sorriso, <em>transformado</em>',
+      ba_intro: 'Desliza para revelar a diferença',
+      ba_tabs: ['Branqueamento', 'Placa dentária', 'Mau hálito', 'Gengivas'],
+      ba_captions: [
+        'Dentes amarelados <strong>naturalmente branqueados</strong> desde os primeiros usos',
+        'Placa e tártaro <strong>dissolvidos e eliminados</strong> suavemente',
+        'Mau hálito <strong>neutralizado de forma duradoura</strong>, hálito fresco natural',
+        'Gengivas irritadas e inflamadas <strong>aliviadas e fortalecidas</strong>'
+      ]
     },
     'dentifrice-siwak': {
       breadcrumb:   'Dentífrico Siwak em pó',
@@ -779,7 +801,18 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Um sorriso<br><em>verdadeiramente natural</em>'
+      reviews_title:   'Um sorriso<br><em>verdadeiramente natural</em>',
+      ba_before: 'Antes', ba_after: 'Depois',
+      ba_section_eyebrow: 'Resultados comprovados',
+      ba_section_title: 'O teu sorriso, <em>transformado</em>',
+      ba_intro: 'Desliza para revelar a diferença',
+      ba_tabs: ['Branqueamento', 'Placa dentária', 'Mau hálito', 'Gengivas'],
+      ba_captions: [
+        'Dentes amarelados <strong>naturalmente branqueados</strong> desde os primeiros usos',
+        'Placa e tártaro <strong>dissolvidos e eliminados</strong> suavemente',
+        'Mau hálito <strong>neutralizado de forma duradoura</strong>, hálito fresco natural',
+        'Gengivas irritadas e inflamadas <strong>aliviadas e fortalecidas</strong>'
+      ]
     },
     'gant-corps': {
       breadcrumb:   'Luva esfoliante corporal',
@@ -937,6 +970,12 @@ window.ALYA_T_PT = {
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
       reviews_title:   'Um ano de beleza<br><em>natural</em>',
+      ba_intro: 'Desliza para revelar a diferença',
+      pack_contents_title: 'Conteúdo do pack',
+      pack_items: [
+        ['1 × Luva Esfoliante Corporal — Seda de Amoreira', 'Valor: 21,59€ (preço normal 35,99€)'],
+        ['1 × Luva Esfoliante Facial — Seda de Amoreira', 'Valor: 13,19€ (preço normal 21,99€)']
+      ],
       ba_before: 'Antes', ba_after: 'Depois',
       ba_section_eyebrow: 'Resultados comprovados',
       ba_section_title: 'A tua pele, <em>transformada</em>',
@@ -989,7 +1028,24 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'O kit perfeito<br><em>para começar</em>'
+      reviews_title:   'O kit perfeito<br><em>para começar</em>',
+      ba_before: 'Antes', ba_after: 'Depois',
+      ba_section_eyebrow: 'Resultados comprovados',
+      ba_section_title: 'O teu sorriso, <em>transformado</em>',
+      ba_intro: 'Desliza para revelar a diferença',
+      ba_tabs: ['Branqueamento', 'Placa dentária', 'Mau hálito', 'Gengivas'],
+      ba_captions: [
+        'Dentes amarelados <strong>naturalmente branqueados</strong> desde os primeiros usos',
+        'Placa e tártaro <strong>dissolvidos e eliminados</strong> suavemente',
+        'Mau hálito <strong>neutralizado de forma duradoura</strong>, hálito fresco natural',
+        'Gengivas irritadas e inflamadas <strong>aliviadas e fortalecidas</strong>'
+      ],
+      pack_contents_title: 'Conteúdo do pack',
+      pack_items: [
+        ['1 × Escova de Dentes Siwak Recarregável', 'Valor: 12,99€'],
+        ['3 × Cabeças de Substituição Siwak adicionais', 'Valor: 6,99€'],
+        ['1 × Pasta de Dentes Siwak em Pó', 'Valor: 5,99€']
+      ]
     },
     'pack-tetes-x3': {
       breadcrumb:   'Pack cabeças Siwak × 3',
@@ -1032,7 +1088,12 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Sempre<br><em>bem abastecidos</em>'
+      reviews_title:   'Sempre<br><em>bem abastecidos</em>',
+      pack_contents_title: 'Conteúdo do pack',
+      pack_items: [
+        ['3 × caixas de 6 cabeças Siwak bio', '= 18 cabeças · Valor: 26,99€'],
+        ['100% natural · Biodegradável · De parafuso', 'Compatível com a escova Siwak recarregável ALYA & CO.']
+      ]
     },
     'pack-dentifrice-3m': {
       breadcrumb:   'Pack dentífrico Siwak 3 meses',
@@ -1075,7 +1136,12 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Três meses<br><em>de sorrisos naturais</em>'
+      reviews_title:   'Três meses<br><em>de sorrisos naturais</em>',
+      pack_contents_title: 'Conteúdo do pack',
+      pack_items: [
+        ['3 × frascos de pasta de dentes Siwak em pó bio', '= 3 meses de uso · Valor: 23,99€'],
+        ['Sem flúor · Sem SLS · Sem parabenos', '100% natural · Bio · Branqueamento visível em 2 semanas']
+      ]
     }
   }
 };

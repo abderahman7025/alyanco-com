@@ -693,7 +693,18 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Hanno adottato<br><em>la routine naturale</em>'
+      reviews_title:   'Hanno adottato<br><em>la routine naturale</em>',
+      ba_before: 'Prima', ba_after: 'Dopo',
+      ba_section_eyebrow: 'Risultati provati',
+      ba_section_title: 'Il tuo sorriso, <em>trasformato</em>',
+      ba_intro: 'Scorri per rivelare la differenza',
+      ba_tabs: ['Sbiancamento', 'Placca dentale', 'Alito cattivo', 'Gengive'],
+      ba_captions: [
+        'Denti ingialliti <strong>naturalmente sbiancati</strong> fin dai primi utilizzi',
+        'Placca e tartaro <strong>sciolti ed eliminati</strong> delicatamente',
+        'Alito cattivo <strong>neutralizzato durevolmente</strong>, alito fresco naturale',
+        'Gengive irritate e infiammate <strong>lenite e rinforzate</strong>'
+      ]
     },
     'tetes-recharges': {
       breadcrumb:   'Testine di ricambio Siwak',
@@ -736,7 +747,18 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Sempre<br><em>ben equipaggiati</em>'
+      reviews_title:   'Sempre<br><em>ben equipaggiati</em>',
+      ba_before: 'Prima', ba_after: 'Dopo',
+      ba_section_eyebrow: 'Risultati provati',
+      ba_section_title: 'Il tuo sorriso, <em>trasformato</em>',
+      ba_intro: 'Scorri per rivelare la differenza',
+      ba_tabs: ['Sbiancamento', 'Placca dentale', 'Alito cattivo', 'Gengive'],
+      ba_captions: [
+        'Denti ingialliti <strong>naturalmente sbiancati</strong> fin dai primi utilizzi',
+        'Placca e tartaro <strong>sciolti ed eliminati</strong> delicatamente',
+        'Alito cattivo <strong>neutralizzato durevolmente</strong>, alito fresco naturale',
+        'Gengive irritate e infiammate <strong>lenite e rinforzate</strong>'
+      ]
     },
     'dentifrice-siwak': {
       breadcrumb:   'Dentifricio Siwak in polvere',
@@ -779,7 +801,18 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Un sorriso<br><em>davvero naturale</em>'
+      reviews_title:   'Un sorriso<br><em>davvero naturale</em>',
+      ba_before: 'Prima', ba_after: 'Dopo',
+      ba_section_eyebrow: 'Risultati provati',
+      ba_section_title: 'Il tuo sorriso, <em>trasformato</em>',
+      ba_intro: 'Scorri per rivelare la differenza',
+      ba_tabs: ['Sbiancamento', 'Placca dentale', 'Alito cattivo', 'Gengive'],
+      ba_captions: [
+        'Denti ingialliti <strong>naturalmente sbiancati</strong> fin dai primi utilizzi',
+        'Placca e tartaro <strong>sciolti ed eliminati</strong> delicatamente',
+        'Alito cattivo <strong>neutralizzato durevolmente</strong>, alito fresco naturale',
+        'Gengive irritate e infiammate <strong>lenite e rinforzate</strong>'
+      ]
     },
     'gant-corps': {
       breadcrumb:   'Guanto esfoliante corpo',
@@ -937,6 +970,12 @@ window.ALYA_T_IT = {
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
       reviews_title:   'Un anno di bellezza<br><em>naturale</em>',
+      ba_intro: 'Scorri per rivelare la differenza',
+      pack_contents_title: 'Contenuto del pack',
+      pack_items: [
+        ['1 x Guanto Esfoliante Corpo - Seta di Gelso', 'Valore: 21,59EUR (prezzo normale 35,99EUR)'],
+        ['1 x Guanto Esfoliante Viso - Seta di Gelso', 'Valore: 13,19EUR (prezzo normale 21,99EUR)']
+      ],
       ba_before: 'Prima', ba_after: 'Dopo',
       ba_section_eyebrow: 'Risultati provati',
       ba_section_title: 'La tua pelle, <em>trasformata</em>',
@@ -989,7 +1028,24 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Il kit perfetto<br><em>per iniziare</em>'
+      reviews_title:   'Il kit perfetto<br><em>per iniziare</em>',
+      ba_before: 'Prima', ba_after: 'Dopo',
+      ba_section_eyebrow: 'Risultati provati',
+      ba_section_title: 'Il tuo sorriso, <em>trasformato</em>',
+      ba_intro: 'Scorri per rivelare la differenza',
+      ba_tabs: ['Sbiancamento', 'Placca dentale', 'Alito cattivo', 'Gengive'],
+      ba_captions: [
+        'Denti ingialliti <strong>naturalmente sbiancati</strong> fin dai primi utilizzi',
+        'Placca e tartaro <strong>sciolti ed eliminati</strong> delicatamente',
+        'Alito cattivo <strong>neutralizzato durevolmente</strong>, alito fresco naturale',
+        'Gengive irritate e infiammate <strong>lenite e rinforzate</strong>'
+      ],
+      pack_contents_title: 'Contenuto del pack',
+      pack_items: [
+        ['1 x Spazzolino Siwak Ricaricabile', 'Valore: 12,99EUR'],
+        ['3 x Testine di ricambio Siwak aggiuntive', 'Valore: 6,99EUR'],
+        ['1 x Dentifricio Siwak in Polvere', 'Valore: 5,99EUR']
+      ]
     },
     'pack-tetes-x3': {
       breadcrumb:   'Pack testine Siwak × 3',
@@ -1032,7 +1088,12 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Sempre<br><em>ben forniti</em>'
+      reviews_title:   'Sempre<br><em>ben forniti</em>',
+      pack_contents_title: 'Contenuto del pack',
+      pack_items: [
+        ['3 x confezioni da 6 testine Siwak bio', '= 18 testine - Valore: 26,99EUR'],
+        ['100% naturale - Biodegradabile - A vite', 'Compatibile con lo spazzolino Siwak ricaricabile ALYA & CO.']
+      ]
     },
     'pack-dentifrice-3m': {
       breadcrumb:   'Pack dentifricio Siwak 3 mesi',
@@ -1075,7 +1136,12 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Tre mesi<br><em>di sorrisi naturali</em>'
+      reviews_title:   'Tre mesi<br><em>di sorrisi naturali</em>',
+      pack_contents_title: 'Contenuto del pack',
+      pack_items: [
+        ['3 x vasetti di dentifricio Siwak in polvere bio', '= 3 mesi di utilizzo - Valore: 23,99EUR'],
+        ['Senza fluoro - Senza SLS - Senza parabeni', '100% naturale - Bio - Sbiancamento visibile in 2 settimane']
+      ]
     }
   }
 };
