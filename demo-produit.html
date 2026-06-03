@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALYA & CO. — Démo Page Produit</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F3;
+  --sand:  #EAD9C8;
+  --gold:  #B8975A;
+  --gold2: #D4B896;
+  --dark:  #18140F;
+  --mid:   #6B5B4E;
+  --light: #A8958A;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Jost', sans-serif;
+  --ease:  cubic-bezier(.25,.46,.45,.94);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; }
+body { background:var(--cream); color:var(--dark); font-family:var(--sans); overflow-x:hidden; }
+
+/* ── DEMO BAR ── */
+.demo-bar {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:#18140F; color:#EAD9C8;
+  display:flex; align-items:center; gap:12px;
+  padding:10px 24px; font-size:11px; letter-spacing:.1em;
+}
+.demo-bar span { opacity:.6; margin-right:4px; }
+.demo-tab {
+  background:transparent; border:1px solid rgba(184,151,90,.3);
+  color:#D4B896; font-family:var(--sans); font-size:11px;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:6px 18px; cursor:pointer; transition:all .3s;
+}
+.demo-tab.active,
+.demo-tab:hover { background:var(--gold); color:#18140F; border-color:var(--gold); }
+
+/* ── ANNOUNCE ── */
+.announce {
+  margin-top:41px; /* push below demo bar */
+  background:var(--dark); color:var(--sand);
+  overflow:hidden; height:36px; display:flex; align-items:center;
+}
+.announce-track {
+  display:flex; width:max-content;
+  animation:ticker 22s linear infinite;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+}
+.announce-item {
+  padding:0 60px; white-space:nowrap;
+  display:flex; align-items:center; gap:12px;
+}
+.announce-item::before { content:'✦'; color:var(--gold); font-size:7px; }
+@keyframes ticker { to { transform:translateX(-50%); } }
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:41px; z-index:90; height:68px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 48px;
+  background:rgba(250,247,243,.92); backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(184,151,90,.12);
+}
+.nav-logo { font-family:var(--serif); font-size:20px; font-weight:500; letter-spacing:.12em; color:var(--dark); text-decoration:none; }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a { font-size:10px; font-weight:400; letter-spacing:.15em; text-transform:uppercase; color:var(--mid); text-decoration:none; transition:color .3s; }
+.nav-links a:hover { color:var(--dark); }
+.nav-right { display:flex; align-items:center; gap:20px; }
+.nav-cart { font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--dark); text-decoration:none; display:flex; align-items:center; gap:8px; }
+
+/* ── PRODUCT LAYOUT ── */
+.product-page {
+  display:grid;
+  grid-template-columns:55% 45%;
+  min-height:calc(100vh - 109px);
+}
+
+/* ── LEFT: IMAGE ZONE ── */
+.image-zone {
+  position:sticky;
+  top:109px; /* announce + nav */
+  height:calc(100vh - 109px);
+  display:flex;
+  background:#0E0B08;
+  overflow:hidden;
+}
+
+.thumbs-strip {
+  display:flex; flex-direction:column;
+  gap:6px; padding:16px 12px;
+  background:rgba(0,0,0,.35);
+  z-index:2;
+  align-items:center;
+}
+.thumb-btn {
+  width:52px; height:52px; border:1.5px solid transparent;
+  background:rgba(255,255,255,.08); cursor:pointer;
+  transition:all .3s; overflow:hidden; flex-shrink:0;
+}
+.thumb-btn img { width:100%; height:100%; object-fit:cover; }
+.thumb-btn.active,
+.thumb-btn:hover { border-color:var(--gold); background:rgba(255,255,255,.15); }
+
+.main-image-wrap {
+  flex:1; position:relative; overflow:hidden;
+}
+.main-image-wrap img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transition:opacity .4s var(--ease), transform .6s var(--ease);
+}
+.main-image-wrap img.switching { opacity:0; transform:scale(1.04); }
+
+.badge-zone {
+  position:absolute; top:20px; left:16px; z-index:3;
+}
+.badge-sell {
+  background:var(--gold); color:#fff;
+  font-size:9px; letter-spacing:.18em; text-transform:uppercase;
+  padding:7px 14px; display:inline-block;
+}
+
+.img-bottom-gradient {
+  position:absolute; bottom:0; left:0; right:0; height:140px;
+  background:linear-gradient(to top, rgba(14,11,8,.8), transparent);
+  pointer-events:none; z-index:2;
+}
+
+/* ── RIGHT: INFO ZONE ── */
+.info-zone {
+  background:#fff;
+  overflow-y:auto;
+  max-height:calc(100vh - 109px);
+  scrollbar-width:thin;
+  scrollbar-color:var(--sand) transparent;
+}
+.info-inner {
+  padding:40px 48px 60px 44px;
+  max-width:520px;
+}
+
+/* breadcrumb */
+.breadcrumb {
+  display:flex; align-items:center; gap:6px;
+  font-size:11px; color:var(--light); margin-bottom:20px;
+}
+.breadcrumb a { color:var(--light); text-decoration:none; transition:color .3s; }
+.breadcrumb a:hover { color:var(--gold); }
+.breadcrumb span { color:var(--gold); font-size:9px; }
+
+/* stars row */
+.stars-row {
+  display:flex; align-items:center; gap:8px;
+  margin-bottom:14px;
+}
+.stars { color:var(--gold); font-size:14px; letter-spacing:2px; }
+.stars-num { font-size:13px; font-weight:500; color:var(--dark); }
+.stars-count {
+  font-size:11px; color:var(--light);
+  text-decoration:underline; cursor:pointer;
+  transition:color .3s;
+}
+.stars-count:hover { color:var(--gold); }
+
+/* title */
+.prod-title {
+  font-family:var(--serif);
+  font-size:clamp(28px,3vw,40px);
+  font-weight:400; line-height:1.18;
+  color:var(--dark); margin-bottom:10px;
+}
+.prod-title em { font-style:italic; color:var(--gold); }
+
+.prod-subtitle {
+  font-size:12px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--light); margin-bottom:20px;
+}
+
+/* benefits */
+.benefits {
+  display:flex; flex-direction:column; gap:9px;
+  margin-bottom:26px;
+  padding-bottom:26px;
+  border-bottom:1px solid rgba(184,151,90,.15);
+}
+.benefit-item {
+  display:flex; align-items:flex-start; gap:10px;
+  font-size:13px; line-height:1.5; color:var(--mid);
+}
+.benefit-icon { color:var(--gold); font-size:10px; margin-top:4px; flex-shrink:0; }
+
+/* pack selector */
+.pack-label {
+  font-size:10px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--mid); margin-bottom:12px; font-weight:500;
+}
+
+.pack-options {
+  display:flex; flex-direction:column; gap:8px; margin-bottom:24px;
+}
+.pack-card {
+  border:1.5px solid #E8E0D8; border-radius:2px;
+  padding:14px 18px; cursor:pointer;
+  display:flex; align-items:center; gap:14px;
+  transition:all .25s var(--ease);
+  position:relative; background:#fff;
+}
+.pack-card:hover { border-color:var(--gold2); background:#FEFCF9; }
+.pack-card.selected {
+  border-color:var(--gold);
+  background:linear-gradient(135deg, #FFFDF9 0%, #FEF9F2 100%);
+}
+.pack-radio {
+  width:18px; height:18px; border-radius:50%;
+  border:1.5px solid #D0C4B8; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  transition:all .2s;
+}
+.pack-card.selected .pack-radio {
+  border-color:var(--gold); background:var(--gold);
+}
+.pack-radio-dot {
+  width:7px; height:7px; border-radius:50%;
+  background:#fff; opacity:0; transition:opacity .2s;
+}
+.pack-card.selected .pack-radio-dot { opacity:1; }
+
+.pack-info { flex:1; min-width:0; }
+.pack-name {
+  font-size:13px; font-weight:500; color:var(--dark);
+  letter-spacing:.04em; display:block; margin-bottom:2px;
+}
+.pack-savings {
+  font-size:11px; color:var(--mid); letter-spacing:.04em;
+}
+.pack-price-wrap {
+  display:flex; flex-direction:column; align-items:flex-end; gap:2px;
+}
+.pack-price {
+  font-family:var(--serif); font-size:18px; color:var(--dark); font-weight:500;
+}
+.pack-original {
+  font-size:11px; color:var(--light); text-decoration:line-through;
+}
+.pack-badge {
+  position:absolute; top:-1px; right:14px;
+  background:var(--dark); color:var(--gold2);
+  font-size:8px; letter-spacing:.18em; text-transform:uppercase;
+  padding:4px 9px; transform:translateY(-50%);
+}
+
+/* price display */
+.price-display {
+  display:flex; align-items:baseline; gap:12px; margin-bottom:20px;
+}
+.price-main {
+  font-family:var(--serif); font-size:38px; font-weight:500; color:var(--dark); line-height:1;
+}
+.price-crossed { font-size:18px; color:var(--light); text-decoration:line-through; }
+.price-tag {
+  font-size:10px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold); background:rgba(184,151,90,.1); padding:4px 10px;
+}
+
+/* qty + CTA */
+.buy-row {
+  display:flex; gap:12px; align-items:stretch; margin-bottom:20px;
+}
+.qty-wrap {
+  display:flex; align-items:center; border:1.5px solid #E8E0D8;
+  background:#fff;
+}
+.qty-btn {
+  width:40px; height:100%; background:none; border:none; cursor:pointer;
+  font-size:18px; color:var(--mid); transition:color .2s; display:flex;
+  align-items:center; justify-content:center;
+}
+.qty-btn:hover { color:var(--dark); }
+.qty-num {
+  width:36px; text-align:center; font-size:14px; font-weight:500;
+  color:var(--dark); font-family:var(--serif); user-select:none;
+}
+
+.btn-add {
+  flex:1; background:var(--dark); color:var(--cream);
+  border:none; cursor:pointer;
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase;
+  padding:18px 24px; transition:all .35s var(--ease);
+  display:flex; align-items:center; justify-content:center; gap:10px;
+}
+.btn-add:hover { background:#2C2218; letter-spacing:.26em; }
+.btn-add-price { font-family:var(--serif); font-size:16px; font-weight:400; }
+
+/* trust row */
+.trust-row {
+  display:flex; gap:0; margin-bottom:18px;
+  border:1px solid rgba(184,151,90,.15);
+}
+.trust-item {
+  flex:1; padding:12px 8px; display:flex; flex-direction:column;
+  align-items:center; gap:4px; text-align:center;
+  border-right:1px solid rgba(184,151,90,.15);
+  font-size:10px; color:var(--mid); letter-spacing:.06em;
+}
+.trust-item:last-child { border-right:none; }
+.trust-icon { font-size:16px; }
+.trust-label { font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; line-height:1.3; }
+
+.delivery-note {
+  display:flex; align-items:center; gap:8px;
+  font-size:11px; color:var(--mid); letter-spacing:.04em;
+  padding:12px 0; border-top:1px solid rgba(184,151,90,.1);
+}
+.delivery-note::before { content:'🚚'; font-size:14px; }
+.delivery-note strong { color:var(--dark); font-weight:600; }
+
+/* ── MOBILE STICKY CTA ── */
+.sticky-cta {
+  display:none;
+  position:fixed; bottom:0; left:0; right:0; z-index:150;
+  background:var(--dark); padding:12px 16px;
+  box-shadow:0 -4px 30px rgba(0,0,0,.15);
+}
+.sticky-cta-inner {
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.sticky-cta-info { display:flex; flex-direction:column; }
+.sticky-cta-name { font-size:12px; font-weight:500; color:var(--cream); letter-spacing:.04em; }
+.sticky-cta-price { font-family:var(--serif); font-size:18px; color:var(--gold); }
+.sticky-cta-btn {
+  background:var(--gold); color:var(--dark); border:none; cursor:pointer;
+  font-family:var(--sans); font-size:10px; font-weight:600;
+  letter-spacing:.18em; text-transform:uppercase; padding:14px 24px;
+  white-space:nowrap;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .product-page { grid-template-columns:1fr; }
+  .image-zone {
+    position:relative; top:0; height:75vw;
+    flex-direction:row;
+  }
+  .info-zone { max-height:none; overflow-y:visible; }
+  .info-inner { padding:28px 20px 100px; max-width:100%; }
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .sticky-cta { display:block; }
+  .demo-bar { flex-wrap:wrap; gap:8px; }
+}
+@media (max-width:480px) {
+  .image-zone { height:85vw; }
+  .buy-row { flex-direction:column; }
+  .trust-row { flex-wrap:wrap; }
+  .trust-item { flex:0 0 50%; border-bottom:1px solid rgba(184,151,90,.15); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── DEMO SWITCHER ── -->
+<div class="demo-bar">
+  <span>⚡ Démo :</span>
+  <button class="demo-tab active" onclick="switchProduct('gant')">Gant Exfoliant Corps</button>
+  <button class="demo-tab" onclick="switchProduct('siwak')">Brosse Siwak</button>
+</div>
+
+<!-- ── ANNOUNCEMENT ── -->
+<div class="announce">
+  <div class="announce-track">
+    <div class="announce-item">Livraison Mondial Relay offerte dès 45€</div>
+    <div class="announce-item">100% naturel · Certifié OEKO TEX®</div>
+    <div class="announce-item">Retour gratuit sous 30 jours</div>
+    <div class="announce-item">Paiement sécurisé · Visa · Mastercard · PayPal</div>
+    <div class="announce-item">Livraison Mondial Relay offerte dès 45€</div>
+    <div class="announce-item">100% naturel · Certifié OEKO TEX®</div>
+    <div class="announce-item">Retour gratuit sous 30 jours</div>
+    <div class="announce-item">Paiement sécurisé · Visa · Mastercard · PayPal</div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#">Alya & Co.</a>
+  <ul class="nav-links">
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">Gants Exfoliants</a></li>
+    <li><a href="#">Collection Siwak</a></li>
+    <li><a href="#">Notre Histoire</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-cart" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Panier (0)
+    </a>
+  </div>
+</nav>
+
+<!-- ── PRODUCT PAGE ── -->
+<div class="product-page">
+
+  <!-- LEFT: IMAGE ZONE -->
+  <div class="image-zone">
+    <div class="thumbs-strip" id="thumbsStrip">
+      <!-- filled by JS -->
+    </div>
+    <div class="main-image-wrap">
+      <img id="mainImg" src="" alt="">
+      <div class="badge-zone">
+        <div class="badge-sell" id="heroBadge">Meilleure Vente</div>
+      </div>
+      <div class="img-bottom-gradient"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: INFO ZONE -->
+  <div class="info-zone">
+    <div class="info-inner">
+
+      <!-- breadcrumb -->
+      <div class="breadcrumb">
+        <a href="#">Accueil</a>
+        <span>›</span>
+        <a href="#" id="bcCat">Gants Exfoliants</a>
+        <span>›</span>
+        <span id="bcName">Gant Exfoliant Corps</span>
+      </div>
+
+      <!-- stars -->
+      <div class="stars-row">
+        <span class="stars" id="starsEl">★★★★★</span>
+        <span class="stars-num" id="ratingNum">4.7</span>
+        <span class="stars-count" id="reviewCount">208 avis vérifiés →</span>
+      </div>
+
+      <!-- title -->
+      <h1 class="prod-title" id="prodTitle">Gant Exfoliant Corps<br><em>Soie de Mûrier</em></h1>
+      <div class="prod-subtitle" id="prodSub">100% naturel · OEKO TEX® certifié</div>
+
+      <!-- benefits -->
+      <ul class="benefits" id="benefitsList">
+        <!-- filled by JS -->
+      </ul>
+
+      <!-- pack selector label -->
+      <div class="pack-label">Choisir votre formule</div>
+
+      <!-- pack cards -->
+      <div class="pack-options" id="packOptions">
+        <!-- filled by JS -->
+      </div>
+
+      <!-- price -->
+      <div class="price-display">
+        <span class="price-main" id="priceMain">21,59€</span>
+        <span class="price-crossed" id="priceCrossed" style="display:none"></span>
+        <span class="price-tag" id="priceTag" style="display:none"></span>
+      </div>
+
+      <!-- qty + buy -->
+      <div class="buy-row">
+        <div class="qty-wrap">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <div class="qty-num" id="qtyNum">1</div>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+        <button class="btn-add" onclick="addToCart()">
+          <span>Ajouter au panier</span>
+          <span>—</span>
+          <span class="btn-add-price" id="ctaPrice">21,59€</span>
+        </button>
+      </div>
+
+      <!-- trust -->
+      <div class="trust-row">
+        <div class="trust-item">
+          <span class="trust-icon">🌿</span>
+          <span class="trust-label">100%<br>Naturel</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✅</span>
+          <span class="trust-label">OEKO TEX®<br>Certifié</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">↩️</span>
+          <span class="trust-label">Retour<br>30 jours</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <span class="trust-label">Paiement<br>Sécurisé</span>
+        </div>
+      </div>
+
+      <!-- delivery -->
+      <div class="delivery-note">
+        <strong>Livraison Mondial Relay offerte dès 45€</strong> — expédition sous 24h
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── MOBILE STICKY CTA ── -->
+<div class="sticky-cta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-info">
+      <span class="sticky-cta-name" id="stickyName">Gant Exfoliant Corps</span>
+      <span class="sticky-cta-price" id="stickyPrice">21,59€</span>
+    </div>
+    <button class="sticky-cta-btn" onclick="addToCart()">Ajouter au panier</button>
+  </div>
+</div>
+
+<script>
+/* ──────────────────────────────────────────
+   PRODUCT DATA
+────────────────────────────────────────── */
+const PRODUCTS = {
+  gant: {
+    badge: 'Meilleure Vente',
+    bcCat: 'Gants Exfoliants',
+    bcName: 'Gant Exfoliant Corps',
+    title: 'Gant Exfoliant Corps<br><em>Soie de Mûrier</em>',
+    subtitle: '100% naturel · OEKO TEX® certifié',
+    rating: '4.7',
+    reviews: '208 avis vérifiés →',
+    benefits: [
+      'Soie de mûrier naturelle — la plus douce au monde',
+      'Certifié OEKO TEX® — zéro produit chimique',
+      'Élimine 100% des peaux mortes en 5 minutes',
+      'Résultats visibles dès la 1ère utilisation'
+    ],
+    packs: [
+      { id:'solo',   name:'1 Gant Exfoliant Corps',  price:21.59, savings:null,           badge:null,            original:null  },
+      { id:'pack1an',name:'Pack 1an Full Body',        price:29.99, savings:'Économise 13€', badge:'Meilleure valeur', original:42.99 },
+      { id:'duo',    name:'Duo Corps + Visage',         price:34.78, savings:'Économise 2€',  badge:null,            original:36.78 }
+    ],
+    defaultPack: 'pack1an',
+    images: [
+      'file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/grand%20gant/image%20(30).png',
+      'file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/grand%20gant/alya%20gant%20corps%20blanc.jpg',
+      'file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/grand%20gant/image%20(1).png',
+      'file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/grand%20gant/image%20(10).png'
+    ]
+  },
+  siwak: {
+    badge: 'Éco-Responsable',
+    bcCat: 'Collection Siwak',
+    bcName: 'Brosse à Dents Siwak',
+    title: 'Brosse à Dents <em>Siwak</em><br>Rechargeable',
+    subtitle: '100% naturelle · Zéro plastique',
+    rating: '4.8',
+    reviews: '127 avis vérifiés →',
+    benefits: [
+      'Fibres de Siwak naturel — prouvées scientifiquement',
+      'Manche rechargeable — zéro déchet plastique',
+      '2× plus efficace qu\'une brosse classique',
+      'Blancheur naturelle sans produit chimique'
+    ],
+    packs: [
+      { id:'brosse',  name:'Brosse Seule',                 price:12.99, savings:null,          badge:null,            original:null  },
+      { id:'complet', name:'Pack Complet Siwak',           price:24.99, savings:'Économise 7€', badge:'Meilleure valeur', original:31.99 },
+      { id:'trio',    name:'Brosse + 2 Têtes-recharges',   price:18.97, savings:'Économise 3€', badge:null,            original:21.97 }
+    ],
+    defaultPack: 'complet',
+    images: [
+      'file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/Siwak/Brosse%20%C3%A0%20dents.JPG',
+      'file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/Siwak/IMG_0387.JPG'
+    ]
+  }
+};
+
+/* ──────────────────────────────────────────
+   STATE
+────────────────────────────────────────── */
+let currentProduct = 'gant';
+let selectedPackId = 'pack1an';
+let qty = 1;
+
+/* ──────────────────────────────────────────
+   HELPERS
+────────────────────────────────────────── */
+function fmt(n) {
+  return n.toFixed(2).replace('.',',') + '€';
+}
+
+function getPack() {
+  return PRODUCTS[currentProduct].packs.find(p => p.id === selectedPackId);
+}
+
+function updatePriceDisplay() {
+  const pack = getPack();
+  const total = pack.price * qty;
+  document.getElementById('priceMain').textContent = fmt(pack.price);
+  document.getElementById('ctaPrice').textContent = fmt(total);
+  document.getElementById('stickyPrice').textContent = fmt(total);
+
+  const crossed = document.getElementById('priceCrossed');
+  const tag = document.getElementById('priceTag');
+  if (pack.original) {
+    crossed.textContent = fmt(pack.original);
+    crossed.style.display = '';
+    const save = Math.round((1 - pack.price / pack.original) * 100);
+    tag.textContent = `−${save}%`;
+    tag.style.display = '';
+  } else {
+    crossed.style.display = 'none';
+    tag.style.display = 'none';
+  }
+}
+
+/* ──────────────────────────────────────────
+   RENDER PRODUCT
+────────────────────────────────────────── */
+function renderProduct(key) {
+  const p = PRODUCTS[key];
+  selectedPackId = p.defaultPack;
+  qty = 1;
+  document.getElementById('qtyNum').textContent = 1;
+
+  // Badge
+  document.getElementById('heroBadge').textContent = p.badge;
+
+  // Breadcrumb
+  document.getElementById('bcCat').textContent = p.bcCat;
+  document.getElementById('bcName').textContent = p.bcName;
+
+  // Stars
+  document.getElementById('ratingNum').textContent = p.rating;
+  document.getElementById('reviewCount').textContent = p.reviews;
+  const ratingFull = Math.floor(parseFloat(p.rating));
+  const hasHalf = parseFloat(p.rating) - ratingFull >= 0.5;
+  document.getElementById('starsEl').textContent = '★'.repeat(ratingFull) + (hasHalf ? '½' : '') + '☆'.repeat(5 - ratingFull - (hasHalf?1:0));
+
+  // Title & subtitle
+  document.getElementById('prodTitle').innerHTML = p.title;
+  document.getElementById('prodSub').textContent = p.subtitle;
+
+  // Benefits
+  const bl = document.getElementById('benefitsList');
+  bl.innerHTML = p.benefits.map(b =>
+    `<li class="benefit-item"><span class="benefit-icon">✦</span><span>${b}</span></li>`
+  ).join('');
+
+  // Pack cards
+  const po = document.getElementById('packOptions');
+  po.innerHTML = p.packs.map(pack => `
+    <div class="pack-card ${pack.id === selectedPackId ? 'selected' : ''}"
+         onclick="selectPack('${pack.id}')" data-pack="${pack.id}">
+      ${pack.badge ? `<div class="pack-badge">${pack.badge}</div>` : ''}
+      <div class="pack-radio">
+        <div class="pack-radio-dot"></div>
+      </div>
+      <div class="pack-info">
+        <span class="pack-name">${pack.name}</span>
+        ${pack.savings ? `<span class="pack-savings">${pack.savings}</span>` : ''}
+      </div>
+      <div class="pack-price-wrap">
+        <span class="pack-price">${fmt(pack.price)}</span>
+        ${pack.original ? `<span class="pack-original">${fmt(pack.original)}</span>` : ''}
+      </div>
+    </div>
+  `).join('');
+
+  // Images
+  const thumbs = document.getElementById('thumbsStrip');
+  thumbs.innerHTML = p.images.map((src, i) => `
+    <button class="thumb-btn ${i === 0 ? 'active' : ''}"
+            onclick="switchImage(${i})" data-idx="${i}">
+      <img src="${src}" alt="">
+    </button>
+  `).join('');
+
+  // Main image
+  setMainImage(0);
+  updatePriceDisplay();
+
+  // Sticky name
+  document.getElementById('stickyName').textContent = p.bcName;
+}
+
+/* ──────────────────────────────────────────
+   IMAGE SWITCH
+────────────────────────────────────────── */
+function setMainImage(idx) {
+  const mainImg = document.getElementById('mainImg');
+  const p = PRODUCTS[currentProduct];
+  mainImg.classList.add('switching');
+  setTimeout(() => {
+    mainImg.src = p.images[idx];
+    mainImg.alt = p.bcName;
+    mainImg.classList.remove('switching');
+  }, 200);
+
+  document.querySelectorAll('.thumb-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === idx);
+  });
+}
+
+function switchImage(idx) {
+  setMainImage(idx);
+}
+
+/* ──────────────────────────────────────────
+   PACK SELECTION
+────────────────────────────────────────── */
+function selectPack(id) {
+  selectedPackId = id;
+  document.querySelectorAll('.pack-card').forEach(card => {
+    card.classList.toggle('selected', card.dataset.pack === id);
+  });
+  updatePriceDisplay();
+}
+
+/* ──────────────────────────────────────────
+   QTY
+────────────────────────────────────────── */
+function changeQty(delta) {
+  qty = Math.max(1, Math.min(10, qty + delta));
+  document.getElementById('qtyNum').textContent = qty;
+  updatePriceDisplay();
+}
+
+/* ──────────────────────────────────────────
+   ADD TO CART (demo)
+────────────────────────────────────────── */
+function addToCart() {
+  const pack = getPack();
+  const btn = document.querySelector('.btn-add');
+  const original = btn.innerHTML;
+  btn.innerHTML = '<span>✓ Ajouté !</span>';
+  btn.style.background = '#2A6340';
+  setTimeout(() => {
+    btn.innerHTML = original;
+    btn.style.background = '';
+  }, 1800);
+}
+
+/* ──────────────────────────────────────────
+   PRODUCT SWITCHER (demo)
+────────────────────────────────────────── */
+function switchProduct(key) {
+  if (key === currentProduct) return;
+  currentProduct = key;
+  document.querySelectorAll('.demo-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(key === 'gant' ? 'gant' : 'siwak'));
+  });
+  renderProduct(key);
+}
+
+/* ── INIT ── */
+renderProduct('gant');
+</script>
+</body>
+</html>

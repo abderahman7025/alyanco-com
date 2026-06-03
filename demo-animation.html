@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALYA & CO. — Animation Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #080604;
+      --warm: #12100d;
+      --cream: #F2E8DD;
+      --beige: #EAD1BF;
+      --gold: #c9a96e;
+      --gold-light: #e8c99a;
+      --gold-dim: rgba(201,169,110,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+    }
+
+    /* ─── INTRO ─── */
+    .intro {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .intro-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    .intro-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--cream);
+    }
+
+    .intro-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .intro-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+
+    .intro-sub {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: rgba(242,232,221,0.5);
+      font-style: italic;
+    }
+
+    /* ─── SCROLL HINT ─── */
+    .scroll-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      opacity: 1;
+      transition: opacity 0.6s;
+    }
+
+    .scroll-hint.fade { opacity: 0; }
+
+    .scroll-hint span {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    .scroll-arrow {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: arrowDrop 1.8s ease-in-out infinite;
+    }
+
+    @keyframes arrowDrop {
+      0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      45%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      46%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    }
+
+    /* ─── STICKY SCENE ─── */
+    .scene-outer {
+      /* 300vh scroll distance gives us room to animate */
+      height: 300vh;
+      position: relative;
+    }
+
+    .scene-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Radial background glow */
+    .scene-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 55%, #1e1409 0%, #080604 65%);
+    }
+
+    /* Animated ambient glow blob */
+    .glow-blob {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.6);
+      background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, rgba(201,169,110,0.04) 40%, transparent 70%);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Gold particle canvas */
+    #particleCanvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ─── PRODUCT CONTAINER ─── */
+    .product-wrap {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      /* Floating animation applied in JS */
+    }
+
+    .product-scene {
+      position: relative;
+      width: min(420px, 80vw);
+      height: min(420px, 80vw);
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.8)) drop-shadow(0 0 40px rgba(201,169,110,0.08));
+    }
+
+    /* Both layers: same image, different clip-path */
+    .layer-tube,
+    .layer-glove {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    .layer-tube img,
+    .layer-glove img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Tube = left ~42% of image */
+    .layer-tube {
+      clip-path: inset(0 57% 0 0 round 0px);
+    }
+
+    /* Glove = right ~58% of image — animated on scroll */
+    .layer-glove {
+      clip-path: inset(0 0 0 42%);
+      transform: translateY(28%) scale(0.96);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    /* ─── SIDE STATS ─── */
+    .stat-block {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0s; /* controlled by JS */
+      will-change: opacity, transform;
+    }
+
+    .stat-block.left {
+      right: calc(min(420px, 80vw) / 2 + 60px);
+      text-align: right;
+    }
+
+    .stat-block.right {
+      left: calc(min(420px, 80vw) / 2 + 60px);
+      text-align: left;
+    }
+
+    .stat-pill {
+      display: inline-block;
+      border: 1px solid rgba(201,169,110,0.25);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(242,232,221,0.4);
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ─── BOTTOM TEXT ─── */
+    .scene-caption {
+      position: absolute;
+      bottom: 12vh;
+      left: 50%;
+      transform: translateX(-50%) translateY(24px);
+      text-align: center;
+      opacity: 0;
+      will-change: opacity, transform;
+      white-space: nowrap;
+    }
+
+    .caption-eyebrow {
+      font-size: 0.6rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .caption-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.15;
+    }
+
+    .caption-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    /* ─── PROGRESS BAR ─── */
+    .progress-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+      width: 0%;
+      z-index: 100;
+      transition: width 0.05s linear;
+    }
+
+    /* ─── CTA AFTER SCENE ─── */
+    .cta-section {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      text-align: center;
+      padding: 0 24px;
+      background: linear-gradient(to bottom, #080604 0%, #120e08 100%);
+    }
+
+    .cta-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.15;
+    }
+
+    .cta-title em { font-style: italic; color: var(--gold-light); }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #0a0806;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .cta-note {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: rgba(242,232,221,0.3);
+      text-transform: uppercase;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 700px) {
+      .stat-block { display: none; }
+      .product-scene { width: 85vw; height: 85vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Intro above the animation -->
+  <section class="intro">
+    <div class="intro-eyebrow">Gant Exfoliant Corps — 100% Soie de Mûrier</div>
+    <h1 class="intro-title">Peau <em>lumineuse</em>,<br>au naturel.</h1>
+    <div class="intro-divider"></div>
+    <p class="intro-sub">Certifié OEKO TEX® · 208 avis vérifiés</p>
+    <div class="scroll-hint" id="scrollHint">
+      <span>Défiler</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- Sticky scroll scene -->
+  <div class="scene-outer" id="sceneOuter">
+    <div class="scene-sticky" id="sceneSticky">
+
+      <div class="scene-bg"></div>
+      <canvas id="particleCanvas"></canvas>
+      <div class="glow-blob" id="glowBlob"></div>
+
+      <!-- Stats left -->
+      <div class="stat-block left" id="statLeft">
+        <div class="stat-pill">100% Soie</div>
+        <span class="stat-number">208</span>
+        <span class="stat-label">Avis vérifiés</span>
+      </div>
+
+      <!-- Product -->
+      <div class="product-wrap" id="productWrap">
+        <div class="product-scene" id="productScene">
+          <div class="layer-tube">
+            <img src="file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/grand%20gant/alya%20gant%20corps%20blanc.jpg" alt="Emballage ALYA & CO.">
+          </div>
+          <div class="layer-glove" id="layerGlove">
+            <img src="file:///C:/Users/Abdu%20et%20Tati/Downloads/ALYA%20%26%20CO/grand%20gant/alya%20gant%20corps%20blanc.jpg" alt="Gant exfoliant soie de mûrier">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats right -->
+      <div class="stat-block right" id="statRight">
+        <div class="stat-pill">OEKO TEX®</div>
+        <span class="stat-number">4.7★</span>
+        <span class="stat-label">Note moyenne</span>
+      </div>
+
+      <!-- Bottom caption -->
+      <div class="scene-caption" id="sceneCaption">
+        <div class="caption-eyebrow">Gant Exfoliant Corps · 21,59 €</div>
+        <div class="caption-title">Un gommage <em>parfait</em>,<br>sans douleur.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA after -->
+  <section class="cta-section">
+    <div class="cta-price">21,59 € · Livraison offerte dès 45 €</div>
+    <h2 class="cta-title">Prêt(e) à révéler<br>votre <em>vraie peau</em> ?</h2>
+    <a class="cta-btn" href="#">
+      Découvrir le gant
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="cta-note">Soie de mûrier · OEKO TEX® · 208 avis ★★★★★</p>
+  </section>
+
+<script>
+/* ─────────────────────────────────────────
+   HELPERS
+───────────────────────────────────────── */
+const lerp  = (a, b, t) => a + (b - a) * t;
+const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+const ease  = t => t < .5 ? 2*t*t : -1+(4-2*t)*t;           // easeInOut quad
+const easeOut = t => 1 - Math.pow(1 - t, 3);                  // easeOutCubic
+const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+
+/* ─────────────────────────────────────────
+   ELEMENTS
+───────────────────────────────────────── */
+const sceneOuter   = document.getElementById('sceneOuter');
+const layerGlove   = document.getElementById('layerGlove');
+const glowBlob     = document.getElementById('glowBlob');
+const productScene = document.getElementById('productScene');
+const productWrap  = document.getElementById('productWrap');
+const sceneCaption = document.getElementById('sceneCaption');
+const statLeft     = document.getElementById('statLeft');
+const statRight    = document.getElementById('statRight');
+const scrollHint   = document.getElementById('scrollHint');
+const progressBar  = document.getElementById('progressBar');
+const canvas       = document.getElementById('particleCanvas');
+const ctx          = canvas.getContext('2d');
+
+/* ─────────────────────────────────────────
+   PARTICLES
+───────────────────────────────────────── */
+let particles = [];
+let particleActive = false;
+
+function resizeCanvas() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x   = canvas.width  * (0.3 + Math.random() * 0.4);
+    this.y   = canvas.height * (0.4 + Math.random() * 0.4);
+    this.vy  = -(0.3 + Math.random() * 0.8);
+    this.vx  = (Math.random() - 0.5) * 0.4;
+    this.r   = 1 + Math.random() * 2;
+    this.life = 0;
+    this.maxLife = 120 + Math.random() * 80;
+    this.alpha = 0;
+  }
+  update() {
+    this.life++;
+    this.x  += this.vx;
+    this.y  += this.vy;
+    this.vy *= 0.998;
+    // fade in & out
+    const t = this.life / this.maxLife;
+    this.alpha = t < 0.2 ? t / 0.2 : t > 0.7 ? 1 - (t - 0.7) / 0.3 : 1;
+    if (this.life >= this.maxLife) this.reset();
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha * 0.55;
+    ctx.fillStyle = '#e8c99a';
+    ctx.shadowBlur = 6;
+    ctx.shadowColor = '#c9a96e';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+// Create pool
+for (let i = 0; i < 35; i++) {
+  const p = new Particle();
+  p.life = Math.floor(Math.random() * p.maxLife); // stagger
+  particles.push(p);
+}
+
+function animParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (particleActive) {
+    particles.forEach(p => { p.update(); p.draw(); });
+  }
+  requestAnimationFrame(animParticles);
+}
+animParticles();
+
+/* ─────────────────────────────────────────
+   FLOATING ANIMATION (applied to product)
+───────────────────────────────────────── */
+let floatAngle = 0;
+
+function applyFloat(el) {
+  floatAngle += 0.008;
+  const y   = Math.sin(floatAngle) * 14;
+  const ry  = Math.sin(floatAngle * 0.7) * 4;
+  const rx  = Math.cos(floatAngle * 0.5) * 2;
+  el.style.transform = `perspective(800px) translateY(${y}px) rotateY(${ry}deg) rotateX(${rx}deg)`;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL LOGIC
+───────────────────────────────────────── */
+let scrollProgress = 0;
+let floatRunning   = false;
+
+function onScroll() {
+  const rect   = sceneOuter.getBoundingClientRect();
+  const outerH = sceneOuter.offsetHeight;
+  const viewH  = window.innerHeight;
+
+  // progress 0→1 over the full scroll distance of the sticky section
+  const raw   = -rect.top / (outerH - viewH);
+  const prog  = clamp(raw, 0, 1);
+  scrollProgress = prog;
+
+  // Update progress bar
+  progressBar.style.width = (prog * 100) + '%';
+
+  // Hide scroll hint
+  if (prog > 0.03) scrollHint.classList.add('fade');
+  else             scrollHint.classList.remove('fade');
+
+  // ── Phase 1 (0 → 0.55): Glove emerges from tube ──
+  const p1 = clamp(prog / 0.55, 0, 1);
+  const e1 = easeOutQuart(p1);
+
+  // Glove: rise up + fade in
+  const gloveY = lerp(28, 0, e1);          // translateY %
+  const gloveO = clamp(e1 * 1.8, 0, 1);   // opacity
+  layerGlove.style.transform = `translateY(${gloveY}%) scale(${lerp(0.96, 1, e1)})`;
+  layerGlove.style.opacity   = gloveO;
+
+  // Glow grows
+  const glowS = lerp(0.5, 1.15, e1);
+  glowBlob.style.transform = `translate(-50%, -50%) scale(${glowS})`;
+  glowBlob.style.opacity   = lerp(0, 1, e1);
+
+  // Particles activate once glove is emerging
+  particleActive = p1 > 0.3;
+
+  // Stats fade in
+  const statO = clamp((p1 - 0.4) / 0.5, 0, 1);
+  statLeft.style.opacity  = statO;
+  statRight.style.opacity = statO;
+  statLeft.style.transform  = `translateY(-50%) translateX(${lerp(20, 0, easeOut(statO))}px)`;
+  statRight.style.transform = `translateY(-50%) translateX(${lerp(-20, 0, easeOut(statO))}px)`;
+
+  // ── Phase 2 (0.55 → 1): Caption reveals ──
+  const p2 = clamp((prog - 0.55) / 0.45, 0, 1);
+  const e2 = easeOut(p2);
+
+  const capY = lerp(24, 0, e2);
+  sceneCaption.style.opacity   = e2;
+  sceneCaption.style.transform = `translateX(-50%) translateY(${capY}px)`;
+
+  // Start floating once visible
+  if (prog > 0.05 && !floatRunning) {
+    floatRunning = true;
+    floatLoop();
+  }
+}
+
+function floatLoop() {
+  if (!floatRunning) return;
+  applyFloat(productScene);
+  requestAnimationFrame(floatLoop);
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll(); // init
+</script>
+
+</body>
+</html>
