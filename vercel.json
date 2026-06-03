@@ -31,6 +31,24 @@
       "headers": [
         { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
       ]
+    },
+    {
+      "source": "/images/ba/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.png",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.jpg",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
+      ]
     }
   ],
   "rewrites": [
