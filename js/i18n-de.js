@@ -823,7 +823,17 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Eine Haut<br><em>verwandelt</em>'
+      reviews_title:   'Eine Haut<br><em>verwandelt</em>',
+      ba_before: 'Vorher', ba_after: 'Nachher',
+      ba_section_eyebrow: 'Bewiesene Ergebnisse',
+      ba_section_title: 'Ihre Haut, <em>verwandelt</em>',
+      ba_tabs: ['Abgestorbene Haut', 'Erdbeer-Haut', 'Mitesser', 'Fahler Teint'],
+      ba_captions: [
+        'Abgestorbene Zellen <strong>zu 100% eliminiert</strong> beim ersten Anwendung',
+        'Erweiterte Poren <strong>sanft gestrafft und verfeinert</strong>',
+        'Mitesser und Unreinheiten <strong>natürlich eliminiert</strong>, ohne Chemikalien',
+        'Fahler Teint <strong>belebt und strahlend</strong> nach der Peelingbehandlung'
+      ]
     },
     'gant-visage': {
       breadcrumb:   'Gesichts-Peeling-Handschuh',
@@ -868,7 +878,17 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Ein strahlender<br><em>Teint</em>'
+      reviews_title:   'Ein strahlender<br><em>Teint</em>',
+      ba_before: 'Vorher', ba_after: 'Nachher',
+      ba_section_eyebrow: 'Bewiesene Ergebnisse',
+      ba_section_title: 'Ihr Gesicht, <em>verwandelt</em>',
+      ba_tabs: ['Mitesser', 'Akne', 'Fettige Haut', 'Unebenmäßiger Teint'],
+      ba_captions: [
+        'Mitesser <strong>sanft eliminiert</strong>, ohne die Haut zu belasten',
+        'Pickel und Unreinheiten <strong>sichtbar reduziert</strong> von den ersten Anwendungen',
+        'Fettige Haut und erweiterte Poren <strong>mattiert und gestrafft</strong> natürlich',
+        'Unebenmäßiger Teint und Flecken <strong>vereinheitlicht und aufgehellt</strong> nach Peeling'
+      ]
     },
     'pack-1an-full-body': {
       breadcrumb:   '1-Jahres Full Body Pack',
@@ -915,7 +935,17 @@ window.ALYA_T_DE = {
       nl_ph:      'Ihre E-Mail-Adresse',
       nl_btn:     'Anmelden',
       reviews_eyebrow: 'Kundenmeinungen',
-      reviews_title:   'Ein Jahr natürlicher<br><em>Schönheit</em>'
+      reviews_title:   'Ein Jahr natürlicher<br><em>Schönheit</em>',
+      ba_before: 'Vorher', ba_after: 'Nachher',
+      ba_section_eyebrow: 'Bewiesene Ergebnisse',
+      ba_section_title: 'Ihre Haut, <em>verwandelt</em>',
+      ba_tabs: ['Abgestorbene Haut', 'Erdbeer-Haut', 'Mitesser', 'Fahler Teint'],
+      ba_captions: [
+        'Abgestorbene Zellen <strong>zu 100% eliminiert</strong> beim ersten Anwendung',
+        'Erweiterte Poren <strong>sanft gestrafft und verfeinert</strong>',
+        'Mitesser und Unreinheiten <strong>natürlich eliminiert</strong>',
+        'Fahler Teint <strong>belebt und strahlend</strong> nach der Peelingbehandlung'
+      ]
     },
     'pack-siwak-complet': {
       breadcrumb:   'Komplettes Siwak-Pack',

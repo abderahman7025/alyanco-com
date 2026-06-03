@@ -823,7 +823,17 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Uma pele<br><em>transformada</em>'
+      reviews_title:   'Uma pele<br><em>transformada</em>',
+      ba_before: 'Antes', ba_after: 'Depois',
+      ba_section_eyebrow: 'Resultados comprovados',
+      ba_section_title: 'A tua pele, <em>transformada</em>',
+      ba_tabs: ['Pele morta', 'Pele morango', 'Pontos negros', 'Tez apagada'],
+      ba_captions: [
+        'Células mortas <strong>eliminadas a 100%</strong> desde o primeiro uso',
+        'Poros dilatados e folículos <strong>fechados e refinados</strong> suavemente',
+        'Pontos negros e impurezas <strong>eliminados naturalmente</strong>, sem produtos químicos',
+        'Tez apagada <strong>revitalizada e luminosa</strong> após esfoliação'
+      ]
     },
     'gant-visage': {
       breadcrumb:   'Luva esfoliante facial',
@@ -868,7 +878,17 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Uma tez<br><em>luminosa</em>'
+      reviews_title:   'Uma tez<br><em>luminosa</em>',
+      ba_before: 'Antes', ba_after: 'Depois',
+      ba_section_eyebrow: 'Resultados comprovados',
+      ba_section_title: 'O teu rosto, <em>transformado</em>',
+      ba_tabs: ['Pontos negros', 'Acne', 'Pele oleosa', 'Tom irregular'],
+      ba_captions: [
+        'Pontos negros <strong>eliminados suavemente</strong>, sem agredir a pele',
+        'Borbulhas e imperfeições <strong>visivelmente reduzidas</strong> desde os primeiros usos',
+        'Pele oleosa e poros dilatados <strong>matificados e fechados</strong> naturalmente',
+        'Tom irregular e manchas <strong>uniformizados e iluminados</strong> após esfoliação'
+      ]
     },
     'pack-1an-full-body': {
       breadcrumb:   'Pack 1 ano Full Body',
@@ -915,7 +935,17 @@ window.ALYA_T_PT = {
       nl_ph:      'O seu endereço de email',
       nl_btn:     'Subscrever',
       reviews_eyebrow: 'Testemunhos de clientes',
-      reviews_title:   'Um ano de beleza<br><em>natural</em>'
+      reviews_title:   'Um ano de beleza<br><em>natural</em>',
+      ba_before: 'Antes', ba_after: 'Depois',
+      ba_section_eyebrow: 'Resultados comprovados',
+      ba_section_title: 'A tua pele, <em>transformada</em>',
+      ba_tabs: ['Pele morta', 'Pele morango', 'Pontos negros', 'Tez apagada'],
+      ba_captions: [
+        'Células mortas <strong>eliminadas a 100%</strong> desde o primeiro uso',
+        'Poros dilatados e folículos <strong>fechados e refinados</strong> suavemente',
+        'Pontos negros e impurezas <strong>eliminados naturalmente</strong>',
+        'Tez apagada <strong>revitalizada e luminosa</strong> após esfoliação'
+      ]
     },
     'pack-siwak-complet': {
       breadcrumb:   'Pack Siwak Completo',

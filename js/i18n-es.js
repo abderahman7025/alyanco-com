@@ -823,7 +823,17 @@ window.ALYA_T_ES = {
       nl_ph:      'Su dirección de correo electrónico',
       nl_btn:     'Suscribirme',
       reviews_eyebrow: 'Testimonios de clientes',
-      reviews_title:   'Una piel<br><em>transformada</em>'
+      reviews_title:   'Una piel<br><em>transformada</em>',
+      ba_before: 'Antes', ba_after: 'Después',
+      ba_section_eyebrow: 'Resultados probados',
+      ba_section_title: 'Tu piel, <em>transformada</em>',
+      ba_tabs: ['Piel muerta', 'Piel fresa', 'Puntos negros', 'Tez apagada'],
+      ba_captions: [
+        'Células muertas <strong>eliminadas al 100%</strong> desde el primer uso',
+        'Poros dilatados y folículos <strong>cerrados y refinados</strong> suavemente',
+        'Puntos negros e impurezas <strong>eliminados naturalmente</strong>, sin productos químicos',
+        'Tez apagada <strong>revitalizada y luminosa</strong> tras la exfoliación'
+      ]
     },
     'gant-visage': {
       breadcrumb:   'Guante exfoliante facial',
@@ -868,7 +878,17 @@ window.ALYA_T_ES = {
       nl_ph:      'Su dirección de correo electrónico',
       nl_btn:     'Suscribirme',
       reviews_eyebrow: 'Testimonios de clientes',
-      reviews_title:   'Una tez<br><em>luminosa</em>'
+      reviews_title:   'Una tez<br><em>luminosa</em>',
+      ba_before: 'Antes', ba_after: 'Después',
+      ba_section_eyebrow: 'Resultados probados',
+      ba_section_title: 'Tu rostro, <em>transformado</em>',
+      ba_tabs: ['Puntos negros', 'Acné', 'Piel grasa', 'Tono irregular'],
+      ba_captions: [
+        'Puntos negros <strong>eliminados suavemente</strong>, sin agredir la piel',
+        'Granos e imperfecciones <strong>visiblemente reducidos</strong> desde los primeros usos',
+        'Piel grasa y poros dilatados <strong>matificados y cerrados</strong> naturalmente',
+        'Tono irregular y manchas <strong>uniformizados e iluminados</strong> tras la exfoliación'
+      ]
     },
     'pack-1an-full-body': {
       breadcrumb:   'Pack 1 año Full Body',
@@ -915,7 +935,17 @@ window.ALYA_T_ES = {
       nl_ph:      'Su dirección de correo electrónico',
       nl_btn:     'Suscribirme',
       reviews_eyebrow: 'Testimonios de clientes',
-      reviews_title:   'Un año de belleza<br><em>natural</em>'
+      reviews_title:   'Un año de belleza<br><em>natural</em>',
+      ba_before: 'Antes', ba_after: 'Después',
+      ba_section_eyebrow: 'Resultados probados',
+      ba_section_title: 'Tu piel, <em>transformada</em>',
+      ba_tabs: ['Piel muerta', 'Piel fresa', 'Puntos negros', 'Tez apagada'],
+      ba_captions: [
+        'Células muertas <strong>eliminadas al 100%</strong> desde el primer uso',
+        'Poros dilatados y folículos <strong>cerrados y refinados</strong> suavemente',
+        'Puntos negros e impurezas <strong>eliminados naturalmente</strong>',
+        'Tez apagada <strong>revitalizada y luminosa</strong> tras la exfoliación'
+      ]
     },
     'pack-siwak-complet': {
       breadcrumb:   'Pack Siwak Completo',

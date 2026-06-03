@@ -906,7 +906,17 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'A skin<br><em>transformed</em>'
+      reviews_title:   'A skin<br><em>transformed</em>',
+      ba_before: 'Before', ba_after: 'After',
+      ba_section_eyebrow: 'Proven results',
+      ba_section_title: 'Your skin, <em>transformed</em>',
+      ba_tabs: ['Dead skin', 'Strawberry skin', 'Blackheads', 'Dull complexion'],
+      ba_captions: [
+        'Dead cells <strong>100% eliminated</strong> from the first pass',
+        'Enlarged pores and follicles <strong>tightened and refined</strong> gently',
+        'Blackheads and impurities <strong>naturally eliminated</strong>, without chemicals',
+        'Dull complexion <strong>revived and radiant</strong> after exfoliation'
+      ]
     },
     'gant-visage': {
       breadcrumb:   'Face Exfoliating Glove',
@@ -951,7 +961,17 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'A radiant<br><em>complexion</em>'
+      reviews_title:   'A radiant<br><em>complexion</em>',
+      ba_before: 'Before', ba_after: 'After',
+      ba_section_eyebrow: 'Proven results',
+      ba_section_title: 'Your face, <em>transformed</em>',
+      ba_tabs: ['Blackheads', 'Acne', 'Oily skin', 'Uneven skin tone'],
+      ba_captions: [
+        'Blackheads <strong>gently eliminated</strong>, without aggressing the skin',
+        'Spots and imperfections <strong>visibly reduced</strong> from the first uses',
+        'Oily skin and enlarged pores <strong>mattified and tightened</strong> naturally',
+        'Uneven skin tone and spots <strong>evened out and brightened</strong> after exfoliation'
+      ]
     },
     'pack-1an-full-body': {
       breadcrumb:   '1-Year Full Body Pack',
@@ -998,7 +1018,17 @@ window.ALYA_T_EN = {
       nl_ph:      'Your email address',
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
-      reviews_title:   'A year of natural<br><em>beauty</em>'
+      reviews_title:   'A year of natural<br><em>beauty</em>',
+      ba_before: 'Before', ba_after: 'After',
+      ba_section_eyebrow: 'Proven results',
+      ba_section_title: 'Your skin, <em>transformed</em>',
+      ba_tabs: ['Dead skin', 'Strawberry skin', 'Blackheads', 'Dull complexion'],
+      ba_captions: [
+        'Dead cells <strong>100% eliminated</strong> from the first pass',
+        'Enlarged pores and follicles <strong>tightened and refined</strong> gently',
+        'Blackheads and impurities <strong>naturally eliminated</strong>',
+        'Dull complexion <strong>revived and radiant</strong> after exfoliation'
+      ]
     },
     'pack-siwak-complet': {
       breadcrumb:   'Complete Siwak Pack',

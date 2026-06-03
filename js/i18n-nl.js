@@ -823,7 +823,17 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Een huid<br><em>getransformeerd</em>'
+      reviews_title:   'Een huid<br><em>getransformeerd</em>',
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw huid, <em>getransformeerd</em>',
+      ba_tabs: ['Dode huid', 'Aardbeihuid', 'Mee-eters', 'Vale teint'],
+      ba_captions: [
+        'Dode cellen <strong>100% verwijderd</strong> bij de eerste behandeling',
+        'Verwijde poriën <strong>zacht samengetrokken en verfijnd</strong>',
+        'Mee-eters en onzuiverheden <strong>natuurlijk verwijderd</strong>, zonder chemicaliën',
+        'Vale teint <strong>opgeleefd en stralend</strong> na exfoliatie'
+      ]
     },
     'gant-visage': {
       breadcrumb:   'Exfolierende gezichtshandschoen',
@@ -868,7 +878,17 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Een stralende<br><em>teint</em>'
+      reviews_title:   'Een stralende<br><em>teint</em>',
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw gezicht, <em>getransformeerd</em>',
+      ba_tabs: ['Mee-eters', 'Acne', 'Vette huid', 'Ongelijkmatige teint'],
+      ba_captions: [
+        'Mee-eters <strong>zacht verwijderd</strong>, zonder de huid te belasten',
+        'Puistjes en onvolkomenheden <strong>zichtbaar verminderd</strong> vanaf de eerste behandelingen',
+        'Vette huid en verwijde poriën <strong>gemat en samengetrokken</strong> op natuurlijke wijze',
+        'Ongelijkmatige teint en vlekken <strong>geëgaliseerd en opgeklaard</strong> na exfoliatie'
+      ]
     },
     'pack-1an-full-body': {
       breadcrumb:   '1-Jaars Full Body Pakket',
@@ -915,7 +935,17 @@ window.ALYA_T_NL = {
       nl_ph:      'Uw e-mailadres',
       nl_btn:     'Inschrijven',
       reviews_eyebrow: 'Klantengetuigenissen',
-      reviews_title:   'Een jaar van<br><em>natuurlijke schoonheid</em>'
+      reviews_title:   'Een jaar van<br><em>natuurlijke schoonheid</em>',
+      ba_before: 'Voor', ba_after: 'Na',
+      ba_section_eyebrow: 'Bewezen resultaten',
+      ba_section_title: 'Uw huid, <em>getransformeerd</em>',
+      ba_tabs: ['Dode huid', 'Aardbeihuid', 'Mee-eters', 'Vale teint'],
+      ba_captions: [
+        'Dode cellen <strong>100% verwijderd</strong> bij de eerste behandeling',
+        'Verwijde poriën <strong>zacht samengetrokken en verfijnd</strong>',
+        'Mee-eters en onzuiverheden <strong>natuurlijk verwijderd</strong>',
+        'Vale teint <strong>opgeleefd en stralend</strong> na exfoliatie'
+      ]
     },
     'pack-siwak-complet': {
       breadcrumb:   'Compleet Siwak-pakket',

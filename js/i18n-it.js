@@ -823,7 +823,17 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Una pelle<br><em>trasformata</em>'
+      reviews_title:   'Una pelle<br><em>trasformata</em>',
+      ba_before: 'Prima', ba_after: 'Dopo',
+      ba_section_eyebrow: 'Risultati provati',
+      ba_section_title: 'La tua pelle, <em>trasformata</em>',
+      ba_tabs: ['Cellule morte', 'Pelle fragola', 'Punti neri', 'Incarnato spento'],
+      ba_captions: [
+        'Cellule morte <strong>eliminate al 100%</strong> dal primo utilizzo',
+        'Pori dilatati e follicoli <strong>chiusi e affinati</strong> delicatamente',
+        'Punti neri e impurità <strong>eliminati naturalmente</strong>, senza prodotti chimici',
+        'Incarnato spento <strong>ravvivato e luminoso</strong> dopo l'esfoliazione'
+      ]
     },
     'gant-visage': {
       breadcrumb:   'Guanto esfoliante viso',
@@ -868,7 +878,17 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Una carnagione<br><em>luminosa</em>'
+      reviews_title:   'Una carnagione<br><em>luminosa</em>',
+      ba_before: 'Prima', ba_after: 'Dopo',
+      ba_section_eyebrow: 'Risultati provati',
+      ba_section_title: 'Il tuo viso, <em>trasformato</em>',
+      ba_tabs: ['Punti neri', 'Acne', 'Pelle grassa', 'Incarnato irregolare'],
+      ba_captions: [
+        'Punti neri <strong>eliminati delicatamente</strong>, senza aggredire la pelle',
+        'Brufoli e imperfezioni <strong>visibilmente ridotti</strong> dai primi utilizzi',
+        'Pelle grassa e pori dilatati <strong>opacizzati e chiusi</strong> naturalmente',
+        'Incarnato irregolare e macchie <strong>uniformati e illuminati</strong> dopo l'esfoliazione'
+      ]
     },
     'pack-1an-full-body': {
       breadcrumb:   'Pack 1 anno Full Body',
@@ -915,7 +935,17 @@ window.ALYA_T_IT = {
       nl_ph:      'Il tuo indirizzo email',
       nl_btn:     'Iscriviti',
       reviews_eyebrow: 'Testimonianze clienti',
-      reviews_title:   'Un anno di bellezza<br><em>naturale</em>'
+      reviews_title:   'Un anno di bellezza<br><em>naturale</em>',
+      ba_before: 'Prima', ba_after: 'Dopo',
+      ba_section_eyebrow: 'Risultati provati',
+      ba_section_title: 'La tua pelle, <em>trasformata</em>',
+      ba_tabs: ['Cellule morte', 'Pelle fragola', 'Punti neri', 'Incarnato spento'],
+      ba_captions: [
+        'Cellule morte <strong>eliminate al 100%</strong> dal primo utilizzo',
+        'Pori dilatati e follicoli <strong>chiusi e affinati</strong> delicatamente',
+        'Punti neri e impurità <strong>eliminati naturalmente</strong>',
+        'Incarnato spento <strong>ravvivato e luminoso</strong> dopo l'esfoliazione'
+      ]
     },
     'pack-siwak-complet': {
       breadcrumb:   'Kit Siwak Completo',

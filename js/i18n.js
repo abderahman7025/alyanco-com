@@ -402,6 +402,21 @@
       var rvEy = rv.querySelector('.reviews-eyebrow'); if (rvEy && pd.reviews_eyebrow) rvEy.textContent = pd.reviews_eyebrow;
       var rvTi = rv.querySelector('.reviews-title');   if (rvTi && pd.reviews_title)   rvTi.innerHTML = pd.reviews_title;
     }
+
+    /* Sliders avant/après */
+    if (pd.ba_before) qsa('.ba-label-before').forEach(function(el){ el.textContent = pd.ba_before; });
+    if (pd.ba_after)  qsa('.ba-label-after').forEach(function(el){ el.textContent = pd.ba_after; });
+    if (pd.ba_tabs) {
+      var tabs = qsa('.ba-tab');
+      pd.ba_tabs.forEach(function(txt, i){ if (tabs[i]) tabs[i].textContent = txt; });
+    }
+    if (pd.ba_captions) {
+      var caps = qsa('.ba-caption');
+      pd.ba_captions.forEach(function(html, i){ if (caps[i]) caps[i].innerHTML = html; });
+    }
+    /* Section titre avant/après */
+    if (pd.ba_section_eyebrow) set('.ba-section .section-eyebrow', pd.ba_section_eyebrow);
+    if (pd.ba_section_title)   set('.ba-section .section-title', pd.ba_section_title, true);
   }
 
   function applyChouchouSoie(t) {
