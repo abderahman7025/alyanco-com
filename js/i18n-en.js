@@ -686,5 +686,49 @@ window.ALYA_T_EN = {
         'Saving vs single purchase'
       ]
     }
+  },
+
+  /* ── CHOUCHOU PAGE (full) ── */
+  chouchou_page: {
+    breadcrumb:   'Perfect Hold Satin Scrunchie',
+    stars_count:  '4.4/5 — 65 reviews',
+    desc_eyebrow: 'Full description',
+    desc_title:   'Your hair deserves<br><em>the best</em>',
+    desc_paragraphs: [
+      'Ordinary elastics and scrunchies are hard on your hair with every use: pulling, breakage, tangles, marks... Our satin scrunchie changes everything.',
+      'The ultra-smooth surface of satin glides over the hair without catching or stressing it. Result: zero breakage, zero tangles, zero marks. Your hair stays soft, shiny and healthy, even worn up or tied all day long.',
+      'Also ideal as a nighttime accessory: tying your hair with a satin scrunchie while you sleep protects the ends and reduces frizz when you wake up. The little daily luxury your hair truly deserves.'
+    ],
+    specs_title: 'Specifications',
+    specs: [
+      ['Material',   '100% natural satin'],
+      ['Benefit',    'Zero breakage, zero tangles'],
+      ['Use',        'Day and night'],
+      ['Care',       'Hand wash in cold water'],
+      ['Hair type',  'All types, long or mid-length'],
+      ['Finish',     'Invisible premium stitching']
+    ],
+    faq_eyebrow: 'Your questions',
+    faq_title:   'Frequently asked <em>questions</em>',
+    faq: [
+      ['How do I care for the satin scrunchie?', 'Hand wash with mild soap or machine wash at 30°C in a laundry bag. Do not wring — lay flat or hang to air dry. Absolutely avoid the tumble dryer, which damages satin fibres.'],
+      ['Is it suitable for all hair types?', 'Yes. Satin is beneficial for everyone: curly, frizzy, straight, fine or thick hair. It is particularly recommended for coloured, chemically treated, or hair prone to breakage and frizz.'],
+      ['Does it leave marks in the hair?', 'No — this is one of its greatest advantages. Unlike classic elastics, satin does not create creases or marks in the hair, even after several hours of wear. Perfect for sleeping with hair tied up.'],
+      ['What is the difference from a classic elastic?', 'A classic elastic creates friction that breaks hair and leaves unsightly marks. The satin scrunchie glides over the hair without any friction, preserves the hair fibre and brings shine and softness.']
+    ],
+    related_eyebrow: 'You might also like',
+    related_title:   'Complete your <em>routine</em>',
+    related: [
+      ['Face Exfoliating Glove — Mulberry Silk', 'Ultra-gentle, hypoallergenic. OEKO TEX® certified.'],
+      ['Body Exfoliating Glove — Mulberry Silk', '216 reviews ★★★★★. The star glove from ALYA & CO.'],
+      ['1-Year Full Body Pack', 'Body + face. Save 48% vs separate purchase.']
+    ],
+    nl_eyebrow: 'Join the family',
+    nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+    nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+    nl_ph:      'Your email address',
+    nl_btn:     'Subscribe',
+    reviews_eyebrow: 'Customer testimonials',
+    reviews_title:   'Hair that\'s<br><em>protected</em>'
   }
 };

@@ -603,5 +603,49 @@ window.ALYA_T_PT = {
       desc:    'Fornecimento para 3 meses de pasta de dentes natural Siwak. Solução de recarga económica e eco-responsável. Sem químicos, sem aditivos artificiais.',
       bullets: ['Fornecimento para 3 meses', '100% ingredientes naturais', 'Sem flúor, sem SLS', 'Embalagem eco-responsável', 'Poupança face à compra individual']
     }
+  },
+
+  /* ── PÁGINA CHOUCHOU (completa) ── */
+  chouchou_page: {
+    breadcrumb:   'Elástico Cetim — Fixação Perfeita',
+    stars_count:  '4,4/5 — 65 avaliações',
+    desc_eyebrow: 'Descrição completa',
+    desc_title:   'O teu cabelo merece<br><em>o melhor</em>',
+    desc_paragraphs: [
+      'Os elásticos e ganchos ordinários maltratam o teu cabelo em cada utilização: tração, quebra, nós, marcas... O nosso elástico de cetim muda tudo.',
+      'A superfície ultra-lisa do cetim desliza sobre o cabelo sem o prender nem stressar. Resultado: zero quebra, zero nós, zero marcas. O teu cabelo fica suave, brilhante e saudável, mesmo usado preso ou atado o dia todo.',
+      'Ideal também como acessório noturno: prender o cabelo com um elástico de cetim durante o sono protege as pontas e reduz o frizz ao acordar. O pequeno luxo diário que o teu cabelo realmente merece.'
+    ],
+    specs_title: 'Características',
+    specs: [
+      ['Material',        '100% cetim natural'],
+      ['Vantagem',        'Zero quebra, zero nós'],
+      ['Uso',             'Dia e noite'],
+      ['Cuidado',         'Lavagem à mão em água fria'],
+      ['Tipo de cabelo',  'Todos os tipos, comprido ou médio'],
+      ['Acabamento',      'Costura premium invisível']
+    ],
+    faq_eyebrow: 'As tuas perguntas',
+    faq_title:   'Perguntas <em>frequentes</em>',
+    faq: [
+      ['Como cuidar do elástico de cetim?', 'Lavar à mão com um sabão suave ou na máquina a 30°C numa bolsa de lavagem. Não torcer — colocar plano ou pendurar para secar ao ar. Evitar absolutamente a máquina de secar, que danifica as fibras de cetim.'],
+      ['É adequado para todos os tipos de cabelo?', 'Sim. O cetim é benéfico para todos: cabelo encaracolado, frisado, liso, fino ou grosso. É especialmente recomendado para cabelo colorido, tratado quimicamente ou propenso à quebra e frizz.'],
+      ['Deixa marcas no cabelo?', 'Não — é uma das suas maiores vantagens. Ao contrário dos elásticos clássicos, o cetim não cria dobras nem marcas no cabelo, mesmo após várias horas de uso. Perfeito para dormir com o cabelo preso.'],
+      ['Qual é a diferença para um elástico clássico?', 'O elástico clássico cria fricção que quebra o cabelo e deixa marcas inestéticas. O elástico de cetim desliza sobre o cabelo sem qualquer fricção, preserva a fibra capilar e traz brilho e suavidade.']
+    ],
+    related_eyebrow: 'Também pode gostar',
+    related_title:   'Completa a tua <em>rotina</em>',
+    related: [
+      ['Luva Esfoliante Facial — Seda de Amoreira', 'Ultra-suave, hipoalergénica. Certificada OEKO TEX®.'],
+      ['Luva Esfoliante Corporal — Seda de Amoreira', '216 avaliações ★★★★★. A luva estrela da ALYA & CO.'],
+      ['Pack 1 Ano Full Body', 'Corpo + rosto. Poupa 48% vs. compra separada.']
+    ],
+    nl_eyebrow: 'Junta-te à família',
+    nl_title:   'Cuida de ti,<br><em>de forma natural.</em>',
+    nl_sub:     'Recebe os nossos conselhos de beleza, ofertas exclusivas e sê o primeiro a saber das nossas novidades.',
+    nl_ph:      'O teu endereço de email',
+    nl_btn:     'Subscrever',
+    reviews_eyebrow: 'Testemunhos de clientes',
+    reviews_title:   'Cabelo<br><em>protegido</em>'
   }
 };

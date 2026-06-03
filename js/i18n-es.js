@@ -603,5 +603,49 @@ window.ALYA_T_ES = {
       desc:    'Suministro para 3 meses de dentífrico natural Siwak. Solución de recarga económica y eco-responsable. Sin químicos, sin aditivos artificiales.',
       bullets: ['Suministro para 3 meses', '100% ingredientes naturales', 'Sin flúor, sin SLS', 'Envase eco-responsable', 'Ahorro respecto a compra individual']
     }
+  },
+
+  /* ── PÁGINA CHOUCHOU (completa) ── */
+  chouchou_page: {
+    breadcrumb:   'Coletero Satén — Sujeción Perfecta',
+    stars_count:  '4,4/5 — 65 opiniones',
+    desc_eyebrow: 'Descripción completa',
+    desc_title:   'Tu cabello merece<br><em>lo mejor</em>',
+    desc_paragraphs: [
+      'Los elásticos y coleteros ordinarios maltratan tu cabello en cada uso: tirones, rotura, nudos, marcas... Nuestro coletero de satén lo cambia todo.',
+      'La superficie ultra-lisa del satén se desliza sobre el cabello sin engancharlo ni estresarlo. Resultado: cero rotura, cero nudos, cero marcas. Tu cabello permanece suave, brillante y sano, incluso llevado recogido todo el día.',
+      'También ideal como accesorio nocturno: recoger el cabello con un coletero de satén durante el sueño protege las puntas y reduce el encrespamiento al despertar. El pequeño lujo diario que tu cabello realmente merece.'
+    ],
+    specs_title: 'Características',
+    specs: [
+      ['Material',          '100% satén natural'],
+      ['Ventaja',           'Cero rotura, cero nudos'],
+      ['Uso',               'Día y noche'],
+      ['Cuidado',           'Lavado a mano en agua fría'],
+      ['Tipo de cabello',   'Todos los tipos, largo o semi-largo'],
+      ['Acabado',           'Costura premium invisible']
+    ],
+    faq_eyebrow: 'Tus preguntas',
+    faq_title:   'Preguntas <em>frecuentes</em>',
+    faq: [
+      ['¿Cómo cuidar el coletero de satén?', 'Lávalo a mano con un jabón suave o en la lavadora a 30°C en una bolsa de lavado. No lo escurras — colócalo plano o cuélgalo para secar al aire. Evita absolutamente la secadora, que daña las fibras de satén.'],
+      ['¿Es adecuado para todos los tipos de cabello?', 'Sí. El satén es beneficioso para todos: cabello rizado, liso, fino o grueso. Es especialmente recomendado para cabello teñido, tratado químicamente o propenso a la rotura y el encrespamiento.'],
+      ['¿Deja marcas en el cabello?', 'No — es una de sus mayores ventajas. A diferencia de los elásticos clásicos, el satén no crea pliegues ni marcas en el cabello, incluso después de varias horas de uso. Perfecto para dormir con el cabello recogido.'],
+      ['¿Cuál es la diferencia con un elástico clásico?', 'El elástico clásico crea roces que rompen el cabello y dejan marcas antiestéticas. El coletero de satén se desliza sobre el cabello sin ninguna fricción, preserva la fibra capilar y aporta brillo y suavidad.']
+    ],
+    related_eyebrow: 'También te gustará',
+    related_title:   'Completa tu <em>rutina</em>',
+    related: [
+      ['Guante Exfoliante Facial — Seda de Morera', 'Ultra-suave, hipoalergénico. Certificado OEKO TEX®.'],
+      ['Guante Exfoliante Corporal — Seda de Morera', '216 opiniones ★★★★★. El guante estrella de ALYA & CO.'],
+      ['Pack 1 Año Full Body', 'Cuerpo + rostro. Ahorra 48% vs. compra separada.']
+    ],
+    nl_eyebrow: 'Únete a la familia',
+    nl_title:   'Cuídate,<br><em>de forma natural.</em>',
+    nl_sub:     'Recibe nuestros consejos de belleza, ofertas exclusivas y sé el primero en conocer nuestras novedades.',
+    nl_ph:      'Tu dirección de email',
+    nl_btn:     'Suscribirme',
+    reviews_eyebrow: 'Testimonios de clientes',
+    reviews_title:   'Cabello<br><em>protegido</em>'
   }
 };

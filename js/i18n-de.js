@@ -603,5 +603,49 @@ window.ALYA_T_DE = {
       desc:    '3 Monate Vorrat an natürlichem Siwak Zahnpulver. Wirtschaftliche und umweltfreundliche Nachfülllösung. Keine Chemikalien, keine künstlichen Zusätze.',
       bullets: ['3 Monate Vorrat', '100% natürliche Zutaten', 'Kein Fluorid, kein SLS', 'Umweltfreundliche Verpackung', 'Ersparnis gegenüber Einzelkauf']
     }
+  },
+
+  /* ── CHOUCHOU PAGE (vollständig) ── */
+  chouchou_page: {
+    breadcrumb:   'Perfekter Halt Satin Haargummi',
+    stars_count:  '4,4/5 — 65 Bewertungen',
+    desc_eyebrow: 'Vollständige Beschreibung',
+    desc_title:   'Ihr Haar verdient<br><em>das Beste</em>',
+    desc_paragraphs: [
+      'Gewöhnliche Haargummis strapazieren Ihr Haar bei jeder Anwendung: Zug, Haarbruch, Knoten, Abdrücke... Unser Satin Haargummi ändert alles.',
+      'Die ultra-glatte Oberfläche des Satins gleitet über das Haar, ohne es zu verfangen oder zu belasten. Ergebnis: kein Haarbruch, keine Knoten, keine Abdrücke. Ihr Haar bleibt weich, glänzend und gesund, auch wenn es den ganzen Tag hochgebunden ist.',
+      'Auch ideal als Nacht-Accessoire: Das Binden der Haare mit einem Satin Haargummi während des Schlafs schützt die Spitzen und reduziert Frizz beim Aufwachen. Der kleine tägliche Luxus, den Ihr Haar wirklich verdient.'
+    ],
+    specs_title: 'Eigenschaften',
+    specs: [
+      ['Material',      '100% natürliches Satin'],
+      ['Vorteil',       'Kein Haarbruch, keine Knoten'],
+      ['Verwendung',    'Tag und Nacht'],
+      ['Pflege',        'Handwäsche in kaltem Wasser'],
+      ['Haartyp',       'Alle Typen, lang oder mittellang'],
+      ['Verarbeitung',  'Unsichtbare Premium-Naht']
+    ],
+    faq_eyebrow: 'Ihre Fragen',
+    faq_title:   'Häufig gestellte <em>Fragen</em>',
+    faq: [
+      ['Wie pflege ich das Satin Haargummi?', 'Von Hand mit mildem Seifenmittel oder in der Maschine bei 30°C in einem Wäschenetz waschen. Nicht auswringen — flach legen oder aufhängen zum Lufttrocknen. Unbedingt den Trockner vermeiden, der die Satinfasern beschädigt.'],
+      ['Ist es für alle Haartypen geeignet?', 'Ja. Satin ist für alle geeignet: lockiges, krauses, glattes, feines oder dickes Haar. Es wird besonders für gefärbtes, chemisch behandeltes oder zu Haarbruch und Frizz neigendes Haar empfohlen.'],
+      ['Hinterlässt es Abdrücke im Haar?', 'Nein — das ist einer seiner größten Vorteile. Im Gegensatz zu klassischen Haargummis hinterlässt Satin keine Knicke oder Abdrücke im Haar, auch nicht nach mehreren Stunden Tragedauer. Perfekt zum Schlafen mit gebundenem Haar.'],
+      ['Was ist der Unterschied zu einem klassischen Haargummi?', 'Ein klassisches Haargummi erzeugt Reibung, die Haare bricht und unschöne Abdrücke hinterlässt. Das Satin Haargummi gleitet ohne jegliche Reibung über das Haar, schont die Haarfaser und verleiht Glanz und Geschmeidigkeit.']
+    ],
+    related_eyebrow: 'Das gefällt Ihnen auch',
+    related_title:   'Vervollständigen Sie Ihre <em>Routine</em>',
+    related: [
+      ['Gesichts-Peeling-Handschuh — Maulbeerseide', 'Ultra-sanft, hypoallergen. OEKO TEX® zertifiziert.'],
+      ['Körper-Peeling-Handschuh — Maulbeerseide', '216 Bewertungen ★★★★★. Der Star-Handschuh von ALYA & CO.'],
+      ['1-Jahr Full Body Pack', 'Körper + Gesicht. Sparen Sie 48% vs. Einzelkauf.']
+    ],
+    nl_eyebrow: 'Der Familie beitreten',
+    nl_title:   'Sorgen Sie für sich,<br><em>auf natürliche Weise.</em>',
+    nl_sub:     'Erhalten Sie unsere Schönheitstipps, exklusive Angebote und seien Sie die Ersten, die über unsere Neuheiten informiert werden.',
+    nl_ph:      'Ihre E-Mail-Adresse',
+    nl_btn:     'Anmelden',
+    reviews_eyebrow: 'Kundenmeinungen',
+    reviews_title:   'Haar das<br><em>geschützt ist</em>'
   }
 };

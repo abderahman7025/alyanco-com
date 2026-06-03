@@ -603,5 +603,49 @@ window.ALYA_T_IT = {
       desc:    'Fornitura per 3 mesi di dentifricio naturale Siwak. Soluzione di ricarica economica ed eco-responsabile. Senza prodotti chimici, senza additivi artificiali.',
       bullets: ['Fornitura per 3 mesi', '100% ingredienti naturali', 'Senza fluoro, senza SLS', 'Confezione eco-responsabile', 'Risparmio rispetto all\'acquisto singolo']
     }
+  },
+
+  /* ── PAGINA CHOUCHOU (completa) ── */
+  chouchou_page: {
+    breadcrumb:   'Elastico Raso — Tenuta Perfetta',
+    stars_count:  '4,4/5 — 65 recensioni',
+    desc_eyebrow: 'Descrizione completa',
+    desc_title:   'I tuoi capelli meritano<br><em>il meglio</em>',
+    desc_paragraphs: [
+      'Gli elastici e i fermagli ordinari maltrattano i capelli ad ogni utilizzo: trazione, rottura, nodi, segni... Il nostro elastico in raso cambia tutto.',
+      'La superficie ultra-liscia del raso scivola sui capelli senza agganciarli né stressarli. Risultato: zero rottura, zero nodi, zero segni. I tuoi capelli rimangono morbidi, brillanti e sani, anche portati su o annodati tutto il giorno.',
+      'Ideale anche come accessorio notturno: raccogliere i capelli con un elastico in raso durante il sonno protegge le punte e riduce il crespo al risveglio. Il piccolo lusso quotidiano che i tuoi capelli meritano davvero.'
+    ],
+    specs_title: 'Caratteristiche',
+    specs: [
+      ['Materiale',       '100% raso naturale'],
+      ['Vantaggio',       'Zero rottura, zero nodi'],
+      ['Uso',             'Giorno e notte'],
+      ['Cura',            'Lavaggio a mano in acqua fredda'],
+      ['Tipo di capello', 'Tutti i tipi, lunghi o medi'],
+      ['Finitura',        'Cucitura premium invisibile']
+    ],
+    faq_eyebrow: 'Le tue domande',
+    faq_title:   'Domande <em>frequenti</em>',
+    faq: [
+      ['Come curare l\'elastico in raso?', 'Lavarlo a mano con un sapone delicato o in lavatrice a 30°C in un sacchetto di lavaggio. Non strizzarlo — posarlo piatto o appenderlo per asciugare all\'aria. Evitare assolutamente l\'asciugatrice, che danneggia le fibre di raso.'],
+      ['È adatto a tutti i tipi di capello?', 'Sì. Il raso è benefico per tutti: capelli ricci, crespi, lisci, fini o spessi. È particolarmente consigliato per i capelli colorati, trattati chimicamente o soggetti a rottura e crespo.'],
+      ['Lascia segni nei capelli?', 'No — è uno dei suoi maggiori vantaggi. A differenza degli elastici classici, il raso non crea pieghe né segni nei capelli, anche dopo diverse ore di utilizzo. Perfetto per dormire con i capelli raccolti.'],
+      ['Qual è la differenza con un elastico classico?', 'L\'elastico classico crea attrito che rompe i capelli e lascia segni esteticamente sgradevoli. L\'elastico in raso scivola sui capelli senza alcun attrito, preserva la fibra capillare e dona lucentezza e morbidezza.']
+    ],
+    related_eyebrow: 'Ti piacerà anche',
+    related_title:   'Completa la tua <em>routine</em>',
+    related: [
+      ['Guanto Esfoliante Viso — Seta di Gelso', 'Ultra-delicato, ipoallergenico. Certificato OEKO TEX®.'],
+      ['Guanto Esfoliante Corpo — Seta di Gelso', '216 recensioni ★★★★★. Il guanto star di ALYA & CO.'],
+      ['Pack 1 Anno Full Body', 'Corpo + viso. Risparmia 48% vs. acquisto separato.']
+    ],
+    nl_eyebrow: 'Unisciti alla famiglia',
+    nl_title:   'Prenditi cura di te,<br><em>in modo naturale.</em>',
+    nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+    nl_ph:      'Il tuo indirizzo email',
+    nl_btn:     'Iscriviti',
+    reviews_eyebrow: 'Testimonianze clienti',
+    reviews_title:   'Capelli<br><em>protetti</em>'
   }
 };

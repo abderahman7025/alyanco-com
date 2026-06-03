@@ -287,6 +287,9 @@
     /* ── Livraison ── */
     if (page === 'livraison' && t.livraison) applyLivraison(t);
 
+    /* ── Chouchou soie ── */
+    if (page === 'chouchou-soie' && t.chouchou_page) applyChouchouSoie(t);
+
     /* ── Collection Siwak ── */
     if (page === 'collection-siwak' && t.col_siwak) applyColSiwak(t);
 
@@ -310,6 +313,80 @@
 
     /* ── Page home ── */
     if (page === 'home') applyHome(t);
+  }
+
+  function applyChouchouSoie(t) {
+    var c = t.chouchou_page; if (!c) return;
+
+    /* Breadcrumb dernier élément */
+    var bc = qs('.breadcrumb');
+    if (bc && bc.lastChild && bc.lastChild.nodeType === 3) bc.lastChild.textContent = c.breadcrumb;
+
+    /* Nombre d'avis */
+    set('.stars-count', c.stars_count);
+
+    /* Section description */
+    var ds = qs('.product-description-section');
+    if (ds) {
+      var ey = ds.querySelector('.section-eyebrow'); if (ey) ey.textContent = c.desc_eyebrow;
+      var h2 = ds.querySelector('.section-title');   if (h2) h2.innerHTML = c.desc_title;
+      var ps = ds.querySelectorAll('.desc-col:first-child p');
+      (c.desc_paragraphs || []).forEach(function(txt, i){ if (ps[i]) ps[i].textContent = txt; });
+      var h3 = ds.querySelector('h3'); if (h3) h3.textContent = c.specs_title;
+      var specs = ds.querySelectorAll('.desc-specs li');
+      (c.specs || []).forEach(function(sp, i) {
+        if (!specs[i]) return;
+        var span = specs[i].querySelector('span');
+        var tn = specs[i].childNodes[0];
+        if (tn && tn.nodeType === 3) tn.textContent = sp[0] + ' ';
+        if (span) span.textContent = sp[1];
+      });
+    }
+
+    /* Section FAQ */
+    var fs = qs('.faq-section');
+    if (fs) {
+      var fEy = fs.querySelector('.section-header .section-eyebrow'); if (fEy) fEy.textContent = c.faq_eyebrow;
+      var fTi = fs.querySelector('.section-header .section-title');   if (fTi) fTi.innerHTML = c.faq_title;
+      var items = fs.querySelectorAll('.faq-item');
+      (c.faq || []).forEach(function(qa, i) {
+        if (!items[i]) return;
+        var q = items[i].querySelector('.faq-question span:first-child');
+        var a = items[i].querySelector('.faq-answer p');
+        if (q) q.textContent = qa[0];
+        if (a) a.textContent = qa[1];
+      });
+    }
+
+    /* Section produits liés */
+    var rs = qs('.related-section');
+    if (rs) {
+      var rEy = rs.querySelector('.section-eyebrow'); if (rEy) rEy.textContent = c.related_eyebrow;
+      var rTi = rs.querySelector('.section-title');   if (rTi) rTi.innerHTML = c.related_title;
+      var cards = rs.querySelectorAll('.product-card');
+      (c.related || []).forEach(function(rel, i) {
+        if (!cards[i]) return;
+        var nm = cards[i].querySelector('.product-name');       if (nm) nm.textContent = rel[0];
+        var ds2 = cards[i].querySelector('.product-desc-short'); if (ds2) ds2.textContent = rel[1];
+      });
+    }
+
+    /* Newsletter */
+    var nl = qs('.newsletter-section');
+    if (nl) {
+      var nEy = nl.querySelector('.section-eyebrow'); if (nEy) nEy.textContent = c.nl_eyebrow;
+      var nTi = nl.querySelector('.newsletter-title'); if (nTi) nTi.innerHTML = c.nl_title;
+      var nSb = nl.querySelector('.newsletter-sub');   if (nSb) nSb.textContent = c.nl_sub;
+      var nIn = nl.querySelector('.newsletter-input'); if (nIn) nIn.placeholder = c.nl_ph;
+      var nBt = nl.querySelector('.newsletter-btn');   if (nBt) nBt.textContent = c.nl_btn;
+    }
+
+    /* Section avis */
+    var rv = qs('.reviews-section');
+    if (rv) {
+      var rEy2 = rv.querySelector('.reviews-eyebrow'); if (rEy2) rEy2.textContent = c.reviews_eyebrow;
+      var rTi2 = rv.querySelector('.reviews-title');   if (rTi2) rTi2.innerHTML = c.reviews_title;
+    }
   }
 
   function applyHome(t) {

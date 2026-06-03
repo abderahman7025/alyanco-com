@@ -603,5 +603,49 @@ window.ALYA_T_NL = {
       desc:    '3 maanden voorraad natuurlijk Siwak tandpoeder. Voordelige en milieuvriendelijke navuloplossing. Geen chemicaliën, geen kunstmatige toevoegingen.',
       bullets: ['3 maanden voorraad', '100% natuurlijke ingrediënten', 'Geen fluoride, geen SLS', 'Milieuvriendelijke verpakking', 'Besparing ten opzichte van enkelvoudige aankoop']
     }
+  },
+
+  /* ── CHOUCHOU PAGINA (volledig) ── */
+  chouchou_page: {
+    breadcrumb:   'Satijn Haarelastiekje — Perfecte Grip',
+    stars_count:  '4,4/5 — 65 beoordelingen',
+    desc_eyebrow: 'Volledige beschrijving',
+    desc_title:   'Uw haar verdient<br><em>het beste</em>',
+    desc_paragraphs: [
+      'Gewone elastiekjes en haarelastieken beschadigen uw haar bij elk gebruik: trekkracht, haarbreuk, klitten, indrukken... Ons satijnen haarelastiekje verandert alles.',
+      'Het ultra-gladde oppervlak van satijn glijdt over het haar zonder het vast te haken of te belasten. Resultaat: geen haarbreuk, geen klitten, geen indrukken. Uw haar blijft zacht, glanzend en gezond, zelfs als het de hele dag opgebonden is.',
+      'Ook ideaal als nacht-accessoire: uw haar vastbinden met een satijnen haarelastiekje tijdens het slapen beschermt de punten en vermindert kroes bij het wakker worden. Het kleine dagelijkse luxe dat uw haar echt verdient.'
+    ],
+    specs_title: 'Specificaties',
+    specs: [
+      ['Materiaal',   '100% natuurlijk satijn'],
+      ['Voordeel',    'Geen haarbreuk, geen klitten'],
+      ['Gebruik',     'Dag en nacht'],
+      ['Onderhoud',   'Met de hand wassen in koud water'],
+      ['Haartype',    'Alle types, lang of halflang'],
+      ['Afwerking',   'Onzichtbare premium naad']
+    ],
+    faq_eyebrow: 'Uw vragen',
+    faq_title:   'Veelgestelde <em>vragen</em>',
+    faq: [
+      ['Hoe onderhoud ik het satijnen haarelastiekje?', 'Met de hand wassen met een mild zeepje of in de machine op 30°C in een waszakje. Niet uitwringen — plat neerleggen of ophangen om te luchten. Absoluut de droogkast vermijden, die de satijnvezels beschadigt.'],
+      ['Is het geschikt voor alle haartypes?', 'Ja. Satijn is gunstig voor iedereen: krullend, pluizig, steil, fijn of dik haar. Het wordt vooral aanbevolen voor gekleurd, chemisch behandeld of haar dat gevoelig is voor breuk en kroes.'],
+      ['Laat het indrukken achter in het haar?', 'Nee — dit is een van de grootste voordelen. In tegenstelling tot klassieke elastiekjes creëert satijn geen vouwen of indrukken in het haar, zelfs niet na meerdere uren dragen. Perfect voor slapen met opgebonden haar.'],
+      ['Wat is het verschil met een klassiek elastiekje?', 'Een klassiek elastiekje creëert wrijving die het haar breekt en lelijke indrukken achterlaat. Het satijnen haarelastiekje glijdt over het haar zonder enige wrijving, behoudt de haarvezel en brengt glans en souplesse.']
+    ],
+    related_eyebrow: 'U vindt dit misschien ook leuk',
+    related_title:   'Completeer uw <em>routine</em>',
+    related: [
+      ['Gezichts Exfolierende Handschoen — Moerbeizijde', 'Ultra-zacht, hypoallergeen. OEKO TEX® gecertificeerd.'],
+      ['Lichaam Exfolierende Handschoen — Moerbeizijde', '216 beoordelingen ★★★★★. De sterhandschoen van ALYA & CO.'],
+      ['1-Jaar Full Body Pakket', 'Lichaam + gezicht. Bespaar 48% vs. afzonderlijke aankoop.']
+    ],
+    nl_eyebrow: 'Sluit je aan bij de familie',
+    nl_title:   'Zorg voor uzelf,<br><em>op natuurlijke wijze.</em>',
+    nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees als eerste op de hoogte van onze nieuwtjes.',
+    nl_ph:      'Uw e-mailadres',
+    nl_btn:     'Inschrijven',
+    reviews_eyebrow: 'Klantengetuigenissen',
+    reviews_title:   'Haar dat<br><em>beschermd is</em>'
   }
 };
