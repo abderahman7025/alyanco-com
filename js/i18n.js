@@ -255,6 +255,13 @@
 
     /* HTML lang */
     document.documentElement.lang = t._lang || 'fr';
+
+    /* Mot "avis" dans les étoiles des cartes produit */
+    if (t._lang && t._lang !== 'fr' && t.word_reviews) {
+      qsa('.product-stars span, .stars-count').forEach(function(el) {
+        el.textContent = el.textContent.replace(/avis/gi, t.word_reviews);
+      });
+    }
   }
 
   /* ================================================================

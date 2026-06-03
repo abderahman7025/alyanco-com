@@ -47,6 +47,7 @@ window.ALYA_T_EN = {
   footer_legal_mentions: 'Legal Notice',
 
   /* ── BUTTONS / COMMON ── */
+  word_reviews: 'reviews',
   btn_atc:  'Add to cart',
   btn_back: '← Back to collection',
   verified: 'Verified purchase',

@@ -43,6 +43,7 @@ window.ALYA_T_PT = {
   footer_legal_conf:  'Privacidade',
   footer_legal_mentions: 'Aviso Legal',
 
+  word_reviews: 'avaliações',
   btn_atc:  'Adicionar ao carrinho',
   btn_back: '← Voltar à coleção',
   verified: 'Compra verificada',

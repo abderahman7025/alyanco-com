@@ -49,6 +49,24 @@
   styleEl.textContent = css;
   document.head.appendChild(styleEl);
 
+  /* ── TRADUCTIONS ─────────────────────────────────────────────────── */
+  var lang = localStorage.getItem('alya_lang') || 'fr';
+  var ST = {
+    fr: { low: '📦 Plus que {n} exemplaire{s} disponible{s}', urgent: '⚠ Plus que {n} exemplaire{s} disponible{s} !', out: '⊘ Rupture de stock', out_btn: 'Rupture de stock' },
+    en: { low: '📦 Only {n} item{s} left in stock', urgent: '⚠ Only {n} item{s} left!', out: '⊘ Out of stock', out_btn: 'Out of stock' },
+    de: { low: '📦 Nur noch {n} Exemplar{s} verfügbar', urgent: '⚠ Nur noch {n} Exemplar{s} verfügbar!', out: '⊘ Nicht vorrätig', out_btn: 'Nicht vorrätig' },
+    es: { low: '📦 Solo quedan {n} unidad{s}', urgent: '⚠ ¡Solo quedan {n} unidad{s}!', out: '⊘ Sin existencias', out_btn: 'Sin existencias' },
+    it: { low: '📦 Solo {n} articolo{s} disponibile{s}', urgent: '⚠ Solo {n} articolo{s} disponibile{s}!', out: '⊘ Esaurito', out_btn: 'Esaurito' },
+    nl: { low: '📦 Nog maar {n} exemplaar{s} beschikbaar', urgent: '⚠ Nog maar {n} exemplaar{s} beschikbaar!', out: '⊘ Uitverkocht', out_btn: 'Uitverkocht' },
+    pt: { low: '📦 Apenas {n} unidade{s} disponível{s}', urgent: '⚠ Apenas {n} unidade{s} disponível{s}!', out: '⊘ Esgotado', out_btn: 'Esgotado' }
+  };
+  var s = ST[lang] || ST.fr;
+
+  function stockTxt(tpl, n) {
+    var plural = n > 1 ? 's' : '';
+    return tpl.replace(/\{n\}/g, n).replace(/\{s\}/g, plural);
+  }
+
   /* ── INIT ────────────────────────────────────────────────────────── */
   var productId = document.body.getAttribute('data-product-id');
   if (!productId) return;
@@ -67,26 +85,19 @@
       var html   = '';
 
       if (status === 'faible') {
-        html = '<span class="stock-pill faible">'
-             + '📦 Plus que ' + stock + ' exemplaire' + (stock > 1 ? 's' : '') + ' disponible' + (stock > 1 ? 's' : '')
-             + '</span>';
+        html = '<span class="stock-pill faible">' + stockTxt(s.low, stock) + '</span>';
 
       } else if (status === 'critique') {
-        html = '<span class="stock-pill critique">'
-             + '⚠ Plus que ' + stock + ' exemplaire' + (stock > 1 ? 's' : '') + ' disponible' + (stock > 1 ? 's' : '') + ' !'
-             + '</span>';
+        html = '<span class="stock-pill critique">' + stockTxt(s.urgent, stock) + '</span>';
 
       } else if (status === 'rupture') {
-        html = '<span class="stock-pill rupture">⊘ Rupture de stock</span>';
-        // Mark body so CSS disables buttons
+        html = '<span class="stock-pill rupture">' + s.out + '</span>';
         document.body.classList.add('stock-rupture');
-        // Also update button text directly
         document.querySelectorAll('.btn-atc').forEach(function (btn) {
           btn.disabled    = true;
-          btn.textContent = 'Rupture de stock';
+          btn.textContent = s.out_btn;
         });
       }
-      // status === 'ok' → afficher rien (stock suffisant)
 
       badge.innerHTML = html;
     })

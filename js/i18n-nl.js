@@ -43,6 +43,7 @@ window.ALYA_T_NL = {
   footer_legal_conf:  'Privacy',
   footer_legal_mentions: 'Wettelijke vermeldingen',
 
+  word_reviews: 'beoordelingen',
   btn_atc:  'Toevoegen aan winkelwagen',
   btn_back: '← Terug naar collectie',
   verified: 'Geverifieerde aankoop',
