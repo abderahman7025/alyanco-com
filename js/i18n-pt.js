@@ -87,8 +87,8 @@ window.ALYA_T_PT = {
     gants_p2_desc:'Esfoliação suave para o corpo. Hipoalergénica, todos os tipos de pele. Resultados visíveis desde o primeiro uso.',
     gants_p3_name:'Luva Esfoliante Facial — Cetim',
     gants_p3_desc:'Ultra-suave para o rosto. Remove células mortas suavemente, sem produto químico.',
-    gants_p4_name:'Elástico de Seda — Fixação Perfeita',
-    gants_p4_desc:'Acessório capilar em seda. Suave, resistente, sem quebra nem nós.',
+    gants_p4_name:'Elástico de Cetim — Fixação Perfeita',
+    gants_p4_desc:'Acessório capilar em cetim. Suave, resistente, sem quebra nem nós.',
 
     story2_ey:   'Confiança recuperada',
     story2_title:'Uma esfoliação perfeita,<br><em>sem dor</em>',
@@ -366,8 +366,8 @@ window.ALYA_T_PT = {
     p2_desc: 'Esfoliação suave para o corpo. Hipoalergénica, todos os tipos de pele. Resultados visíveis desde a primeira utilização.',
     p3_name: 'Luva Esfoliante Rosto — Cetim',
     p3_desc: 'Ultra-suave para o rosto. Elimina as células mortas, anti-acne, anti-pontos negros.',
-    p4_name: 'Elástico Cabelo Perfeito — Seda',
-    p4_desc: 'Seda de amoreira. Protege o seu cabelo, evita quebras, nós e frisagem.',
+    p4_name: 'Elástico Fixação Perfeita — Cetim',
+    p4_desc: 'Cetim. Protege o seu cabelo, evita quebras, nós e frisagem.',
     story_eyebrow: 'A história da seda',
     story_title:   'A fibra mais suave <em>do mundo</em>',
     story_text:    'A cetim é apreciada há milhares de anos pela sua suavidade excecional e propriedades naturais.',
@@ -580,9 +580,16 @@ window.ALYA_T_PT = {
     },
     'chouchou-soie': {
       eyebrow: 'Acessórios',
-      title:   'Elástico de<br><em>Cetim Premium</em>',
-      desc:    'Elástico de cetim que protege o teu cabelo enquanto dormes e durante o dia. Reduz a quebra, previne o frizz e preserva o teu penteado. Suave, durável e elegante.',
-      bullets: ['Cetim puro — suave para o teu cabelo', 'Certificado OEKO TEX® Standard 100', 'Reduz a quebra do cabelo', 'Previne o frizz', 'Adequado para todos os tipos de cabelo']
+      title:   'Fixação Perfeita<br><em>Elástico de Cetim</em>',
+      desc:    'Elástico de cetim puro. Protege o teu cabelo, evita a quebra, os nós e o frizz. Fixação perfeita durante todo o dia. Suave, resistente e elegante.',
+      bullets: [
+        'Cetim puro — suave para o teu cabelo',
+        'Protege contra a quebra e os nós',
+        'Reduz o frizz e a eletricidade estática',
+        'Durável — resistente ao uso diário',
+        'Elegante — acabamento premium cuidado',
+        'Entrega Mondial Relay 72h'
+      ]
     },
     'pack-tetes-x3': {
       eyebrow: 'Coleção Siwak',

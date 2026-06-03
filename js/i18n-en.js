@@ -652,13 +652,14 @@ window.ALYA_T_EN = {
     'chouchou-soie': {
       eyebrow: 'Accessories',
       title:   'Perfect Hold<br><em>Satin Scrunchie</em>',
-      desc:    'Satin scrunchie that protects your hair while you sleep and during the day. Reduces breakage, prevents frizz and preserves your hairstyle. Gentle, durable and elegant.',
+      desc:    'Pure satin scrunchie. Protects your hair, prevents breakage, tangles and frizz. Perfect hold all day. Gentle on your hair, durable and elegant.',
       bullets: [
         'Pure satin — gentle for your hair',
         'Protects against breakage and tangles',
-        'Reduces hair breakage',
-        'Prevents frizz',
-        'Suitable for all hair types'
+        'Reduces frizz and static electricity',
+        'Durable — resistant to daily wear',
+        'Elegant — premium finish',
+        'Mondial Relay 72h delivery'
       ]
     },
     'pack-tetes-x3': {

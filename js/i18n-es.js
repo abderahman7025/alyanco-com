@@ -87,8 +87,8 @@ window.ALYA_T_ES = {
     gants_p2_desc:'Exfoliación suave para el cuerpo. Hipoalergénico, todo tipo de piel. Resultados visibles desde el primer uso.',
     gants_p3_name:'Guante Exfoliante Facial — Satén',
     gants_p3_desc:'Ultra-suave para el rostro. Elimina células muertas suavemente, sin producto químico.',
-    gants_p4_name:'Coletero de Seda — Sujeción Perfecta',
-    gants_p4_desc:'Accesorio capilar de seda. Suave, resistente, sin rotura ni nudos.',
+    gants_p4_name:'Coletero Satén — Sujeción Perfecta',
+    gants_p4_desc:'Accesorio capilar de satén. Suave, resistente, sin rotura ni nudos.',
 
     story2_ey:   'Confianza recuperada',
     story2_title:'Una exfoliación perfecta,<br><em>sin dolor</em>',
@@ -366,8 +366,8 @@ window.ALYA_T_ES = {
     p2_desc: 'Exfoliación suave para el cuerpo. Hipoalergénico, todos los tipos de piel. Resultados visibles desde el primer uso.',
     p3_name: 'Guante Exfoliante Cara — Satén',
     p3_desc: 'Ultrasuave para la cara. Elimina las células muertas, anti-acné, anti-puntos negros.',
-    p4_name: 'Coletero Sujeción Perfecta — Seda',
-    p4_desc: 'Seda de morera. Protege tu cabello, evita la rotura, los nudos y el encrespamiento.',
+    p4_name: 'Coletero Sujeción Perfecta — Satén',
+    p4_desc: 'Satén. Protege tu cabello, evita la rotura, los nudos y el encrespamiento.',
     story_eyebrow: 'La historia de la seda',
     story_title:   'La fibra más suave <em>del mundo</em>',
     story_text:    'La satén ha sido apreciada durante miles de años por su excepcional suavidad y propiedades naturales.',
@@ -580,9 +580,16 @@ window.ALYA_T_ES = {
     },
     'chouchou-soie': {
       eyebrow: 'Accesorios',
-      title:   'Coletero de<br><em>Satén Premium</em>',
-      desc:    'Coletero de satén que protege tu cabello mientras duermes y durante el día. Reduce la rotura, previene el encrespamiento y preserva tu peinado. Suave, duradero y elegante.',
-      bullets: ['Satén puro — suave para tu cabello', 'Certificado OEKO TEX® Standard 100', 'Reduce la rotura del cabello', 'Previene el encrespamiento', 'Apto para todo tipo de cabello']
+      title:   'Sujeción Perfecta<br><em>Coletero Satén</em>',
+      desc:    'Coletero de satén puro. Protege tu cabello, evita la rotura, los nudos y el encrespamiento. Sujeción perfecta todo el día. Suave, resistente y elegante.',
+      bullets: [
+        'Satén puro — suave para tu cabello',
+        'Protege contra la rotura y los enredos',
+        'Reduce el encrespamiento y la electricidad estática',
+        'Duradero — resistente al uso diario',
+        'Elegante — acabado premium cuidado',
+        'Entrega Mondial Relay 72h'
+      ]
     },
     'pack-tetes-x3': {
       eyebrow: 'Colección Siwak',

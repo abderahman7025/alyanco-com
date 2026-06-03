@@ -87,8 +87,8 @@ window.ALYA_T_NL = {
     gants_p2_desc:'Zachte lichaamsexfoliatie. Hypoallergeen, alle huidtypes. Zichtbare resultaten vanaf het eerste gebruik.',
     gants_p3_name:'Exfolierende Gezichtshandschoen — Satijn',
     gants_p3_desc:'Ultra-zacht voor het gezicht. Verwijdert dode huidcellen zacht, zonder chemisch product.',
-    gants_p4_name:'Zijden Haarelastiekje — Perfecte Houding',
-    gants_p4_desc:'Zijden haaraccessoire. Zacht, sterk, geen haarbreuk of knopen.',
+    gants_p4_name:'Satijn Haarelastiekje — Perfecte Grip',
+    gants_p4_desc:'Satijn haaraccessoire. Zacht, sterk, geen haarbreuk of knopen.',
 
     story2_ey:   'Zelfvertrouwen herwonnen',
     story2_title:'Perfecte exfoliatie,<br><em>pijnvrij</em>',
@@ -366,7 +366,7 @@ window.ALYA_T_NL = {
     p2_desc: 'Zachte lichaamsexfoliatie. Hypoallergeen, alle huidtypes. Zichtbare resultaten vanaf eerste gebruik.',
     p3_name: 'Gezicht Exfolierende Handschoen — Satijn',
     p3_desc: 'Ultrazacht voor het gezicht. Verwijdert dode huidcellen, anti-acne, anti-mee-eters.',
-    p4_name: 'Perfect Holdend Haarelastieksje — Zijde',
+    p4_name: 'Perfecte Grip Haarelastiekje — Satijn',
     p4_desc: 'Satijn. Beschermt uw haar, voorkomt breuk, klitten en kroezen.',
     story_eyebrow: 'Het zijde verhaal',
     story_title:   'De <em>zachtste vezel</em> ter wereld',
@@ -580,9 +580,16 @@ window.ALYA_T_NL = {
     },
     'chouchou-soie': {
       eyebrow: 'Accessoires',
-      title:   'Satijn<br><em>Haarelastiekje</em>',
-      desc:    'Satijn haarelastiekje dat uw haar beschermt terwijl u slaapt en overdag. Vermindert haarbreuk, voorkomt kroes en behoudt uw kapsel. Zacht, duurzaam en elegant.',
-      bullets: ['Puur satijn — zacht voor uw haar', 'OEKO TEX® Standard 100 gecertificeerd', 'Vermindert haarbreuk', 'Voorkomt kroes', 'Geschikt voor alle haartypes']
+      title:   'Perfecte Grip<br><em>Satijn Haarelastiekje</em>',
+      desc:    'Puur satijn haarelastiekje. Beschermt uw haar, voorkomt haarbreuk, klitten en kroes. Perfecte grip de hele dag. Zacht voor uw haar, duurzaam en elegant.',
+      bullets: [
+        'Puur satijn — zacht voor uw haar',
+        'Beschermt tegen haarbreuk en klitten',
+        'Vermindert kroes en statische elektriciteit',
+        'Duurzaam — bestand tegen dagelijks gebruik',
+        'Elegant — verzorgde premium afwerking',
+        'Mondial Relay 72h levering'
+      ]
     },
     'pack-tetes-x3': {
       eyebrow: 'Siwak Collectie',

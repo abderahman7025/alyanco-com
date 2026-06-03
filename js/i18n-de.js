@@ -88,7 +88,7 @@ window.ALYA_T_DE = {
     gants_p3_name:'Gesichts-Peeling-Handschuh — Satin',
     gants_p3_desc:'Ultra-sanft für das Gesicht. Entfernt abgestorbene Zellen sanft, ohne chemisches Produkt.',
     gants_p4_name:'Satin Haargummi — Perfekter Halt',
-    gants_p4_desc:'Seiden-Haaraccessoire. Sanft, stark, kein Haarbruch oder Knoten.',
+    gants_p4_desc:'Satin Haaraccessoire. Sanft, stark, kein Haarbruch oder Knoten.',
 
     story2_ey:   'Selbstvertrauen zurückgewonnen',
     story2_title:'Perfektes Peeling,<br><em>schmerzfrei</em>',
@@ -366,7 +366,7 @@ window.ALYA_T_DE = {
     p2_desc: 'Sanftes Körperpeeling. Hypoallergen, alle Hauttypen. Sichtbare Ergebnisse ab dem ersten Gebrauch.',
     p3_name: 'Gesichts-Peeling-Handschuh — Satin',
     p3_desc: 'Ultraweich für das Gesicht. Entfernt abgestorbene Zellen, Anti-Akne, Anti-Mitesser.',
-    p4_name: 'Perfekter Halt Haargummi — Seide',
+    p4_name: 'Perfekter Halt Haargummi — Satin',
     p4_desc: 'Satin. Schützt Ihr Haar, verhindert Bruch, Verfilzungen und Kräuselungen.',
     story_eyebrow: 'Die Seidengeschichte',
     story_title:   'Die <em>weichste Faser</em> der Welt',
@@ -580,9 +580,16 @@ window.ALYA_T_DE = {
     },
     'chouchou-soie': {
       eyebrow: 'Accessoires',
-      title:   'Satin<br><em>Haargummi</em>',
-      desc:    'Satin Haargummi, das Ihr Haar beim Schlafen und tagsüber schützt. Reduziert Haarbruch, verhindert Frizz und bewahrt Ihre Frisur. Sanft, langlebig und elegant.',
-      bullets: ['Reines Satin — sanft für Ihr Haar', 'OEKO TEX® Standard 100 zertifiziert', 'Reduziert Haarbruch', 'Verhindert Frizz', 'Für alle Haartypen geeignet']
+      title:   'Perfekter Halt<br><em>Satin Haargummi</em>',
+      desc:    'Reines Satin Haargummi. Schützt Ihr Haar, verhindert Haarbruch, Knoten und Frizz. Perfekter Halt den ganzen Tag. Sanft für Ihr Haar, langlebig und elegant.',
+      bullets: [
+        'Reines Satin — sanft für Ihr Haar',
+        'Schützt vor Haarbruch und Knoten',
+        'Reduziert Frizz und statische Elektrizität',
+        'Langlebig — widerstandsfähig im Alltag',
+        'Elegant — hochwertige Verarbeitung',
+        'Mondial Relay 72h Lieferung'
+      ]
     },
     'pack-tetes-x3': {
       eyebrow: 'Siwak Kollektion',

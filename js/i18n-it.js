@@ -87,8 +87,8 @@ window.ALYA_T_IT = {
     gants_p2_desc:'Esfoliazione delicata per il corpo. Ipoallergenico, tutti i tipi di pelle. Risultati visibili dal primo utilizzo.',
     gants_p3_name:'Guanto Esfoliante Viso — Raso',
     gants_p3_desc:'Ultra-delicato per il viso. Rimuove le cellule morte delicatamente, senza prodotto chimico.',
-    gants_p4_name:'Elastico per Capelli in Seta — Tenuta Perfetta',
-    gants_p4_desc:'Accessorio per capelli in seta. Morbido, resistente, senza rottura né nodi.',
+    gants_p4_name:'Elastico per Capelli in Raso — Tenuta Perfetta',
+    gants_p4_desc:'Accessorio per capelli in raso. Morbido, resistente, senza rottura né nodi.',
 
     story2_ey:   'Fiducia ritrovata',
     story2_title:'Un\'esfoliazione perfetta,<br><em>senza dolore</em>',
@@ -366,8 +366,8 @@ window.ALYA_T_IT = {
     p2_desc: 'Esfoliazione delicata per il corpo. Ipoallergenico, tutti i tipi di pelle. Risultati visibili dal primo utilizzo.',
     p3_name: 'Guanto Esfoliante Viso — Raso',
     p3_desc: 'Ultra-delicato per il viso. Elimina le cellule morte, anti-acne, anti-punti neri.',
-    p4_name: 'Elastico Tenuta Perfetta — Seta',
-    p4_desc: 'Seta di gelso. Protegge i capelli, evita la rottura, i nodi e il crespo.',
+    p4_name: 'Elastico Tenuta Perfetta — Raso',
+    p4_desc: 'Raso. Protegge i capelli, evita la rottura, i nodi e il crespo.',
     story_eyebrow: 'La storia della seta',
     story_title:   'La fibra più morbida <em>del mondo</em>',
     story_text:    'La raso è stata apprezzata per migliaia di anni per la sua eccezionale morbidezza e le sue proprietà naturali.',
@@ -580,9 +580,16 @@ window.ALYA_T_IT = {
     },
     'chouchou-soie': {
       eyebrow: 'Accessori',
-      title:   'Elastico per capelli<br><em>in Raso Premium</em>',
-      desc:    'Elastico per capelli in raso che protegge i tuoi capelli mentre dormi e durante il giorno. Riduce la rottura, previene il crespo e preserva la tua acconciatura. Morbido, durevole ed elegante.',
-      bullets: ['Raso puro — morbido per i tuoi capelli', 'Certificato OEKO TEX® Standard 100', 'Riduce la rottura dei capelli', 'Previene il crespo', 'Adatto a tutti i tipi di capelli']
+      title:   'Tenuta Perfetta<br><em>Elastico in Raso</em>',
+      desc:    'Elastico per capelli in raso puro. Protegge i tuoi capelli, evita la rottura, i nodi e il crespo. Tenuta perfetta tutto il giorno. Morbido, resistente ed elegante.',
+      bullets: [
+        'Raso puro — morbido per i tuoi capelli',
+        'Protegge dalla rottura e dai nodi',
+        'Riduce il crespo e l\'elettricità statica',
+        'Durevole — resistente all\'uso quotidiano',
+        'Elegante — finitura premium curata',
+        'Consegna Mondial Relay 72h'
+      ]
     },
     'pack-tetes-x3': {
       eyebrow: 'Collezione Siwak',
