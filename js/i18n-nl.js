@@ -9,7 +9,7 @@ window.ALYA_T_NL = {
     'Gratis Mondial Relay 72u levering vanaf €45*',
     '100% Natuurlijk · Bio · Milieuvriendelijk',
     'OEKO TEX® Standard 100 gecertificeerd',
-    'Meer dan 500 reviews ★ 4,8/5'
+    'Meer dan 1500 reviews ★ 4,8/5'
   ],
 
   nav_home:    'Home',
@@ -53,7 +53,7 @@ window.ALYA_T_NL = {
 
   home: {
     badge:       'Natuurlijke Schoonheid · Puur · Eco',
-    sub:         'Natuurlijke verzorging die uw huid en onze planeet respecteert. Voorouderlijke Siwak en moerbeizijde, samen voor uw dagelijks welzijn.',
+    sub:         'Natuurlijke verzorging die uw huid en onze planeet respecteert. Voorouderlijke Siwak en satijn, samen voor uw dagelijks welzijn.',
     discover:    'Ontdekken',
     story:       'Ons verhaal',
     stat_avis:   'Klantbeoordelingen',
@@ -80,19 +80,19 @@ window.ALYA_T_NL = {
 
     gants_ey:    'Collectie',
     gants_title: 'Exfolierende<br><em>Handschoenen</em>',
-    gants_sub:   'Moerbeizijde — gewoon de beste zijde ter wereld. Natuurlijk, zacht, hypoallergeen.',
+    gants_sub:   'Satijn — gewoon de beste zijde ter wereld. Natuurlijk, zacht, hypoallergeen.',
     gants_p1_name:'1-Jaar Full Body Pakket',
     gants_p1_desc:'Lichaam + gezicht. Zachte huid het hele jaar. Bespaar vs. afzonderlijke aankoop.',
-    gants_p2_name:'Exfolierende Lichaamshandschoen — Moerbeizijde',
+    gants_p2_name:'Exfolierende Lichaamshandschoen — Satijn',
     gants_p2_desc:'Zachte lichaamsexfoliatie. Hypoallergeen, alle huidtypes. Zichtbare resultaten vanaf het eerste gebruik.',
-    gants_p3_name:'Exfolierende Gezichtshandschoen — Moerbeizijde',
+    gants_p3_name:'Exfolierende Gezichtshandschoen — Satijn',
     gants_p3_desc:'Ultra-zacht voor het gezicht. Verwijdert dode huidcellen zacht, zonder chemisch product.',
     gants_p4_name:'Zijden Haarelastiekje — Perfecte Houding',
     gants_p4_desc:'Zijden haaraccessoire. Zacht, sterk, geen haarbreuk of knopen.',
 
     story2_ey:   'Zelfvertrouwen herwonnen',
     story2_title:'Perfecte exfoliatie,<br><em>pijnvrij</em>',
-    story2_p1:   'Wie heeft gezegd dat u moest lijden om er mooi uit te zien? Acne, droge huid, mee-eters... het is GEEN noodlot. Herwin het zelfvertrouwen dat u verdient, met de handschoenen van ALYA & CO., 100% moerbeizijde — gewoon de beste zijde ter wereld.',
+    story2_p1:   'Wie heeft gezegd dat u moest lijden om er mooi uit te zien? Acne, droge huid, mee-eters... het is GEEN noodlot. Herwin het zelfvertrouwen dat u verdient, met de handschoenen van ALYA & CO., 100% satijn — gewoon de beste zijde ter wereld.',
     story2_p2:   'OEKO TEX® Standard 100 gecertificeerd. Geen chemisch product, alleen een beetje water is genoeg. Een milieuvriendelijk gebaar dat voor u en onze planeet zorgt.',
     story2_link: 'Ontdek de Handschoenen collectie',
 
@@ -109,7 +109,7 @@ window.ALYA_T_NL = {
 
     test_ey:     'Klantbeoordelingen',
     test_title:  'Zij vertrouwen <em>ons</em>',
-    test_sub:    'Meer dan 500 geverifieerde beoordelingen. Beoordeeld met 4,8/5 door onze klanten.',
+    test_sub:    'Meer dan 1500 geverifieerde beoordelingen. Beoordeeld met 4,8/5 door onze klanten.',
 
     nl_ey:       'Sluit je aan bij de familie',
     nl_title:    'Zorg voor uzelf,<br><em>op natuurlijke wijze.</em>',
@@ -166,7 +166,7 @@ window.ALYA_T_NL = {
     a6: 'Ja. Maak uw borstel licht vochtig, doop hem in het poeder voor een kleine hoeveelheid, poets dan normaal. Het poeder schuimt lichtjes bij contact met speeksel. Begin met een kleine dosis — een beetje is genoeg.',
 
     q7: 'Is de exfolierende handschoen geschikt voor gevoelige huid?',
-    a7: 'Ja. Onze handschoen van puur moerbeizijde is <strong>van nature hypoallergeen</strong> en speciaal geschikt voor gevoelige huid. Hij is gecertificeerd <strong>OEKO TEX® Standard 100</strong>, wat de afwezigheid van schadelijke stoffen garandeert. Begin bij zeer reactieve huid met wekelijks gebruik.',
+    a7: 'Ja. Onze handschoen van puur satijn is <strong>van nature hypoallergeen</strong> en speciaal geschikt voor gevoelige huid. Hij is gecertificeerd <strong>OEKO TEX® Standard 100</strong>, wat de afwezigheid van schadelijke stoffen garandeert. Begin bij zeer reactieve huid met wekelijks gebruik.',
 
     q8: 'Hoe vaak moet ik de handschoen gebruiken?',
     a8: 'Voor lichaam en gezicht is <strong>1 à 2 keer per week</strong> voldoende voor een optimale exfoliatie. Zichtbare resultaten al vanaf de eerste gebruik.',
@@ -213,8 +213,8 @@ window.ALYA_T_NL = {
     cq3: 'Kan ik een product retourneren?',
     ca3: 'Onze producten zijn persoonlijke hygiëneartikelen. Conform de Franse consumentenwet kunnen zij niet worden geretourneerd of terugbetaald.',
 
-    cq4: 'Zijn de handschoenen echt van moerbeizijde?',
-    ca4: 'Absoluut. Onze handschoenen zijn gemaakt van 100% natuurlijke moerbeizijde, gecertificeerd OEKO TEX® Standard 100, zonder enige chemicaliën.',
+    cq4: 'Zijn de handschoenen echt van satijn?',
+    ca4: 'Absoluut. Onze handschoenen zijn gemaakt van 100% natuurlijke satijn, gecertificeerd OEKO TEX® Standard 100, zonder enige chemicaliën.',
 
     cq5: 'Hoe gebruik ik de exfolierende lichaamshandschoen?',
     ca5: 'Bevochtig uw huid met warm water gedurende ten minste 5 minuten. Trek de handschoen aan en wrijf in cirkelbewegingen over uw lichaam. Gebruik 1 à 2 keer per week. Spoel de handschoen na gebruik af en laat aan de lucht drogen.',
@@ -281,11 +281,11 @@ window.ALYA_T_NL = {
     s2_eyebrow: 'De missie',
     s2_title:   'Natuurlijke schoonheid,<br><em>zonder compromis</em>',
     s2_p1:      'ALYA & CO. werd opgericht met een drievoudige missie: 100% natuurlijke schoonheidsproducten aanbieden; ze toegankelijk maken voor iedereen; en bijdragen aan de vermindering van plastic en chemisch afval.',
-    s2_p2:      'Moerbeizijde voegde zich op natuurlijke wijze bij de familie — een legendarische vezel, de zachtste ter wereld, gecertificeerd OEKO TEX®.',
+    s2_p2:      'Satijn voegde zich op natuurlijke wijze bij de familie — een legendarische vezel, de zachtste ter wereld, gecertificeerd OEKO TEX®.',
     tl_eyebrow: 'Onze reis',
     tl_title:   'De stappen die ons <em>hebben gevormd</em>',
     tl1_title:  'Het idee ontkiemt',
-    tl1_text:   'Gepassioneerd door natuurlijke huidverzorging begint de oprichter haar onderzoek naar Siwak en moerbeizijde.',
+    tl1_text:   'Gepassioneerd door natuurlijke huidverzorging begint de oprichter haar onderzoek naar Siwak en satijn.',
     tl2_title:  'Oprichting van ALYA & CO.',
     tl2_text:   'Na 18 maanden productontwikkeling wordt ALYA & CO. officieel opgericht in Frankrijk.',
     tl3_title:  'De eerste klanten',
@@ -330,8 +330,8 @@ window.ALYA_T_NL = {
     title:         'Siwak<br><em>Tandenborstel</em>',
     sub:           'Natuurlijke mondhygiëne, wetenschappelijk bewezen effectiever dan een gewone borstel. Erkend door de WHO. 100% natuurlijk, biologisch afbreekbaar.',
     stat1:         '5-sterren reviews',
-    stat2:         'Natuurlijk & Bio',
-    stat3:         'Plasticvrij',
+    stat2:         'Gemiddelde beoordeling',
+    stat3:         'Natuurlijk & Bio',
     p1_name: 'Compleet Siwak Pakket',
     p1_desc: 'Borstel + 3 vervangingskoppen + tandpoeder. Start uw natuurlijke mondverzorging. Bespaar 30%.',
     p2_name: 'Oplaadbare Siwak Tandenborstel',
@@ -354,23 +354,23 @@ window.ALYA_T_NL = {
   col_gants: {
     eyebrow:       'Collectie',
     title:         'Exfolierende<br><em>Handschoenen</em>',
-    sub:           'Moerbeizijde — de beste zijde ter wereld. Natuurlijk, zacht, hypoallergeen. Gecertificeerd OEKO TEX® Standard 100.',
+    sub:           'Satijn — de beste zijde ter wereld. Natuurlijk, zacht, hypoallergeen. Gecertificeerd OEKO TEX® Standard 100.',
     stat1:         'Geverifieerde reviews',
     stat2:         'Gemiddelde beoordeling',
     stat3:         'Gecertificeerd Standard 100',
     prod_eyebrow:  'Alle producten',
-    prod_title:    'De Moerbeizijde<br><em>Collectie</em>',
+    prod_title:    'De Satijn<br><em>Collectie</em>',
     p1_name: '1-Jaar Full Body Pakket',
     p1_desc: 'Lichaam + gezicht. Zachte huid het hele jaar. Bespaar 48% t.o.v. afzonderlijke aankoop.',
-    p2_name: 'Lichaam Exfolierende Handschoen — Moerbeizijde',
+    p2_name: 'Lichaam Exfolierende Handschoen — Satijn',
     p2_desc: 'Zachte lichaamsexfoliatie. Hypoallergeen, alle huidtypes. Zichtbare resultaten vanaf eerste gebruik.',
-    p3_name: 'Gezicht Exfolierende Handschoen — Moerbeizijde',
+    p3_name: 'Gezicht Exfolierende Handschoen — Satijn',
     p3_desc: 'Ultrazacht voor het gezicht. Verwijdert dode huidcellen, anti-acne, anti-mee-eters.',
     p4_name: 'Perfect Holdend Haarelastieksje — Zijde',
-    p4_desc: 'Moerbeizijde. Beschermt uw haar, voorkomt breuk, klitten en kroezen.',
+    p4_desc: 'Satijn. Beschermt uw haar, voorkomt breuk, klitten en kroezen.',
     story_eyebrow: 'Het zijde verhaal',
     story_title:   'De <em>zachtste vezel</em> ter wereld',
-    story_text:    'Moerbeizijde wordt al duizenden jaren gewaardeerd om zijn uitzonderlijke zachtheid en natuurlijke eigenschappen.',
+    story_text:    'Satijn wordt al duizenden jaren gewaardeerd om zijn uitzonderlijke zachtheid en natuurlijke eigenschappen.',
     nl_ey:         'Word lid van de familie',
     nl_title:      'Word lid van de natuurlijke<br><em>schoonheidsrevolutie</em>',
     nl_sub:        'Schrijf u in op onze nieuwsbrief en ontvang 10% korting op uw eerste bestelling.',
@@ -442,7 +442,7 @@ window.ALYA_T_NL = {
       title: 'De 5 exfoliatie-fouten <em>die uw huid beschadigen</em>',
       breadcrumb: 'Exfoliatie-fouten',
       cta_eyebrow: 'Zachte exfoliatie',
-      cta_title: 'De moerbeizijde <em>handschoen</em>',
+      cta_title: 'De satijn <em>handschoen</em>',
       cta_sub: 'Exfolieer correct, zonder uw huid te beschadigen.',
       cta_btn: 'Ontdekken →',
       lang_notice: 'Dit artikel is geschreven in het Frans.'
@@ -451,7 +451,7 @@ window.ALYA_T_NL = {
       title: 'Gevoelige huid en exfoliatie: <em>de complete gids</em>',
       breadcrumb: 'Gevoelige huid & exfoliatie',
       cta_eyebrow: 'Voor gevoelige huid',
-      cta_title: 'De moerbeizijde <em>gezichtshandschoen</em>',
+      cta_title: 'De satijn <em>gezichtshandschoen</em>',
       cta_sub: 'Ultra-zachte exfoliatie, OEKO TEX® gecertificeerd.',
       cta_btn: 'Ontdekken →',
       lang_notice: 'Dit artikel is geschreven in het Frans.'
@@ -475,10 +475,10 @@ window.ALYA_T_NL = {
       lang_notice: 'Dit artikel is geschreven in het Frans.'
     },
     'soie-murier-superieure-gants': {
-      title: 'Waarom moerbeizijde superieur is <em>aan andere exfoliatiehandschoenen</em>',
-      breadcrumb: 'Moerbeizijde vs andere handschoenen',
+      title: 'Waarom satijn superieur is <em>aan andere exfoliatiehandschoenen</em>',
+      breadcrumb: 'Satijn vs andere handschoenen',
       cta_eyebrow: 'De beste exfoliatie',
-      cta_title: 'De moerbeizijde <em>handschoen</em>',
+      cta_title: 'De satijn <em>handschoen</em>',
       cta_sub: 'De enige handschoen die exfolieert, hydrateert en uw huid respecteert.',
       cta_btn: 'Ontdekken →',
       lang_notice: 'Dit artikel is geschreven in het Frans.'
@@ -544,21 +544,21 @@ window.ALYA_T_NL = {
     },
     'gant-corps': {
       eyebrow: 'Exfolierende Handschoenen',
-      title:   'Exfolierende Lichaamshandschoen<br><em>Moerbeizijde</em>',
-      desc:    'Exfolierende lichaamshandschoen van 100% natuurlijke moerbeizijde. Gecertificeerd OEKO TEX® Standard 100. Verwijdert dode huidcellen, ontstopt poriën. Zichtbare resultaten vanaf de eerste gebruik.',
-      bullets: ['100% natuurlijke moerbeizijde', 'OEKO TEX® Standard 100', 'Geschikt voor alle huidtypes', 'Geen chemische producten nodig', '6 tot 12 maanden meegaat']
+      title:   'Exfolierende Lichaamshandschoen<br><em>Satijn</em>',
+      desc:    'Exfolierende lichaamshandschoen van 100% natuurlijke satijn. Gecertificeerd OEKO TEX® Standard 100. Verwijdert dode huidcellen, ontstopt poriën. Zichtbare resultaten vanaf de eerste gebruik.',
+      bullets: ['Puur satijn — zacht voor uw haar', 'OEKO TEX® Standard 100', 'Geschikt voor alle huidtypes', 'Geen chemische producten nodig', '6 tot 12 maanden meegaat']
     },
     'gant-visage': {
       eyebrow: 'Exfolierende Handschoenen',
-      title:   'Exfolierende Gezichtshandschoen<br><em>Moerbeizijde</em>',
-      desc:    'Exfolierende gezichtshandschoen van ultrafijne natuurlijke moerbeizijde. Gecertificeerd OEKO TEX® Standard 100. Speciaal ontworpen voor de delicate huid van het gezicht.',
-      bullets: ['Ultrafijne moerbeizijde', 'OEKO TEX® Standard 100', 'Speciaal voor het gezicht', 'Geschikt voor gevoelige huid', 'Geen chemische producten']
+      title:   'Exfolierende Gezichtshandschoen<br><em>Satijn</em>',
+      desc:    'Exfolierende gezichtshandschoen van ultrafijne natuurlijke satijn. Gecertificeerd OEKO TEX® Standard 100. Speciaal ontworpen voor de delicate huid van het gezicht.',
+      bullets: ['Ultrafijne satijn', 'OEKO TEX® Standard 100', 'Speciaal voor het gezicht', 'Geschikt voor gevoelige huid', 'Geen chemische producten']
     },
     'pack-1an-full-body': {
       eyebrow: 'Onze Pakketten',
       title:   '1-Jaar<br><em>Full Body Pakket</em>',
-      desc:    'De complete oplossing voor perfect zachte huid het hele jaar. Inclusief 1 lichaamshandschoen + 1 gezichtshandschoen in pure moerbeizijde, beide gecertificeerd OEKO TEX®.',
-      bullets: ['Lichaams + gezichtshandschoen', '100% moerbeizijde', 'OEKO TEX® gecertificeerd', '48% besparing', 'Ideaal als cadeau']
+      desc:    'De complete oplossing voor perfect zachte huid het hele jaar. Inclusief 1 lichaamshandschoen + 1 gezichtshandschoen in pure satijn, beide gecertificeerd OEKO TEX®.',
+      bullets: ['Lichaams + gezichtshandschoen', '100% satijn', 'OEKO TEX® gecertificeerd', '48% besparing', 'Ideaal als cadeau']
     },
     'pack-siwak-complet': {
       eyebrow: 'Onze Pakketten',
@@ -580,9 +580,9 @@ window.ALYA_T_NL = {
     },
     'chouchou-soie': {
       eyebrow: 'Accessoires',
-      title:   'Moerbeizijde<br><em>Haarelastiekje</em>',
-      desc:    'Moerbeizijde haarelastiekje dat uw haar beschermt terwijl u slaapt. Vermindert haarbreuk, voorkomt kroes en behoudt uw kapsel. 100% natuurlijk, OEKO TEX® gecertificeerd.',
-      bullets: ['100% natuurlijke moerbeizijde', 'OEKO TEX® Standard 100 gecertificeerd', 'Vermindert haarbreuk', 'Voorkomt kroes', 'Geschikt voor alle haartypes']
+      title:   'Satijn<br><em>Haarelastiekje</em>',
+      desc:    'Satijn haarelastiekje dat uw haar beschermt terwijl u slaapt en overdag. Vermindert haarbreuk, voorkomt kroes en behoudt uw kapsel. Zacht, duurzaam en elegant.',
+      bullets: ['Puur satijn — zacht voor uw haar', 'OEKO TEX® Standard 100 gecertificeerd', 'Vermindert haarbreuk', 'Voorkomt kroes', 'Geschikt voor alle haartypes']
     },
     'pack-tetes-x3': {
       eyebrow: 'Siwak Collectie',

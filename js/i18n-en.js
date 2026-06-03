@@ -10,7 +10,7 @@ window.ALYA_T_EN = {
     'Free Mondial Relay 72h delivery from €45*',
     '100% Natural · Organic · Eco-friendly',
     'Certified OEKO TEX® Standard 100',
-    'Over 500 reviews ★ 4.8/5'
+    'Over 1500 reviews ★ 4.8/5'
   ],
 
   /* ── NAVIGATION ── */
@@ -95,8 +95,8 @@ window.ALYA_T_EN = {
     gants_p2_desc:'Gentle body exfoliation. Hypoallergenic, all skin types. Visible results from first use.',
     gants_p3_name:'Face Exfoliating Glove — Mulberry Silk',
     gants_p3_desc:'Ultra-gentle for the face. Removes dead cells gently, no chemical products needed.',
-    gants_p4_name:'Silk Scrunchie — Perfect Hold',
-    gants_p4_desc:'Silk hair accessory. Gentle, strong, no breakage or tangles.',
+    gants_p4_name:'Satin Scrunchie — Perfect Hold',
+    gants_p4_desc:'Satin hair accessory. Gentle, strong, no breakage or tangles.',
 
     /* Story Gants */
     story2_ey:   'Confidence restored',
@@ -120,7 +120,7 @@ window.ALYA_T_EN = {
     /* Testimonials */
     test_ey:     'Customer reviews',
     test_title:  'They trust <em>us</em>',
-    test_sub:    'Over 500 verified reviews. Rated 4.8/5 by our customers.',
+    test_sub:    'Over 1500 verified reviews. Rated 4.8/5 by our customers.',
 
     /* Newsletter */
     nl_ey:       'Join the family',
@@ -352,8 +352,8 @@ window.ALYA_T_EN = {
     title:         'Siwak<br><em>Toothbrush</em>',
     sub:           'Natural oral hygiene, scientifically proven more effective than a classic brush. Recognised by the WHO. 100% natural, biodegradable.',
     stat1:         '5-star reviews',
-    stat2:         'Natural & Organic',
-    stat3:         'Plastic-free',
+    stat2:         'Average rating',
+    stat3:         'Natural & Organic',
     p1_name: 'Complete Siwak Pack',
     p1_desc: 'Brush + 3 replacement heads + toothpowder. Start natural oral hygiene. Save 30%.',
     p2_name: 'Rechargeable Siwak Toothbrush',
@@ -389,8 +389,8 @@ window.ALYA_T_EN = {
     p2_desc: 'Gentle body exfoliation. Hypoallergenic, all skin types. Visible results from first use.',
     p3_name: 'Face Exfoliating Glove — Mulberry Silk',
     p3_desc: 'Ultra-gentle for the face. Removes dead cells, anti-acne, anti-blackheads.',
-    p4_name: 'Perfect Hold Scrunchie — Silk',
-    p4_desc: 'Mulberry silk. Protects your hair, prevents breakage, tangles and frizz.',
+    p4_name: 'Perfect Hold Scrunchie — Satin',
+    p4_desc: 'Satin. Protects your hair, prevents breakage, tangles and frizz.',
     story_eyebrow: 'The silk story',
     story_title:   'The world\'s softest <em>fibre</em>',
     story_text:    'Mulberry silk has been prized for thousands of years for its exceptional softness and natural properties. Unlike synthetic exfoliating gloves, our 100% natural mulberry silk glove exfoliates without scratching, hydrates the skin with every use, and is hypoallergenic. OEKO TEX® certified, it contains no harmful substances.',
@@ -606,8 +606,8 @@ window.ALYA_T_EN = {
       title:   'Body Exfoliating Glove<br><em>Mulberry Silk</em>',
       desc:    'Body exfoliating glove in 100% natural mulberry silk. Certified OEKO TEX® Standard 100. Gently eliminates dead cells, unclogs pores, prevents ingrown hairs. Visible results from the first use.',
       bullets: [
-        '100% natural mulberry silk',
-        'OEKO TEX® Standard 100 certified',
+        'Pure satin — gentle for your hair',
+        'Protects against breakage and tangles',
         'Suitable for all skin types, including sensitive',
         'No chemical products needed',
         'Lasts 6 to 12 months'
@@ -619,7 +619,7 @@ window.ALYA_T_EN = {
       desc:    'Face exfoliating glove in ultra-fine natural mulberry silk. Certified OEKO TEX® Standard 100. Specifically designed for the delicate skin of the face. Deeply cleanses without irritation.',
       bullets: [
         '100% natural ultra-fine mulberry silk',
-        'OEKO TEX® Standard 100 certified',
+        'Protects against breakage and tangles',
         'Specially for the face',
         'Suitable for sensitive and reactive skin',
         'No chemical products needed'
@@ -631,8 +631,8 @@ window.ALYA_T_EN = {
       desc:    'The complete solution for perfectly smooth skin all year round. Includes 1 body exfoliating glove + 1 face exfoliating glove in pure mulberry silk, both certified OEKO TEX® Standard 100.',
       bullets: [
         'Body glove + face glove included',
-        '100% natural mulberry silk',
-        'OEKO TEX® Standard 100 certified',
+        'Pure satin — gentle for your hair',
+        'Protects against breakage and tangles',
         '48% saving vs separate purchase',
         'Ideal for gifting'
       ]
@@ -651,11 +651,11 @@ window.ALYA_T_EN = {
     },
     'chouchou-soie': {
       eyebrow: 'Accessories',
-      title:   'Mulberry Silk<br><em>Scrunchie</em>',
-      desc:    'Mulberry silk scrunchie that protects your hair while you sleep. Reduces breakage, prevents frizz and preserves your hairstyle. 100% natural, certified OEKO TEX®.',
+      title:   'Perfect Hold<br><em>Satin Scrunchie</em>',
+      desc:    'Satin scrunchie that protects your hair while you sleep and during the day. Reduces breakage, prevents frizz and preserves your hairstyle. Gentle, durable and elegant.',
       bullets: [
-        '100% natural mulberry silk',
-        'OEKO TEX® Standard 100 certified',
+        'Pure satin — gentle for your hair',
+        'Protects against breakage and tangles',
         'Reduces hair breakage',
         'Prevents frizz',
         'Suitable for all hair types'

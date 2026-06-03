@@ -9,7 +9,7 @@ window.ALYA_T_PT = {
     'Envio Mondial Relay 72h gratuito a partir de 45€*',
     '100% Natural · Orgânico · Ecológico',
     'Certificado OEKO TEX® Standard 100',
-    'Mais de 500 avaliações ★ 4,8/5'
+    'Mais de 1500 avaliações ★ 4,8/5'
   ],
 
   nav_home:    'Início',
@@ -53,7 +53,7 @@ window.ALYA_T_PT = {
 
   home: {
     badge:       'Beleza Natural · Pura · Eco',
-    sub:         'Cuidados naturais que respeitam a tua pele e o nosso planeta. Siwak ancestral e seda de amoreira, unidos para o teu bem-estar diário.',
+    sub:         'Cuidados naturais que respeitam a tua pele e o nosso planeta. Siwak ancestral e cetim, unidos para o teu bem-estar diário.',
     discover:    'Descobrir',
     story:       'A nossa história',
     stat_avis:   'Avaliações de clientes',
@@ -83,16 +83,16 @@ window.ALYA_T_PT = {
     gants_sub:   'Seda de amoreira — simplesmente a melhor seda do mundo. Natural, suave, hipoalergénica.',
     gants_p1_name:'Pack 1 Ano Full Body',
     gants_p1_desc:'Corpo + rosto. Pele suave o ano todo. Poupa vs. compra separada.',
-    gants_p2_name:'Luva Esfoliante Corporal — Seda de Amoreira',
+    gants_p2_name:'Luva Esfoliante Corporal — Cetim',
     gants_p2_desc:'Esfoliação suave para o corpo. Hipoalergénica, todos os tipos de pele. Resultados visíveis desde o primeiro uso.',
-    gants_p3_name:'Luva Esfoliante Facial — Seda de Amoreira',
+    gants_p3_name:'Luva Esfoliante Facial — Cetim',
     gants_p3_desc:'Ultra-suave para o rosto. Remove células mortas suavemente, sem produto químico.',
     gants_p4_name:'Elástico de Seda — Fixação Perfeita',
     gants_p4_desc:'Acessório capilar em seda. Suave, resistente, sem quebra nem nós.',
 
     story2_ey:   'Confiança recuperada',
     story2_title:'Uma esfoliação perfeita,<br><em>sem dor</em>',
-    story2_p1:   'Quem disse que era preciso sofrer para estar bonita? Acne, pele seca, pontos negros... NÃO é inevitável. Recupera a confiança que mereces com as luvas ALYA & CO., 100% seda de amoreira — simplesmente a melhor seda do mundo.',
+    story2_p1:   'Quem disse que era preciso sofrer para estar bonita? Acne, pele seca, pontos negros... NÃO é inevitável. Recupera a confiança que mereces com as luvas ALYA & CO., 100% cetim — simplesmente a melhor seda do mundo.',
     story2_p2:   'Certificadas OEKO TEX® Standard 100. Sem produto químico, basta um pouco de água. Um gesto eco-responsável que cuida de ti e do nosso planeta.',
     story2_link: 'Descobrir a coleção de Luvas',
 
@@ -109,7 +109,7 @@ window.ALYA_T_PT = {
 
     test_ey:     'Avaliações de clientes',
     test_title:  'Eles confiam <em>em nós</em>',
-    test_sub:    'Mais de 500 avaliações verificadas. Avaliados 4,8/5 pelos nossos clientes.',
+    test_sub:    'Mais de 1500 avaliações verificadas. Avaliados 4,8/5 pelos nossos clientes.',
 
     nl_ey:       'Junta-te à família',
     nl_title:    'Cuida de ti,<br><em>de forma natural.</em>',
@@ -166,7 +166,7 @@ window.ALYA_T_PT = {
     a6: 'Sim. Molha ligeiramente a escova, mergulha-a no pó para uma pequena quantidade e escova normalmente. O pó faz espuma ligeiramente em contacto com a saliva.',
 
     q7: 'A luva esfoliante é adequada para peles sensíveis?',
-    a7: 'Sim. A nossa luva de seda de amoreira pura é <strong>naturalmente hipoalergénica</strong> e especialmente adaptada para peles sensíveis. É certificada <strong>OEKO TEX® Standard 100</strong>.',
+    a7: 'Sim. A nossa luva de cetim pura é <strong>naturalmente hipoalergénica</strong> e especialmente adaptada para peles sensíveis. É certificada <strong>OEKO TEX® Standard 100</strong>.',
 
     q8: 'Com que frequência devo usar a luva?',
     a8: 'Para corpo e rosto, <strong>1 a 2 vezes por semana</strong> é suficiente para uma esfoliação ótima. Resultados visíveis desde a primeira utilização.',
@@ -213,8 +213,8 @@ window.ALYA_T_PT = {
     cq3: 'Posso devolver um produto?',
     ca3: 'Os nossos produtos são artigos de higiene pessoal. Não podem ser devolvidos nem reembolsados.',
 
-    cq4: 'As luvas são realmente de seda de amoreira?',
-    ca4: 'Absolutamente. As nossas luvas são feitas de 100% seda de amoreira natural, certificada OEKO TEX® Standard 100.',
+    cq4: 'As luvas são realmente de cetim?',
+    ca4: 'Absolutamente. As nossas luvas são feitas de 100% cetim natural, certificada OEKO TEX® Standard 100.',
 
     cq5: 'Como usar a luva esfoliante corporal?',
     ca5: 'Molha a pele com água quente durante pelo menos 5 minutos. Coloca a luva seca e esfrega com movimentos circulares. Usa 1 a 2 vezes por semana. Enxagua a luva após uso e deixa secar ao ar.',
@@ -281,11 +281,11 @@ window.ALYA_T_PT = {
     s2_eyebrow: 'A missão',
     s2_title:   'Beleza natural,<br><em>sem compromissos</em>',
     s2_p1:      'A ALYA & CO. foi fundada com uma tripla missão: oferecer produtos de beleza 100% naturais; torná-los acessíveis a todos a preços razoáveis; e contribuir para a redução de resíduos plásticos.',
-    s2_p2:      'A seda de amoreira juntou-se naturalmente à família — uma fibra lendária, a mais suave do mundo, certificada OEKO TEX®.',
+    s2_p2:      'A cetim juntou-se naturalmente à família — uma fibra lendária, a mais suave do mundo, certificada OEKO TEX®.',
     tl_eyebrow: 'O nosso percurso',
     tl_title:   'Os passos que nos <em>construíram</em>',
     tl1_title:  'A ideia germina',
-    tl1_text:   'Apaixonada pelos cuidados naturais, a fundadora começa a sua investigação sobre o Siwak e a seda de amoreira.',
+    tl1_text:   'Apaixonada pelos cuidados naturais, a fundadora começa a sua investigação sobre o Siwak e a cetim.',
     tl2_title:  'Criação da ALYA & CO.',
     tl2_text:   'Após 18 meses de desenvolvimento de produto, a ALYA & CO. é oficialmente criada em França.',
     tl3_title:  'Os primeiros clientes',
@@ -330,8 +330,8 @@ window.ALYA_T_PT = {
     title:         'Escova de dentes<br><em>Siwak</em>',
     sub:           'Higiene oral natural, cientificamente comprovada mais eficaz do que uma escova clássica. Reconhecida pela OMS. 100% natural, biodegradável.',
     stat1:         'Avaliações 5 estrelas',
-    stat2:         'Natural & Bio',
-    stat3:         'Sem plástico',
+    stat2:         'Avaliação média',
+    stat3:         'Natural & Bio',
     p1_name: 'Pack Siwak Completo',
     p1_desc: 'Escova + 3 cabeças de recarga + dentifício. Inicie a higiene oral natural. Poupe 30%.',
     p2_name: 'Escova de Dentes Siwak Recarregável',
@@ -359,18 +359,18 @@ window.ALYA_T_PT = {
     stat2:         'Avaliação média',
     stat3:         'Certificado Standard 100',
     prod_eyebrow:  'Todos os produtos',
-    prod_title:    'A coleção<br><em>Seda de Amoreira</em>',
+    prod_title:    'A coleção<br><em>Cetim</em>',
     p1_name: 'Pack 1 Ano Full Body',
     p1_desc: 'Corpo + rosto. Pele suave durante todo o ano. Poupe 48% vs compra separada.',
-    p2_name: 'Luva Esfoliante Corpo — Seda de Amoreira',
+    p2_name: 'Luva Esfoliante Corpo — Cetim',
     p2_desc: 'Esfoliação suave para o corpo. Hipoalergénica, todos os tipos de pele. Resultados visíveis desde a primeira utilização.',
-    p3_name: 'Luva Esfoliante Rosto — Seda de Amoreira',
+    p3_name: 'Luva Esfoliante Rosto — Cetim',
     p3_desc: 'Ultra-suave para o rosto. Elimina as células mortas, anti-acne, anti-pontos negros.',
     p4_name: 'Elástico Cabelo Perfeito — Seda',
     p4_desc: 'Seda de amoreira. Protege o seu cabelo, evita quebras, nós e frisagem.',
     story_eyebrow: 'A história da seda',
     story_title:   'A fibra mais suave <em>do mundo</em>',
-    story_text:    'A seda de amoreira é apreciada há milhares de anos pela sua suavidade excecional e propriedades naturais.',
+    story_text:    'A cetim é apreciada há milhares de anos pela sua suavidade excecional e propriedades naturais.',
     nl_ey:         'Junta-te à família',
     nl_title:      'Junta-te à revolução da<br><em>beleza natural</em>',
     nl_sub:        'Subscreve a nossa newsletter e recebe 10% de desconto na tua primeira encomenda.',
@@ -442,7 +442,7 @@ window.ALYA_T_PT = {
       title: 'Os 5 erros de esfoliação <em>que danificam a tua pele</em>',
       breadcrumb: 'Erros de esfoliação',
       cta_eyebrow: 'Esfoliação suave',
-      cta_title: 'A luva <em>de seda de amoreira</em>',
+      cta_title: 'A luva <em>de cetim</em>',
       cta_sub: 'Esfoliar corretamente, sem danificar a pele.',
       cta_btn: 'Descobrir →',
       lang_notice: 'Este artigo está escrito em francês.'
@@ -451,7 +451,7 @@ window.ALYA_T_PT = {
       title: 'Pele sensível e esfoliação: <em>o guia completo</em>',
       breadcrumb: 'Pele sensível e esfoliação',
       cta_eyebrow: 'Para peles sensíveis',
-      cta_title: 'A luva facial <em>de seda de amoreira</em>',
+      cta_title: 'A luva facial <em>de cetim</em>',
       cta_sub: 'Esfoliação ultra-suave, certificada OEKO TEX®.',
       cta_btn: 'Descobrir →',
       lang_notice: 'Este artigo está escrito em francês.'
@@ -475,10 +475,10 @@ window.ALYA_T_PT = {
       lang_notice: 'Este artigo está escrito em francês.'
     },
     'soie-murier-superieure-gants': {
-      title: 'Porque a seda de amoreira é superior <em>a outras luvas esfoliantes</em>',
+      title: 'Porque a cetim é superior <em>a outras luvas esfoliantes</em>',
       breadcrumb: 'Seda de amoreira vs outras luvas',
       cta_eyebrow: 'A melhor esfoliação',
-      cta_title: 'A luva <em>de seda de amoreira</em>',
+      cta_title: 'A luva <em>de cetim</em>',
       cta_sub: 'A única luva que esfolia, hidrata e respeita a tua pele.',
       cta_btn: 'Descobrir →',
       lang_notice: 'Este artigo está escrito em francês.'
@@ -544,21 +544,21 @@ window.ALYA_T_PT = {
     },
     'gant-corps': {
       eyebrow: 'Luvas Esfoliantes',
-      title:   'Luva Esfoliante Corporal<br><em>Seda de Amoreira</em>',
-      desc:    'Luva esfoliante corporal em 100% seda de amoreira natural. Certificada OEKO TEX® Standard 100. Elimina suavemente as células mortas, descongestiona os poros.',
-      bullets: ['100% seda de amoreira natural', 'OEKO TEX® Standard 100', 'Adequada para todos os tipos de pele', 'Sem produtos químicos necessários', 'Dura 6 a 12 meses']
+      title:   'Luva Esfoliante Corporal<br><em>Cetim</em>',
+      desc:    'Luva esfoliante corporal em 100% cetim natural. Certificada OEKO TEX® Standard 100. Elimina suavemente as células mortas, descongestiona os poros.',
+      bullets: ['Cetim puro — suave para o teu cabelo', 'OEKO TEX® Standard 100', 'Adequada para todos os tipos de pele', 'Sem produtos químicos necessários', 'Dura 6 a 12 meses']
     },
     'gant-visage': {
       eyebrow: 'Luvas Esfoliantes',
-      title:   'Luva Esfoliante Facial<br><em>Seda de Amoreira</em>',
-      desc:    'Luva esfoliante facial em seda de amoreira ultra-fina. Certificada OEKO TEX® Standard 100. Especialmente concebida para a pele delicada do rosto.',
+      title:   'Luva Esfoliante Facial<br><em>Cetim</em>',
+      desc:    'Luva esfoliante facial em cetim ultra-fina. Certificada OEKO TEX® Standard 100. Especialmente concebida para a pele delicada do rosto.',
       bullets: ['Seda de amoreira ultra-fina', 'OEKO TEX® Standard 100', 'Especial para o rosto', 'Adequada para pele sensível', 'Sem produtos químicos']
     },
     'pack-1an-full-body': {
       eyebrow: 'Os Nossos Packs',
       title:   'Pack 1 Ano<br><em>Full Body</em>',
-      desc:    'A solução completa para uma pele perfeitamente suave o ano todo. Inclui 1 luva corporal + 1 luva facial em seda de amoreira pura, ambas certificadas OEKO TEX®.',
-      bullets: ['Luva corporal + luva facial', '100% seda de amoreira', 'Certificadas OEKO TEX®', '48% de poupança', 'Ideal como presente']
+      desc:    'A solução completa para uma pele perfeitamente suave o ano todo. Inclui 1 luva corporal + 1 luva facial em cetim pura, ambas certificadas OEKO TEX®.',
+      bullets: ['Luva corporal + luva facial', '100% cetim', 'Certificadas OEKO TEX®', '48% de poupança', 'Ideal como presente']
     },
     'pack-siwak-complet': {
       eyebrow: 'Os Nossos Packs',
@@ -580,9 +580,9 @@ window.ALYA_T_PT = {
     },
     'chouchou-soie': {
       eyebrow: 'Acessórios',
-      title:   'Elástico de<br><em>Seda de Amoreira</em>',
-      desc:    'Elástico de seda de amoreira que protege o teu cabelo enquanto dormes. Reduz a quebra, previne o frizz e preserva o teu penteado. 100% natural, certificado OEKO TEX®.',
-      bullets: ['100% seda de amoreira natural', 'Certificado OEKO TEX® Standard 100', 'Reduz a quebra do cabelo', 'Previne o frizz', 'Adequado para todos os tipos de cabelo']
+      title:   'Elástico de<br><em>Cetim Premium</em>',
+      desc:    'Elástico de cetim que protege o teu cabelo enquanto dormes e durante o dia. Reduz a quebra, previne o frizz e preserva o teu penteado. Suave, durável e elegante.',
+      bullets: ['Cetim puro — suave para o teu cabelo', 'Certificado OEKO TEX® Standard 100', 'Reduz a quebra do cabelo', 'Previne o frizz', 'Adequado para todos os tipos de cabelo']
     },
     'pack-tetes-x3': {
       eyebrow: 'Coleção Siwak',

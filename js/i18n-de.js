@@ -9,7 +9,7 @@ window.ALYA_T_DE = {
     'Kostenloser Mondial Relay 72h Versand ab 45€*',
     '100% Natürlich · Bio · Umweltfreundlich',
     'OEKO TEX® Standard 100 zertifiziert',
-    'Über 500 Bewertungen ★ 4,8/5'
+    'Über 1500 Bewertungen ★ 4,8/5'
   ],
 
   nav_home:    'Startseite',
@@ -53,7 +53,7 @@ window.ALYA_T_DE = {
 
   home: {
     badge:       'Natürliche Schönheit · Pur · Eco',
-    sub:         'Natürliche Pflege, die Ihre Haut und unseren Planeten respektiert. Überlieferter Siwak und Maulbeerseide, vereint für Ihr tägliches Wohlbefinden.',
+    sub:         'Natürliche Pflege, die Ihre Haut und unseren Planeten respektiert. Überlieferter Siwak und Satin, vereint für Ihr tägliches Wohlbefinden.',
     discover:    'Entdecken',
     story:       'Unsere Geschichte',
     stat_avis:   'Kundenbewertungen',
@@ -80,19 +80,19 @@ window.ALYA_T_DE = {
 
     gants_ey:    'Kollektion',
     gants_title: 'Peeling<br><em>Handschuhe</em>',
-    gants_sub:   'Maulbeerseide — schlicht die beste Seide der Welt. Natürlich, sanft, hypoallergen.',
+    gants_sub:   'Satin — schlicht die beste Seide der Welt. Natürlich, sanft, hypoallergen.',
     gants_p1_name:'1-Jahr Full Body Set',
     gants_p1_desc:'Körper + Gesicht. Sanfte Haut das ganze Jahr. Sparen vs. Einzelkauf.',
-    gants_p2_name:'Körper-Peeling-Handschuh — Maulbeerseide',
+    gants_p2_name:'Körper-Peeling-Handschuh — Satin',
     gants_p2_desc:'Sanftes Körperpeeling. Hypoallergen, alle Hauttypen. Sichtbare Ergebnisse ab erstem Gebrauch.',
-    gants_p3_name:'Gesichts-Peeling-Handschuh — Maulbeerseide',
+    gants_p3_name:'Gesichts-Peeling-Handschuh — Satin',
     gants_p3_desc:'Ultra-sanft für das Gesicht. Entfernt abgestorbene Zellen sanft, ohne chemisches Produkt.',
-    gants_p4_name:'Seidenhaarband — Perfekter Halt',
+    gants_p4_name:'Satin Haargummi — Perfekter Halt',
     gants_p4_desc:'Seiden-Haaraccessoire. Sanft, stark, kein Haarbruch oder Knoten.',
 
     story2_ey:   'Selbstvertrauen zurückgewonnen',
     story2_title:'Perfektes Peeling,<br><em>schmerzfrei</em>',
-    story2_p1:   'Wer hat gesagt, dass man leiden muss, um schön auszusehen? Akne, trockene Haut, Mitesser... das ist KEIN Schicksal. Gewinnen Sie das Selbstvertrauen zurück, das Sie verdienen, mit den ALYA & CO. Handschuhen, 100% Maulbeerseide — schlicht die beste Seide der Welt.',
+    story2_p1:   'Wer hat gesagt, dass man leiden muss, um schön auszusehen? Akne, trockene Haut, Mitesser... das ist KEIN Schicksal. Gewinnen Sie das Selbstvertrauen zurück, das Sie verdienen, mit den ALYA & CO. Handschuhen, 100% Satin — schlicht die beste Seide der Welt.',
     story2_p2:   'OEKO TEX® Standard 100 zertifiziert. Kein chemisches Produkt, nur etwas Wasser reicht. Eine umweltfreundliche Geste, die für Sie und unseren Planeten sorgt.',
     story2_link: 'Die Handschuh-Kollektion entdecken',
 
@@ -109,7 +109,7 @@ window.ALYA_T_DE = {
 
     test_ey:     'Kundenbewertungen',
     test_title:  'Sie vertrauen <em>uns</em>',
-    test_sub:    'Über 500 verifizierte Bewertungen. Mit 4,8/5 von unseren Kunden bewertet.',
+    test_sub:    'Über 1500 verifizierte Bewertungen. Mit 4,8/5 von unseren Kunden bewertet.',
 
     nl_ey:       'Der Familie beitreten',
     nl_title:    'Pflegen Sie sich,<br><em>auf natürliche Weise.</em>',
@@ -166,7 +166,7 @@ window.ALYA_T_DE = {
     a6: 'Ja. Feuchten Sie Ihre Zahnbürste leicht an, tauchen Sie sie in das Pulver und putzen Sie wie gewohnt. Beginnen Sie mit einer kleinen Menge.',
 
     q7: 'Ist der Peeling-Handschuh für empfindliche Haut geeignet?',
-    a7: 'Ja. Unser Handschuh aus reiner Maulbeerseide ist <strong>von Natur aus hypoallergen</strong> und für empfindliche Haut geeignet. Zertifiziert <strong>OEKO TEX® Standard 100</strong>.',
+    a7: 'Ja. Unser Handschuh aus reiner Satin ist <strong>von Natur aus hypoallergen</strong> und für empfindliche Haut geeignet. Zertifiziert <strong>OEKO TEX® Standard 100</strong>.',
 
     q8: 'Wie oft sollte ich den Handschuh verwenden?',
     a8: 'Für Körper und Gesicht reicht <strong>1 bis 2 Mal pro Woche</strong> für ein optimales Peeling. Sichtbare Ergebnisse schon ab der ersten Anwendung.',
@@ -213,8 +213,8 @@ window.ALYA_T_DE = {
     cq3: 'Kann ich ein Produkt zurückgeben?',
     ca3: 'Unsere Produkte sind Hygieneartikel. Sie können gemäß dem Verbraucherrecht nicht zurückgegeben oder erstattet werden.',
 
-    cq4: 'Bestehen die Handschuhe wirklich aus Maulbeerseide?',
-    ca4: 'Absolut. Unsere Handschuhe bestehen aus 100% natürlicher Maulbeerseide, zertifiziert OEKO TEX® Standard 100.',
+    cq4: 'Bestehen die Handschuhe wirklich aus Satin?',
+    ca4: 'Absolut. Unsere Handschuhe bestehen aus 100% natürlicher Satin, zertifiziert OEKO TEX® Standard 100.',
 
     cq5: 'Wie benutze ich den Körper-Peeling-Handschuh?',
     ca5: 'Befeuchten Sie Ihre Haut mindestens 5 Minuten mit warmem Wasser. Ziehen Sie den trockenen Handschuh an und reiben Sie kreisförmig. 1 bis 2 Mal pro Woche anwenden. Nach Gebrauch ausspülen und an der Luft trocknen.',
@@ -281,11 +281,11 @@ window.ALYA_T_DE = {
     s2_eyebrow: 'Die Mission',
     s2_title:   'Natürliche Schönheit,<br><em>ohne Kompromisse</em>',
     s2_p1:      'ALYA & CO. wurde mit einer dreifachen Mission gegründet: 100% natürliche Schönheitsprodukte anzubieten; sie für alle zu einem vernünftigen Preis zugänglich zu machen; und zur Reduzierung von Plastik- und Chemiemüll beizutragen.',
-    s2_p2:      'Maulbeerseide trat auf natürliche Weise der Familie bei — eine legendäre Faser, die weichste der Welt, zertifiziert OEKO TEX®.',
+    s2_p2:      'Satin trat auf natürliche Weise der Familie bei — eine legendäre Faser, die weichste der Welt, zertifiziert OEKO TEX®.',
     tl_eyebrow: 'Unsere Reise',
     tl_title:   'Die Schritte, die uns <em>geprägt haben</em>',
     tl1_title:  'Die Idee keimt',
-    tl1_text:   'Leidenschaftlich für natürliche Pflege beginnt die Gründerin ihre Forschung zu Siwak und Maulbeerseide.',
+    tl1_text:   'Leidenschaftlich für natürliche Pflege beginnt die Gründerin ihre Forschung zu Siwak und Satin.',
     tl2_title:  'Gründung von ALYA & CO.',
     tl2_text:   'Nach 18 Monaten Produktentwicklung wird ALYA & CO. offiziell in Frankreich gegründet.',
     tl3_title:  'Die ersten Kunden',
@@ -330,8 +330,8 @@ window.ALYA_T_DE = {
     title:         'Siwak<br><em>Zahnbürste</em>',
     sub:           'Natürliche Mundhygiene, wissenschaftlich als effektiver als eine klassische Zahnbürste bewiesen. Von der WHO anerkannt. 100% natürlich, biologisch abbaubar.',
     stat1:         '5-Sterne Bewertungen',
-    stat2:         'Natürlich & Bio',
-    stat3:         'Plastiikfrei',
+    stat2:         'Durchschnittsnote',
+    stat3:         'Natürlich & Bio',
     p1_name: 'Komplettes Siwak-Set',
     p1_desc: 'Bürste + 3 Ersatzköpfe + Zahnpulver. Starten Sie mit natürlicher Mundhygiene. Sparen Sie 30%.',
     p2_name: 'Wiederaufladbare Siwak-Zahnbürste',
@@ -354,23 +354,23 @@ window.ALYA_T_DE = {
   col_gants: {
     eyebrow:       'Kollektion',
     title:         'Peeling<br><em>Handschuhe</em>',
-    sub:           'Maulbeerseide — einfach die beste Seide der Welt. Natürlich, weich, hypoallergen. OEKO TEX® Standard 100 zertifiziert.',
+    sub:           'Satin — einfach die beste Seide der Welt. Natürlich, weich, hypoallergen. OEKO TEX® Standard 100 zertifiziert.',
     stat1:         'Verifizierte Bewertungen',
     stat2:         'Durchschnittsnote',
     stat3:         'Standard 100 zertifiziert',
     prod_eyebrow:  'Alle Produkte',
-    prod_title:    'Die Maulbeerseide<br><em>Kollektion</em>',
+    prod_title:    'Die Satin<br><em>Kollektion</em>',
     p1_name: '1-Jahr Full Body Set',
     p1_desc: 'Körper + Gesicht. Weiche Haut das ganze Jahr. Spare 48% gegenüber Einzelkauf.',
-    p2_name: 'Körper-Peeling-Handschuh — Maulbeerseide',
+    p2_name: 'Körper-Peeling-Handschuh — Satin',
     p2_desc: 'Sanftes Körperpeeling. Hypoallergen, alle Hauttypen. Sichtbare Ergebnisse ab dem ersten Gebrauch.',
-    p3_name: 'Gesichts-Peeling-Handschuh — Maulbeerseide',
+    p3_name: 'Gesichts-Peeling-Handschuh — Satin',
     p3_desc: 'Ultraweich für das Gesicht. Entfernt abgestorbene Zellen, Anti-Akne, Anti-Mitesser.',
     p4_name: 'Perfekter Halt Haargummi — Seide',
-    p4_desc: 'Maulbeerseide. Schützt Ihr Haar, verhindert Bruch, Verfilzungen und Kräuselungen.',
+    p4_desc: 'Satin. Schützt Ihr Haar, verhindert Bruch, Verfilzungen und Kräuselungen.',
     story_eyebrow: 'Die Seidengeschichte',
     story_title:   'Die <em>weichste Faser</em> der Welt',
-    story_text:    'Maulbeerseide wird seit Jahrtausenden für ihre außergewöhnliche Weichheit und natürlichen Eigenschaften geschätzt.',
+    story_text:    'Satin wird seit Jahrtausenden für ihre außergewöhnliche Weichheit und natürlichen Eigenschaften geschätzt.',
     nl_ey:         'Werde Teil der Familie',
     nl_title:      'Werden Sie Teil der natürlichen<br><em>Schönheitsrevolution</em>',
     nl_sub:        'Abonnieren Sie unseren Newsletter und erhalten Sie 10% Rabatt auf Ihre erste Bestellung.',
@@ -442,7 +442,7 @@ window.ALYA_T_DE = {
       title: 'Die 5 Peeling-Fehler <em>die Ihre Haut schädigen</em>',
       breadcrumb: 'Peeling-Fehler',
       cta_eyebrow: 'Sanftes Peeling',
-      cta_title: 'Der Maulbeerseide <em>Handschuh</em>',
+      cta_title: 'Der Satin <em>Handschuh</em>',
       cta_sub: 'Richtig peelen — ohne Ihre Haut zu schädigen.',
       cta_btn: 'Entdecken →',
       lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
@@ -451,7 +451,7 @@ window.ALYA_T_DE = {
       title: 'Empfindliche Haut und Peeling: <em>der vollständige Leitfaden</em>',
       breadcrumb: 'Empfindliche Haut & Peeling',
       cta_eyebrow: 'Für empfindliche Haut',
-      cta_title: 'Der Maulbeerseide <em>Gesichtshandschuh</em>',
+      cta_title: 'Der Satin <em>Gesichtshandschuh</em>',
       cta_sub: 'Ultra-sanftes Peeling, OEKO TEX® zertifiziert.',
       cta_btn: 'Entdecken →',
       lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
@@ -475,10 +475,10 @@ window.ALYA_T_DE = {
       lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
     },
     'soie-murier-superieure-gants': {
-      title: 'Warum Maulbeerseide überlegener ist <em>als andere Peeling-Handschuhe</em>',
-      breadcrumb: 'Maulbeerseide vs andere Handschuhe',
+      title: 'Warum Satin überlegener ist <em>als andere Peeling-Handschuhe</em>',
+      breadcrumb: 'Satin vs andere Handschuhe',
       cta_eyebrow: 'Das beste Peeling',
-      cta_title: 'Der <em>Maulbeerseide</em> Handschuh',
+      cta_title: 'Der <em>Satin</em> Handschuh',
       cta_sub: 'Der einzige Handschuh, der pellt, hydratisiert und Ihre Haut respektiert.',
       cta_btn: 'Entdecken →',
       lang_notice: 'Dieser Artikel ist auf Französisch verfasst.'
@@ -544,21 +544,21 @@ window.ALYA_T_DE = {
     },
     'gant-corps': {
       eyebrow: 'Peeling Handschuhe',
-      title:   'Körper-Peeling-Handschuh<br><em>Maulbeerseide</em>',
-      desc:    'Körper-Peeling-Handschuh aus 100% natürlicher Maulbeerseide. OEKO TEX® Standard 100 zertifiziert. Entfernt sanft abgestorbene Hautzellen, reinigt Poren.',
-      bullets: ['100% natürliche Maulbeerseide', 'OEKO TEX® Standard 100', 'Für alle Hauttypen geeignet', 'Ohne Chemikalien', '6 bis 12 Monate haltbar']
+      title:   'Körper-Peeling-Handschuh<br><em>Satin</em>',
+      desc:    'Körper-Peeling-Handschuh aus 100% natürlicher Satin. OEKO TEX® Standard 100 zertifiziert. Entfernt sanft abgestorbene Hautzellen, reinigt Poren.',
+      bullets: ['Reines Satin — sanft für Ihr Haar', 'OEKO TEX® Standard 100', 'Für alle Hauttypen geeignet', 'Ohne Chemikalien', '6 bis 12 Monate haltbar']
     },
     'gant-visage': {
       eyebrow: 'Peeling Handschuhe',
-      title:   'Gesichts-Peeling-Handschuh<br><em>Maulbeerseide</em>',
-      desc:    'Gesichts-Peeling-Handschuh aus ultra-feiner natürlicher Maulbeerseide. OEKO TEX® Standard 100 zertifiziert. Speziell für die zarte Gesichtshaut.',
-      bullets: ['Ultra-feine Maulbeerseide', 'OEKO TEX® Standard 100', 'Speziell für das Gesicht', 'Für empfindliche Haut geeignet', 'Ohne Chemikalien']
+      title:   'Gesichts-Peeling-Handschuh<br><em>Satin</em>',
+      desc:    'Gesichts-Peeling-Handschuh aus ultra-feiner natürlicher Satin. OEKO TEX® Standard 100 zertifiziert. Speziell für die zarte Gesichtshaut.',
+      bullets: ['Ultra-feine Satin', 'OEKO TEX® Standard 100', 'Speziell für das Gesicht', 'Für empfindliche Haut geeignet', 'Ohne Chemikalien']
     },
     'pack-1an-full-body': {
       eyebrow: 'Unsere Sets',
       title:   '1-Jahr<br><em>Full Body Set</em>',
-      desc:    'Die komplette Lösung für perfekt glatte Haut das ganze Jahr. Enthält 1 Körperhandschuh + 1 Gesichtshandschuh aus reiner Maulbeerseide, beide OEKO TEX® zertifiziert.',
-      bullets: ['Körper + Gesichtshandschuh', '100% Maulbeerseide', 'OEKO TEX® zertifiziert', '48% Ersparnis', 'Ideal als Geschenk']
+      desc:    'Die komplette Lösung für perfekt glatte Haut das ganze Jahr. Enthält 1 Körperhandschuh + 1 Gesichtshandschuh aus reiner Satin, beide OEKO TEX® zertifiziert.',
+      bullets: ['Körper + Gesichtshandschuh', '100% Satin', 'OEKO TEX® zertifiziert', '48% Ersparnis', 'Ideal als Geschenk']
     },
     'pack-siwak-complet': {
       eyebrow: 'Unsere Sets',
@@ -580,9 +580,9 @@ window.ALYA_T_DE = {
     },
     'chouchou-soie': {
       eyebrow: 'Accessoires',
-      title:   'Maulbeerseide<br><em>Haargummi</em>',
-      desc:    'Maulbeerseide Haargummi, das Ihr Haar beim Schlafen schützt. Reduziert Haarbruch, verhindert Frizz und bewahrt Ihre Frisur. 100% natürlich, OEKO TEX® zertifiziert.',
-      bullets: ['100% natürliche Maulbeerseide', 'OEKO TEX® Standard 100 zertifiziert', 'Reduziert Haarbruch', 'Verhindert Frizz', 'Für alle Haartypen geeignet']
+      title:   'Satin<br><em>Haargummi</em>',
+      desc:    'Satin Haargummi, das Ihr Haar beim Schlafen und tagsüber schützt. Reduziert Haarbruch, verhindert Frizz und bewahrt Ihre Frisur. Sanft, langlebig und elegant.',
+      bullets: ['Reines Satin — sanft für Ihr Haar', 'OEKO TEX® Standard 100 zertifiziert', 'Reduziert Haarbruch', 'Verhindert Frizz', 'Für alle Haartypen geeignet']
     },
     'pack-tetes-x3': {
       eyebrow: 'Siwak Kollektion',

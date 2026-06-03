@@ -9,7 +9,7 @@ window.ALYA_T_ES = {
     'Envío Mondial Relay 72h gratis desde 45€*',
     '100% Natural · Orgánico · Ecorresponsable',
     'Certificado OEKO TEX® Standard 100',
-    'Más de 500 opiniones ★ 4,8/5'
+    'Más de 1500 opiniones ★ 4,8/5'
   ],
 
   nav_home:    'Inicio',
@@ -53,7 +53,7 @@ window.ALYA_T_ES = {
 
   home: {
     badge:       'Belleza Natural · Pura · Eco',
-    sub:         'Cuidados naturales que respetan tu piel y nuestro planeta. Siwak ancestral y seda de morera, unidos para tu bienestar diario.',
+    sub:         'Cuidados naturales que respetan tu piel y nuestro planeta. Siwak ancestral y satén, unidos para tu bienestar diario.',
     discover:    'Descubrir',
     story:       'Nuestra historia',
     stat_avis:   'Opiniones de clientes',
@@ -83,16 +83,16 @@ window.ALYA_T_ES = {
     gants_sub:   'Seda de morera — simplemente la mejor seda del mundo. Natural, suave, hipoalergénica.',
     gants_p1_name:'Pack 1 Año Full Body',
     gants_p1_desc:'Cuerpo + cara. Piel suave todo el año. Ahorra vs. compra separada.',
-    gants_p2_name:'Guante Exfoliante Corporal — Seda de Morera',
+    gants_p2_name:'Guante Exfoliante Corporal — Satén',
     gants_p2_desc:'Exfoliación suave para el cuerpo. Hipoalergénico, todo tipo de piel. Resultados visibles desde el primer uso.',
-    gants_p3_name:'Guante Exfoliante Facial — Seda de Morera',
+    gants_p3_name:'Guante Exfoliante Facial — Satén',
     gants_p3_desc:'Ultra-suave para el rostro. Elimina células muertas suavemente, sin producto químico.',
     gants_p4_name:'Coletero de Seda — Sujeción Perfecta',
     gants_p4_desc:'Accesorio capilar de seda. Suave, resistente, sin rotura ni nudos.',
 
     story2_ey:   'Confianza recuperada',
     story2_title:'Una exfoliación perfecta,<br><em>sin dolor</em>',
-    story2_p1:   '¿Quién dijo que había que sufrir para estar guapa? Acné, piel seca, puntos negros... NO es inevitable. Recupera la confianza que mereces con los guantes ALYA & CO., 100% seda de morera — simplemente la mejor seda del mundo.',
+    story2_p1:   '¿Quién dijo que había que sufrir para estar guapa? Acné, piel seca, puntos negros... NO es inevitable. Recupera la confianza que mereces con los guantes ALYA & CO., 100% satén — simplemente la mejor seda del mundo.',
     story2_p2:   'Certificados OEKO TEX® Standard 100. Sin producto químico, solo un poco de agua es suficiente. Un gesto eco-responsable que cuida de ti y de nuestro planeta.',
     story2_link: 'Descubrir la colección de Guantes',
 
@@ -109,7 +109,7 @@ window.ALYA_T_ES = {
 
     test_ey:     'Opiniones de clientes',
     test_title:  'Ellos confían <em>en nosotros</em>',
-    test_sub:    'Más de 500 opiniones verificadas. Valorados 4,8/5 por nuestros clientes.',
+    test_sub:    'Más de 1500 opiniones verificadas. Valorados 4,8/5 por nuestros clientes.',
 
     nl_ey:       'Únete a la familia',
     nl_title:    'Cuídate,<br><em>de forma natural.</em>',
@@ -166,7 +166,7 @@ window.ALYA_T_ES = {
     a6: 'Sí. Humedece ligeramente tu cepillo, sumérgelo en el polvo para obtener una pequeña cantidad y cepíllate normalmente. El polvo forma espuma ligeramente al contacto con la saliva.',
 
     q7: '¿El guante exfoliante es adecuado para pieles sensibles?',
-    a7: 'Sí. Nuestro guante de seda de morera pura es <strong>naturalmente hipoalergénico</strong> y especialmente adaptado para pieles sensibles. Está certificado <strong>OEKO TEX® Standard 100</strong>.',
+    a7: 'Sí. Nuestro guante de satén pura es <strong>naturalmente hipoalergénico</strong> y especialmente adaptado para pieles sensibles. Está certificado <strong>OEKO TEX® Standard 100</strong>.',
 
     q8: '¿Con qué frecuencia debo usar el guante?',
     a8: 'Para cuerpo y cara, <strong>1 o 2 veces por semana</strong> es suficiente para una exfoliación óptima. Verás resultados visibles desde el primer uso.',
@@ -213,8 +213,8 @@ window.ALYA_T_ES = {
     cq3: '¿Puedo devolver un producto?',
     ca3: 'Nuestros productos son artículos de higiene personal. No pueden devolverse ni reembolsarse.',
 
-    cq4: '¿Son los guantes realmente de seda de morera?',
-    ca4: 'Absolutamente. Nuestros guantes están fabricados con 100% seda de morera natural, certificada OEKO TEX® Standard 100.',
+    cq4: '¿Son los guantes realmente de satén?',
+    ca4: 'Absolutamente. Nuestros guantes están fabricados con 100% satén natural, certificada OEKO TEX® Standard 100.',
 
     cq5: '¿Cómo uso el guante exfoliante corporal?',
     ca5: 'Humedece tu piel con agua caliente durante al menos 5 minutos. Ponte el guante seco y frota en movimientos circulares. Usa 1 a 2 veces por semana. Enjuaga el guante después y déjalo secar al aire.',
@@ -281,11 +281,11 @@ window.ALYA_T_ES = {
     s2_eyebrow: 'La misión',
     s2_title:   'Belleza natural,<br><em>sin compromisos</em>',
     s2_p1:      'ALYA & CO. fue fundada con una triple misión: ofrecer productos de belleza 100% naturales; hacerlos accesibles a todos a precios razonables; y contribuir a la reducción de residuos plásticos.',
-    s2_p2:      'La seda de morera se unió naturalmente a la familia — una fibra legendaria, la más suave del mundo, certificada OEKO TEX®.',
+    s2_p2:      'La satén se unió naturalmente a la familia — una fibra legendaria, la más suave del mundo, certificada OEKO TEX®.',
     tl_eyebrow: 'Nuestro recorrido',
     tl_title:   'Los pasos que nos <em>formaron</em>',
     tl1_title:  'La idea germina',
-    tl1_text:   'Apasionada por los cuidados naturales, la fundadora comienza su investigación sobre el Siwak y la seda de morera.',
+    tl1_text:   'Apasionada por los cuidados naturales, la fundadora comienza su investigación sobre el Siwak y la satén.',
     tl2_title:  'Creación de ALYA & CO.',
     tl2_text:   'Tras 18 meses de desarrollo de productos, ALYA & CO. se crea oficialmente en Francia.',
     tl3_title:  'Los primeros clientes',
@@ -330,8 +330,8 @@ window.ALYA_T_ES = {
     title:         'Cepillo de dientes<br><em>Siwak</em>',
     sub:           'Higiene bucal natural, científicamente probada más eficaz que un cepillo clásico. Reconocida por la OMS. 100% natural, biodegradable.',
     stat1:         'Reseñas de 5 estrellas',
-    stat2:         'Natural & Orgánico',
-    stat3:         'Sin plástico',
+    stat2:         'Valoración media',
+    stat3:         'Natural & Orgánico',
     p1_name: 'Pack Siwak Completo',
     p1_desc: 'Cepillo + 3 cabezales de recarga + dentífrico. Comienza tu higiene bucal natural. Ahorra 30%.',
     p2_name: 'Cepillo de Dientes Siwak Recargable',
@@ -359,18 +359,18 @@ window.ALYA_T_ES = {
     stat2:         'Valoración media',
     stat3:         'Certificado Standard 100',
     prod_eyebrow:  'Todos los productos',
-    prod_title:    'La colección<br><em>Seda de Morera</em>',
+    prod_title:    'La colección<br><em>Satén</em>',
     p1_name: 'Pack 1 Año Full Body',
     p1_desc: 'Cuerpo + cara. Piel suave todo el año. Ahorra 48% frente a compra separada.',
-    p2_name: 'Guante Exfoliante Cuerpo — Seda de Morera',
+    p2_name: 'Guante Exfoliante Cuerpo — Satén',
     p2_desc: 'Exfoliación suave para el cuerpo. Hipoalergénico, todos los tipos de piel. Resultados visibles desde el primer uso.',
-    p3_name: 'Guante Exfoliante Cara — Seda de Morera',
+    p3_name: 'Guante Exfoliante Cara — Satén',
     p3_desc: 'Ultrasuave para la cara. Elimina las células muertas, anti-acné, anti-puntos negros.',
     p4_name: 'Coletero Sujeción Perfecta — Seda',
     p4_desc: 'Seda de morera. Protege tu cabello, evita la rotura, los nudos y el encrespamiento.',
     story_eyebrow: 'La historia de la seda',
     story_title:   'La fibra más suave <em>del mundo</em>',
-    story_text:    'La seda de morera ha sido apreciada durante miles de años por su excepcional suavidad y propiedades naturales.',
+    story_text:    'La satén ha sido apreciada durante miles de años por su excepcional suavidad y propiedades naturales.',
     nl_ey:         'Únete a la familia',
     nl_title:      'Únete a la revolución de la<br><em>belleza natural</em>',
     nl_sub:        'Suscríbete a nuestro boletín y recibe un 10% de descuento en tu primer pedido.',
@@ -442,7 +442,7 @@ window.ALYA_T_ES = {
       title: 'Los 5 errores de exfoliación <em>que dañan tu piel</em>',
       breadcrumb: 'Errores de exfoliación',
       cta_eyebrow: 'Exfoliación suave',
-      cta_title: 'El guante <em>de seda de morera</em>',
+      cta_title: 'El guante <em>de satén</em>',
       cta_sub: 'Exfolia correctamente, sin dañar tu piel.',
       cta_btn: 'Descubrir →',
       lang_notice: 'Este artículo está escrito en francés.'
@@ -451,7 +451,7 @@ window.ALYA_T_ES = {
       title: 'Piel sensible y exfoliación: <em>la guía completa</em>',
       breadcrumb: 'Piel sensible y exfoliación',
       cta_eyebrow: 'Para pieles sensibles',
-      cta_title: 'El guante facial <em>de seda de morera</em>',
+      cta_title: 'El guante facial <em>de satén</em>',
       cta_sub: 'Exfoliación ultra-suave, certificado OEKO TEX®.',
       cta_btn: 'Descubrir →',
       lang_notice: 'Este artículo está escrito en francés.'
@@ -475,10 +475,10 @@ window.ALYA_T_ES = {
       lang_notice: 'Este artículo está escrito en francés.'
     },
     'soie-murier-superieure-gants': {
-      title: 'Por qué la seda de morera es superior <em>a otros guantes exfoliantes</em>',
+      title: 'Por qué la satén es superior <em>a otros guantes exfoliantes</em>',
       breadcrumb: 'Seda de morera vs otros guantes',
       cta_eyebrow: 'La mejor exfoliación',
-      cta_title: 'El guante <em>de seda de morera</em>',
+      cta_title: 'El guante <em>de satén</em>',
       cta_sub: 'El único guante que exfolia, hidrata y respeta tu piel.',
       cta_btn: 'Descubrir →',
       lang_notice: 'Este artículo está escrito en francés.'
@@ -544,21 +544,21 @@ window.ALYA_T_ES = {
     },
     'gant-corps': {
       eyebrow: 'Guantes Exfoliantes',
-      title:   'Guante Exfoliante Corporal<br><em>Seda de Morera</em>',
-      desc:    'Guante exfoliante corporal de 100% seda de morera natural. Certificado OEKO TEX® Standard 100. Elimina suavemente las células muertas, descongestiona los poros.',
-      bullets: ['100% seda de morera natural', 'OEKO TEX® Standard 100', 'Apto para todos los tipos de piel', 'Sin productos químicos', 'Dura 6 a 12 meses']
+      title:   'Guante Exfoliante Corporal<br><em>Satén</em>',
+      desc:    'Guante exfoliante corporal de 100% satén natural. Certificado OEKO TEX® Standard 100. Elimina suavemente las células muertas, descongestiona los poros.',
+      bullets: ['Satén puro — suave para tu cabello', 'OEKO TEX® Standard 100', 'Apto para todos los tipos de piel', 'Sin productos químicos', 'Dura 6 a 12 meses']
     },
     'gant-visage': {
       eyebrow: 'Guantes Exfoliantes',
-      title:   'Guante Exfoliante Facial<br><em>Seda de Morera</em>',
-      desc:    'Guante exfoliante facial de seda de morera ultrafina. Certificado OEKO TEX® Standard 100. Especialmente diseñado para la piel delicada del rostro.',
+      title:   'Guante Exfoliante Facial<br><em>Satén</em>',
+      desc:    'Guante exfoliante facial de satén ultrafina. Certificado OEKO TEX® Standard 100. Especialmente diseñado para la piel delicada del rostro.',
       bullets: ['Seda de morera ultrafina', 'OEKO TEX® Standard 100', 'Especial para el rostro', 'Apto para piel sensible', 'Sin productos químicos']
     },
     'pack-1an-full-body': {
       eyebrow: 'Nuestros Packs',
       title:   'Pack 1 Año<br><em>Full Body</em>',
-      desc:    'La solución completa para una piel perfectamente suave todo el año. Incluye 1 guante corporal + 1 guante facial en seda de morera pura, ambos certificados OEKO TEX®.',
-      bullets: ['Guante corporal + guante facial', '100% seda de morera', 'Certificado OEKO TEX®', '48% de ahorro', 'Ideal como regalo']
+      desc:    'La solución completa para una piel perfectamente suave todo el año. Incluye 1 guante corporal + 1 guante facial en satén pura, ambos certificados OEKO TEX®.',
+      bullets: ['Guante corporal + guante facial', '100% satén', 'Certificado OEKO TEX®', '48% de ahorro', 'Ideal como regalo']
     },
     'pack-siwak-complet': {
       eyebrow: 'Nuestros Packs',
@@ -580,9 +580,9 @@ window.ALYA_T_ES = {
     },
     'chouchou-soie': {
       eyebrow: 'Accesorios',
-      title:   'Coletero de<br><em>Seda de Morera</em>',
-      desc:    'Coletero de seda de morera que protege tu cabello mientras duermes. Reduce la rotura, previene el encrespamiento y preserva tu peinado. 100% natural, certificado OEKO TEX®.',
-      bullets: ['100% seda de morera natural', 'Certificado OEKO TEX® Standard 100', 'Reduce la rotura del cabello', 'Previene el encrespamiento', 'Apto para todo tipo de cabello']
+      title:   'Coletero de<br><em>Satén Premium</em>',
+      desc:    'Coletero de satén que protege tu cabello mientras duermes y durante el día. Reduce la rotura, previene el encrespamiento y preserva tu peinado. Suave, duradero y elegante.',
+      bullets: ['Satén puro — suave para tu cabello', 'Certificado OEKO TEX® Standard 100', 'Reduce la rotura del cabello', 'Previene el encrespamiento', 'Apto para todo tipo de cabello']
     },
     'pack-tetes-x3': {
       eyebrow: 'Colección Siwak',

@@ -9,7 +9,7 @@ window.ALYA_T_IT = {
     'Spedizione Mondial Relay 72h gratuita da 45€*',
     '100% Naturale · Biologico · Ecologico',
     'Certificato OEKO TEX® Standard 100',
-    'Oltre 500 recensioni ★ 4,8/5'
+    'Oltre 1500 recensioni ★ 4,8/5'
   ],
 
   nav_home:    'Home',
@@ -53,7 +53,7 @@ window.ALYA_T_IT = {
 
   home: {
     badge:       'Bellezza Naturale · Pura · Eco',
-    sub:         'Cura naturale che rispetta la tua pelle e il nostro pianeta. Siwak ancestrale e seta di gelso, uniti per il tuo benessere quotidiano.',
+    sub:         'Cura naturale che rispetta la tua pelle e il nostro pianeta. Siwak ancestrale e raso, uniti per il tuo benessere quotidiano.',
     discover:    'Scopri',
     story:       'La nostra storia',
     stat_avis:   'Recensioni clienti',
@@ -83,16 +83,16 @@ window.ALYA_T_IT = {
     gants_sub:   'Seta di gelso — semplicemente la migliore seta al mondo. Naturale, morbida, ipoallergenica.',
     gants_p1_name:'Pack 1 Anno Full Body',
     gants_p1_desc:'Corpo + viso. Pelle morbida tutto l\'anno. Risparmia vs. acquisto separato.',
-    gants_p2_name:'Guanto Esfoliante Corpo — Seta di Gelso',
+    gants_p2_name:'Guanto Esfoliante Corpo — Raso',
     gants_p2_desc:'Esfoliazione delicata per il corpo. Ipoallergenico, tutti i tipi di pelle. Risultati visibili dal primo utilizzo.',
-    gants_p3_name:'Guanto Esfoliante Viso — Seta di Gelso',
+    gants_p3_name:'Guanto Esfoliante Viso — Raso',
     gants_p3_desc:'Ultra-delicato per il viso. Rimuove le cellule morte delicatamente, senza prodotto chimico.',
     gants_p4_name:'Elastico per Capelli in Seta — Tenuta Perfetta',
     gants_p4_desc:'Accessorio per capelli in seta. Morbido, resistente, senza rottura né nodi.',
 
     story2_ey:   'Fiducia ritrovata',
     story2_title:'Un\'esfoliazione perfetta,<br><em>senza dolore</em>',
-    story2_p1:   'Chi ha detto che bisogna soffrire per essere bella? Acne, pelle secca, punti neri... NON è inevitabile. Ritrova la fiducia che meriti con i guanti ALYA & CO., 100% seta di gelso — semplicemente la migliore seta al mondo.',
+    story2_p1:   'Chi ha detto che bisogna soffrire per essere bella? Acne, pelle secca, punti neri... NON è inevitabile. Ritrova la fiducia che meriti con i guanti ALYA & CO., 100% raso — semplicemente la migliore seta al mondo.',
     story2_p2:   'Certificati OEKO TEX® Standard 100. Senza prodotto chimico, basta un po\' d\'acqua. Un gesto eco-responsabile che si prende cura di te e del nostro pianeta.',
     story2_link: 'Scopri la collezione Guanti',
 
@@ -109,7 +109,7 @@ window.ALYA_T_IT = {
 
     test_ey:     'Recensioni clienti',
     test_title:  'Si fidano <em>di noi</em>',
-    test_sub:    'Oltre 500 recensioni verificate. Valutati 4,8/5 dai nostri clienti.',
+    test_sub:    'Oltre 1500 recensioni verificate. Valutati 4,8/5 dai nostri clienti.',
 
     nl_ey:       'Unisciti alla famiglia',
     nl_title:    'Prenditi cura di te,<br><em>in modo naturale.</em>',
@@ -166,7 +166,7 @@ window.ALYA_T_IT = {
     a6: 'Sì. Bagna leggermente lo spazzolino, immergilo nella polvere per una piccola quantità, poi spazzola normalmente. La polvere fa leggermente schiuma a contatto con la saliva.',
 
     q7: 'Il guanto esfoliante è adatto per le pelli sensibili?',
-    a7: 'Sì. Il nostro guanto in pura seta di gelso è <strong>naturalmente ipoallergenico</strong> e adatto alle pelli sensibili. È certificato <strong>OEKO TEX® Standard 100</strong>.',
+    a7: 'Sì. Il nostro guanto in pura raso è <strong>naturalmente ipoallergenico</strong> e adatto alle pelli sensibili. È certificato <strong>OEKO TEX® Standard 100</strong>.',
 
     q8: 'Con quale frequenza usare il guanto?',
     a8: 'Per corpo e viso, <strong>1-2 volte a settimana</strong> è sufficiente per un\'esfoliazione ottimale. Risultati visibili già dal primo utilizzo.',
@@ -213,8 +213,8 @@ window.ALYA_T_IT = {
     cq3: 'Posso restituire un prodotto?',
     ca3: 'I nostri prodotti sono articoli di igiene personale. Non possono essere restituiti né rimborsati.',
 
-    cq4: 'I guanti sono davvero in seta di gelso?',
-    ca4: 'Assolutamente. I nostri guanti sono realizzati in 100% seta di gelso naturale, certificata OEKO TEX® Standard 100.',
+    cq4: 'I guanti sono davvero in raso?',
+    ca4: 'Assolutamente. I nostri guanti sono realizzati in 100% raso naturale, certificata OEKO TEX® Standard 100.',
 
     cq5: 'Come si usa il guanto esfoliante corpo?',
     ca5: 'Bagna la pelle con acqua calda per almeno 5 minuti. Indossa il guanto asciutto e strofina con movimenti circolari. Usa 1-2 volte a settimana. Sciacqua il guanto dopo l\'uso e lascia asciugare all\'aria.',
@@ -281,11 +281,11 @@ window.ALYA_T_IT = {
     s2_eyebrow: 'La missione',
     s2_title:   'Bellezza naturale,<br><em>senza compromessi</em>',
     s2_p1:      'ALYA & CO. è stata fondata con una triplice missione: offrire prodotti di bellezza 100% naturali; renderli accessibili a tutti a prezzi ragionevoli; e contribuire alla riduzione dei rifiuti plastici.',
-    s2_p2:      'La seta di gelso si è unita naturalmente alla famiglia — una fibra leggendaria, la più morbida del mondo, certificata OEKO TEX®.',
+    s2_p2:      'La raso si è unita naturalmente alla famiglia — una fibra leggendaria, la più morbida del mondo, certificata OEKO TEX®.',
     tl_eyebrow: 'Il nostro percorso',
     tl_title:   'I passi che ci hanno <em>costruite</em>',
     tl1_title:  'L\'idea germoglia',
-    tl1_text:   'Appassionata di cure naturali, la fondatrice inizia le sue ricerche sul Siwak e la seta di gelso.',
+    tl1_text:   'Appassionata di cure naturali, la fondatrice inizia le sue ricerche sul Siwak e la raso.',
     tl2_title:  'Creazione di ALYA & CO.',
     tl2_text:   'Dopo 18 mesi di sviluppo prodotto, ALYA & CO. viene ufficialmente creata in Francia.',
     tl3_title:  'I primi clienti',
@@ -330,8 +330,8 @@ window.ALYA_T_IT = {
     title:         'Spazzolino da denti<br><em>Siwak</em>',
     sub:           'Igiene orale naturale, scientificamente provata più efficace di uno spazzolino classico. Riconosciuta dall\'OMS. 100% naturale, biodegradabile.',
     stat1:         'Recensioni 5 stelle',
-    stat2:         'Naturale & Bio',
-    stat3:         'Senza plastica',
+    stat2:         'Valutazione media',
+    stat3:         'Naturale & Bio',
     p1_name: 'Pack Siwak Completo',
     p1_desc: 'Spazzolino + 3 testine di ricambio + dentifricio. Inizia l\'igiene orale naturale. Risparmia 30%.',
     p2_name: 'Spazzolino Siwak Ricaricabile',
@@ -359,18 +359,18 @@ window.ALYA_T_IT = {
     stat2:         'Valutazione media',
     stat3:         'Certificato Standard 100',
     prod_eyebrow:  'Tutti i prodotti',
-    prod_title:    'La collezione<br><em>Seta di Gelso</em>',
+    prod_title:    'La collezione<br><em>Raso</em>',
     p1_name: 'Pack 1 Anno Full Body',
     p1_desc: 'Corpo + viso. Pelle morbida tutto l\'anno. Risparmia 48% rispetto all\'acquisto separato.',
-    p2_name: 'Guanto Esfoliante Corpo — Seta di Gelso',
+    p2_name: 'Guanto Esfoliante Corpo — Raso',
     p2_desc: 'Esfoliazione delicata per il corpo. Ipoallergenico, tutti i tipi di pelle. Risultati visibili dal primo utilizzo.',
-    p3_name: 'Guanto Esfoliante Viso — Seta di Gelso',
+    p3_name: 'Guanto Esfoliante Viso — Raso',
     p3_desc: 'Ultra-delicato per il viso. Elimina le cellule morte, anti-acne, anti-punti neri.',
     p4_name: 'Elastico Tenuta Perfetta — Seta',
     p4_desc: 'Seta di gelso. Protegge i capelli, evita la rottura, i nodi e il crespo.',
     story_eyebrow: 'La storia della seta',
     story_title:   'La fibra più morbida <em>del mondo</em>',
-    story_text:    'La seta di gelso è stata apprezzata per migliaia di anni per la sua eccezionale morbidezza e le sue proprietà naturali.',
+    story_text:    'La raso è stata apprezzata per migliaia di anni per la sua eccezionale morbidezza e le sue proprietà naturali.',
     nl_ey:         'Unisciti alla famiglia',
     nl_title:      'Unisciti alla rivoluzione della<br><em>bellezza naturale</em>',
     nl_sub:        'Iscriviti alla nostra newsletter e ricevi il 10% di sconto sul tuo primo ordine.',
@@ -442,7 +442,7 @@ window.ALYA_T_IT = {
       title: 'I 5 errori di esfoliazione <em>che danneggiano la tua pelle</em>',
       breadcrumb: 'Errori di esfoliazione',
       cta_eyebrow: 'Esfoliazione delicata',
-      cta_title: 'Il guanto <em>di seta di gelso</em>',
+      cta_title: 'Il guanto <em>di raso</em>',
       cta_sub: 'Esfoliare correttamente, senza danneggiare la pelle.',
       cta_btn: 'Scopri →',
       lang_notice: 'Questo articolo è scritto in francese.'
@@ -451,7 +451,7 @@ window.ALYA_T_IT = {
       title: 'Pelle sensibile ed esfoliazione: <em>la guida completa</em>',
       breadcrumb: 'Pelle sensibile ed esfoliazione',
       cta_eyebrow: 'Per pelli sensibili',
-      cta_title: 'Il guanto viso <em>di seta di gelso</em>',
+      cta_title: 'Il guanto viso <em>di raso</em>',
       cta_sub: 'Esfoliazione ultra-delicata, certificata OEKO TEX®.',
       cta_btn: 'Scopri →',
       lang_notice: 'Questo articolo è scritto in francese.'
@@ -475,10 +475,10 @@ window.ALYA_T_IT = {
       lang_notice: 'Questo articolo è scritto in francese.'
     },
     'soie-murier-superieure-gants': {
-      title: 'Perché la seta di gelso è superiore <em>ad altri guanti esfolianti</em>',
+      title: 'Perché la raso è superiore <em>ad altri guanti esfolianti</em>',
       breadcrumb: 'Seta di gelso vs altri guanti',
       cta_eyebrow: 'La migliore esfoliazione',
-      cta_title: 'Il guanto <em>di seta di gelso</em>',
+      cta_title: 'Il guanto <em>di raso</em>',
       cta_sub: 'L\'unico guanto che esfolia, idrata e rispetta la tua pelle.',
       cta_btn: 'Scopri →',
       lang_notice: 'Questo articolo è scritto in francese.'
@@ -544,21 +544,21 @@ window.ALYA_T_IT = {
     },
     'gant-corps': {
       eyebrow: 'Guanti Esfolianti',
-      title:   'Guanto Esfoliante Corpo<br><em>Seta di Gelso</em>',
-      desc:    'Guanto esfoliante corpo in 100% seta di gelso naturale. Certificato OEKO TEX® Standard 100. Elimina delicatamente le cellule morte, libera i pori.',
-      bullets: ['100% seta di gelso naturale', 'OEKO TEX® Standard 100', 'Adatto a tutti i tipi di pelle', 'Nessun prodotto chimico necessario', 'Dura 6-12 mesi']
+      title:   'Guanto Esfoliante Corpo<br><em>Raso</em>',
+      desc:    'Guanto esfoliante corpo in 100% raso naturale. Certificato OEKO TEX® Standard 100. Elimina delicatamente le cellule morte, libera i pori.',
+      bullets: ['Raso puro — morbido per i tuoi capelli', 'OEKO TEX® Standard 100', 'Adatto a tutti i tipi di pelle', 'Nessun prodotto chimico necessario', 'Dura 6-12 mesi']
     },
     'gant-visage': {
       eyebrow: 'Guanti Esfolianti',
-      title:   'Guanto Esfoliante Viso<br><em>Seta di Gelso</em>',
-      desc:    'Guanto esfoliante viso in seta di gelso ultra-fine. Certificato OEKO TEX® Standard 100. Appositamente progettato per la pelle delicata del viso.',
+      title:   'Guanto Esfoliante Viso<br><em>Raso</em>',
+      desc:    'Guanto esfoliante viso in raso ultra-fine. Certificato OEKO TEX® Standard 100. Appositamente progettato per la pelle delicata del viso.',
       bullets: ['Seta di gelso ultra-fine', 'OEKO TEX® Standard 100', 'Speciale per il viso', 'Adatto a pelle sensibile', 'Nessun prodotto chimico']
     },
     'pack-1an-full-body': {
       eyebrow: 'I Nostri Pack',
       title:   'Pack 1 Anno<br><em>Full Body</em>',
-      desc:    'La soluzione completa per una pelle perfettamente morbida tutto l\'anno. Include 1 guanto corpo + 1 guanto viso in pura seta di gelso, entrambi certificati OEKO TEX®.',
-      bullets: ['Guanto corpo + guanto viso', '100% seta di gelso', 'Certificato OEKO TEX®', '48% di risparmio', 'Ideale come regalo']
+      desc:    'La soluzione completa per una pelle perfettamente morbida tutto l\'anno. Include 1 guanto corpo + 1 guanto viso in pura raso, entrambi certificati OEKO TEX®.',
+      bullets: ['Guanto corpo + guanto viso', '100% raso', 'Certificato OEKO TEX®', '48% di risparmio', 'Ideale come regalo']
     },
     'pack-siwak-complet': {
       eyebrow: 'I Nostri Pack',
@@ -580,9 +580,9 @@ window.ALYA_T_IT = {
     },
     'chouchou-soie': {
       eyebrow: 'Accessori',
-      title:   'Elastico per capelli<br><em>in Seta di Gelso</em>',
-      desc:    'Elastico per capelli in seta di gelso che protegge i tuoi capelli mentre dormi. Riduce la rottura, previene il crespo e preserva la tua acconciatura. 100% naturale, certificato OEKO TEX®.',
-      bullets: ['100% seta di gelso naturale', 'Certificato OEKO TEX® Standard 100', 'Riduce la rottura dei capelli', 'Previene il crespo', 'Adatto a tutti i tipi di capelli']
+      title:   'Elastico per capelli<br><em>in Raso Premium</em>',
+      desc:    'Elastico per capelli in raso che protegge i tuoi capelli mentre dormi e durante il giorno. Riduce la rottura, previene il crespo e preserva la tua acconciatura. Morbido, durevole ed elegante.',
+      bullets: ['Raso puro — morbido per i tuoi capelli', 'Certificato OEKO TEX® Standard 100', 'Riduce la rottura dei capelli', 'Previene il crespo', 'Adatto a tutti i tipi di capelli']
     },
     'pack-tetes-x3': {
       eyebrow: 'Collezione Siwak',
