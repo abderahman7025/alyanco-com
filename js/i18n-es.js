@@ -647,5 +647,404 @@ window.ALYA_T_ES = {
     nl_btn:     'Suscribirme',
     reviews_eyebrow: 'Testimonios de clientes',
     reviews_title:   'Cabello<br><em>protegido</em>'
+  },
+
+  /* ── PÁGINAS DE PRODUCTO GENÉRICAS ── */
+  product_pages: {
+    'brosse-siwak': {
+      breadcrumb:   'Cepillo de dientes Siwak recargable',
+      stars_count:  '4,5/5 — 62 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Higiene bucal<br><em>reinventada</em>',
+      desc_paragraphs: [
+        'El Siwak (o Miswak) es una rama del árbol Salvadora persica utilizada desde milenios en las tradiciones árabes, africanas y asiáticas para la higiene bucal. Hoy, numerosos estudios científicos confirman su eficacia superior a la de un cepillo clásico.',
+        'El cepillo ALYA & CO. moderniza este gesto ancestral con un sistema de cabezales de repuesto atornillables, prácticos y 100 % biodegradables. Ya no es necesario tirar un cepillo entero cada 3 meses — solo se reemplaza el cabezal.',
+        'Fabricado en laboratorios certificados según normas europeas, sin productos químicos, sin aditivos artificiales. La naturaleza en su estado más puro, para resultados visibles desde los primeros usos.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Material',      'Madera de Salvadora persica (Siwak)'],
+        ['Contenido',     '1 mango + 3 cabezales de repuesto'],
+        ['Certificación', 'Normas europeas'],
+        ['Biodegradable', '100 % — Cero plástico'],
+        ['Recomendado',   'OMS y estudios científicos'],
+        ['Para',          'Toda la familia desde los 6 años']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿El Siwak blanquea realmente los dientes?', 'Sí. La madera de Siwak contiene agentes blanqueadores naturales — sílice, bicarbonato y enzimas activas — que eliminan progresivamente las manchas superficiales sin dañar el esmalte. Resultados visibles en 2 a 4 semanas de uso regular.'],
+        ['¿Cómo se utiliza el cepillo de dientes Siwak?', 'Humedezca ligeramente el cabezal, aplique un poco de pasta dental si lo desea, y cepílle con movimientos circulares suaves durante 2 minutos, mañana y noche. La madera natural libera sus principios activos al contacto con la humedad.'],
+        ['¿Cuánto dura un cabezal de repuesto?', 'Aproximadamente 3 a 4 semanas con uso diario matutino y nocturno. Reemplace el cabezal cuando las fibras de madera se separen o aplanen.'],
+        ['¿Es adecuado para niños y embarazadas?', 'No se recomienda para niños menores de 6 años. A partir de 6 años, bajo supervisión parental, puede utilizarse. Las embarazadas pueden usarlo sin restricción — el Siwak es 100 % natural.'],
+        ['¿Puedo usarlo sin pasta dental?', 'Sí, absolutamente. La madera de Siwak posee naturalmente propiedades antibacterianas, remineralizantes y antiinflamatorias reconocidas por la OMS. Puede usarlo solo o combinarlo con nuestro dentífrico en polvo para un efecto potenciado.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Complete su <em>rutina</em>',
+      related: [
+        ['Cabezales de repuesto Siwak', 'Pack de 3 cabezales biodegradables. Compatibles con el cepillo ALYA & CO.'],
+        ['Dentífrico Siwak en polvo', 'Bio, sin flúor, sin sulfatos. Blanqueamiento natural en 2 semanas.'],
+        ['Pack Siwak Completo', 'Cepillo + cabezales + dentífrico. Ahorre 30 % vs compra separada.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Han adoptado<br><em>la rutina natural</em>'
+    },
+    'tetes-recharges': {
+      breadcrumb:   'Cabezales de repuesto Siwak',
+      stars_count:  '4,5/5 — 87 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Cero residuos,<br><em>100 % natural</em>',
+      desc_paragraphs: [
+        'Con el sistema de recarga ALYA & CO., nunca más tendrá que tirar un cepillo entero. Solo se reemplaza el cabezal, reduciendo drásticamente los residuos plásticos dentales — hasta un 80 % según los estudios.',
+        'Cada cabezal de repuesto está fabricado en madera de Siwak pura, sin cola, sin plástico, sin agentes sintéticos. Al final de su vida útil, se compostan de forma natural. Un gesto sencillo para cuidar de usted mismo Y del planeta.',
+        'El pack de 3 cabezales corresponde a 9 meses de uso normal (reemplazo recomendado cada 8 a 12 semanas). Ideal para toda la familia.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Contenido',       '3 cabezales de repuesto'],
+        ['Material',        'Madera de Siwak pura'],
+        ['Compatibilidad',  'Solo cepillo ALYA & CO.'],
+        ['Biodegradable',   '100 % compostable'],
+        ['Duración/cabezal','8 a 12 semanas'],
+        ['Plástico',        'Cero']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿Son compatibles los cabezales con mi cepillo?', 'Sí, nuestros cabezales están diseñados exclusivamente para el cepillo ALYA & CO. No son compatibles con otras marcas.'],
+        ['¿Cómo sé cuándo cambiar el cabezal?', 'Cuando las fibras de madera se aplanen o se separen, es hora de reemplazar el cabezal. En promedio, cuente 3 a 4 semanas por cabezal con uso matutino y nocturno.'],
+        ['¿Son biodegradables los cabezales?', 'Sí, al 100 %. Fabricados en madera de Siwak natural, se biodegradan por completo. Incluso puede compostarlos directamente en su jardín.'],
+        ['¿Hay plástico en los cabezales?', 'No. Nuestros cabezales son íntegramente de madera de Siwak natural, sin plástico ni resina sintética.'],
+        ['¿Cómo debo almacenar los cabezales?', 'Consérvelos en su embalaje original, en un lugar seco alejado de la humedad. Evite almacenarlos en un baño muy húmedo.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Complete su <em>rutina</em>',
+      related: [
+        ['Cepillo de dientes Siwak recargable', 'El cepillo compatible con estos cabezales. 3 cabezales incluidos.'],
+        ['Dentífrico Siwak en polvo', 'Bio, sin flúor, sin sulfatos. Blanqueamiento natural en 2 semanas.'],
+        ['Pack Siwak Completo', 'Cepillo + cabezales + dentífrico. Ahorre 30 %.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Siempre<br><em>bien equipados</em>'
+    },
+    'dentifrice-siwak': {
+      breadcrumb:   'Dentífrico Siwak en polvo',
+      stars_count:  '4,2/5 — 55 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Blancura natural,<br><em>sin compromiso</em>',
+      desc_paragraphs: [
+        'Nuestro dentífrico en polvo es la alternativa natural a las pastas de dientes convencionales cargadas de flúor, laurilsulfato sódico (SLS), parabenos y colorantes artificiales. Limpia, blanquea y protege suavemente.',
+        'La textura en polvo, una vez humedecida en el cepillo, forma una ligera espuma natural que penetra entre los dientes y las encías. Resultado: aliento fresco, dientes más blancos, encías sanas — sin ningún producto químico agresivo.',
+        'Ideal para complementar su rutina Siwak con el cepillo ALYA & CO. y los cabezales biodegradables.'
+      ],
+      specs_title: 'Composición e información',
+      specs: [
+        ['Base',           'Extracto natural de Siwak'],
+        ['Sin',            'Flúor, SLS, parabenos'],
+        ['Certificación',  'Bio'],
+        ['Textura',        'Polvo fino'],
+        ['Resultados',     'Visibles en 2 semanas'],
+        ['Contenido',      '50 g (aprox. 3 meses)']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿El dentífrico en polvo hace espuma?', 'No, y es completamente normal. No contiene SLS, el detergente responsable de la espuma en las pastas clásicas. Su ausencia no afecta la eficacia — al contrario, es mejor para las encías.'],
+        ['¿Cómo se usa?', 'Sumerja el cepillo ligeramente húmedo en el frasco (o vierta una pequeña pizca sobre el cabezal) y cepille normalmente 2 minutos. Una pequeña cantidad es suficiente — el frasco dura un promedio de 4 a 6 semanas.'],
+        ['¿Por qué sin flúor?', 'Nuestro dentífrico está deliberadamente libre de flúor sintético. El Siwak contiene naturalmente flúor orgánico y minerales remineralizantes que protegen el esmalte de forma natural.'],
+        ['¿Es adecuado para dientes sensibles?', 'Sí. Sin abrasivos agresivos, sin SLS, sin conservantes artificiales — su fórmula ultra suave es perfecta para dientes sensibles y encías debilitadas.'],
+        ['¿Cuánto dura un frasco?', 'Un frasco de 40 g dura aproximadamente 4 a 6 semanas con uso dos veces al día. El equivalente económico y ecológico de un tubo de pasta dental clásica, con cero plástico.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Complete su <em>rutina</em>',
+      related: [
+        ['Cepillo de dientes Siwak recargable', 'El cepillo perfecto para usar con este dentífrico bio.'],
+        ['Cabezales de repuesto Siwak', 'Pack de 3 cabezales biodegradables. Compatibles con el cepillo ALYA & CO.'],
+        ['Pack Siwak Completo', 'Cepillo + cabezales + este dentífrico. Ahorre 30 %.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Una sonrisa<br><em>verdaderamente natural</em>'
+    },
+    'gant-corps': {
+      breadcrumb:   'Guante exfoliante corporal',
+      stars_count:  '4,8/5 — 216 valoraciones verificadas',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Piel perfecta,<br><em>sin esfuerzo</em>',
+      desc_paragraphs: [
+        'La seda de morera es reconocida como la fibra natural más suave y eficaz para la exfoliación. A diferencia de los guantes sintéticos o los exfoliantes químicos, nuestro guante actúa mecánicamente y con suavidad, sin irritar la piel.',
+        'Úselo en la ducha con agua caliente: en pocos minutos, las células muertas se eliminan de forma natural, dejando su piel increíblemente suave y luminosa. Los resultados son visibles desde el primer uso.',
+        'Certificado OEKO TEX® Standard 100, nuestro guante garantiza la ausencia de cualquier sustancia nociva. Es adecuado para todos los tipos de piel, incluida la piel sensible y reactiva.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Material',         '100 % seda de morera natural'],
+        ['Certificación',    'OEKO TEX® Standard 100'],
+        ['Uso',              'Cuerpo'],
+        ['Tipo de piel',     'Todos, incluida la sensible'],
+        ['Eficacia',         'Células muertas, piel rugosa, pelos enquistados, poros obstruidos, etc.'],
+        ['Frecuencia',       '1 a 2 veces por semana'],
+        ['Productos químicos','Ninguno — solo agua caliente'],
+        ['Duración',         '1 año con cuidado adecuado']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿Cuántas veces por semana debo usar el guante?', '1 a 2 veces por semana es suficiente para la mayoría de los tipos de piel. La piel muy seca puede usarlo hasta 3 veces. Evite excederse — su piel necesita tiempo para regenerarse.'],
+        ['¿La exfoliación es dolorosa?', 'No. El guante de seda de morera está diseñado para una exfoliación suave e indolora. La seda respeta la epidermis mientras elimina eficazmente las células muertas. Resultado: piel lisa sin irritación.'],
+        ['¿Es adecuado para pieles sensibles?', 'Sí. Nuestro guante está certificado OEKO TEX® y fabricado en seda de morera hipoalergénica pura, sin productos químicos. Es adecuado para todos los tipos de piel, incluida la reactiva y la atópica.'],
+        ['¿Cómo limpio y cuido el guante?', 'Enjuáguelo con agua limpia después de cada uso, escúrralo sin retorcerlo y déjelo secar al aire. El lavado a máquina a 30 °C en bolsa de lavandería es posible una vez por semana.'],
+        ['¿Debo usar un producto con el guante?', 'No, funciona muy bien solo con agua en la ducha. Puede combinarlo con su gel de ducha habitual si lo desea, pero no es necesario.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Complete su <em>rutina</em>',
+      related: [
+        ['Guante exfoliante facial — Seda de morera', 'Ultra suave. Eficaz contra el acné y los puntos negros.'],
+        ['Pack 1 año Full Body', 'Cuerpo + cara. Ahorre 50 % vs compra separada.'],
+        ['Coletero de seda — Sujeción perfecta', 'Seda de morera. Protege su cabello, sin rotura ni enredos.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Una piel<br><em>transformada</em>'
+    },
+    'gant-visage': {
+      breadcrumb:   'Guante exfoliante facial',
+      stars_count:  '4,9/5 — 334 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Su piel recupera<br><em>su luminosidad natural</em>',
+      desc_paragraphs: [
+        'La piel del rostro es la más expuesta y la más frágil. Merece un tratamiento especial. Nuestro guante facial está tejido con seda de morera especialmente seleccionada por su finura y suavidad — mucho más suave que el guante corporal.',
+        'Utilizado 1 a 2 veces por semana sobre la piel húmeda en la ducha o sobre el lavabo, elimina suavemente las células muertas acumuladas, desatasca los poros, reduce los puntos negros y ayuda a mejorar el aspecto del acné. No se necesita ningún producto cosmético adicional — el agua tibia es suficiente.',
+        'Resultado: una tez más luminosa, una textura de piel más suave y una mejor absorción de sus cuidados habituales (cremas, sérums). El dúo perfecto con su rutina de belleza actual.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Material',         '100 % seda de morera natural'],
+        ['Certificación',    'OEKO TEX® Standard 100'],
+        ['Uso',              'Rostro'],
+        ['Tipo de piel',     'Todos, incluida la sensible'],
+        ['Eficacia',         'Puntos negros, poros obstruidos, acné, tez apagada, etc.'],
+        ['Frecuencia',       '1 a 2 veces por semana'],
+        ['Productos químicos','Ninguno — solo agua caliente'],
+        ['Duración',         '1 año con cuidado adecuado']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿Cuántas veces por semana debo usarlo en el rostro?', 'Máximo 1 a 2 veces por semana. El rostro es más sensible que el cuerpo — con acné activo, espere a que los granos se calmen antes de exfoliar esa zona.'],
+        ['¿Se puede usar en piel propensa al acné?', 'Sí, con precaución. El guante ayuda a descongestionar los poros y reducir los puntos negros. En zonas con acné activo (granos inflamados), evite presionar y trabaje con suavidad.'],
+        ['¿Es adecuado para pieles grasas?', 'Absolutamente. La exfoliación regular con seda de morera regula el sebo, reduce la apariencia de los poros dilatados y unifica la tez apagada de las pieles con tendencia grasa.'],
+        ['¿Debo aplicar crema después de la exfoliación?', 'Sí, es muy recomendable. Tras la exfoliación, la piel absorbe mejor los activos. Es el momento ideal para aplicar su sérum o crema hidratante.'],
+        ['¿Cómo limpio el guante facial?', 'Enjuáguelo inmediatamente después de cada uso con agua limpia. Séquelo al aire. Lavado a máquina a 30 °C en bolsa de lavandería una vez por semana. Nunca comparta el guante con otras personas por razones de higiene.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Complete su <em>rutina</em>',
+      related: [
+        ['Guante exfoliante corporal — Seda de morera', '216 valoraciones ★★★★★. Resultados visibles desde el primer uso.'],
+        ['Pack 1 año Full Body', 'Cuerpo + cara en un solo pack. Ahorre 50 %.'],
+        ['Coletero de seda — Sujeción perfecta', 'Seda de morera. Protege su cabello, sin rotura.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Una tez<br><em>luminosa</em>'
+    },
+    'pack-1an-full-body': {
+      breadcrumb:   'Pack 1 año Full Body',
+      stars_count:  '4,9/5 — 542 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Piel perfecta<br><em>de pies a cabeza</em>',
+      desc_paragraphs: [
+        'El Pack 1 año Full Body es nuestra oferta más popular: reúne los dos guantes esenciales para una piel impecable de pies a cabeza. Cuerpo y rostro — nada se deja al azar.',
+        'El guante corporal se ocupa del resto del cuerpo en la ducha — brazos, piernas, espalda, abdomen — eliminando el 100 % de las células muertas en un solo pase. El guante facial cuida su piel más delicada, desatasca los poros y reduce la apariencia de los puntos negros y el acné.',
+        'Resultado desde el primer uso: piel más suave, más luminosa que absorbe mejor sus cremas y sérums. Para toda la vida, sin productos químicos. Solo agua caliente.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Guante corporal',  '100 % seda de morera natural'],
+        ['Guante facial',    '100 % seda de morera natural'],
+        ['Certificación',    'OEKO TEX® Standard 100'],
+        ['Ahorro',           '48 % vs compra separada'],
+        ['Uso',              'Cuerpo y rostro'],
+        ['Tipo de piel',     'Todos, incluida la sensible'],
+        ['Eficacia',         'Células muertas, puntos negros, poros obstruidos, pelos enquistados, acné, etc.'],
+        ['Frecuencia',       '1 a 2 veces por semana'],
+        ['Productos químicos','Ninguno — solo agua caliente'],
+        ['Duración',         '1 año con cuidado adecuado']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿Cuántas veces por semana debo usar los guantes?', 'Para el guante corporal: 1 a 2 veces por semana. Para el guante facial: también 1 a 2 veces, pero nunca el mismo día que el cuerpo si su piel es sensible.'],
+        ['¿La exfoliación es dolorosa?', 'No. La seda de morera ofrece una exfoliación suave e indolora. Respeta la epidermis mientras elimina eficazmente las células muertas. Resultado: piel lisa, sin enrojecimiento.'],
+        ['¿Son adecuados los guantes para pieles sensibles?', 'Sí. Todos nuestros guantes están certificados OEKO TEX® en seda de morera hipoalergénica pura, sin productos químicos.'],
+        ['¿Cómo cuido los guantes?', 'Enjuáguelos con agua limpia después de cada uso, escurra sin retorcer y deje secar al aire. Lavado a máquina a 30 °C en bolsa de lavandería una vez por semana.'],
+        ['¿Cuánto duran los guantes?', 'Con un cuidado esmerado, cada guante dura varios meses. La seda de morera es una fibra naturalmente resistente.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Descubra también nuestros <em>productos</em>',
+      related: [
+        ['Guante exfoliante corporal — Seda de morera', '216 valoraciones ★★★★★. El guante estrella de ALYA & CO.'],
+        ['Guante exfoliante facial — Seda de morera', 'Ultra suave para el rostro. Natural antiancné.'],
+        ['Pack Siwak Completo', 'Cepillo + cabezales + dentífrico. Ahorre 30 %.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Un año de belleza<br><em>natural</em>'
+    },
+    'pack-siwak-complet': {
+      breadcrumb:   'Pack Siwak Completo',
+      stars_count:  '4,7/5 — 216 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'El kit perfecto para<br><em>empezar de forma natural</em>',
+      desc_paragraphs: [
+        'El Pack Siwak Completo es la solución ideal para quienes desean pasarse a la higiene bucal 100 % natural sin preocuparse por nada. Todo está incluido, todo está pensado para una transición sencilla y agradable.',
+        'El cepillo Siwak recargable con 3 cabezales adicionales le cubre durante más de un año de uso. El dentífrico en polvo complementa la rutina con sus propiedades blanqueadoras naturales. Una sola compra, varios meses de bienestar natural.',
+        'También ideal como regalo original y responsable para sus seres queridos. Envasado con cuidado, listo para regalar.'
+      ],
+      specs_title: 'Detalle del pack',
+      specs: [
+        ['Cepillo',          '1 mango Siwak + 3 cabezales incluidos'],
+        ['Cabezales extra',  '3 cabezales de repuesto biodegradables'],
+        ['Dentífrico',       '50 g de polvo Siwak bio'],
+        ['Ahorro',           '30 % vs compra separada'],
+        ['Duración estimada','Más de 12 meses'],
+        ['Envase',           'Listo para regalar']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿El Siwak blanquea realmente los dientes?', 'Sí. La madera de Siwak contiene agentes blanqueadores naturales que eliminan progresivamente las manchas superficiales sin dañar el esmalte.'],
+        ['¿Cómo se usa el cepillo de dientes Siwak?', 'Humedezca el cabezal ligeramente y cepílle en movimientos circulares suaves durante 2 minutos, mañana y noche.'],
+        ['¿Cuánto dura un cabezal de repuesto?', 'Aprox. 3 a 4 semanas con uso diario matutino y nocturno.'],
+        ['¿Es adecuado para niños y embarazadas?', 'No recomendado para menores de 6 años. A partir de 6 años bajo supervisión parental. Las embarazadas pueden usarlo sin restricción.'],
+        ['¿Puedo usarlo sin pasta dental?', 'Sí. El Siwak tiene naturalmente propiedades antibacterianas y remineralizantes reconocidas por la OMS.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Descubra también nuestros <em>guantes</em>',
+      related: [
+        ['Guante exfoliante corporal — Seda de morera', 'Certificado OEKO TEX®. Resultados visibles desde el primer uso.'],
+        ['Guante exfoliante facial — Seda de morera', 'Ultra suave para el rostro. Eficaz contra el acné y los puntos negros.'],
+        ['Pack 1 año Full Body', 'Cuerpo + cara. Ahorre 50 % vs compra separada.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'El kit perfecto<br><em>para empezar</em>'
+    },
+    'pack-tetes-x3': {
+      breadcrumb:   'Pack cabezales Siwak × 3',
+      stars_count:  '4,8/5 — 28 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Higiene natural,<br><em>durante meses</em>',
+      desc_paragraphs: [
+        'El Pack Cabezales Siwak Bio × 3 es la solución inteligente para quienes ya tienen el cepillo Siwak recargable y desean hacer acopio. Tres cajas de 6 cabezales para más de dieciocho meses de higiene dental 100 % natural.',
+        'Fabricados en madera de Arak (Salvadora persica), estos cabezales contienen naturalmente agentes antibacterianos, blanqueadores y minerales beneficiosos para las encías. Se atornillan fácilmente en el mango del cepillo Siwak recargable ALYA & CO.',
+        'Al elegir este pack, reduce sus residuos plásticos mientras ahorra. Un gesto sencillo para su salud y para el planeta.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Contenido',        '3 cajas × 6 cabezales = 18 cabezales'],
+        ['Material',         'Madera de Arak (Salvadora persica)'],
+        ['Fijación',         'Atornillable — compatible ALYA & CO.'],
+        ['Certificación',    '100 % natural · Bio'],
+        ['Duración estimada','Más de 18 meses'],
+        ['Ahorro',           '33 % vs compra unitaria']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿Son compatibles los cabezales con mi cepillo?', 'Sí, diseñados exclusivamente para el cepillo ALYA & CO. No compatibles con otras marcas.'],
+        ['¿Cómo sé cuándo cambiar el cabezal?', 'Cuando las fibras se aplanen, en promedio cada 3 a 4 semanas.'],
+        ['¿Son biodegradables los cabezales?', 'Sí, al 100 %. En madera de Siwak natural, completamente compostables.'],
+        ['¿Hay plástico en los cabezales?', 'No. Íntegramente de madera de Siwak natural, sin plástico.'],
+        ['¿Cómo debo almacenar los cabezales?', 'En el embalaje original, en un lugar seco alejado de la humedad.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Complete su <em>rutina</em>',
+      related: [
+        ['Cepillo de dientes Siwak recargable', 'El mango icónico reutilizable. Compatible con todos nuestros cabezales.'],
+        ['Dentífrico Siwak en polvo', 'Bio, sin flúor, sin sulfatos. Blanqueamiento natural visible en 2 semanas.'],
+        ['Pack Siwak Completo', 'Cepillo + 3 cabezales + dentífrico. El kit ideal para empezar. −30 %.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Siempre<br><em>bien aprovisionados</em>'
+    },
+    'pack-dentifrice-3m': {
+      breadcrumb:   'Pack dentífrico Siwak 3 meses',
+      stars_count:  '4,7/5 — 18 valoraciones',
+      desc_eyebrow: 'Descripción completa',
+      desc_title:   'Tres meses de sonrisa,<br><em>100 % natural</em>',
+      desc_paragraphs: [
+        'El Pack Dentífrico Siwak en Polvo 3 meses le proporciona una reserva completa para no quedarse nunca sin su dentífrico favorito. Formulado en madera de Arak (Salvadora persica), actúa naturalmente sobre el blanqueamiento dental, las bacterias y la salud de las encías.',
+        'Sin los ingredientes controvertidos de las pastas convencionales: sin flúor, sin SLS, sin parabenos, sin triclosan. Solo el poder de la naturaleza en un polvo fino para uso diario.',
+        'Con reservas para 3 meses, se beneficia de una tarifa ventajosa de −33 % respecto a la compra unitaria. Un gesto económico y ecológico.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Contenido',        '3 frascos de 50 g (150 g en total)'],
+        ['Duración',         '~3 meses de uso'],
+        ['Fórmula',          'Polvo de madera de Arak bio'],
+        ['Sin',              'Flúor · SLS · Parabenos'],
+        ['Resultado',        'Blanqueamiento visible en 2 semanas'],
+        ['Ahorro',           '33 % vs compra unitaria']
+      ],
+      faq_eyebrow: 'Sus preguntas',
+      faq_title:   'Preguntas <em>frecuentes</em>',
+      faq: [
+        ['¿El dentífrico en polvo hace espuma?', 'No, completamente normal. Sin SLS, lo que no afecta la eficacia — al contrario, mejor para las encías.'],
+        ['¿Cómo se usa?', 'Sumerja el cepillo ligeramente húmedo en el frasco y cepílle 2 minutos. Una pequeña cantidad dura 4 a 6 semanas.'],
+        ['¿Por qué sin flúor?', 'El Siwak contiene naturalmente flúor orgánico y minerales remineralizantes que protegen el esmalte.'],
+        ['¿Es adecuado para dientes sensibles?', 'Sí. Sin abrasivos agresivos, sin SLS — fórmula ultra suave perfecta para dientes sensibles.'],
+        ['¿Cuánto dura un frasco?', 'Aprox. 4 a 6 semanas con uso dos veces al día. El equivalente de un tubo de pasta dental, sin plástico.']
+      ],
+      related_eyebrow: 'También le puede gustar',
+      related_title:   'Complete su <em>rutina</em>',
+      related: [
+        ['Cepillo de dientes Siwak recargable', 'El mango icónico reutilizable. Compatible con todos nuestros cabezales.'],
+        ['Cabezales de repuesto Siwak Bio', 'Biodegradables, 100 % natural. Para atornillar en el cepillo recargable.'],
+        ['Pack Siwak Completo', 'Cepillo + 3 cabezales + dentífrico. El kit ideal para empezar. −30 %.']
+      ],
+      nl_eyebrow: 'Únase a la familia',
+      nl_title:   'Cuídese,<br><em>naturalmente.</em>',
+      nl_sub:     'Reciba nuestros consejos de belleza, ofertas exclusivas y sea el primero en conocer nuestras novedades.',
+      nl_ph:      'Su dirección de correo electrónico',
+      nl_btn:     'Suscribirme',
+      reviews_eyebrow: 'Testimonios de clientes',
+      reviews_title:   'Tres meses<br><em>de sonrisas naturales</em>'
+    }
   }
 };

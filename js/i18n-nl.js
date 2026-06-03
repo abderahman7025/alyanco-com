@@ -647,5 +647,404 @@ window.ALYA_T_NL = {
     nl_btn:     'Inschrijven',
     reviews_eyebrow: 'Klantengetuigenissen',
     reviews_title:   'Haar dat<br><em>beschermd is</em>'
+  },
+
+  /* ── GENERIEKE PRODUCTPAGINA'S ── */
+  product_pages: {
+    'brosse-siwak': {
+      breadcrumb:   'Oplaadbare Siwak-tandenborstel',
+      stars_count:  '4,5/5 — 62 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Mondverzorging<br><em>heruitgevonden</em>',
+      desc_paragraphs: [
+        'Siwak (of Miswak) is een tak van de Salvadora persica-boom die al millennia wordt gebruikt in Arabische, Afrikaanse en Aziatische tradities voor mondverzorging. Talloze wetenschappelijke studies bevestigen vandaag de superieure effectiviteit ten opzichte van een klassieke tandenborstel.',
+        'De ALYA & CO.-borstel moderniseert dit eeuwenoude gebaar met een handig, 100 % biologisch afbreekbaar aanschroefsysteem voor vervangende opzetkopjes. U hoeft nooit meer een hele tandenborstel elke 3 maanden weg te gooien — alleen het kopje wordt vervangen.',
+        'Geproduceerd in laboratoria gecertificeerd volgens Europese normen, zonder chemicaliën, zonder kunstmatige additieven. De natuur in zijn zuiverste vorm, voor zichtbare resultaten vanaf de eerste gebruiken.'
+      ],
+      specs_title: 'Kenmerken',
+      specs: [
+        ['Materiaal',     'Salvadora persica-hout (Siwak)'],
+        ['Inhoud',        '1 handvat + 3 vervangende opzetkopjes'],
+        ['Certificering', 'Europese normen'],
+        ['Biologisch afbreekbaar','100 % — Nul plastic'],
+        ['Aanbevolen',    'WHO en wetenschappelijke studies'],
+        ['Voor',          'Het hele gezin vanaf 6 jaar']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Bleekt Siwak werkelijk de tanden?', 'Ja. Siwak-hout bevat natuurlijke bleekagentia — silica, bicarbonaat en actieve enzymen — die oppervlakkige vlekken progressief verwijderen zonder het glazuur te beschadigen. Resultaten zichtbaar na 2 tot 4 weken regelmatig gebruik.'],
+        ['Hoe gebruik ik de Siwak-tandenborstel?', 'Bevochtig het kopje lichtjes, breng eventueel een beetje tandpasta aan, en poets 2 minuten met zachte cirkelbewegingen, ochtend en avond. Het natuurlijke hout geeft zijn werkzame stoffen vrij bij contact met vocht.'],
+        ['Hoe lang gaat een vervangend opzetkopje mee?', 'Ongeveer 3 tot 4 weken bij dagelijks gebruik \'s ochtends en \'s avonds. Vervang het kopje zodra de houtvezels uiteen- of platgaan.'],
+        ['Is het geschikt voor kinderen en zwangere vrouwen?', 'Niet aanbevolen voor kinderen jonger dan 6 jaar. Vanaf 6 jaar, onder ouderlijk toezicht, kan het worden gebruikt. Zwangere vrouwen kunnen het zonder beperking gebruiken — Siwak is 100 % natuurlijk.'],
+        ['Kan ik het zonder tandpasta gebruiken?', 'Ja, absoluut. Siwak-hout heeft van nature antibacteriële, remineraliserende en ontstekingsremmende eigenschappen die door de WHO worden erkend. U kunt het alleen gebruiken of combineren met ons tandpoeder voor een versterkt effect.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Compleet uw <em>routine</em>',
+      related: [
+        ['Siwak vervangende opzetkopjes', 'Set van 3 biologisch afbreekbare kopjes. Compatibel met de ALYA & CO.-borstel.'],
+        ['Siwak tandpoeder', 'Bio, zonder fluor, zonder sulfaten. Natuurlijke whitening in 2 weken.'],
+        ['Compleet Siwak-pakket', 'Borstel + kopjes + tandpoeder. Bespaar 30 % vs afzonderlijke aankoop.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Zij namen de<br><em>natuurlijke routine over</em>'
+    },
+    'tetes-recharges': {
+      breadcrumb:   'Siwak vervangende opzetkopjes',
+      stars_count:  '4,5/5 — 87 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Nul afval,<br><em>100 % natuurlijk</em>',
+      desc_paragraphs: [
+        'Met het ALYA & CO.-navulsysteem hoeft u nooit meer een hele tandenborstel weg te gooien. Alleen het kopje wordt vervangen, waardoor uw tandplasticafval drastisch wordt verminderd — tot 80 % volgens studies.',
+        'Elk vervangend opzetkopje is gemaakt van puur Siwak-hout, zonder lijm, zonder plastic, zonder synthetische stoffen. Aan het einde van de levensduur composteren ze op natuurlijke wijze. Een eenvoudig gebaar om voor uzelf EN de planeet te zorgen.',
+        'Het pakket van 3 kopjes komt overeen met 9 maanden normaal gebruik (aanbevolen vervanging elke 8 tot 12 weken). Ideaal voor het hele gezin.'
+      ],
+      specs_title: 'Kenmerken',
+      specs: [
+        ['Inhoud',           '3 vervangende opzetkopjes'],
+        ['Materiaal',        'Puur Siwak-hout'],
+        ['Compatibiliteit',  'Alleen ALYA & CO.-borstel'],
+        ['Biologisch afbreekbaar','100 % composteerbaar'],
+        ['Levensduur/kopje', '8 tot 12 weken'],
+        ['Plastic',          'Nul']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Zijn de kopjes compatibel met mijn borstel?', 'Ja, onze vervangende kopjes zijn exclusief ontworpen voor de ALYA & CO.-borstel. Niet compatibel met andere merken.'],
+        ['Hoe weet ik wanneer ik het kopje moet vervangen?', 'Zodra de houtvezels afplatten of uiteen gaan, is het tijd om het kopje te vervangen. Gemiddeld 3 tot 4 weken per kopje bij ochtend- en avondgebruik.'],
+        ['Zijn de vervangende kopjes biologisch afbreekbaar?', 'Ja, voor 100 %. Gemaakt van natuurlijk Siwak-hout, volledig composteerbaar. U kunt ze zelfs rechtstreeks in uw tuin composteren.'],
+        ['Zit er plastic in de kopjes?', 'Nee. Onze kopjes zijn volledig van natuurlijk Siwak-hout, zonder plastic of synthetische hars.'],
+        ['Hoe bewaar ik de vervangende kopjes?', 'Bewaar ze in de originele verpakking, op een droge plaats weg van vocht.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Compleet uw <em>routine</em>',
+      related: [
+        ['Oplaadbare Siwak-tandenborstel', 'De compatibele borstel voor deze kopjes. 3 kopjes inbegrepen.'],
+        ['Siwak tandpoeder', 'Bio, zonder fluor, zonder sulfaten. Natuurlijke whitening in 2 weken.'],
+        ['Compleet Siwak-pakket', 'Borstel + kopjes + tandpoeder. Bespaar 30 %.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Altijd<br><em>goed uitgerust</em>'
+    },
+    'dentifrice-siwak': {
+      breadcrumb:   'Siwak tandpoeder',
+      stars_count:  '4,2/5 — 55 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Natuurlijke witheid,<br><em>zonder compromis</em>',
+      desc_paragraphs: [
+        'Ons tandpoeder is het natuurlijke alternatief voor conventionele tandpasta\'s vol fluoride, natriumlaurylsulfaat (SLS), parabenen en kunstmatige kleurstoffen. Het reinigt, bleeekt en beschermt zachtjes.',
+        'De poederstructuur, eenmaal bevochtigd op de borstel, vormt een licht natuurlijk schuim dat doordringt tussen de tanden en het tandvlees. Resultaat: frisse adem, wittere tanden, gezond tandvlees — zonder agressieve chemicaliën.',
+        'Ideaal als aanvulling op uw Siwak-routine met de ALYA & CO.-borstel en de biologisch afbreekbare kopjes.'
+      ],
+      specs_title: 'Samenstelling & info',
+      specs: [
+        ['Basis',          'Natuurlijk Siwak-extract'],
+        ['Zonder',         'Fluoride, SLS, parabenen'],
+        ['Certificering',  'Bio'],
+        ['Textuur',        'Fijn poeder'],
+        ['Resultaten',     'Zichtbaar na 2 weken'],
+        ['Inhoud',         '50 g (ca. 3 maanden)']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Schuimt het tandpoeder?', 'Nee, en dat is volkomen normaal. Geen SLS, wat de effectiviteit niet beïnvloedt — integendeel, beter voor het tandvlees.'],
+        ['Hoe gebruik ik het?', 'Doop de licht bevochtigde borstel in het potje (of doe een klein snufje op het kopje), poets dan 2 minuten normaal. Een heel kleine hoeveelheid is voldoende — het potje gaat gemiddeld 4 tot 6 weken mee.'],
+        ['Waarom zonder fluoride?', 'Ons tandpoeder is bewust vrij van synthetisch fluoride. Siwak bevat van nature organisch fluoride en remineraliserende mineralen die het glazuur op natuurlijke wijze beschermen.'],
+        ['Is het geschikt voor gevoelige tanden?', 'Ja. Zonder agressieve schuurmiddelen, zonder SLS, zonder kunstmatige conserveermiddelen — de ultra-zachte formule is perfect voor gevoelige tanden en verzwakt tandvlees.'],
+        ['Hoe lang gaat een potje mee?', 'Een potje van 40 g gaat ca. 4 tot 6 weken mee bij tweemaal daags gebruik. Het economische en ecologische equivalent van een klassiek tandpastastube, met nul plastic.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Compleet uw <em>routine</em>',
+      related: [
+        ['Oplaadbare Siwak-tandenborstel', 'De perfecte borstel om te gebruiken met dit biologische tandpoeder.'],
+        ['Siwak vervangende opzetkopjes', 'Set van 3 biologisch afbreekbare kopjes. Compatibel met de ALYA & CO.-borstel.'],
+        ['Compleet Siwak-pakket', 'Borstel + kopjes + dit tandpoeder. Bespaar 30 %.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Een glimlach<br><em>echt natuurlijk</em>'
+    },
+    'gant-corps': {
+      breadcrumb:   'Exfolierende lichaamshandschoen',
+      stars_count:  '4,8/5 — 216 geverifieerde beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Perfecte huid,<br><em>moeiteloos</em>',
+      desc_paragraphs: [
+        'Moeraszijde wordt erkend als de zachtste en meest effectieve natuurlijke vezel voor exfoliatie. In tegenstelling tot synthetische handschoenen of chemische scrubs werkt onze handschoen mechanisch en zachtjes, zonder de huid te irriteren.',
+        'Gebruik hem onder de douche met warm water: in enkele minuten worden dode huidcellen op natuurlijke wijze verwijderd, waardoor uw huid ongelooflijk zacht en stralend aanvoelt. Resultaten zijn zichtbaar vanaf het eerste gebruik.',
+        'OEKO TEX® Standard 100 gecertificeerd, garandeert onze handschoen de afwezigheid van schadelijke stoffen. Geschikt voor alle huidtypen, inclusief gevoelige en reactieve huid.'
+      ],
+      specs_title: 'Kenmerken',
+      specs: [
+        ['Materiaal',          '100 % natuurlijke moeraszijde'],
+        ['Certificering',      'OEKO TEX® Standard 100'],
+        ['Gebruik',            'Lichaam'],
+        ['Huidtype',           'Alle, inclusief gevoelig'],
+        ['Effectiviteit',      'Dode huidcellen, ruwe huid, ingroeiende haren, verstopte poriën, enz.'],
+        ['Frequentie',         '1 tot 2 keer per week'],
+        ['Chemicaliën',        'Geen — alleen warm water'],
+        ['Levensduur',         '1 jaar bij goed onderhoud']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Hoe vaak per week moet ik de handschoen gebruiken?', '1 tot 2 keer per week is voldoende voor de meeste huidtypen. Zeer droge huid kan hem tot 3 keer gebruiken. Overdrijf niet — uw huid heeft tijd nodig om te regenereren.'],
+        ['Is exfoliatie pijnlijk?', 'Nee. De moeraszijde handschoen is ontworpen voor zachte, pijnloze scrubbing. De zijde respecteert de epidermis terwijl dode huidcellen effectief worden verwijderd. Resultaat: gladde huid zonder irritatie.'],
+        ['Is hij geschikt voor gevoelige huid?', 'Ja. Onze handschoen is OEKO TEX® gecertificeerd en gemaakt van pure hypoallergene moeraszijde, zonder chemicaliën. Geschikt voor alle huidtypen, inclusief reactieve en atopische huid.'],
+        ['Hoe reinig en onderhoud ik de handschoen?', 'Spoel hem na elk gebruik af met schoon water, wring zachtjes uit zonder te draaien en laat aan de lucht drogen. Machinewas op 30 °C in een waszakje is eenmaal per week mogelijk.'],
+        ['Moet ik een product met de handschoen gebruiken?', 'Nee, hij werkt heel goed met alleen water onder de douche. U kunt hem combineren met uw gebruikelijke douchegel als u dat wenst, maar het is niet noodzakelijk.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Compleet uw <em>routine</em>',
+      related: [
+        ['Exfolierende gezichtshandschoen — Moeraszijde', 'Ultra-zacht. Effectief tegen acne en mee-eters.'],
+        ['1-Jaars Full Body Pakket', 'Lichaam + gezicht. Bespaar 50 % vs afzonderlijke aankoop.'],
+        ['Zijden haarelastiek — Perfecte grip', 'Moeraszijde. Beschermt uw haar, geen breuk of klitten.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Een huid<br><em>getransformeerd</em>'
+    },
+    'gant-visage': {
+      breadcrumb:   'Exfolierende gezichtshandschoen',
+      stars_count:  '4,9/5 — 334 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Uw huid hervindt<br><em>haar natuurlijke glans</em>',
+      desc_paragraphs: [
+        'De gezichtshuid is het meest blootgesteld en het meest kwetsbaar. Het verdient een speciale behandeling. Onze gezichtshandschoen is geweven van moeraszijde die speciaal is geselecteerd op zijn finheid en zachtheid — veel soepeler dan de lichaamshandschoen.',
+        '1 tot 2 keer per week gebruikt op vochtige huid onder de douche of boven de wastafel, verwijdert hij zachtjes geaccumuleerde dode huidcellen, verwijdt poriën, vermindert mee-eters en helpt het uiterlijk van acne te verbeteren. Geen extra cosmetisch product nodig — lauw water is voldoende.',
+        'Resultaat: een stralendere teint, een gladdere huidtextuur en betere absorptie van uw gebruikelijke verzorging (crèmes, serums). Het perfecte duo met uw huidige schoonheidsroutine.'
+      ],
+      specs_title: 'Kenmerken',
+      specs: [
+        ['Materiaal',          '100 % natuurlijke moeraszijde'],
+        ['Certificering',      'OEKO TEX® Standard 100'],
+        ['Gebruik',            'Gezicht'],
+        ['Huidtype',           'Alle, inclusief gevoelig'],
+        ['Effectiviteit',      'Mee-eters, verstopte poriën, acne, vaal teint, enz.'],
+        ['Frequentie',         '1 tot 2 keer per week'],
+        ['Chemicaliën',        'Geen — alleen warm water'],
+        ['Levensduur',         '1 jaar bij goed onderhoud']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Hoe vaak per week op het gezicht gebruiken?', 'Maximaal 1 tot 2 keer per week. Het gezicht is gevoeliger dan het lichaam — bij actieve acne, wacht tot puistjes gekalmeerd zijn voor u die zone exfolieert.'],
+        ['Kan hij worden gebruikt op acnegevoelige huid?', 'Ja, met voorzichtigheid. De handschoen helpt poriën te ontluchten en mee-eters te verminderen. Op zones met actieve acne (ontstoken puistjes) vermijd druk en werk zachtjes.'],
+        ['Is hij geschikt voor vette huid?', 'Absoluut. Regelmatige zijde-exfoliatie reguleert talg, vermindert het uiterlijk van uitgerekte poriën en egaliseert de vaal teint van vette huidtypen.'],
+        ['Moet ik na de exfoliatie een crème aanbrengen?', 'Ja, sterk aanbevolen. Na exfoliatie absorbeert de huid werkzame stoffen beter. Het is het ideale moment voor uw serum of vochtinbrengende crème.'],
+        ['Hoe reinig ik de gezichtshandschoen?', 'Spoel onmiddellijk na elk gebruik af met schoon water. Luchtdrogen. Machinewas op 30 °C in een waszakje eenmaal per week. Deel de handschoen nooit met anderen om hygiënische redenen.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Compleet uw <em>routine</em>',
+      related: [
+        ['Exfolierende lichaamshandschoen — Moeraszijde', '216 beoordelingen ★★★★★. Resultaten zichtbaar vanaf eerste gebruik.'],
+        ['1-Jaars Full Body Pakket', 'Lichaam + gezicht in één pakket. Bespaar 50 %.'],
+        ['Zijden haarelastiek — Perfecte grip', 'Moeraszijde. Beschermt uw haar, geen breuk.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Een stralende<br><em>teint</em>'
+    },
+    'pack-1an-full-body': {
+      breadcrumb:   '1-Jaars Full Body Pakket',
+      stars_count:  '4,9/5 — 542 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Perfecte huid<br><em>van top tot teen</em>',
+      desc_paragraphs: [
+        'Het 1-Jaars Full Body Pakket is ons meest populaire aanbod: het combineert de twee essentiële handschoenen voor een onberispelijke huid van top tot teen. Lichaam en gezicht — niets wordt aan het toeval overgelaten.',
+        'De lichaamshandschoen verzorgt de rest van het lichaam onder de douche — armen, benen, rug, buik — en verwijdert 100 % van dode huidcellen in één beurt. De gezichtshandschoen verzorgt uw meest delicate huid, verwijdt poriën en vermindert het uiterlijk van mee-eters en acne.',
+        'Resultaat vanaf het eerste gebruik: zachtere, stralende huid die uw crèmes en serums beter absorbeert. Voor altijd, zonder chemicaliën. Alleen warm water.'
+      ],
+      specs_title: 'Kenmerken',
+      specs: [
+        ['Lichaamshandschoen', '100 % natuurlijke moeraszijde'],
+        ['Gezichtshandschoen', '100 % natuurlijke moeraszijde'],
+        ['Certificering',     'OEKO TEX® Standard 100'],
+        ['Besparing',         '48 % vs afzonderlijke aankoop'],
+        ['Gebruik',           'Lichaam en gezicht'],
+        ['Huidtype',          'Alle, inclusief gevoelig'],
+        ['Effectiviteit',     'Dode huidcellen, mee-eters, verstopte poriën, ingroeiende haren, acne, enz.'],
+        ['Frequentie',        '1 tot 2 keer per week'],
+        ['Chemicaliën',       'Geen — alleen warm water'],
+        ['Levensduur',        '1 jaar bij goed onderhoud']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Hoe vaak per week de handschoenen gebruiken?', 'Voor de lichaamshandschoen: 1 tot 2 keer per week. Voor de gezichtshandschoen: ook 1 tot 2 keer, maar nooit op dezelfde dag als het lichaam als uw huid gevoelig is.'],
+        ['Is exfoliatie pijnlijk?', 'Nee. Moeraszijde biedt zachte, pijnloze scrubbing. Ze respecteert de epidermis terwijl dode huidcellen effectief worden verwijderd. Resultaat: gladde huid, geen roodheid.'],
+        ['Zijn de handschoenen geschikt voor gevoelige huid?', 'Ja. Al onze handschoenen zijn OEKO TEX® gecertificeerd in pure hypoallergene moeraszijde, zonder chemicaliën.'],
+        ['Hoe onderhoud ik de handschoenen?', 'Spoel na elk gebruik af met schoon water, wring zachtjes uit en laat aan de lucht drogen. Machinewas op 30 °C in een waszakje eenmaal per week mogelijk.'],
+        ['Hoe lang gaan de handschoenen mee?', 'Bij zorgvuldig onderhoud gaat elke handschoen meerdere maanden mee. Moeraszijde is een van nature resistente vezel.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Ontdek ook onze <em>producten</em>',
+      related: [
+        ['Exfolierende lichaamshandschoen — Moeraszijde', '216 beoordelingen ★★★★★. De sterhandschoen van ALYA & CO.'],
+        ['Exfolierende gezichtshandschoen — Moeraszijde', 'Ultra-zacht voor het gezicht. Natuurlijk anti-acne.'],
+        ['Compleet Siwak-pakket', 'Borstel + kopjes + tandpoeder. Bespaar 30 %.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Een jaar van<br><em>natuurlijke schoonheid</em>'
+    },
+    'pack-siwak-complet': {
+      breadcrumb:   'Compleet Siwak-pakket',
+      stars_count:  '4,7/5 — 216 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Het perfecte kit voor<br><em>een natuurlijke start</em>',
+      desc_paragraphs: [
+        'Het Compleet Siwak-pakket is de ideale oplossing voor wie wil overstappen op 100 % natuurlijke mondverzorging zonder zich ergens om te hoeven bekommeren. Alles is inbegrepen, alles is ontworpen voor een eenvoudige en aangename overgang.',
+        'De oplaadbare Siwak-tandenborstel met 3 extra kopjes dekt u voor meer dan een jaar gebruik. Het tandpoeder vult de routine aan met zijn natuurlijke witendeigenschappen. Eén aankoop, meerdere maanden natuurlijk welzijn.',
+        'Ook ideaal als origineel en verantwoord cadeau voor uw dierbaren. Zorgvuldig verpakt, klaar om te geven.'
+      ],
+      specs_title: 'Pakketinhoud',
+      specs: [
+        ['Tandenborstel',    '1 Siwak-handvat + 3 inbegrepen kopjes'],
+        ['Extra kopjes',     '3 biologisch afbreekbare vervangende kopjes'],
+        ['Tandpoeder',       '50 g biologisch Siwak-poeder'],
+        ['Besparing',        '30 % vs afzonderlijke aankoop'],
+        ['Geschatte duur',   'Meer dan 12 maanden'],
+        ['Verpakking',       'Klaar om te geven']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Bleekt Siwak werkelijk de tanden?', 'Ja. Siwak-hout bevat natuurlijke bleekagentia die oppervlakkige vlekken progressief verwijderen zonder het glazuur te beschadigen.'],
+        ['Hoe gebruik ik de Siwak-tandenborstel?', 'Bevochtig het kopje lichtjes en poets 2 minuten met zachte cirkelbewegingen, ochtend en avond.'],
+        ['Hoe lang gaat een vervangend kopje mee?', 'Ca. 3 tot 4 weken bij dagelijks ochtend- en avondgebruik.'],
+        ['Is het geschikt voor kinderen en zwangere vrouwen?', 'Niet aanbevolen voor kinderen jonger dan 6 jaar. Vanaf 6 jaar onder ouderlijk toezicht. Zwangere vrouwen zonder beperking.'],
+        ['Kan ik het zonder tandpasta gebruiken?', 'Ja. Siwak heeft van nature antibacteriële en remineraliserende eigenschappen erkend door de WHO.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Ontdek ook onze <em>handschoenen</em>',
+      related: [
+        ['Exfolierende lichaamshandschoen — Moeraszijde', 'OEKO TEX® gecertificeerd. Resultaten zichtbaar vanaf eerste gebruik.'],
+        ['Exfolierende gezichtshandschoen — Moeraszijde', 'Ultra-zacht voor het gezicht. Effectief tegen acne en mee-eters.'],
+        ['1-Jaars Full Body Pakket', 'Lichaam + gezicht. Bespaar 50 % vs afzonderlijke aankoop.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Het perfecte kit<br><em>om te beginnen</em>'
+    },
+    'pack-tetes-x3': {
+      breadcrumb:   'Siwak opzetkopjes pakket × 3',
+      stars_count:  '4,8/5 — 28 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Natuurlijke verzorging,<br><em>maandenlang</em>',
+      desc_paragraphs: [
+        'Het Siwak Bio Opzetkopjes Pakket × 3 is de slimme oplossing voor wie de oplaadbare Siwak-tandenborstel al heeft en wil inslaan. Drie dozen met elk 6 kopjes voor meer dan anderhalf jaar 100 % natuurlijke mondverzorging.',
+        'Gemaakt van Arak-hout (Salvadora persica), bevatten deze vervangende kopjes van nature antibacteriële en wittende middelen, evenals voor het tandvlees voordelige mineralen. Ze schroeven gemakkelijk op het handvat van de ALYA & CO. oplaadbare Siwak-tandenborstel.',
+        'Door voor dit pakket te kiezen, vermindert u uw plasticafval terwijl u bespaart. Een eenvoudig gebaar voor uw gezondheid en de planeet.'
+      ],
+      specs_title: 'Kenmerken',
+      specs: [
+        ['Inhoud',           '3 dozen × 6 kopjes = 18 kopjes'],
+        ['Materiaal',        'Arak-hout (Salvadora persica)'],
+        ['Bevestiging',      'Aanschroefen — compatibel ALYA & CO.'],
+        ['Certificering',    '100 % natuurlijk · Bio'],
+        ['Geschatte duur',   'Meer dan 18 maanden'],
+        ['Besparing',        '33 % vs enkelvoudige aankoop']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Zijn de kopjes compatibel met mijn borstel?', 'Ja, exclusief ontworpen voor de ALYA & CO.-borstel. Niet compatibel met andere merken.'],
+        ['Hoe weet ik wanneer ik het kopje moet vervangen?', 'Zodra de vezels afplatten, gemiddeld elke 3 tot 4 weken.'],
+        ['Zijn de vervangende kopjes biologisch afbreekbaar?', 'Ja, voor 100 %. Van natuurlijk Siwak-hout, volledig composteerbaar.'],
+        ['Zit er plastic in de kopjes?', 'Nee. Volledig van natuurlijk Siwak-hout, zonder plastic.'],
+        ['Hoe bewaar ik de vervangende kopjes?', 'In de originele verpakking, op een droge plaats weg van vocht.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Compleet uw <em>routine</em>',
+      related: [
+        ['Oplaadbare Siwak-tandenborstel', 'Het iconische herbruikbare handvat. Compatibel met al onze kopjes.'],
+        ['Siwak tandpoeder', 'Bio, zonder fluor, zonder sulfaten. Natuurlijke whitening zichtbaar na 2 weken.'],
+        ['Compleet Siwak-pakket', 'Borstel + 3 kopjes + tandpoeder. Het ideale starterskit. −30 %.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Altijd<br><em>goed bevoorraad</em>'
+    },
+    'pack-dentifrice-3m': {
+      breadcrumb:   'Siwak tandpoeder 3-maandenpakket',
+      stars_count:  '4,7/5 — 18 beoordelingen',
+      desc_eyebrow: 'Volledige beschrijving',
+      desc_title:   'Drie maanden glimlachen,<br><em>100 % natuurlijk</em>',
+      desc_paragraphs: [
+        'Het Siwak Tandpoeder 3-maandenpakket geeft u een complete voorraad zodat u nooit zonder uw favoriete tandpoeder komt te zitten. Geformuleerd uit Arak-hout (Salvadora persica), werkt het op natuurlijke wijze in op tandwitheid, bacteriën en tandvleessgezondheid.',
+        'Zonder de controversiële ingrediënten van conventionele tandpasta\'s: geen fluoride, geen SLS, geen parabenen, geen triclosan. Alleen de kracht van de natuur in een fijn poeder voor dagelijks gebruik.',
+        'Met een voorraad voor 3 maanden profiteert u van een voordelig tarief van −33 % ten opzichte van enkelvoudige aankoop. Een economisch en ecologisch gebaar.'
+      ],
+      specs_title: 'Kenmerken',
+      specs: [
+        ['Inhoud',          '3 potjes van 50 g (150 g totaal)'],
+        ['Duur',            '~3 maanden gebruik'],
+        ['Formule',         'Biologisch Arak-houtpoeder'],
+        ['Zonder',          'Fluoride · SLS · Parabenen'],
+        ['Resultaat',       'Whitening zichtbaar na 2 weken'],
+        ['Besparing',       '33 % vs enkelvoudige aankoop']
+      ],
+      faq_eyebrow: 'Uw vragen',
+      faq_title:   'Veelgestelde <em>vragen</em>',
+      faq: [
+        ['Schuimt het tandpoeder?', 'Nee, volkomen normaal. Geen SLS, beïnvloedt de effectiviteit niet — integendeel, beter voor het tandvlees.'],
+        ['Hoe gebruik ik het?', 'Doop de licht bevochtigde borstel in het potje en poets 2 minuten normaal. Een kleine hoeveelheid gaat 4 tot 6 weken mee.'],
+        ['Waarom zonder fluoride?', 'Siwak bevat van nature organisch fluoride en remineraliserende mineralen die het glazuur beschermen.'],
+        ['Is het geschikt voor gevoelige tanden?', 'Ja. Zonder agressieve schuurmiddelen, zonder SLS — ultra-zachte formule perfect voor gevoelige tanden.'],
+        ['Hoe lang gaat een potje mee?', 'Ca. 4 tot 6 weken bij tweemaal daags gebruik. Het equivalent van een tandpastastube, met nul plastic.']
+      ],
+      related_eyebrow: 'U vindt misschien ook',
+      related_title:   'Compleet uw <em>routine</em>',
+      related: [
+        ['Oplaadbare Siwak-tandenborstel', 'Het iconische herbruikbare handvat. Compatibel met al onze kopjes.'],
+        ['Siwak vervangende opzetkopjes Bio', 'Biologisch afbreekbaar, 100 % natuurlijk. Opschroeven op de oplaadbare borstel.'],
+        ['Compleet Siwak-pakket', 'Borstel + 3 kopjes + tandpoeder. Het ideale starterskit. −30 %.']
+      ],
+      nl_eyebrow: 'Word lid van de familie',
+      nl_title:   'Zorg voor uzelf,<br><em>natuurlijk.</em>',
+      nl_sub:     'Ontvang onze schoonheidstips, exclusieve aanbiedingen en wees de eerste die onze nieuwigheden kent.',
+      nl_ph:      'Uw e-mailadres',
+      nl_btn:     'Inschrijven',
+      reviews_eyebrow: 'Klantengetuigenissen',
+      reviews_title:   'Drie maanden<br><em>van natuurlijke glimlachen</em>'
+    }
   }
 };

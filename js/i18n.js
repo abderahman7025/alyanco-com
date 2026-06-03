@@ -313,6 +313,95 @@
 
     /* ── Page home ── */
     if (page === 'home') applyHome(t);
+
+    /* ── Pages produit génériques ── */
+    var productPageIds = [
+      'brosse-siwak','tetes-recharges','dentifrice-siwak',
+      'gant-corps','gant-visage',
+      'pack-1an-full-body','pack-siwak-complet','pack-tetes-x3','pack-dentifrice-3m'
+    ];
+    if (productPageIds.indexOf(page) !== -1) applyProductPage(t, page);
+  }
+
+  /* ================================================================
+     PAGES PRODUIT GÉNÉRIQUES
+     ================================================================ */
+  function applyProductPage(t, page) {
+    var pd = t.product_pages && t.product_pages[page]; if (!pd) return;
+
+    /* Breadcrumb dernier noeud texte */
+    var bc = qs('.breadcrumb');
+    if (bc && pd.breadcrumb) {
+      var bcLast = bc.lastChild;
+      while (bcLast && bcLast.nodeType !== 3) bcLast = bcLast.previousSibling;
+      if (bcLast && bcLast.nodeType === 3) bcLast.textContent = pd.breadcrumb;
+    }
+
+    /* Nombre d'avis */
+    if (pd.stars_count) set('.stars-count', pd.stars_count);
+
+    /* Section description */
+    var ds = qs('.product-description-section');
+    if (ds) {
+      var ey = ds.querySelector('.section-eyebrow'); if (ey && pd.desc_eyebrow) ey.textContent = pd.desc_eyebrow;
+      var h2 = ds.querySelector('.section-title');   if (h2 && pd.desc_title)   h2.innerHTML = pd.desc_title;
+      var ps = ds.querySelectorAll('.desc-col:first-child p');
+      (pd.desc_paragraphs || []).forEach(function(txt, i){ if (ps[i]) ps[i].textContent = txt; });
+      var h3 = ds.querySelector('h3'); if (h3 && pd.specs_title) h3.textContent = pd.specs_title;
+      var specs = ds.querySelectorAll('.desc-specs li');
+      (pd.specs || []).forEach(function(sp, i) {
+        if (!specs[i]) return;
+        var span = specs[i].querySelector('span');
+        var tn = specs[i].childNodes[0];
+        if (tn && tn.nodeType === 3) tn.textContent = sp[0] + ' ';
+        if (span) span.textContent = sp[1];
+      });
+    }
+
+    /* Section FAQ */
+    var fs = qs('.faq-section');
+    if (fs) {
+      var fEy = fs.querySelector('.section-header .section-eyebrow'); if (fEy && pd.faq_eyebrow) fEy.textContent = pd.faq_eyebrow;
+      var fTi = fs.querySelector('.section-header .section-title');   if (fTi && pd.faq_title)   fTi.innerHTML = pd.faq_title;
+      var items = fs.querySelectorAll('.faq-item');
+      (pd.faq || []).forEach(function(qa, i) {
+        if (!items[i]) return;
+        var q = items[i].querySelector('.faq-question span:first-child');
+        var a = items[i].querySelector('.faq-answer p');
+        if (q) q.textContent = qa[0];
+        if (a) a.textContent = qa[1];
+      });
+    }
+
+    /* Section produits liés */
+    var rs = qs('.related-section');
+    if (rs) {
+      var rEy = rs.querySelector('.section-eyebrow'); if (rEy && pd.related_eyebrow) rEy.textContent = pd.related_eyebrow;
+      var rTi = rs.querySelector('.section-title');   if (rTi && pd.related_title)   rTi.innerHTML = pd.related_title;
+      var cards = rs.querySelectorAll('.product-card');
+      (pd.related || []).forEach(function(rel, i) {
+        if (!cards[i]) return;
+        var nm  = cards[i].querySelector('.product-name');       if (nm  && rel[0]) nm.textContent  = rel[0];
+        var ds2 = cards[i].querySelector('.product-desc-short'); if (ds2 && rel[1]) ds2.textContent = rel[1];
+      });
+    }
+
+    /* Newsletter */
+    var nl = qs('.newsletter-section');
+    if (nl) {
+      var nEy = nl.querySelector('.section-eyebrow'); if (nEy && pd.nl_eyebrow) nEy.textContent = pd.nl_eyebrow;
+      var nTi = nl.querySelector('.newsletter-title'); if (nTi && pd.nl_title)  nTi.innerHTML = pd.nl_title;
+      var nSb = nl.querySelector('.newsletter-sub');   if (nSb && pd.nl_sub)    nSb.textContent = pd.nl_sub;
+      var nIn = nl.querySelector('.newsletter-input'); if (nIn && pd.nl_ph)     nIn.placeholder = pd.nl_ph;
+      var nBt = nl.querySelector('.newsletter-btn');   if (nBt && pd.nl_btn)    nBt.textContent = pd.nl_btn;
+    }
+
+    /* Section avis */
+    var rv = qs('.reviews-section');
+    if (rv) {
+      var rvEy = rv.querySelector('.reviews-eyebrow'); if (rvEy && pd.reviews_eyebrow) rvEy.textContent = pd.reviews_eyebrow;
+      var rvTi = rv.querySelector('.reviews-title');   if (rvTi && pd.reviews_title)   rvTi.innerHTML = pd.reviews_title;
+    }
   }
 
   function applyChouchouSoie(t) {

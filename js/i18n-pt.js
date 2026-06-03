@@ -647,5 +647,404 @@ window.ALYA_T_PT = {
     nl_btn:     'Subscrever',
     reviews_eyebrow: 'Testemunhos de clientes',
     reviews_title:   'Cabelo<br><em>protegido</em>'
+  },
+
+  /* ── PÁGINAS DE PRODUTO GENÉRICAS ── */
+  product_pages: {
+    'brosse-siwak': {
+      breadcrumb:   'Escova de dentes Siwak recarregável',
+      stars_count:  '4,5/5 — 62 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'Higiene oral<br><em>reinventada</em>',
+      desc_paragraphs: [
+        'O Siwak (ou Miswak) é um ramo da árvore Salvadora persica utilizado há milénios nas tradições árabes, africanas e asiáticas para a higiene oral. Hoje, numerosos estudos científicos confirmam a sua eficácia superior à de uma escova clássica.',
+        'A escova ALYA & CO. moderniza este gesto ancestral com um sistema de cabeças de substituição aparafusadas, práticas e 100 % biodegradáveis. Nunca mais precisa de deitar fora uma escova inteira a cada 3 meses — apenas a cabeça é substituída.',
+        'Fabricada em laboratórios certificados segundo normas europeias, sem produtos químicos, sem aditivos artificiais. A natureza no seu estado mais puro, para resultados visíveis desde as primeiras utilizações.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Material',     'Madeira de Salvadora persica (Siwak)'],
+        ['Conteúdo',     '1 cabo + 3 cabeças de substituição'],
+        ['Certificação', 'Normas europeias'],
+        ['Biodegradável','100 % — Zero plástico'],
+        ['Recomendado',  'OMS e estudos científicos'],
+        ['Para',         'Toda a família a partir dos 6 anos']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['O Siwak branqueia realmente os dentes?', 'Sim. A madeira de Siwak contém agentes branqueadores naturais — sílica, bicarbonato e enzimas ativas — que eliminam progressivamente as manchas superficiais sem danificar o esmalte. Resultados visíveis em 2 a 4 semanas de uso regular.'],
+        ['Como se usa a escova de dentes Siwak?', 'Humedeça ligeiramente a cabeça, aplique uma ponta de pasta de dentes se desejar, e escove com movimentos circulares suaves durante 2 minutos, de manhã e à noite. A madeira natural liberta os seus princípios ativos em contacto com a humidade.'],
+        ['Quanto dura uma cabeça de substituição?', 'Cerca de 3 a 4 semanas com uso diário de manhã e à noite. Substitua a cabeça quando as fibras de madeira se separarem ou achatarem.'],
+        ['É adequado para crianças e grávidas?', 'Não recomendado para crianças com menos de 6 anos. A partir dos 6 anos, sob supervisão parental, pode ser utilizado. As grávidas podem utilizá-lo sem restrição — o Siwak é 100 % natural.'],
+        ['Posso usá-lo sem pasta de dentes?', 'Sim, absolutamente. A madeira de Siwak possui naturalmente propriedades antibacterianas, remineralizantes e anti-inflamatórias reconhecidas pela OMS. Pode usá-lo sozinho ou combiná-lo com o nosso dentífrico em pó para um efeito reforçado.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Complete a sua <em>rotina</em>',
+      related: [
+        ['Cabeças de substituição Siwak', 'Pack de 3 cabeças biodegradáveis. Compatíveis com a escova ALYA & CO.'],
+        ['Dentífrico Siwak em pó', 'Bio, sem flúor, sem sulfatos. Branqueamento natural em 2 semanas.'],
+        ['Pack Siwak Completo', 'Escova + cabeças + dentífrico. Poupe 30 % vs compra separada.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Adotaram a rotina<br><em>natural</em>'
+    },
+    'tetes-recharges': {
+      breadcrumb:   'Cabeças de substituição Siwak',
+      stars_count:  '4,5/5 — 87 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'Zero resíduos,<br><em>100 % natural</em>',
+      desc_paragraphs: [
+        'Com o sistema de recarga ALYA & CO., nunca mais precisa de deitar fora uma escova inteira. Apenas a cabeça é substituída, reduzindo drasticamente os seus resíduos plásticos dentários — até 80 % segundo os estudos.',
+        'Cada cabeça de substituição é fabricada em madeira de Siwak pura, sem cola, sem plástico, sem agentes sintéticos. No fim de vida, compostam-se naturalmente. Um gesto simples para cuidar de si E do planeta.',
+        'O pack de 3 cabeças corresponde a 9 meses de uso normal (substituição recomendada a cada 8 a 12 semanas). Ideal para toda a família.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Conteúdo',         '3 cabeças de substituição'],
+        ['Material',         'Madeira de Siwak pura'],
+        ['Compatibilidade',  'Apenas escova ALYA & CO.'],
+        ['Biodegradável',    '100 % compostável'],
+        ['Duração/cabeça',   '8 a 12 semanas'],
+        ['Plástico',         'Zero']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['As cabeças são compatíveis com a minha escova?', 'Sim, as nossas cabeças de substituição são concebidas exclusivamente para a escova ALYA & CO. Não são compatíveis com outras marcas.'],
+        ['Como sei quando mudar a cabeça?', 'Quando as fibras de madeira se achatam ou se separam, é hora de substituir a cabeça. Em média, 3 a 4 semanas por cabeça com uso matinal e noturno.'],
+        ['As cabeças de substituição são biodegradáveis?', 'Sim, a 100 %. Fabricadas em madeira natural de Siwak, biodegradam-se completamente. Pode até compostá-las diretamente no seu jardim.'],
+        ['Há plástico nas cabeças?', 'Não. As nossas cabeças são integralmente de madeira natural de Siwak, sem plástico nem resina sintética.'],
+        ['Como devo armazenar as cabeças de substituição?', 'Conserve-as na embalagem original, num local seco longe da humidade.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Complete a sua <em>rotina</em>',
+      related: [
+        ['Escova de dentes Siwak recarregável', 'A escova compatível com estas cabeças. 3 cabeças incluídas.'],
+        ['Dentífrico Siwak em pó', 'Bio, sem flúor, sem sulfatos. Branqueamento natural em 2 semanas.'],
+        ['Pack Siwak Completo', 'Escova + cabeças + dentífrico. Poupe 30 %.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Sempre<br><em>bem equipados</em>'
+    },
+    'dentifrice-siwak': {
+      breadcrumb:   'Dentífrico Siwak em pó',
+      stars_count:  '4,2/5 — 55 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'Brancura natural,<br><em>sem compromisso</em>',
+      desc_paragraphs: [
+        'O nosso dentífrico em pó é a alternativa natural às pastas de dentes convencionais carregadas de flúor, laurilsulfato de sódio (SLS), parabenos e corantes artificiais. Limpa, branqueia e protege suavemente.',
+        'A textura em pó, uma vez humedecida na escova, forma uma ligeira espuma natural que penetra entre os dentes e as gengivas. Resultado: hálito fresco, dentes mais brancos, gengivas saudáveis — sem nenhum produto químico agressivo.',
+        'Ideal para complementar a sua rotina Siwak com a escova ALYA & CO. e as cabeças biodegradáveis.'
+      ],
+      specs_title: 'Composição e informações',
+      specs: [
+        ['Base',          'Extrato natural de Siwak'],
+        ['Sem',           'Flúor, SLS, parabenos'],
+        ['Certificação',  'Bio'],
+        ['Textura',       'Pó fino'],
+        ['Resultados',    'Visíveis em 2 semanas'],
+        ['Conteúdo',      '50 g (aprox. 3 meses)']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['O dentífrico em pó faz espuma?', 'Não, e é completamente normal. Não contém SLS, o detergente responsável pela espuma nas pastas clássicas. A sua ausência não afeta a eficácia — pelo contrário, é melhor para as gengivas.'],
+        ['Como se usa?', 'Mergulhe a escova ligeiramente húmida no frasco (ou coloque uma pequena pitada na cabeça), depois escove normalmente durante 2 minutos. Uma pequena quantidade chega — o frasco dura em média 4 a 6 semanas.'],
+        ['Porquê sem flúor?', 'O nosso dentífrico está deliberadamente livre de flúor sintético. O Siwak contém naturalmente flúor orgânico e minerais remineralizantes que protegem o esmalte de forma natural.'],
+        ['É adequado para dentes sensíveis?', 'Sim. Sem abrasivos agressivos, sem SLS, sem conservantes artificiais — a sua fórmula ultra-suave é perfeita para dentes sensíveis e gengivas fragilizadas.'],
+        ['Quanto dura um frasco?', 'Um frasco de 40 g dura aproximadamente 4 a 6 semanas com uso duas vezes por dia. O equivalente económico e ecológico de um tubo de pasta de dentes clássico, com zero plástico.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Complete a sua <em>rotina</em>',
+      related: [
+        ['Escova de dentes Siwak recarregável', 'A escova perfeita para usar com este dentífrico bio.'],
+        ['Cabeças de substituição Siwak', 'Pack de 3 cabeças biodegradáveis. Compatíveis com a escova ALYA & CO.'],
+        ['Pack Siwak Completo', 'Escova + cabeças + este dentífrico. Poupe 30 %.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Um sorriso<br><em>verdadeiramente natural</em>'
+    },
+    'gant-corps': {
+      breadcrumb:   'Luva esfoliante corporal',
+      stars_count:  '4,8/5 — 216 avaliações verificadas',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'Pele perfeita,<br><em>sem esforço</em>',
+      desc_paragraphs: [
+        'A seda de amoreira é reconhecida como a fibra natural mais suave e eficaz para a esfoliação. Ao contrário das luvas sintéticas ou dos esfoliantes químicos, a nossa luva age mecanicamente e suavemente, sem irritar a pele.',
+        'Use-a no duche com água quente: em poucos minutos, as células mortas são eliminadas naturalmente, deixando a sua pele incrivelmente suave e luminosa. Os resultados são visíveis desde a primeira utilização.',
+        'Certificada OEKO TEX® Standard 100, a nossa luva garante a ausência de qualquer substância nociva. É adequada para todos os tipos de pele, incluindo pele sensível e reativa.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Material',         '100 % seda de amoreira natural'],
+        ['Certificação',     'OEKO TEX® Standard 100'],
+        ['Uso',              'Corpo'],
+        ['Tipo de pele',     'Todos, incluindo sensível'],
+        ['Eficácia',         'Células mortas, pele rugosa, pelos encravados, poros entupidos, etc.'],
+        ['Frequência',       '1 a 2 vezes por semana'],
+        ['Produtos químicos','Nenhum — apenas água quente'],
+        ['Duração',          '1 ano com cuidado adequado']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['Quantas vezes por semana devo usar a luva?', '1 a 2 vezes por semana é suficiente para a maioria dos tipos de pele. A pele muito seca pode usá-la até 3 vezes. Evite exagerar — a sua pele precisa de tempo para se regenerar.'],
+        ['A esfoliação é dolorosa?', 'Não. A luva de seda de amoreira é concebida para uma esfoliação suave e sem dor. A seda respeita a epiderme enquanto elimina eficazmente as células mortas. Resultado: pele lisa sem irritação.'],
+        ['É adequada para pele sensível?', 'Sim. A nossa luva é certificada OEKO TEX® e fabricada em seda de amoreira hipoalergénica pura, sem produtos químicos. É adequada para todos os tipos de pele, incluindo reativa e atópica.'],
+        ['Como limpo e cuido da luva?', 'Enxague com água limpa após cada utilização, esprema suavemente sem torcer e deixe secar ao ar. Lavagem à máquina a 30 °C em saco é possível uma vez por semana.'],
+        ['Preciso de usar um produto com a luva?', 'Não, funciona muito bem apenas com água no duche. Pode combiná-la com o seu gel de duche habitual se desejar, mas não é necessário.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Complete a sua <em>rotina</em>',
+      related: [
+        ['Luva esfoliante facial — Seda de amoreira', 'Ultra-suave. Eficaz contra acne e pontos negros.'],
+        ['Pack 1 ano Full Body', 'Corpo + rosto. Poupe 50 % vs compra separada.'],
+        ['Elástico de seda — Fixação perfeita', 'Seda de amoreira. Protege o seu cabelo, sem quebra nem nós.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Uma pele<br><em>transformada</em>'
+    },
+    'gant-visage': {
+      breadcrumb:   'Luva esfoliante facial',
+      stars_count:  '4,9/5 — 334 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'A sua pele recupera<br><em>o seu brilho natural</em>',
+      desc_paragraphs: [
+        'A pele do rosto é a mais exposta e a mais frágil. Merece um tratamento especial. A nossa luva facial é tecida com seda de amoreira especialmente selecionada pela sua finura e suavidade — muito mais macia do que a luva corporal.',
+        'Utilizada 1 a 2 vezes por semana sobre a pele húmida no duche ou sobre o lavatório, elimina suavemente as células mortas acumuladas, desobstrui os poros, reduz os pontos negros e ajuda a melhorar a aparência da acne. Não é necessário nenhum produto cosmético adicional — água morna é suficiente.',
+        'Resultado: uma tez mais luminosa, uma textura de pele mais suave e uma melhor absorção dos seus cuidados habituais (cremes, séruns). O duo perfeito com a sua rotina de beleza atual.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Material',         '100 % seda de amoreira natural'],
+        ['Certificação',     'OEKO TEX® Standard 100'],
+        ['Uso',              'Rosto'],
+        ['Tipo de pele',     'Todos, incluindo sensível'],
+        ['Eficácia',         'Pontos negros, poros entupidos, acne, tez apagada, etc.'],
+        ['Frequência',       '1 a 2 vezes por semana'],
+        ['Produtos químicos','Nenhum — apenas água quente'],
+        ['Duração',          '1 ano com cuidado adequado']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['Quantas vezes por semana usá-la no rosto?', 'Máximo 1 a 2 vezes por semana. O rosto é mais sensível do que o corpo — com acne ativa, aguarde até que os borbulhas se acalmem antes de esfoliar essa zona.'],
+        ['Pode ser usada em pele propensa à acne?', 'Sim, com cuidado. A luva ajuda a descongestionar os poros e a reduzir os pontos negros. Em zonas com acne ativa (borbulhas inflamadas), evite pressionar e trabalhe suavemente.'],
+        ['É adequada para pele oleosa?', 'Absolutamente. A esfoliação regular com seda de amoreira regula o sebo, reduz a aparência dos poros dilatados e uniformiza a tez apagada das peles com tendência oleosa.'],
+        ['Devo aplicar creme após a esfoliação?', 'Sim, é fortemente recomendado. Após a esfoliação, a pele absorve melhor os ativos. É o momento ideal para aplicar o seu sérum ou creme hidratante.'],
+        ['Como limpo a luva facial?', 'Enxague imediatamente após cada utilização com água limpa. Seque ao ar. Lavagem à máquina a 30 °C em saco uma vez por semana. Nunca partilhe a luva com outra pessoa por razões de higiene.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Complete a sua <em>rotina</em>',
+      related: [
+        ['Luva esfoliante corporal — Seda de amoreira', '216 avaliações ★★★★★. Resultados visíveis desde a primeira utilização.'],
+        ['Pack 1 ano Full Body', 'Corpo + rosto num único pack. Poupe 50 %.'],
+        ['Elástico de seda — Fixação perfeita', 'Seda de amoreira. Protege o seu cabelo, sem quebra.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Uma tez<br><em>luminosa</em>'
+    },
+    'pack-1an-full-body': {
+      breadcrumb:   'Pack 1 ano Full Body',
+      stars_count:  '4,9/5 — 542 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'Pele perfeita<br><em>da cabeça aos pés</em>',
+      desc_paragraphs: [
+        'O Pack 1 ano Full Body é a nossa oferta mais popular: reúne as duas luvas essenciais para uma pele impecável da cabeça aos pés. Corpo e rosto — nada é deixado ao acaso.',
+        'A luva corporal trata do resto do corpo no duche — braços, pernas, costas, abdómen — eliminando 100 % das células mortas numa única passagem. A luva facial cuida da sua pele mais delicada, desobstrui os poros e reduz a aparência dos pontos negros e da acne.',
+        'Resultado desde a primeira utilização: pele mais suave, mais luminosa que absorve melhor os seus cremes e séruns. Para sempre, sem produtos químicos. Apenas água quente.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Luva corporal',    '100 % seda de amoreira natural'],
+        ['Luva facial',      '100 % seda de amoreira natural'],
+        ['Certificação',     'OEKO TEX® Standard 100'],
+        ['Poupança',         '48 % vs compra separada'],
+        ['Uso',              'Corpo e rosto'],
+        ['Tipo de pele',     'Todos, incluindo sensível'],
+        ['Eficácia',         'Células mortas, pontos negros, poros entupidos, pelos encravados, acne, etc.'],
+        ['Frequência',       '1 a 2 vezes por semana'],
+        ['Produtos químicos','Nenhum — apenas água quente'],
+        ['Duração',          '1 ano com cuidado adequado']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['Quantas vezes por semana usar as luvas?', 'Para a luva corporal: 1 a 2 vezes por semana. Para a luva facial: também 1 a 2 vezes, mas nunca no mesmo dia que o corpo se a sua pele for sensível.'],
+        ['A esfoliação é dolorosa?', 'Não. A seda de amoreira oferece uma esfoliação suave e sem dor. Respeita a epiderme enquanto elimina eficazmente as células mortas. Resultado: pele lisa, sem vermelhidão.'],
+        ['As luvas são adequadas para pele sensível?', 'Sim. Todas as nossas luvas são certificadas OEKO TEX® em seda de amoreira hipoalergénica pura, sem produtos químicos.'],
+        ['Como cuido das luvas?', 'Enxague com água limpa após cada utilização, esprema sem torcer e deixe secar ao ar. Lavagem à máquina a 30 °C em saco uma vez por semana.'],
+        ['Quanto duram as luvas?', 'Com um cuidado cuidadoso, cada luva dura vários meses. A seda de amoreira é uma fibra naturalmente resistente.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Descubra também os nossos <em>produtos</em>',
+      related: [
+        ['Luva esfoliante corporal — Seda de amoreira', '216 avaliações ★★★★★. A luva estrela da ALYA & CO.'],
+        ['Luva esfoliante facial — Seda de amoreira', 'Ultra-suave para o rosto. Anti-acne natural.'],
+        ['Pack Siwak Completo', 'Escova + cabeças + dentífrico. Poupe 30 %.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Um ano de beleza<br><em>natural</em>'
+    },
+    'pack-siwak-complet': {
+      breadcrumb:   'Pack Siwak Completo',
+      stars_count:  '4,7/5 — 216 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'O kit perfeito para<br><em>começar naturalmente</em>',
+      desc_paragraphs: [
+        'O Pack Siwak Completo é a solução ideal para quem deseja passar a uma higiene oral 100 % natural sem se preocupar com nada. Tudo está incluído, tudo está pensado para uma transição simples e agradável.',
+        'A escova Siwak recarregável com 3 cabeças adicionais cobre-o durante mais de um ano de utilização. O dentífrico em pó complementa a rotina com as suas propriedades branqueadoras naturais. Uma única compra, vários meses de bem-estar natural.',
+        'Também ideal como presente original e responsável para os seus entes queridos. Embalado com cuidado, pronto a oferecer.'
+      ],
+      specs_title: 'Detalhe do pack',
+      specs: [
+        ['Escova',           '1 cabo Siwak + 3 cabeças incluídas'],
+        ['Cabeças extra',    '3 cabeças de substituição biodegradáveis'],
+        ['Dentífrico',       '50 g de pó Siwak bio'],
+        ['Poupança',         '30 % vs compra separada'],
+        ['Duração estimada', 'Mais de 12 meses'],
+        ['Embalagem',        'Pronto a oferecer']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['O Siwak branqueia realmente os dentes?', 'Sim. A madeira de Siwak contém agentes branqueadores naturais que eliminam progressivamente as manchas superficiais sem danificar o esmalte.'],
+        ['Como se usa a escova de dentes Siwak?', 'Humedeça a cabeça ligeiramente e escove com movimentos circulares suaves durante 2 minutos, de manhã e à noite.'],
+        ['Quanto dura uma cabeça de substituição?', 'Aprox. 3 a 4 semanas com uso diário de manhã e à noite.'],
+        ['É adequado para crianças e grávidas?', 'Não recomendado para menores de 6 anos. A partir dos 6 anos sob supervisão parental. As grávidas sem restrição.'],
+        ['Posso usá-lo sem pasta de dentes?', 'Sim. O Siwak tem naturalmente propriedades antibacterianas e remineralizantes reconhecidas pela OMS.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Descubra também as nossas <em>luvas</em>',
+      related: [
+        ['Luva esfoliante corporal — Seda de amoreira', 'Certificada OEKO TEX®. Resultados visíveis desde a primeira utilização.'],
+        ['Luva esfoliante facial — Seda de amoreira', 'Ultra-suave para o rosto. Eficaz contra acne e pontos negros.'],
+        ['Pack 1 ano Full Body', 'Corpo + rosto. Poupe 50 % vs compra separada.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'O kit perfeito<br><em>para começar</em>'
+    },
+    'pack-tetes-x3': {
+      breadcrumb:   'Pack cabeças Siwak × 3',
+      stars_count:  '4,8/5 — 28 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'Higiene natural,<br><em>durante meses</em>',
+      desc_paragraphs: [
+        'O Pack Cabeças Siwak Bio × 3 é a solução inteligente para quem já tem a escova Siwak recarregável e quer fazer stock. Três caixas de 6 cabeças para mais de dezoito meses de higiene oral 100 % natural.',
+        'Fabricadas em madeira de Arak (Salvadora persica), estas cabeças de substituição contêm naturalmente agentes antibacterianos e branqueadores, bem como minerais benéficos para as gengivas. Aparafusam-se facilmente no cabo da escova Siwak recarregável ALYA & CO.',
+        'Ao escolher este pack, reduz os seus resíduos plásticos ao mesmo tempo que poupa. Um gesto simples para a sua saúde e para o planeta.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Conteúdo',         '3 caixas × 6 cabeças = 18 cabeças'],
+        ['Material',         'Madeira de Arak (Salvadora persica)'],
+        ['Fixação',          'Aparafusável — compatível ALYA & CO.'],
+        ['Certificação',     '100 % natural · Bio'],
+        ['Duração estimada', 'Mais de 18 meses'],
+        ['Poupança',         '33 % vs compra unitária']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['As cabeças são compatíveis com a minha escova?', 'Sim, concebidas exclusivamente para a escova ALYA & CO. Não compatíveis com outras marcas.'],
+        ['Como sei quando mudar a cabeça?', 'Quando as fibras se achatam, em média a cada 3 a 4 semanas.'],
+        ['As cabeças de substituição são biodegradáveis?', 'Sim, a 100 %. Em madeira natural de Siwak, completamente compostáveis.'],
+        ['Há plástico nas cabeças?', 'Não. Integralmente de madeira natural de Siwak, sem plástico.'],
+        ['Como devo armazenar as cabeças de substituição?', 'Na embalagem original, num local seco longe da humidade.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Complete a sua <em>rotina</em>',
+      related: [
+        ['Escova de dentes Siwak recarregável', 'O cabo icónico reutilizável. Compatível com todas as nossas cabeças.'],
+        ['Dentífrico Siwak em pó', 'Bio, sem flúor, sem sulfatos. Branqueamento natural visível em 2 semanas.'],
+        ['Pack Siwak Completo', 'Escova + 3 cabeças + dentífrico. O kit ideal para começar. −30 %.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Sempre<br><em>bem abastecidos</em>'
+    },
+    'pack-dentifrice-3m': {
+      breadcrumb:   'Pack dentífrico Siwak 3 meses',
+      stars_count:  '4,7/5 — 18 avaliações',
+      desc_eyebrow: 'Descrição completa',
+      desc_title:   'Três meses de sorriso,<br><em>100 % natural</em>',
+      desc_paragraphs: [
+        'O Pack Dentífrico Siwak em Pó 3 meses oferece-lhe uma reserva completa para nunca ficar sem o seu produto favorito. Formulado em madeira de Arak (Salvadora persica), age naturalmente no branqueamento dos dentes, nas bactérias e na saúde das gengivas.',
+        'Sem os ingredientes controversos das pastas de dentes convencionais: sem flúor, sem SLS, sem parabenos, sem triclosan. Apenas o poder da natureza num pó fino para uso diário.',
+        'Com stock para 3 meses, beneficia de uma tarifa vantajosa de −33 % em relação à compra unitária. Um gesto económico e ecológico.'
+      ],
+      specs_title: 'Características',
+      specs: [
+        ['Conteúdo',         '3 frascos de 50 g (150 g no total)'],
+        ['Duração',          '~3 meses de uso'],
+        ['Fórmula',          'Pó de madeira de Arak bio'],
+        ['Sem',              'Flúor · SLS · Parabenos'],
+        ['Resultado',        'Branqueamento visível em 2 semanas'],
+        ['Poupança',         '33 % vs compra unitária']
+      ],
+      faq_eyebrow: 'As suas perguntas',
+      faq_title:   'Perguntas <em>frequentes</em>',
+      faq: [
+        ['O dentífrico em pó faz espuma?', 'Não, completamente normal. Sem SLS, o que não afeta a eficácia — pelo contrário, melhor para as gengivas.'],
+        ['Como se usa?', 'Mergulhe a escova ligeiramente húmida no frasco e escove 2 minutos normalmente. Uma pequena quantidade dura 4 a 6 semanas.'],
+        ['Porquê sem flúor?', 'O Siwak contém naturalmente flúor orgânico e minerais remineralizantes que protegem o esmalte.'],
+        ['É adequado para dentes sensíveis?', 'Sim. Sem abrasivos agressivos, sem SLS — fórmula ultra-suave perfeita para dentes sensíveis.'],
+        ['Quanto dura um frasco?', 'Aprox. 4 a 6 semanas com uso duas vezes por dia. O equivalente de um tubo de pasta de dentes, com zero plástico.']
+      ],
+      related_eyebrow: 'Também pode gostar de',
+      related_title:   'Complete a sua <em>rotina</em>',
+      related: [
+        ['Escova de dentes Siwak recarregável', 'O cabo icónico reutilizável. Compatível com todas as nossas cabeças.'],
+        ['Cabeças de substituição Siwak Bio', 'Biodegradáveis, 100 % natural. Para aparafusar na escova recarregável.'],
+        ['Pack Siwak Completo', 'Escova + 3 cabeças + dentífrico. O kit ideal para começar. −30 %.']
+      ],
+      nl_eyebrow: 'Junte-se à família',
+      nl_title:   'Cuide de si,<br><em>naturalmente.</em>',
+      nl_sub:     'Receba as nossas dicas de beleza, ofertas exclusivas e seja o primeiro a conhecer as nossas novidades.',
+      nl_ph:      'O seu endereço de email',
+      nl_btn:     'Subscrever',
+      reviews_eyebrow: 'Testemunhos de clientes',
+      reviews_title:   'Três meses<br><em>de sorrisos naturais</em>'
+    }
   }
 };

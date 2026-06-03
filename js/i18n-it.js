@@ -647,5 +647,404 @@ window.ALYA_T_IT = {
     nl_btn:     'Iscriviti',
     reviews_eyebrow: 'Testimonianze clienti',
     reviews_title:   'Capelli<br><em>protetti</em>'
+  },
+
+  /* ── PAGINE PRODOTTO GENERICHE ── */
+  product_pages: {
+    'brosse-siwak': {
+      breadcrumb:   'Spazzolino Siwak ricaricabile',
+      stars_count:  '4,5/5 — 62 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Igiene orale<br><em>reinventata</em>',
+      desc_paragraphs: [
+        'Il Siwak (o Miswak) è un ramo dell\'albero Salvadora persica utilizzato da millenni nelle tradizioni arabe, africane e asiatiche per l\'igiene orale. Oggi, numerosi studi scientifici confermano la sua efficacia superiore rispetto a uno spazzolino classico.',
+        'Lo spazzolino ALYA & CO. modernizza questo gesto ancestrale con un sistema di testine di ricambio avvitate, pratiche e 100 % biodegradabili. Non è più necessario gettare l\'intero spazzolino ogni 3 mesi — si sostituisce solo la testina.',
+        'Prodotto in laboratori certificati secondo le norme europee, senza sostanze chimiche, senza additivi artificiali. La natura nella sua forma più pura, per risultati visibili fin dai primi utilizzi.'
+      ],
+      specs_title: 'Caratteristiche',
+      specs: [
+        ['Materiale',     'Legno di Salvadora persica (Siwak)'],
+        ['Contenuto',     '1 manico + 3 testine di ricambio'],
+        ['Certificazione','Norme europee'],
+        ['Biodegradabile','100 % — Zero plastica'],
+        ['Raccomandato',  'OMS e studi scientifici'],
+        ['Per',           'Tutta la famiglia dai 6 anni']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Il Siwak sbiancare davvero i denti?', 'Sì. Il legno di Siwak contiene agenti sbiancanti naturali — silice, bicarbonato ed enzimi attivi — che eliminano progressivamente le macchie superficiali senza danneggiare lo smalto. Risultati visibili in 2-4 settimane di uso regolare.'],
+        ['Come si usa lo spazzolino Siwak?', 'Inumidire leggermente la testina, applicare un po\' di dentifricio se desiderato, e spazzolare con movimenti circolari delicati per 2 minuti, mattina e sera. Il legno naturale rilascia i suoi principi attivi a contatto con l\'umidità.'],
+        ['Quanto dura una testina di ricambio?', 'Circa 3-4 settimane con uso quotidiano mattutino e serale. Sostituire la testina quando le fibre di legno si separano o si appiattiscono.'],
+        ['È adatto per bambini e donne in gravidanza?', 'Non raccomandato per i bambini sotto i 6 anni. Dai 6 anni, sotto supervisione parentale, può essere utilizzato. Le donne in gravidanza possono usarlo senza restrizioni — il Siwak è 100 % naturale.'],
+        ['Posso usarlo senza dentifricio?', 'Sì, assolutamente. Il legno di Siwak possiede naturalmente proprietà antibatteriche, rimineralizzanti e antinfiammatorie riconosciute dall\'OMS. Può usarlo da solo o combinarlo con il nostro dentifricio in polvere per un effetto potenziato.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Completate la vostra <em>routine</em>',
+      related: [
+        ['Testine di ricambio Siwak', 'Confezione da 3 testine biodegradabili. Compatibili con lo spazzolino ALYA & CO.'],
+        ['Dentifricio Siwak in polvere', 'Bio, senza fluoro, senza solfati. Sbiancamento naturale in 2 settimane.'],
+        ['Kit Siwak Completo', 'Spazzolino + testine + dentifricio. Risparmiate il 30 % vs acquisto separato.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Hanno adottato<br><em>la routine naturale</em>'
+    },
+    'tetes-recharges': {
+      breadcrumb:   'Testine di ricambio Siwak',
+      stars_count:  '4,5/5 — 87 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Zero rifiuti,<br><em>100 % naturale</em>',
+      desc_paragraphs: [
+        'Con il sistema di ricarica ALYA & CO., non dovrete mai più gettare l\'intero spazzolino. Solo la testina viene sostituita, riducendo drasticamente i rifiuti plastici dentali — fino all\'80 % secondo gli studi.',
+        'Ogni testina di ricambio è realizzata in puro legno di Siwak, senza colla, senza plastica, senza agenti sintetici. A fine vita, si compostano naturalmente. Un gesto semplice per prendersi cura di sé E del pianeta.',
+        'La confezione da 3 testine corrisponde a 9 mesi di uso normale (sostituzione raccomandata ogni 8-12 settimane). Ideale per tutta la famiglia.'
+      ],
+      specs_title: 'Caratteristiche',
+      specs: [
+        ['Contenuto',       '3 testine di ricambio'],
+        ['Materiale',       'Puro legno di Siwak'],
+        ['Compatibilità',   'Solo spazzolino ALYA & CO.'],
+        ['Biodegradabile',  '100 % compostabile'],
+        ['Durata/testina',  '8-12 settimane'],
+        ['Plastica',        'Zero']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Le testine sono compatibili con il mio spazzolino?', 'Sì, le nostre testine di ricambio sono progettate esclusivamente per lo spazzolino ALYA & CO. Non sono compatibili con altre marche.'],
+        ['Come so quando cambiare la testina?', 'Quando le fibre di legno si appiattiscono o si separano, è il momento di sostituire la testina. In media, 3-4 settimane per testina con uso mattutino e serale.'],
+        ['Le testine sono biodegradabili?', 'Sì, al 100 %. Realizzate in legno naturale di Siwak, si biodegradano completamente. Potete persino compostarle direttamente in giardino.'],
+        ['C\'è plastica nelle testine?', 'No. Le nostre testine sono interamente in legno naturale di Siwak, senza plastica né resina sintetica.'],
+        ['Come devo conservare le testine?', 'Conservarle nella confezione originale, in un luogo asciutto lontano dall\'umidità.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Completate la vostra <em>routine</em>',
+      related: [
+        ['Spazzolino Siwak ricaricabile', 'Lo spazzolino compatibile con queste testine. 3 testine incluse.'],
+        ['Dentifricio Siwak in polvere', 'Bio, senza fluoro, senza solfati. Sbiancamento naturale in 2 settimane.'],
+        ['Kit Siwak Completo', 'Spazzolino + testine + dentifricio. Risparmiate il 30 %.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Sempre<br><em>ben equipaggiati</em>'
+    },
+    'dentifrice-siwak': {
+      breadcrumb:   'Dentifricio Siwak in polvere',
+      stars_count:  '4,2/5 — 55 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Bianco naturale,<br><em>senza compromessi</em>',
+      desc_paragraphs: [
+        'Il nostro dentifricio in polvere è l\'alternativa naturale ai dentifrici convenzionali carichi di fluoro, sodio lauril solfato (SLS), parabeni e coloranti artificiali. Pulisce, sbianaca e protegge delicatamente.',
+        'La texture in polvere, una volta inumidita sullo spazzolino, forma una leggera schiuma naturale che penetra tra i denti e le gengive. Risultato: alito fresco, denti più bianchi, gengive sane — senza prodotti chimici aggressivi.',
+        'Ideale per completare la vostra routine Siwak con lo spazzolino ALYA & CO. e le testine biodegradabili.'
+      ],
+      specs_title: 'Composizione e informazioni',
+      specs: [
+        ['Base',          'Estratto naturale di Siwak'],
+        ['Senza',         'Fluoro, SLS, parabeni'],
+        ['Certificazione','Bio'],
+        ['Texture',       'Polvere fine'],
+        ['Risultati',     'Visibili in 2 settimane'],
+        ['Contenuto',     '50 g (circa 3 mesi)']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Il dentifricio in polvere fa schiuma?', 'No, ed è del tutto normale. Non contiene SLS, il detergente responsabile della schiuma nei dentifrici classici. La sua assenza non pregiudica l\'efficacia — anzi, è meglio per le gengive.'],
+        ['Come si usa?', 'Immergere lo spazzolino leggermente umido nel barattolo (o versare un pizzico sulla testina), poi spazzolare normalmente per 2 minuti. Una piccola quantità è sufficiente — il barattolo dura in media 4-6 settimane.'],
+        ['Perché senza fluoro?', 'Il nostro dentifricio è deliberatamente privo di fluoro sintetico. Il Siwak contiene naturalmente fluoro organico e minerali rimineralizzanti che proteggono lo smalto.'],
+        ['È adatto per i denti sensibili?', 'Sì. Senza abrasivi aggressivi, senza SLS, senza conservanti artificiali — la sua formula ultra-delicata è perfetta per i denti sensibili e le gengive indebolite.'],
+        ['Quanto dura un barattolo?', 'Un barattolo da 40 g dura circa 4-6 settimane con utilizzo due volte al giorno. L\'equivalente economico ed ecologico di un tubetto di dentifricio classico, con zero plastica.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Completate la vostra <em>routine</em>',
+      related: [
+        ['Spazzolino Siwak ricaricabile', 'Lo spazzolino perfetto da usare con questo dentifricio bio.'],
+        ['Testine di ricambio Siwak', 'Confezione da 3 testine biodegradabili. Compatibili con lo spazzolino ALYA & CO.'],
+        ['Kit Siwak Completo', 'Spazzolino + testine + questo dentifricio. Risparmiate il 30 %.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Un sorriso<br><em>davvero naturale</em>'
+    },
+    'gant-corps': {
+      breadcrumb:   'Guanto esfoliante corpo',
+      stars_count:  '4,8/5 — 216 recensioni verificate',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Pelle perfetta,<br><em>senza sforzo</em>',
+      desc_paragraphs: [
+        'La seta di gelso è riconosciuta come la fibra naturale più morbida ed efficace per l\'esfoliazione. A differenza dei guanti sintetici o degli scrub chimici, il nostro guanto agisce meccanicamente e delicatamente, senza irritare la pelle.',
+        'Usatelo sotto la doccia con acqua calda: in pochi minuti, le cellule morte vengono eliminate naturalmente, lasciando la pelle incredibilmente morbida e luminosa. I risultati sono visibili fin dal primo utilizzo.',
+        'Certificato OEKO TEX® Standard 100, il nostro guanto garantisce l\'assenza di qualsiasi sostanza nociva. È adatto a tutti i tipi di pelle, inclusa quella sensibile e reattiva.'
+      ],
+      specs_title: 'Caratteristiche',
+      specs: [
+        ['Materiale',         '100 % seta di gelso naturale'],
+        ['Certificazione',    'OEKO TEX® Standard 100'],
+        ['Utilizzo',          'Corpo'],
+        ['Tipo di pelle',     'Tutti, inclusa la sensibile'],
+        ['Efficacia',         'Cellule morte, pelle ruvida, peli incarniti, pori ostruiti, ecc.'],
+        ['Frequenza',         '1-2 volte a settimana'],
+        ['Prodotti chimici',  'Nessuno — solo acqua calda'],
+        ['Durata',            '1 anno con cura adeguata']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Quante volte a settimana devo usare il guanto?', '1-2 volte a settimana è sufficiente per la maggior parte dei tipi di pelle. La pelle molto secca può usarlo fino a 3 volte. Evitate di esagerare — la pelle ha bisogno di rigenerarsi.'],
+        ['L\'esfoliazione è dolorosa?', 'No. Il guanto in seta di gelso è progettato per un\'esfoliazione delicata e indolore. La seta rispetta l\'epidermide eliminando efficacemente le cellule morte. Risultato: pelle liscia senza irritazione.'],
+        ['È adatto per le pelli sensibili?', 'Sì. Il nostro guanto è certificato OEKO TEX® in pura seta di gelso ipoallergenica, senza prodotti chimici. È adatto a tutti i tipi di pelle, inclusa quella reattiva e atopica.'],
+        ['Come pulisco e curo il guanto?', 'Sciacquarlo con acqua pulita dopo ogni utilizzo, strizzarlo delicatamente senza torcerlo e lasciarlo asciugare all\'aria. Lavaggio in lavatrice a 30 °C in sacchetto è possibile una volta alla settimana.'],
+        ['Devo usare un prodotto con il guanto?', 'No, funziona molto bene con la sola acqua sotto la doccia. Potete combinarlo con il vostro gel doccia se desiderato, ma non è necessario.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Completate la vostra <em>routine</em>',
+      related: [
+        ['Guanto esfoliante viso — Seta di gelso', 'Ultra-delicato. Efficace contro acne e punti neri.'],
+        ['Pack 1 anno Full Body', 'Corpo + viso. Risparmiate il 50 % vs acquisto separato.'],
+        ['Elastico in seta — Tenuta perfetta', 'Seta di gelso. Protegge i capelli, niente rotture o nodi.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Una pelle<br><em>trasformata</em>'
+    },
+    'gant-visage': {
+      breadcrumb:   'Guanto esfoliante viso',
+      stars_count:  '4,9/5 — 334 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'La vostra pelle ritrova<br><em>il suo splendore naturale</em>',
+      desc_paragraphs: [
+        'La pelle del viso è la più esposta e la più fragile. Merita un trattamento speciale. Il nostro guanto viso è tessuto con seta di gelso appositamente selezionata per la sua finezza e morbidezza — molto più morbida del guanto corpo.',
+        'Utilizzato 1-2 volte a settimana sulla pelle umida sotto la doccia o sopra il lavabo, elimina delicatamente le cellule morte accumulate, libera i pori, riduce i punti neri e aiuta a migliorare l\'aspetto dell\'acne. Non è necessario alcun prodotto cosmetico aggiuntivo — l\'acqua tiepida è sufficiente.',
+        'Risultato: una carnagione più luminosa, una texture della pelle più liscia e una migliore assorbimento delle vostre creme e sieri. Il duo perfetto con la vostra routine di bellezza attuale.'
+      ],
+      specs_title: 'Caratteristiche',
+      specs: [
+        ['Materiale',         '100 % seta di gelso naturale'],
+        ['Certificazione',    'OEKO TEX® Standard 100'],
+        ['Utilizzo',          'Viso'],
+        ['Tipo di pelle',     'Tutti, inclusa la sensibile'],
+        ['Efficacia',         'Punti neri, pori ostruiti, acne, carnagione spenta, ecc.'],
+        ['Frequenza',         '1-2 volte a settimana'],
+        ['Prodotti chimici',  'Nessuno — solo acqua calda'],
+        ['Durata',            '1 anno con cura adeguata']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Quante volte a settimana usarlo sul viso?', 'Massimo 1-2 volte a settimana. Il viso è più sensibile del corpo — con acne attiva, aspettate che i brufoli si calmino prima di esfoliare quella zona.'],
+        ['Può essere usato sulla pelle acneica?', 'Sì, con cautela. Il guanto aiuta a decongestionare i pori e ridurre i punti neri. Sulle aree con acne attiva (brufoli infiammati), evitate di premere e lavorate delicatamente.'],
+        ['È adatto per le pelli grasse?', 'Assolutamente. L\'esfoliazione regolare con seta di gelso regola il sebo, restringe l\'aspetto dei pori dilatati e uniforma la carnagione spenta delle pelli tendenti al grasso.'],
+        ['Devo applicare una crema dopo l\'esfoliazione?', 'Sì, è fortemente raccomandato. Dopo l\'esfoliazione, la pelle assorbe meglio i principi attivi. È il momento ideale per applicare il vostro siero o crema idratante.'],
+        ['Come pulisco il guanto viso?', 'Sciacquarlo immediatamente dopo ogni utilizzo con acqua pulita. Asciugare all\'aria. Lavaggio in lavatrice a 30 °C in sacchetto una volta alla settimana. Non condividere mai il guanto con altri per ragioni igieniche.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Completate la vostra <em>routine</em>',
+      related: [
+        ['Guanto esfoliante corpo — Seta di gelso', '216 recensioni ★★★★★. Risultati visibili dal primo utilizzo.'],
+        ['Pack 1 anno Full Body', 'Corpo + viso in un unico pack. Risparmiate il 50 %.'],
+        ['Elastico in seta — Tenuta perfetta', 'Seta di gelso. Protegge i capelli, niente rotture.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Una carnagione<br><em>luminosa</em>'
+    },
+    'pack-1an-full-body': {
+      breadcrumb:   'Pack 1 anno Full Body',
+      stars_count:  '4,9/5 — 542 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Pelle perfetta<br><em>dalla testa ai piedi</em>',
+      desc_paragraphs: [
+        'Il Pack 1 anno Full Body è la nostra offerta più popolare: riunisce i due guanti essenziali per una pelle impeccabile dalla testa ai piedi. Corpo e viso — nulla è lasciato al caso.',
+        'Il guanto corpo si occupa del resto del corpo sotto la doccia — braccia, gambe, schiena, addome — eliminando il 100 % delle cellule morte in un solo passaggio. Il guanto viso si prende cura della vostra pelle più delicata, libera i pori e riduce l\'aspetto dei punti neri e dell\'acne.',
+        'Risultato dal primo utilizzo: pelle più morbida, più luminosa che assorbe meglio creme e sieri. Per sempre, senza prodotti chimici. Solo acqua calda.'
+      ],
+      specs_title: 'Caratteristiche',
+      specs: [
+        ['Guanto corpo',    '100 % seta di gelso naturale'],
+        ['Guanto viso',     '100 % seta di gelso naturale'],
+        ['Certificazione',  'OEKO TEX® Standard 100'],
+        ['Risparmio',       '48 % vs acquisto separato'],
+        ['Utilizzo',        'Corpo e viso'],
+        ['Tipo di pelle',   'Tutti, inclusa la sensibile'],
+        ['Efficacia',       'Cellule morte, punti neri, pori ostruiti, peli incarniti, acne, ecc.'],
+        ['Frequenza',       '1-2 volte a settimana'],
+        ['Prodotti chimici','Nessuno — solo acqua calda'],
+        ['Durata',          '1 anno con cura adeguata']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Quante volte a settimana usare i guanti?', 'Per il guanto corpo: 1-2 volte a settimana. Per il guanto viso: anche 1-2 volte, ma mai lo stesso giorno del corpo se la pelle è sensibile.'],
+        ['L\'esfoliazione è dolorosa?', 'No. La seta di gelso offre un\'esfoliazione delicata e indolore. Rispetta l\'epidermide eliminando efficacemente le cellule morte. Risultato: pelle liscia, senza rossori.'],
+        ['I guanti sono adatti per le pelli sensibili?', 'Sì. Tutti i nostri guanti sono certificati OEKO TEX® in pura seta di gelso ipoallergenica, senza prodotti chimici.'],
+        ['Come curo i guanti?', 'Sciacquarli con acqua pulita dopo ogni utilizzo, strizzare senza torcere e lasciare asciugare all\'aria. Lavaggio in lavatrice a 30 °C in sacchetto una volta alla settimana.'],
+        ['Quanto durano i guanti?', 'Con una cura attenta, ogni guanto dura diversi mesi. La seta di gelso è una fibra naturalmente resistente.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Scoprite anche i nostri <em>prodotti</em>',
+      related: [
+        ['Guanto esfoliante corpo — Seta di gelso', '216 recensioni ★★★★★. Il guanto star di ALYA & CO.'],
+        ['Guanto esfoliante viso — Seta di gelso', 'Ultra-delicato per il viso. Naturalmente anti-acne.'],
+        ['Kit Siwak Completo', 'Spazzolino + testine + dentifricio. Risparmiate il 30 %.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Un anno di bellezza<br><em>naturale</em>'
+    },
+    'pack-siwak-complet': {
+      breadcrumb:   'Kit Siwak Completo',
+      stars_count:  '4,7/5 — 216 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Il kit perfetto per<br><em>iniziare al naturale</em>',
+      desc_paragraphs: [
+        'Il Kit Siwak Completo è la soluzione ideale per chi desidera passare a un\'igiene orale 100 % naturale senza preoccupazioni. Tutto è incluso, tutto è pensato per una transizione semplice e piacevole.',
+        'Lo spazzolino Siwak ricaricabile con 3 testine aggiuntive vi copre per oltre un anno di utilizzo. Il dentifricio in polvere completa la routine con le sue proprietà sbiancanti naturali. Un solo acquisto, diversi mesi di benessere naturale.',
+        'Ideale anche come regalo originale e responsabile per i vostri cari. Confezionato con cura, pronto da regalare.'
+      ],
+      specs_title: 'Dettaglio del kit',
+      specs: [
+        ['Spazzolino',       '1 manico Siwak + 3 testine incluse'],
+        ['Testine extra',    '3 testine di ricambio biodegradabili'],
+        ['Dentifricio',      '50 g di polvere Siwak bio'],
+        ['Risparmio',        '30 % vs acquisto separato'],
+        ['Durata stimata',   'Oltre 12 mesi'],
+        ['Confezione',       'Pronta da regalare']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Il Siwak sbiancare davvero i denti?', 'Sì. Il legno di Siwak contiene agenti sbiancanti naturali che eliminano progressivamente le macchie superficiali senza danneggiare lo smalto.'],
+        ['Come si usa lo spazzolino Siwak?', 'Inumidire leggermente la testina e spazzolare con movimenti circolari delicati per 2 minuti, mattina e sera.'],
+        ['Quanto dura una testina di ricambio?', 'Circa 3-4 settimane con uso quotidiano mattutino e serale.'],
+        ['È adatto per bambini e donne in gravidanza?', 'Non raccomandato per i bambini sotto i 6 anni. Dai 6 anni sotto supervisione parentale. Le donne in gravidanza possono usarlo senza restrizioni.'],
+        ['Posso usarlo senza dentifricio?', 'Sì. Il Siwak ha naturalmente proprietà antibatteriche e rimineralizzanti riconosciute dall\'OMS.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Scoprite anche i nostri <em>guanti</em>',
+      related: [
+        ['Guanto esfoliante corpo — Seta di gelso', 'Certificato OEKO TEX®. Risultati visibili dal primo utilizzo.'],
+        ['Guanto esfoliante viso — Seta di gelso', 'Ultra-delicato per il viso. Efficace contro acne e punti neri.'],
+        ['Pack 1 anno Full Body', 'Corpo + viso. Risparmiate il 50 % vs acquisto separato.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Il kit perfetto<br><em>per iniziare</em>'
+    },
+    'pack-tetes-x3': {
+      breadcrumb:   'Pack testine Siwak × 3',
+      stars_count:  '4,8/5 — 28 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Igiene naturale,<br><em>per mesi</em>',
+      desc_paragraphs: [
+        'Il Pack Testine Siwak Bio × 3 è la soluzione intelligente per chi ha già adottato lo spazzolino Siwak ricaricabile e desidera fare scorta. Tre confezioni da 6 testine per oltre diciotto mesi di igiene dentale 100 % naturale.',
+        'Realizzate in legno di Arak (Salvadora persica), queste testine contengono naturalmente agenti antibatterici e sbiancanti, nonché minerali benefici per le gengive. Si avvitano facilmente sul manico dello spazzolino Siwak ricaricabile ALYA & CO.',
+        'Scegliendo questo pack, riducete i vostri rifiuti plastici risparmiando al tempo stesso. Un gesto semplice per la vostra salute e per il pianeta.'
+      ],
+      specs_title: 'Caratteristiche',
+      specs: [
+        ['Contenuto',        '3 confezioni × 6 testine = 18 testine'],
+        ['Materiale',        'Legno di Arak (Salvadora persica)'],
+        ['Fissaggio',        'A vite — compatibile ALYA & CO.'],
+        ['Certificazione',   '100 % naturale · Bio'],
+        ['Durata stimata',   'Oltre 18 mesi'],
+        ['Risparmio',        '33 % vs acquisto unitario']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Le testine sono compatibili con il mio spazzolino?', 'Sì, progettate esclusivamente per lo spazzolino ALYA & CO. Non compatibili con altre marche.'],
+        ['Come so quando cambiare la testina?', 'Quando le fibre si appiattiscono, in media ogni 3-4 settimane.'],
+        ['Le testine sono biodegradabili?', 'Sì, al 100 %. In legno naturale di Siwak, completamente compostabili.'],
+        ['C\'è plastica nelle testine?', 'No. Interamente in legno naturale di Siwak, senza plastica.'],
+        ['Come devo conservare le testine?', 'Nella confezione originale, in un luogo asciutto lontano dall\'umidità.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Completate la vostra <em>routine</em>',
+      related: [
+        ['Spazzolino Siwak ricaricabile', 'Il manico iconico riutilizzabile. Compatibile con tutte le nostre testine.'],
+        ['Dentifricio Siwak in polvere', 'Bio, senza fluoro, senza solfati. Sbiancamento naturale visibile in 2 settimane.'],
+        ['Kit Siwak Completo', 'Spazzolino + 3 testine + dentifricio. Il kit ideale per iniziare. −30 %.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Sempre<br><em>ben forniti</em>'
+    },
+    'pack-dentifrice-3m': {
+      breadcrumb:   'Pack dentifricio Siwak 3 mesi',
+      stars_count:  '4,7/5 — 18 recensioni',
+      desc_eyebrow: 'Descrizione completa',
+      desc_title:   'Tre mesi di sorriso,<br><em>100 % naturale</em>',
+      desc_paragraphs: [
+        'Il Pack Dentifricio Siwak in Polvere 3 mesi vi offre una scorta completa per non rimanere mai senza il vostro prodotto preferito. Formulato in legno di Arak (Salvadora persica), agisce naturalmente sull\'imbiancamento dei denti, i batteri e la salute delle gengive.',
+        'Senza gli ingredienti controversi dei dentifrici convenzionali: niente fluoro, niente SLS, niente parabeni, niente triclosan. Solo il potere della natura in una polvere fine per uso quotidiano.',
+        'Con scorte per 3 mesi, beneficiate di una tariffa vantaggiosa di −33 % rispetto all\'acquisto unitario. Un gesto economico ed ecologico.'
+      ],
+      specs_title: 'Caratteristiche',
+      specs: [
+        ['Contenuto',        '3 barattoli da 50 g (150 g totali)'],
+        ['Durata',           '~3 mesi di utilizzo'],
+        ['Formula',          'Polvere di legno di Arak bio'],
+        ['Senza',            'Fluoro · SLS · Parabeni'],
+        ['Risultato',        'Sbiancamento visibile in 2 settimane'],
+        ['Risparmio',        '33 % vs acquisto unitario']
+      ],
+      faq_eyebrow: 'Le vostre domande',
+      faq_title:   'Domande <em>frequenti</em>',
+      faq: [
+        ['Il dentifricio in polvere fa schiuma?', 'No, ed è del tutto normale. Nessun SLS, il che non pregiudica l\'efficacia — anzi, meglio per le gengive.'],
+        ['Come si usa?', 'Immergere lo spazzolino leggermente umido nel barattolo e spazzolare 2 minuti. Una piccola quantità dura 4-6 settimane.'],
+        ['Perché senza fluoro?', 'Il Siwak contiene naturalmente fluoro organico e minerali rimineralizzanti che proteggono lo smalto.'],
+        ['È adatto per i denti sensibili?', 'Sì. Senza abrasivi aggressivi, senza SLS — formula ultra-delicata perfetta per denti sensibili.'],
+        ['Quanto dura un barattolo?', 'Circa 4-6 settimane con utilizzo due volte al giorno. L\'equivalente di un tubetto di dentifricio, con zero plastica.']
+      ],
+      related_eyebrow: 'Potrebbe piacervi anche',
+      related_title:   'Completate la vostra <em>routine</em>',
+      related: [
+        ['Spazzolino Siwak ricaricabile', 'Il manico iconico riutilizzabile. Compatibile con tutte le nostre testine.'],
+        ['Testine di ricambio Siwak Bio', 'Biodegradabili, 100 % naturale. Da avvitare sullo spazzolino ricaricabile.'],
+        ['Kit Siwak Completo', 'Spazzolino + 3 testine + dentifricio. Il kit ideale per iniziare. −30 %.']
+      ],
+      nl_eyebrow: 'Unisciti alla famiglia',
+      nl_title:   'Prenditi cura di te,<br><em>naturalmente.</em>',
+      nl_sub:     'Ricevi i nostri consigli di bellezza, offerte esclusive e sii il primo a conoscere le nostre novità.',
+      nl_ph:      'Il tuo indirizzo email',
+      nl_btn:     'Iscriviti',
+      reviews_eyebrow: 'Testimonianze clienti',
+      reviews_title:   'Tre mesi<br><em>di sorrisi naturali</em>'
+    }
   }
 };

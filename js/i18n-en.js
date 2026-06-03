@@ -730,5 +730,404 @@ window.ALYA_T_EN = {
     nl_btn:     'Subscribe',
     reviews_eyebrow: 'Customer testimonials',
     reviews_title:   'Hair that\'s<br><em>protected</em>'
+  },
+
+  /* ── GENERIC PRODUCT PAGES ── */
+  product_pages: {
+    'brosse-siwak': {
+      breadcrumb:   'Rechargeable Siwak Toothbrush',
+      stars_count:  '4.5/5 — 62 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Oral hygiene<br><em>reinvented</em>',
+      desc_paragraphs: [
+        'Siwak (or Miswak) is a branch of the Salvadora persica tree, used for millennia in Arab, African and Asian traditions for oral hygiene. Today, numerous scientific studies confirm its effectiveness is superior to that of a classic toothbrush.',
+        'The ALYA & CO. brush modernises this ancestral practice by offering a practical, 100% biodegradable screw-on replacement head system. No need to throw away a whole brush every 3 months — only the head is replaced.',
+        'Made in laboratories certified to European standards, with no chemicals, no artificial additives. Nature in its purest form, for visible results from the very first uses.'
+      ],
+      specs_title: 'Specifications',
+      specs: [
+        ['Material',     'Salvadora persica wood (Siwak)'],
+        ['Contents',     '1 handle + 3 replacement heads'],
+        ['Certification','European standards'],
+        ['Biodegradable','100% — Zero plastic'],
+        ['Recommended',  'WHO & scientific studies'],
+        ['For',          'The whole family from age 6']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['Does Siwak really whiten teeth?', 'Yes. Siwak wood contains natural whitening agents — silica, bicarbonate and active enzymes — that progressively eliminate surface stains without damaging enamel. Results visible from 2 to 4 weeks of regular use.'],
+        ['How do I use the Siwak toothbrush?', 'Lightly wet the head, apply a touch of toothpaste if you wish, and brush with gentle circular movements for 2 minutes, morning and evening. The natural wood releases its active ingredients on contact with moisture.'],
+        ['How long does a replacement head last?', 'About 3 to 4 weeks with daily morning and evening use. Replace the head as soon as the wood fibres spread or flatten — this is a sign that effectiveness is reducing.'],
+        ['Is it suitable for children and pregnant women?', 'It is not recommended for children under 6. From age 6, under parental supervision, it can be used. Pregnant women can use it without any restriction — Siwak is 100% natural.'],
+        ['Can I use it without toothpaste?', 'Yes, absolutely. Siwak wood naturally has antibacterial, remineralising and anti-inflammatory properties recognised by the WHO. You can use it alone, or combine it with our toothpowder for enhanced effect.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Complete your <em>routine</em>',
+      related: [
+        ['Siwak Replacement Heads', 'Pack of 3 biodegradable heads. Compatible with the ALYA & CO. brush.'],
+        ['Siwak Toothpowder', 'Organic, no fluoride, no sulphates. Natural whitening from 2 weeks.'],
+        ['Complete Siwak Pack', 'Brush + heads + toothpowder. Save 30% vs separate purchase.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'They\'ve adopted<br><em>the natural routine</em>'
+    },
+    'tetes-recharges': {
+      breadcrumb:   'Siwak Replacement Heads',
+      stars_count:  '4.5/5 — 87 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Zero waste,<br><em>100% natural</em>',
+      desc_paragraphs: [
+        'With the ALYA & CO. refill system, you never have to throw away a whole brush again. Only the head is replaced, drastically reducing your dental plastic waste — up to 80% according to studies.',
+        'Each replacement head is made from pure Siwak wood, with no glue, no plastic, no synthetic agents. At end of life, they compost naturally. A simple gesture to take care of yourself AND the planet.',
+        'The pack of 3 heads corresponds to 9 months of normal use (replacement recommended every 8 to 12 weeks). Ideal for the whole family.'
+      ],
+      specs_title: 'Specifications',
+      specs: [
+        ['Contents',       '3 replacement heads'],
+        ['Material',       'Pure Siwak wood'],
+        ['Compatibility',  'ALYA & CO. brush only'],
+        ['Biodegradable',  '100% compostable'],
+        ['Lifespan per head','8 to 12 weeks'],
+        ['Plastic',        'Zero']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['Are the heads compatible with my brush?', 'Yes, our replacement heads are designed exclusively for the ALYA & CO. brush. The fixing system guarantees a perfect fit. They are not compatible with other brush brands.'],
+        ['How do I know when to change the head?', 'As soon as the wood fibres flatten or spread, it is time to replace the head. On average, expect 3 to 4 weeks per head with morning and evening use. A worn head is less effective at eliminating plaque.'],
+        ['Are the replacement heads biodegradable?', 'Yes, 100%. Unlike conventional plastic brush heads, our heads are made of natural Siwak wood and biodegrade completely. You can even compost them directly in your garden.'],
+        ['Is there any plastic in the heads?', 'No. Our heads are made entirely of natural Siwak wood, with no plastic or synthetic resin. It is one of the few truly zero-waste dental brushing systems on the market.'],
+        ['How should I store the replacement heads?', 'Keep them in their original packaging, in a dry place away from moisture. Avoid storing them in the bathroom if it is very damp — natural wood can absorb ambient moisture before use.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Complete your <em>routine</em>',
+      related: [
+        ['Rechargeable Siwak Toothbrush', 'The brush compatible with these heads. 3 heads included.'],
+        ['Siwak Toothpowder', 'Organic, no fluoride, no sulphates. Natural whitening from 2 weeks.'],
+        ['Complete Siwak Pack', 'Brush + heads + toothpowder. Save 30%.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'Always<br><em>well equipped</em>'
+    },
+    'dentifrice-siwak': {
+      breadcrumb:   'Siwak Toothpowder',
+      stars_count:  '4.2/5 — 55 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Natural whiteness,<br><em>without compromise</em>',
+      desc_paragraphs: [
+        'Our toothpowder is the natural alternative to conventional toothpastes loaded with fluoride, sodium lauryl sulphate (SLS), parabens and artificial colourants. Formulated from natural-origin ingredients and Siwak extracts, it gently cleanses, whitens and protects.',
+        'The powder texture, once moistened on the brush, forms a light natural foam that penetrates between the teeth and along the gum line. Result: fresh breath, whiter teeth, healthy gums — with no harsh chemicals whatsoever.',
+        'Ideal to complement your Siwak routine with the ALYA & CO. brush and biodegradable replacement heads.'
+      ],
+      specs_title: 'Composition & info',
+      specs: [
+        ['Base',          'Natural Siwak extract'],
+        ['Free from',     'Fluoride, SLS, parabens'],
+        ['Certification', 'Organic'],
+        ['Texture',       'Fine powder'],
+        ['Results',       'Visible from 2 weeks'],
+        ['Size',          '50g (approx. 3 months)']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['Does the toothpowder foam?', 'No, and this is perfectly normal. Our toothpaste does not contain SLS (sodium lauryl sulphate), the detergent responsible for foam in classic toothpastes. Its absence does not affect effectiveness — on the contrary, it is better for your gums.'],
+        ['How do I use it?', 'Dip your slightly damp brush into the pot (or pour a small pinch onto the head), then brush normally for 2 minutes. A very small amount is enough — the pot lasts an average of 4 to 6 weeks.'],
+        ['Why no fluoride?', 'Our toothpaste is intentionally free of synthetic fluoride, for those who prefer 100% natural hygiene. Siwak naturally contains organic fluoride as well as remineralising minerals (silica, calcium) that protect enamel naturally.'],
+        ['Is it suitable for sensitive teeth?', 'Yes. With no harsh abrasives, no SLS, no artificial preservatives — its ultra-gentle formula is perfectly suited to sensitive teeth and weakened gums. Many of our customers with sensitive teeth adopt it definitively.'],
+        ['How long does one pot last?', 'A 40g pot lasts approximately 4 to 6 weeks with twice-daily use. It is the economical and ecological equivalent of a classic toothpaste tube, with zero plastic and zero waste.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Complete your <em>routine</em>',
+      related: [
+        ['Rechargeable Siwak Toothbrush', 'The perfect brush to use with this organic toothpowder.'],
+        ['Siwak Replacement Heads', 'Pack of 3 biodegradable heads. Compatible with the ALYA & CO. brush.'],
+        ['Complete Siwak Pack', 'Brush + heads + this toothpowder. Save 30%.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'A smile<br><em>truly natural</em>'
+    },
+    'gant-corps': {
+      breadcrumb:   'Body Exfoliating Glove',
+      stars_count:  '4.8/5 — 216 verified reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Perfect skin,<br><em>effortlessly</em>',
+      desc_paragraphs: [
+        'Mulberry silk is recognised as the softest and most effective natural fibre for exfoliation. Unlike synthetic gloves or chemical scrubs, our glove acts mechanically and gently, without irritating the skin.',
+        'Use it in the shower with hot water: within a few minutes, dead cells are eliminated naturally, leaving your skin incredibly soft and luminous. Results are visible from the very first use.',
+        'Certified OEKO TEX® Standard 100, our glove guarantees the absence of any harmful substances. It is suitable for all skin types, including sensitive and reactive skin. Resistant and durable, it will accompany you for years.'
+      ],
+      specs_title: 'Specifications',
+      specs: [
+        ['Material',       '100% natural mulberry silk'],
+        ['Certification',  'OEKO TEX® Standard 100'],
+        ['Use',            'Body'],
+        ['Skin type',      'All, including sensitive'],
+        ['Effectiveness',  'Dead cells, rough skin, ingrown hairs, blocked pores, etc.'],
+        ['Frequency',      '1 to 2 times per week'],
+        ['Chemicals',      'None — warm water only'],
+        ['Lifespan',       '1 year with proper care']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['How many times per week should I use the glove?', '1 to 2 times per week is enough for most skin types. Very dry skin can use it up to 3 times. Avoid overdoing it — your skin needs time to regenerate between each scrub.'],
+        ['Is exfoliation painful?', 'No. The mulberry silk glove is designed for gentle, pain-free scrubbing. Unlike abrasive brushes, the silk respects the epidermis while effectively eliminating dead cells. Result: smooth skin without irritation.'],
+        ['Is it suitable for sensitive skin?', 'Yes. Our glove is OEKO TEX® certified and made from pure hypoallergenic mulberry silk, with no chemicals. It is suitable for all skin types, including reactive and atopic skin.'],
+        ['How do I clean and care for the glove?', 'Rinse it with clean water after each use, wring it gently without twisting and leave it to air dry. Machine wash at 30°C in a laundry bag is possible once a week for optimal hygiene.'],
+        ['Do I need to use a product with the glove?', 'No, it works very well with water alone in the shower. You can combine it with your usual shower gel if you wish, but it is not necessary. The effectiveness comes from the silk itself.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Complete your <em>routine</em>',
+      related: [
+        ['Face Exfoliating Glove — Mulberry Silk', 'Ultra-gentle. Effective against acne and blackheads.'],
+        ['1-Year Full Body Pack', 'Body + face. Save 50% vs separate purchase.'],
+        ['Perfect Hold Scrunchie — Silk', 'Mulberry silk. Protects your hair, no breakage or tangles.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'A skin<br><em>transformed</em>'
+    },
+    'gant-visage': {
+      breadcrumb:   'Face Exfoliating Glove',
+      stars_count:  '4.9/5 — 334 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Your skin reclaims<br><em>its natural radiance</em>',
+      desc_paragraphs: [
+        'Facial skin is the most exposed and the most fragile. It deserves special treatment. Our face glove is woven from mulberry silk specially selected for its fineness and softness — much more supple than the body glove.',
+        'Used 1 to 2 times per week on damp skin in the shower or over the sink, it gently eliminates accumulated dead cells, unclogs pores, reduces blackheads and helps improve the appearance of acne. No additional cosmetic product is needed — warm water is enough.',
+        'Result: a more luminous complexion, smoother skin texture and better absorption of your usual skincare (creams, serums). The perfect duo with your current beauty routine.'
+      ],
+      specs_title: 'Specifications',
+      specs: [
+        ['Material',       '100% natural mulberry silk'],
+        ['Certification',  'OEKO TEX® Standard 100'],
+        ['Use',            'Face'],
+        ['Skin type',      'All, including sensitive'],
+        ['Effectiveness',  'Blackheads, blocked pores, acne, dull complexion, etc.'],
+        ['Frequency',      '1 to 2 times per week'],
+        ['Chemicals',      'None — warm water only'],
+        ['Lifespan',       '1 year with proper care']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['How many times per week should I use it on the face?', '1 to 2 times per week maximum. The face is more sensitive than the body — especially with active acne, wait until spots are calmed before exfoliating that area.'],
+        ['Can it be used on acne-prone skin?', 'Yes, with care. The glove helps decongest pores and reduce blackheads. On areas with active acne (inflamed spots), avoid pressing and work gently without rubbing.'],
+        ['Is it suitable for oily skin?', 'Absolutely. Regular silk exfoliation regulates sebum, tightens the appearance of enlarged pores and evens out the dull complexion of oily-prone skin. Results are visible from the first uses.'],
+        ['Should I apply cream after exfoliation?', 'Yes, it is strongly recommended. After exfoliation, the skin is rid of dead cells and absorbs active ingredients better. It is the ideal moment to apply your serum or moisturiser.'],
+        ['How do I clean the face glove?', 'Rinse it immediately after each use with clean water. Air dry. Machine wash at 30°C in a laundry bag once a week. Never share the glove with anyone else for hygiene reasons.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Complete your <em>routine</em>',
+      related: [
+        ['Body Exfoliating Glove — Mulberry Silk', '216 reviews ★★★★★. Results visible from first use.'],
+        ['1-Year Full Body Pack', 'Body + face in one pack. Save 50%.'],
+        ['Perfect Hold Scrunchie — Silk', 'Mulberry silk. Protects your hair, no breakage.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'A radiant<br><em>complexion</em>'
+    },
+    'pack-1an-full-body': {
+      breadcrumb:   '1-Year Full Body Pack',
+      stars_count:  '4.9/5 — 542 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Perfect skin<br><em>from head to toe</em>',
+      desc_paragraphs: [
+        'The 1-Year Full Body Pack is our most popular offer, and for good reason: it brings together the two essential gloves for impeccable skin from head to toe. Body and face, nothing is left to chance.',
+        'The body glove takes care of the rest of the body in the shower — arms, legs, back, stomach — eliminating 100% of dead cells in one pass. The face glove takes care of your most delicate skin, unclogs pores and reduces the appearance of blackheads and acne.',
+        'Result from the very first use: softer, more luminous skin that absorbs your creams and serums better. For life, with no chemicals. Just warm water.'
+      ],
+      specs_title: 'Specifications',
+      specs: [
+        ['Body glove',     '100% natural mulberry silk'],
+        ['Face glove',     '100% natural mulberry silk'],
+        ['Certification',  'OEKO TEX® Standard 100'],
+        ['Saving',         '48% vs separate purchase'],
+        ['Use',            'Body & face'],
+        ['Skin type',      'All, including sensitive'],
+        ['Effectiveness',  'Dead cells, blackheads, blocked pores, ingrown hairs, acne, etc.'],
+        ['Frequency',      '1 to 2 times per week'],
+        ['Chemicals',      'None — warm water only'],
+        ['Lifespan',       '1 year with proper care']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['How many times per week should I use the gloves?', 'For the body glove: 1 to 2 times per week. For the face glove: also 1 to 2 times per week, but never on the same day as the body if your skin is sensitive. Allow the skin to regenerate between each scrub.'],
+        ['Is exfoliation painful?', 'No. Mulberry silk offers gentle, pain-free scrubbing. Unlike abrasive brushes or salt scrubs, it respects the epidermis while effectively eliminating dead cells. Result: smooth skin, no redness.'],
+        ['Are the gloves suitable for sensitive skin?', 'Yes. All our gloves are OEKO TEX® certified in pure hypoallergenic mulberry silk, with no chemicals. They are suitable for all skin types, including reactive, atopic and post-hair removal skin.'],
+        ['How do I care for the gloves?', 'Rinse them with clean water after each use, wring gently without twisting and leave to air dry. Machine wash at 30°C in a laundry bag is possible once a week. Do not share gloves for hygiene reasons.'],
+        ['How long do the gloves last?', 'With careful maintenance, each glove lasts several months. Mulberry silk is a naturally resistant fibre. Replace the glove when the fibres deteriorate or lose their soft texture.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Discover our <em>products</em>',
+      related: [
+        ['Body Exfoliating Glove — Mulberry Silk', '216 reviews ★★★★★. The star glove from ALYA & CO.'],
+        ['Face Exfoliating Glove — Mulberry Silk', 'Ultra-gentle for the face. Natural anti-acne.'],
+        ['Complete Siwak Pack', 'Brush + heads + toothpowder. Save 30%.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'A year of natural<br><em>beauty</em>'
+    },
+    'pack-siwak-complet': {
+      breadcrumb:   'Complete Siwak Pack',
+      stars_count:  '4.7/5 — 216 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'The perfect kit to<br><em>start naturally</em>',
+      desc_paragraphs: [
+        'The Complete Siwak Pack is the ideal solution for those who wish to switch to 100% natural oral hygiene without worrying about anything. Everything is included, everything is designed for a simple and pleasant transition.',
+        'The rechargeable Siwak brush with 3 additional heads covers you for over a year of use. The toothpowder complements the routine with its natural whitening properties. One purchase, several months of natural well-being.',
+        'Also ideal as an original and responsible gift for your loved ones. Carefully packaged, ready to give.'
+      ],
+      specs_title: 'Pack contents',
+      specs: [
+        ['Brush',          '1 Siwak handle + 3 heads included'],
+        ['Extra heads',    '3 biodegradable replacement heads'],
+        ['Toothpowder',    '50g of organic Siwak powder'],
+        ['Saving',         '30% vs separate purchase'],
+        ['Estimated duration','Over 12 months'],
+        ['Packaging',      'Ready to give']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['Does Siwak really whiten teeth?', 'Yes. Siwak wood contains natural whitening agents — silica, bicarbonate and active enzymes — that progressively eliminate surface stains without damaging enamel. Results visible from 2 to 4 weeks of regular use.'],
+        ['How do I use the Siwak toothbrush?', 'Lightly wet the head, apply a touch of toothpaste if you wish, and brush with gentle circular movements for 2 minutes, morning and evening. The natural wood releases its active ingredients on contact with moisture.'],
+        ['How long does a replacement head last?', 'About 3 to 4 weeks with daily morning and evening use. Replace the head as soon as the wood fibres spread or flatten.'],
+        ['Is it suitable for children and pregnant women?', 'It is not recommended for children under 6. From age 6, under parental supervision, it can be used. Pregnant women can use it without restriction — Siwak is 100% natural.'],
+        ['Can I use it without toothpaste?', 'Yes, absolutely. Siwak wood naturally has antibacterial, remineralising and anti-inflammatory properties recognised by the WHO. You can use it alone or combine it with the included toothpowder for enhanced effect.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Discover our <em>gloves</em>',
+      related: [
+        ['Body Exfoliating Glove — Mulberry Silk', 'OEKO TEX® certified. Results visible from first use.'],
+        ['Face Exfoliating Glove — Mulberry Silk', 'Ultra-gentle for the face. Effective against acne and blackheads.'],
+        ['1-Year Full Body Pack', 'Body + face. Save 50% vs separate purchase.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'The perfect kit<br><em>to get started</em>'
+    },
+    'pack-tetes-x3': {
+      breadcrumb:   'Siwak Replacement Heads Pack × 3',
+      stars_count:  '4.8/5 — 28 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Natural hygiene,<br><em>for months</em>',
+      desc_paragraphs: [
+        'The Siwak Organic Replacement Heads Pack × 3 is the smart solution for those who have already adopted the rechargeable Siwak brush and want to stock up. Three boxes of 6 heads for over eighteen months of 100% natural dental hygiene.',
+        'Made from Arak wood (Salvadora persica), these replacement heads naturally contain antibacterial, whitening agents and minerals beneficial for the gums. They screw easily onto the ALYA & CO. rechargeable Siwak brush handle.',
+        'By choosing this pack, you reduce your plastic waste while making savings. A simple gesture for your health and for the planet.'
+      ],
+      specs_title: 'Specifications',
+      specs: [
+        ['Contents',       '3 boxes × 6 heads = 18 heads'],
+        ['Material',       'Arak wood (Salvadora persica)'],
+        ['Fixing',         'Screw-on — ALYA & CO. compatible'],
+        ['Certification',  '100% natural · Organic'],
+        ['Estimated duration','Over 18 months'],
+        ['Saving',         '33% vs single purchase']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['Are the heads compatible with my brush?', 'Yes, our replacement heads are designed exclusively for the ALYA & CO. brush. The fixing system guarantees a perfect fit. They are not compatible with other brush brands.'],
+        ['How do I know when to change the head?', 'As soon as the wood fibres flatten or spread, it is time to replace the head. On average, expect 3 to 4 weeks per head with morning and evening use.'],
+        ['Are the replacement heads biodegradable?', 'Yes, 100%. Unlike conventional plastic brush heads, our heads are made of natural Siwak wood and biodegrade completely. You can even compost them in your garden.'],
+        ['Is there any plastic in the heads?', 'No. Our heads are made entirely of natural Siwak wood, with no plastic or synthetic resin.'],
+        ['How should I store the replacement heads?', 'Keep them in their original packaging, in a dry place away from moisture. Avoid storing them in a very damp bathroom — natural wood can absorb ambient moisture before use.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Complete your <em>routine</em>',
+      related: [
+        ['Rechargeable Siwak Toothbrush', 'The iconic reusable handle. Compatible with all our heads.'],
+        ['Siwak Toothpowder', 'Organic, no fluoride, no sulphates. Natural whitening visible from 2 weeks.'],
+        ['Complete Siwak Pack', 'Brush + 3 heads + toothpowder. The ideal starter kit. −30%.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'Always<br><em>well stocked</em>'
+    },
+    'pack-dentifrice-3m': {
+      breadcrumb:   'Siwak Toothpowder 3-month Pack',
+      stars_count:  '4.7/5 — 18 reviews',
+      desc_eyebrow: 'Full description',
+      desc_title:   'Three months of smiling,<br><em>100% naturally</em>',
+      desc_paragraphs: [
+        'The Siwak Toothpowder 3-month Pack gives you a complete reserve so you never run out of your favourite toothpowder. Formulated from Arak wood (Salvadora persica), it acts naturally on tooth whiteness, bacteria and gum health.',
+        'Without the controversial ingredients found in conventional toothpastes: no fluoride, no SLS, no parabens, no triclosan. Just the power of nature, concentrated in a fine powder for daily use.',
+        'In stock for 3 months, you benefit from an advantageous rate of −33% compared to single purchase. An economical and ecological gesture.'
+      ],
+      specs_title: 'Specifications',
+      specs: [
+        ['Contents',       '3 pots of 50g (150g total)'],
+        ['Duration',       '~3 months of use'],
+        ['Formula',        'Organic Arak wood powder'],
+        ['Free from',      'Fluoride · SLS · Parabens'],
+        ['Result',         'Whitening visible from 2 weeks'],
+        ['Saving',         '33% vs single purchase']
+      ],
+      faq_eyebrow: 'Your questions',
+      faq_title:   'Frequently asked <em>questions</em>',
+      faq: [
+        ['Does the toothpowder foam?', 'No, and this is perfectly normal. Our toothpowder does not contain SLS, the detergent responsible for foam in classic toothpastes. Its absence does not affect effectiveness — on the contrary, it is better for your gums.'],
+        ['How do I use it?', 'Dip your slightly damp brush into the pot (or pour a small pinch onto the head), then brush normally for 2 minutes. A very small amount is enough — the pot lasts an average of 4 to 6 weeks.'],
+        ['Why no fluoride?', 'Our toothpowder is intentionally free of synthetic fluoride. Siwak naturally contains organic fluoride as well as remineralising minerals that protect enamel naturally.'],
+        ['Is it suitable for sensitive teeth?', 'Yes. With no harsh abrasives, no SLS, no artificial preservatives — its ultra-gentle formula is perfectly suited to sensitive teeth and weakened gums.'],
+        ['How long does one pot last?', 'A 40g pot lasts approximately 4 to 6 weeks with twice-daily use. It is the economical and ecological equivalent of a classic toothpaste tube, with zero plastic and zero waste.']
+      ],
+      related_eyebrow: 'You might also like',
+      related_title:   'Complete your <em>routine</em>',
+      related: [
+        ['Rechargeable Siwak Toothbrush', 'The iconic reusable handle. Compatible with all our heads.'],
+        ['Siwak Replacement Heads (organic)', 'Biodegradable, 100% natural. Screw onto the rechargeable brush.'],
+        ['Complete Siwak Pack', 'Brush + 3 heads + toothpowder. The ideal starter kit. −30%.']
+      ],
+      nl_eyebrow: 'Join the family',
+      nl_title:   'Take care of yourself,<br><em>naturally.</em>',
+      nl_sub:     'Receive our beauty tips, exclusive offers and be the first to hear about our new products.',
+      nl_ph:      'Your email address',
+      nl_btn:     'Subscribe',
+      reviews_eyebrow: 'Customer testimonials',
+      reviews_title:   'Three months<br><em>of natural smiles</em>'
+    }
   }
 };
