@@ -43,6 +43,8 @@ window.ALYA_T_DE = {
   footer_legal_conf:  'Datenschutz',
   footer_legal_mentions: 'Impressum',
 
+  word_reviews: 'Bewertungen',
+  word_silk: 'Seide',
   btn_atc:  'In den Warenkorb',
   btn_back: '← Zurück zur Kollektion',
   verified: 'Verifizierter Kauf',
