@@ -262,19 +262,6 @@
       if (decorSoie) decorSoie.textContent = t.word_silk;
     }
 
-    /* Mot "avis" dans les étoiles des cartes produit */
-    if (t._lang && t._lang !== 'fr' && t.word_reviews) {
-      function translateAvis() {
-        qsa('.product-stars span, .stars-count, .reviews-avg-count').forEach(function(el) {
-          if (el.textContent.indexOf('avis') !== -1) {
-            el.textContent = el.textContent.replace(/avis/gi, t.word_reviews);
-          }
-        });
-      }
-      translateAvis();
-      /* Rappel après que les handlers de page aient éventuellement modifié le DOM */
-      setTimeout(translateAvis, 200);
-    }
   }
 
   /* ================================================================
@@ -1057,11 +1044,23 @@
   /* ================================================================
      POINT D'ENTRÉE PRINCIPAL
      ================================================================ */
+  function translateAvis(t) {
+    if (!t.word_reviews || t._lang === 'fr') return;
+    qsa('.product-stars span, .stars-count, .reviews-avg-count').forEach(function(el) {
+      if (el.textContent.indexOf('avis') !== -1) {
+        el.textContent = el.textContent.replace(/avis/gi, t.word_reviews);
+      }
+    });
+  }
+
   function applyTranslations(t) {
     if (!t) return;
     applyCommon(t);
     var page = getPageId();
     applyPage(t, page);
+    /* Traduction "avis" APRÈS tous les handlers (home, collection, etc.) */
+    translateAvis(t);
+    setTimeout(function(){ translateAvis(t); }, 400);
   }
 
   function loadAndApply(lang) {
