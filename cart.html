@@ -453,12 +453,19 @@ function selectCarrier(carrier) {
   renderCart();
 }
 function changeGiftQty(delta) {
-  var items = getCartItems();
-  var item = items.find(function(i){ return i.id === 'sac-cadeau'; });
+  var cart = getCart();
+  var item = cart.find(function(i){ return i.id === 'sac-cadeau'; });
   var current = item ? item.qty : 0;
   var next = Math.max(0, current + delta);
-  if (next === 0) { removeFromCart('sac-cadeau'); }
-  else { setQty('sac-cadeau', next); }
+  if (next === 0) {
+    saveCart(cart.filter(function(i){ return i.id !== 'sac-cadeau'; }));
+  } else if (!item) {
+    cart.push({ id: 'sac-cadeau', qty: next });
+    saveCart(cart);
+  } else {
+    item.qty = next;
+    saveCart(cart);
+  }
   renderCart();
 }
 function changeQty(id, delta) {
