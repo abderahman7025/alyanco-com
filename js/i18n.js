@@ -264,9 +264,16 @@
 
     /* Mot "avis" dans les étoiles des cartes produit */
     if (t._lang && t._lang !== 'fr' && t.word_reviews) {
-      qsa('.product-stars span, .stars-count').forEach(function(el) {
-        el.textContent = el.textContent.replace(/avis/gi, t.word_reviews);
-      });
+      function translateAvis() {
+        qsa('.product-stars span, .stars-count, .reviews-avg-count').forEach(function(el) {
+          if (el.textContent.indexOf('avis') !== -1) {
+            el.textContent = el.textContent.replace(/avis/gi, t.word_reviews);
+          }
+        });
+      }
+      translateAvis();
+      /* Rappel après que les handlers de page aient éventuellement modifié le DOM */
+      setTimeout(translateAvis, 200);
     }
   }
 

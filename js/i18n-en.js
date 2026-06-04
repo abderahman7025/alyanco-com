@@ -951,6 +951,7 @@ window.ALYA_T_EN = {
       ba_before: 'Before', ba_after: 'After',
       ba_section_eyebrow: 'Proven results',
       ba_section_title: 'Your skin, <em>transformed</em>',
+      ba_intro: 'Slide to reveal the difference',
       ba_tabs: ['Dead skin', 'Strawberry skin', 'Blackheads', 'Dull complexion'],
       ba_captions: [
         'Dead cells <strong>100% eliminated</strong> from the first pass',
@@ -1006,6 +1007,7 @@ window.ALYA_T_EN = {
       ba_before: 'Before', ba_after: 'After',
       ba_section_eyebrow: 'Proven results',
       ba_section_title: 'Your face, <em>transformed</em>',
+      ba_intro: 'Slide to reveal the difference',
       ba_tabs: ['Blackheads', 'Acne', 'Oily skin', 'Uneven skin tone'],
       ba_captions: [
         'Blackheads <strong>gently eliminated</strong>, without aggressing the skin',
@@ -1069,6 +1071,7 @@ window.ALYA_T_EN = {
       ba_before: 'Before', ba_after: 'After',
       ba_section_eyebrow: 'Proven results',
       ba_section_title: 'Your skin, <em>transformed</em>',
+      ba_intro: 'Slide to reveal the difference',
       ba_tabs: ['Dead skin', 'Strawberry skin', 'Blackheads', 'Dull complexion'],
       ba_captions: [
         'Dead cells <strong>100% eliminated</strong> from the first pass',

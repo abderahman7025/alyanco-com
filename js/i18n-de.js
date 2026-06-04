@@ -866,6 +866,7 @@ window.ALYA_T_DE = {
       ba_before: 'Vorher', ba_after: 'Nachher',
       ba_section_eyebrow: 'Bewiesene Ergebnisse',
       ba_section_title: 'Ihre Haut, <em>verwandelt</em>',
+      ba_intro: 'Schieben um den Unterschied zu sehen',
       ba_tabs: ['Abgestorbene Haut', 'Erdbeer-Haut', 'Mitesser', 'Fahler Teint'],
       ba_captions: [
         'Abgestorbene Zellen <strong>zu 100% eliminiert</strong> beim ersten Anwendung',
@@ -921,6 +922,7 @@ window.ALYA_T_DE = {
       ba_before: 'Vorher', ba_after: 'Nachher',
       ba_section_eyebrow: 'Bewiesene Ergebnisse',
       ba_section_title: 'Ihr Gesicht, <em>verwandelt</em>',
+      ba_intro: 'Schieben um den Unterschied zu sehen',
       ba_tabs: ['Mitesser', 'Akne', 'Fettige Haut', 'Unebenmäßiger Teint'],
       ba_captions: [
         'Mitesser <strong>sanft eliminiert</strong>, ohne die Haut zu belasten',
@@ -984,6 +986,7 @@ window.ALYA_T_DE = {
       ba_before: 'Vorher', ba_after: 'Nachher',
       ba_section_eyebrow: 'Bewiesene Ergebnisse',
       ba_section_title: 'Ihre Haut, <em>verwandelt</em>',
+      ba_intro: 'Schieben um den Unterschied zu sehen',
       ba_tabs: ['Abgestorbene Haut', 'Erdbeer-Haut', 'Mitesser', 'Fahler Teint'],
       ba_captions: [
         'Abgestorbene Zellen <strong>zu 100% eliminiert</strong> beim ersten Anwendung',

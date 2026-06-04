@@ -868,6 +868,7 @@ window.ALYA_T_NL = {
       ba_before: 'Voor', ba_after: 'Na',
       ba_section_eyebrow: 'Bewezen resultaten',
       ba_section_title: 'Uw huid, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
       ba_tabs: ['Dode huid', 'Aardbeihuid', 'Mee-eters', 'Vale teint'],
       ba_captions: [
         'Dode cellen <strong>100% verwijderd</strong> bij de eerste behandeling',
@@ -923,6 +924,7 @@ window.ALYA_T_NL = {
       ba_before: 'Voor', ba_after: 'Na',
       ba_section_eyebrow: 'Bewezen resultaten',
       ba_section_title: 'Uw gezicht, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
       ba_tabs: ['Mee-eters', 'Acne', 'Vette huid', 'Ongelijkmatige teint'],
       ba_captions: [
         'Mee-eters <strong>zacht verwijderd</strong>, zonder de huid te belasten',
@@ -992,6 +994,7 @@ window.ALYA_T_NL = {
       ba_before: 'Voor', ba_after: 'Na',
       ba_section_eyebrow: 'Bewezen resultaten',
       ba_section_title: 'Uw huid, <em>getransformeerd</em>',
+      ba_intro: 'Schuif om het verschil te zien',
       ba_tabs: ['Dode huid', 'Aardbeihuid', 'Mee-eters', 'Vale teint'],
       ba_captions: [
         'Dode cellen <strong>100% verwijderd</strong> bij de eerste behandeling',

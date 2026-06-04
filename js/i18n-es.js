@@ -868,6 +868,7 @@ window.ALYA_T_ES = {
       ba_before: 'Antes', ba_after: 'Después',
       ba_section_eyebrow: 'Resultados probados',
       ba_section_title: 'Tu piel, <em>transformada</em>',
+      ba_intro: 'Desliza para revelar la diferencia',
       ba_tabs: ['Piel muerta', 'Piel fresa', 'Puntos negros', 'Tez apagada'],
       ba_captions: [
         'Células muertas <strong>eliminadas al 100%</strong> desde el primer uso',
@@ -923,6 +924,7 @@ window.ALYA_T_ES = {
       ba_before: 'Antes', ba_after: 'Después',
       ba_section_eyebrow: 'Resultados probados',
       ba_section_title: 'Tu rostro, <em>transformado</em>',
+      ba_intro: 'Desliza para revelar la diferencia',
       ba_tabs: ['Puntos negros', 'Acné', 'Piel grasa', 'Tono irregular'],
       ba_captions: [
         'Puntos negros <strong>eliminados suavemente</strong>, sin agredir la piel',
@@ -986,6 +988,7 @@ window.ALYA_T_ES = {
       ba_before: 'Antes', ba_after: 'Después',
       ba_section_eyebrow: 'Resultados probados',
       ba_section_title: 'Tu piel, <em>transformada</em>',
+      ba_intro: 'Desliza para revelar la diferencia',
       ba_tabs: ['Piel muerta', 'Piel fresa', 'Puntos negros', 'Tez apagada'],
       ba_captions: [
         'Células muertas <strong>eliminadas al 100%</strong> desde el primer uso',
