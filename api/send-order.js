@@ -20,7 +20,11 @@ const EMAIL_T = {
     back_to_shop:    'Retour à la boutique',
     questions:       'Des questions ?',
     free:            'Offerte',
-    qty:             'Quantité : '
+    qty:             'Quantité : ',
+    tagline:         'Bien-être &nbsp;✦&nbsp; Satisfaction &nbsp;✦&nbsp; Sourire',
+    copyright:       '© 2022 ALYA &amp; CO. — Tous droits réservés',
+    cgv:             'CGV',
+    legal:           'Mentions légales'
   },
   en: {
     subject:         (num)          => `Order confirmation ${num} — ALYA & CO.`,
@@ -42,7 +46,11 @@ const EMAIL_T = {
     back_to_shop:    'Back to the shop',
     questions:       'Questions?',
     free:            'Free',
-    qty:             'Quantity: '
+    qty:             'Quantity: ',
+    tagline:         'Well-being &nbsp;✦&nbsp; Satisfaction &nbsp;✦&nbsp; Smile',
+    copyright:       '© 2022 ALYA &amp; CO. — All rights reserved',
+    cgv:             'T&amp;Cs',
+    legal:           'Legal notice'
   },
   nl: {
     subject:         (num)          => `Orderbevestiging ${num} — ALYA & CO.`,
@@ -64,7 +72,11 @@ const EMAIL_T = {
     back_to_shop:    'Terug naar de winkel',
     questions:       'Vragen?',
     free:            'Gratis',
-    qty:             'Aantal: '
+    qty:             'Aantal: ',
+    tagline:         'Welzijn &nbsp;✦&nbsp; Tevredenheid &nbsp;✦&nbsp; Glimlach',
+    copyright:       '© 2022 ALYA &amp; CO. — Alle rechten voorbehouden',
+    cgv:             'AV',
+    legal:           'Wettelijke vermeldingen'
   },
   de: {
     subject:         (num)          => `Bestellbestätigung ${num} — ALYA & CO.`,
@@ -86,7 +98,11 @@ const EMAIL_T = {
     back_to_shop:    'Zurück zum Shop',
     questions:       'Fragen?',
     free:            'Kostenlos',
-    qty:             'Menge: '
+    qty:             'Menge: ',
+    tagline:         'Wohlbefinden &nbsp;✦&nbsp; Zufriedenheit &nbsp;✦&nbsp; Lächeln',
+    copyright:       '© 2022 ALYA &amp; CO. — Alle Rechte vorbehalten',
+    cgv:             'AGB',
+    legal:           'Impressum'
   },
   it: {
     subject:         (num)          => `Conferma ordine ${num} — ALYA & CO.`,
@@ -108,7 +124,11 @@ const EMAIL_T = {
     back_to_shop:    'Torna al negozio',
     questions:       'Domande?',
     free:            'Gratuita',
-    qty:             'Quantità: '
+    qty:             'Quantità: ',
+    tagline:         'Benessere &nbsp;✦&nbsp; Soddisfazione &nbsp;✦&nbsp; Sorriso',
+    copyright:       '© 2022 ALYA &amp; CO. — Tutti i diritti riservati',
+    cgv:             'T&amp;C',
+    legal:           'Note legali'
   },
   pt: {
     subject:         (num)          => `Confirmação de encomenda ${num} — ALYA & CO.`,
@@ -130,7 +150,11 @@ const EMAIL_T = {
     back_to_shop:    'Voltar à loja',
     questions:       'Dúvidas?',
     free:            'Grátis',
-    qty:             'Quantidade: '
+    qty:             'Quantidade: ',
+    tagline:         'Bem-estar &nbsp;✦&nbsp; Satisfação &nbsp;✦&nbsp; Sorriso',
+    copyright:       '© 2022 ALYA &amp; CO. — Todos os direitos reservados',
+    cgv:             'T&amp;C',
+    legal:           'Aviso legal'
   },
   es: {
     subject:         (num)          => `Confirmación de pedido ${num} — ALYA & CO.`,
@@ -152,7 +176,11 @@ const EMAIL_T = {
     back_to_shop:    'Volver a la tienda',
     questions:       '¿Preguntas?',
     free:            'Gratis',
-    qty:             'Cantidad: '
+    qty:             'Cantidad: ',
+    tagline:         'Bienestar &nbsp;✦&nbsp; Satisfacción &nbsp;✦&nbsp; Sonrisa',
+    copyright:       '© 2022 ALYA &amp; CO. — Todos los derechos reservados',
+    cgv:             'T&amp;C',
+    legal:           'Aviso legal'
   }
 };
 
@@ -340,7 +368,7 @@ export default async function handler(req, res) {
       <tr>
         <td style="background:#1C1612;padding:40px 48px;text-align:center;">
           <div style="font-family:Georgia,serif;font-size:28px;font-weight:400;letter-spacing:0.15em;color:#FAF6F1;margin-bottom:8px;">ALYA &amp; CO.</div>
-          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#B8975A;">Bien-être &nbsp;✦&nbsp; Satisfaction &nbsp;✦&nbsp; Sourire</div>
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#B8975A;">${t.tagline}</div>
         </td>
       </tr>
       <tr><td style="background:#B8975A;height:3px;font-size:0;line-height:0;">&nbsp;</td></tr>
@@ -456,9 +484,9 @@ export default async function handler(req, res) {
             ${t.questions} <a href="mailto:contact@alyanco.com" style="color:#B8975A;text-decoration:none;">contact@alyanco.com</a>
           </div>
           <div style="font-size:10px;color:#4A3F38;letter-spacing:0.1em;">
-            © 2026 ALYA &amp; CO. — Tous droits réservés
-            &nbsp;·&nbsp;<a href="https://alyanco.com/cgv" style="color:#4A3F38;text-decoration:none;">CGV</a>
-            &nbsp;·&nbsp;<a href="https://alyanco.com/mentions-legales" style="color:#4A3F38;text-decoration:none;">Mentions légales</a>
+            ${t.copyright}
+            &nbsp;·&nbsp;<a href="https://alyanco.com/cgv" style="color:#4A3F38;text-decoration:none;">${t.cgv}</a>
+            &nbsp;·&nbsp;<a href="https://alyanco.com/mentions-legales" style="color:#4A3F38;text-decoration:none;">${t.legal}</a>
           </div>
         </td>
       </tr>
