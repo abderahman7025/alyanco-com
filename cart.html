@@ -140,6 +140,22 @@ footer{background:var(--dark);color:var(--cream);padding:80px;}
 .footer-legal a{font-size:12px;color:var(--light);text-decoration:none;transition:color .3s;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.4;}
 @media(max-width:600px){nav{padding:0 20px;}.nav-links{display:none;}.menu-toggle{display:flex;}.page-hero{padding:50px 20px 40px;}.cart-section{grid-template-columns:1fr;padding:32px 20px;gap:32px;}.cart-items-header{display:none;}.cart-item{grid-template-columns:1fr auto auto;gap:12px;}.cart-item-total{display:none;}.order-summary{position:static;}footer{padding:48px 20px;}.footer-top{grid-template-columns:1fr;gap:32px;}.footer-bottom{flex-direction:column;gap:16px;text-align:center;}}
+/* ── GIFT BAG ── */
+.gift-bag-section{border:1.5px solid rgba(184,151,90,0.35);background:linear-gradient(135deg,rgba(184,151,90,0.04) 0%,rgba(234,209,191,0.1) 100%);padding:20px 24px;margin-bottom:24px;position:relative;}
+.gift-bag-question{display:flex;align-items:center;gap:10px;font-family:var(--font-serif);font-size:17px;font-weight:400;color:var(--dark);margin-bottom:14px;}
+.gift-bag-question .gift-icon{font-size:20px;}
+.gift-bag-body{display:flex;align-items:center;gap:16px;}
+.gift-bag-img{width:60px;height:60px;object-fit:cover;border:1px solid rgba(184,151,90,0.2);flex-shrink:0;background:var(--warm);}
+.gift-bag-info{flex:1;}
+.gift-bag-name{font-family:var(--font-serif);font-size:15px;color:var(--dark);margin-bottom:3px;}
+.gift-bag-price{font-size:12px;color:var(--gold);letter-spacing:0.05em;}
+.gift-bag-controls{display:flex;align-items:center;gap:0;border:1px solid rgba(184,151,90,0.4);}
+.gift-qty-btn{width:32px;height:32px;background:transparent;border:none;font-size:18px;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.gift-qty-btn:hover{background:rgba(184,151,90,0.1);}
+.gift-qty-val{width:32px;text-align:center;font-family:var(--font-serif);font-size:16px;color:var(--dark);}
+.gift-bag-total{font-family:var(--font-serif);font-size:16px;color:var(--gold);font-weight:500;min-width:48px;text-align:right;}
+.gift-bag-added{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-top:10px;text-align:center;}
+@media(max-width:600px){.gift-bag-body{flex-wrap:wrap;}.gift-bag-info{min-width:120px;}}
 </style>
 </head>
 <body>
@@ -244,7 +260,8 @@ var CT = (function(){
       free:'Offerte ✓', delivery:'Livraison', weight_pre:'Poids total : ', weight_suf:' g',
       mr_ok:'✓ Livraison Mondial Relay offerte !', mr_rem:'Plus que {amt} pour la livraison <strong>Mondial Relay offerte</strong>',
       summary:'Récapitulatif', subtotal:'Sous-total', total:'Total', checkout:'Commander →',
-      secure:'🔒 Paiement sécurisé', err_msg:"Une erreur s'est produite lors du chargement du panier.", err_btn:'Vider le panier et réessayer' },
+      secure:'🔒 Paiement sécurisé', err_msg:"Une erreur s'est produite lors du chargement du panier.", err_btn:'Vider le panier et réessayer',
+      gift_question:'Il s\'agit d\'un cadeau ?', gift_name:'Sac cadeau ALYA & CO.', gift_unit:'sac', gift_added:'✦ Ajouté à votre commande', gift_per:'/ sac' },
     en:{ ey:'Your selection', title:'My <em style="font-style:italic;color:var(--gold-light)">Cart</em>', s1:'Cart', s2:'Shipping', s3:'Payment',
       empty_title:'Your cart is empty', empty_sub:'Explore our natural products and add them to your cart.', empty_btn:'Discover our products',
       col_product:'Product', col_qty:'Quantity', col_total:'Total', unit:'unit',
@@ -253,7 +270,8 @@ var CT = (function(){
       free:'Free ✓', delivery:'Shipping', weight_pre:'Total weight: ', weight_suf:' g',
       mr_ok:'✓ Free Mondial Relay delivery!', mr_rem:'Only {amt} more for <strong>free Mondial Relay delivery</strong>',
       summary:'Order summary', subtotal:'Subtotal', total:'Total', checkout:'Checkout →',
-      secure:'🔒 Secure payment', err_msg:'An error occurred while loading your cart.', err_btn:'Clear cart and retry' },
+      secure:'🔒 Secure payment', err_msg:'An error occurred while loading your cart.', err_btn:'Clear cart and retry',
+      gift_question:'Is this a gift?', gift_name:'ALYA & CO. gift bag', gift_unit:'bag', gift_added:'✦ Added to your order', gift_per:'/ bag' },
     nl:{ ey:'Uw selectie', title:'Mijn <em style="font-style:italic;color:var(--gold-light)">Winkelwagen</em>', s1:'Winkelwagen', s2:'Verzending', s3:'Betaling',
       empty_title:'Uw winkelwagen is leeg', empty_sub:'Ontdek onze natuurlijke producten en voeg ze toe aan uw winkelwagen.', empty_btn:'Onze producten bekijken',
       col_product:'Product', col_qty:'Aantal', col_total:'Totaal', unit:'stuk',
@@ -262,7 +280,8 @@ var CT = (function(){
       free:'Gratis ✓', delivery:'Verzending', weight_pre:'Totaalgewicht: ', weight_suf:' g',
       mr_ok:'✓ Gratis Mondial Relay levering!', mr_rem:'Nog {amt} voor <strong>gratis Mondial Relay levering</strong>',
       summary:'Besteloverzicht', subtotal:'Subtotaal', total:'Totaal', checkout:'Bestellen →',
-      secure:'🔒 Veilige betaling', err_msg:'Er is een fout opgetreden bij het laden van uw winkelwagen.', err_btn:'Winkelwagen leegmaken en opnieuw proberen' },
+      secure:'🔒 Veilige betaling', err_msg:'Er is een fout opgetreden bij het laden van uw winkelwagen.', err_btn:'Winkelwagen leegmaken en opnieuw proberen',
+      gift_question:'Is dit een cadeau?', gift_name:'ALYA & CO. cadeautas', gift_unit:'tas', gift_added:'✦ Toegevoegd aan uw bestelling', gift_per:'/ tas' },
     de:{ ey:'Ihre Auswahl', title:'Mein <em style="font-style:italic;color:var(--gold-light)">Warenkorb</em>', s1:'Warenkorb', s2:'Versand', s3:'Zahlung',
       empty_title:'Ihr Warenkorb ist leer', empty_sub:'Entdecken Sie unsere natürlichen Produkte und fügen Sie sie Ihrem Warenkorb hinzu.', empty_btn:'Unsere Produkte entdecken',
       col_product:'Produkt', col_qty:'Menge', col_total:'Gesamt', unit:'Stück',
@@ -271,7 +290,8 @@ var CT = (function(){
       free:'Kostenlos ✓', delivery:'Versand', weight_pre:'Gesamtgewicht: ', weight_suf:' g',
       mr_ok:'✓ Kostenlose Mondial Relay Lieferung!', mr_rem:'Noch {amt} für <strong>kostenlose Mondial Relay Lieferung</strong>',
       summary:'Bestellübersicht', subtotal:'Zwischensumme', total:'Gesamt', checkout:'Bestellen →',
-      secure:'🔒 Sichere Zahlung', err_msg:'Beim Laden Ihres Warenkorbs ist ein Fehler aufgetreten.', err_btn:'Warenkorb leeren und erneut versuchen' },
+      secure:'🔒 Sichere Zahlung', err_msg:'Beim Laden Ihres Warenkorbs ist ein Fehler aufgetreten.', err_btn:'Warenkorb leeren und erneut versuchen',
+      gift_question:'Ist das ein Geschenk?', gift_name:'ALYA & CO. Geschenktasche', gift_unit:'Tasche', gift_added:'✦ Zu Ihrer Bestellung hinzugefügt', gift_per:'/ Tasche' },
     it:{ ey:'La tua selezione', title:'Il mio <em style="font-style:italic;color:var(--gold-light)">Carrello</em>', s1:'Carrello', s2:'Spedizione', s3:'Pagamento',
       empty_title:'Il tuo carrello è vuoto', empty_sub:'Scopri i nostri prodotti naturali e aggiungili al carrello.', empty_btn:'Scopri i nostri prodotti',
       col_product:'Prodotto', col_qty:'Quantità', col_total:'Totale', unit:'unità',
@@ -280,7 +300,8 @@ var CT = (function(){
       free:'Gratuita ✓', delivery:'Spedizione', weight_pre:'Peso totale: ', weight_suf:' g',
       mr_ok:'✓ Consegna Mondial Relay gratuita!', mr_rem:'Ancora {amt} per la <strong>consegna Mondial Relay gratuita</strong>',
       summary:'Riepilogo ordine', subtotal:'Subtotale', total:'Totale', checkout:'Ordina →',
-      secure:'🔒 Pagamento sicuro', err_msg:'Si è verificato un errore durante il caricamento del carrello.', err_btn:'Svuota carrello e riprova' },
+      secure:'🔒 Pagamento sicuro', err_msg:'Si è verificato un errore durante il caricamento del carrello.', err_btn:'Svuota carrello e riprova',
+      gift_question:'È un regalo?', gift_name:'Borsa regalo ALYA & CO.', gift_unit:'borsa', gift_added:'✦ Aggiunto al tuo ordine', gift_per:'/ borsa' },
     pt:{ ey:'A sua seleção', title:'O meu <em style="font-style:italic;color:var(--gold-light)">Carrinho</em>', s1:'Carrinho', s2:'Envio', s3:'Pagamento',
       empty_title:'O seu carrinho está vazio', empty_sub:'Descubra os nossos produtos naturais e adicione-os ao seu carrinho.', empty_btn:'Descobrir os nossos produtos',
       col_product:'Produto', col_qty:'Quantidade', col_total:'Total', unit:'unidade',
@@ -289,7 +310,8 @@ var CT = (function(){
       free:'Grátis ✓', delivery:'Envio', weight_pre:'Peso total: ', weight_suf:' g',
       mr_ok:'✓ Entrega Mondial Relay gratuita!', mr_rem:'Ainda {amt} para <strong>entrega Mondial Relay gratuita</strong>',
       summary:'Resumo da encomenda', subtotal:'Subtotal', total:'Total', checkout:'Encomendar →',
-      secure:'🔒 Pagamento seguro', err_msg:'Ocorreu um erro ao carregar o seu carrinho.', err_btn:'Limpar carrinho e tentar novamente' },
+      secure:'🔒 Pagamento seguro', err_msg:'Ocorreu um erro ao carregar o seu carrinho.', err_btn:'Limpar carrinho e tentar novamente',
+      gift_question:'É um presente?', gift_name:'Saco de presente ALYA & CO.', gift_unit:'saco', gift_added:'✦ Adicionado à sua encomenda', gift_per:'/ saco' },
     es:{ ey:'Tu selección', title:'Mi <em style="font-style:italic;color:var(--gold-light)">Carrito</em>', s1:'Carrito', s2:'Envío', s3:'Pago',
       empty_title:'Tu carrito está vacío', empty_sub:'Descubre nuestros productos naturales y añádelos a tu carrito.', empty_btn:'Descubrir nuestros productos',
       col_product:'Producto', col_qty:'Cantidad', col_total:'Total', unit:'unidad',
@@ -298,7 +320,8 @@ var CT = (function(){
       free:'Gratis ✓', delivery:'Envío', weight_pre:'Peso total: ', weight_suf:' g',
       mr_ok:'✓ ¡Envío Mondial Relay gratuito!', mr_rem:'Solo {amt} más para <strong>envío Mondial Relay gratuito</strong>',
       summary:'Resumen del pedido', subtotal:'Subtotal', total:'Total', checkout:'Pedir →',
-      secure:'🔒 Pago seguro', err_msg:'Se ha producido un error al cargar tu carrito.', err_btn:'Vaciar carrito e intentar de nuevo' }
+      secure:'🔒 Pago seguro', err_msg:'Se ha producido un error al cargar tu carrito.', err_btn:'Vaciar carrito e intentar de nuevo',
+      gift_question:'¿Es un regalo?', gift_name:'Bolsa de regalo ALYA & CO.', gift_unit:'bolsa', gift_added:'✦ Añadido a tu pedido', gift_per:'/ bolsa' }
   };
   var ct = all[lang] || all.fr;
   /* Appliquer les éléments statiques */
@@ -378,6 +401,27 @@ function renderCart() {
     }
   }
 
+  /* ── gift bag section ── */
+  var giftItem = items.find(function(i){ return i.id === 'sac-cadeau'; });
+  var giftQty = giftItem ? giftItem.qty : 0;
+  var giftHtml = '<div class="gift-bag-section">' +
+    '<div class="gift-bag-question"><span class="gift-icon">🎁</span>' + CT.gift_question + '</div>' +
+    '<div class="gift-bag-body">' +
+      '<img src="/images/sac-cadeau.jpg" alt="Sac cadeau ALYA &amp; CO." class="gift-bag-img" onerror="this.style.background=\'#EAD1BF\'">' +
+      '<div class="gift-bag-info">' +
+        '<div class="gift-bag-name">' + CT.gift_name + '</div>' +
+        '<div class="gift-bag-price">1,39€ ' + CT.gift_per + '</div>' +
+      '</div>' +
+      '<div class="gift-bag-controls">' +
+        '<button class="gift-qty-btn" onclick="changeGiftQty(-1)">−</button>' +
+        '<span class="gift-qty-val">' + giftQty + '</span>' +
+        '<button class="gift-qty-btn" onclick="changeGiftQty(1)">+</button>' +
+      '</div>' +
+      (giftQty > 0 ? '<div class="gift-bag-total">' + fmt(giftQty * 1.39) + '</div>' : '<div class="gift-bag-total"></div>') +
+    '</div>' +
+    (giftQty > 0 ? '<div class="gift-bag-added">' + CT.gift_added + '</div>' : '') +
+  '</div>';
+
   /* ── full summary block ── */
   var summaryHtml = '<div class="order-summary"><h3 class="summary-title">'+CT.summary+'</h3>' +
     '<div class="summary-line"><span>'+CT.subtotal+'</span><span>'+fmt(subtotal)+'</span></div>' +
@@ -388,7 +432,7 @@ function renderCart() {
     '<br><a href="checkout" class="btn-primary" style="width:100%;display:block;text-align:center;">'+CT.checkout+'</a>' +
     '<div class="trust-icons"><div class="trust-icon">'+CT.secure+'</div></div></div>';
 
-  section.innerHTML = '<div>' + itemsHtml + '</div>' + summaryHtml;
+  section.innerHTML = '<div>' + itemsHtml + '</div>' + giftHtml + summaryHtml;
 
   } catch(err) {
     console.error('[ALYA cart] Erreur renderCart:', err);
@@ -406,6 +450,15 @@ function renderCart() {
 
 function selectCarrier(carrier) {
   setSelectedCarrier(carrier);
+  renderCart();
+}
+function changeGiftQty(delta) {
+  var items = getCartItems();
+  var item = items.find(function(i){ return i.id === 'sac-cadeau'; });
+  var current = item ? item.qty : 0;
+  var next = Math.max(0, current + delta);
+  if (next === 0) { removeFromCart('sac-cadeau'); }
+  else { setQty('sac-cadeau', next); }
   renderCart();
 }
 function changeQty(id, delta) {

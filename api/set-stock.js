@@ -16,7 +16,8 @@ const DEFAULTS = {
   'dentifrice-siwak':900,
   'gant-corps':      400,
   'gant-visage':     150,
-  'chouchou-soie':    80
+  'chouchou-soie':    80,
+  'sac-cadeau':     9999
 };
 
 async function kvSet(key, value, url, token) {

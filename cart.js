@@ -113,6 +113,7 @@ const PRODUCTS = {
   'chouchou-soie':      { name: 'Chouchou Soie de Mûrier',                  price: 5.39,  oldPrice: 8.99,  weight: 15,  image: 'https://cdn.shopify.com/s/files/1/0779/8259/7466/files/Copie_de_Copie_de_93_1000_x_1333_px_1000_x_1000_px_7.png' },
   'pack-tetes-x3':      { name: 'Pack Têtes-recharges Siwak Bio X3',        price: 17.99, oldPrice: 26.99, weight: 30,  image: '/images/pack-tetes.jpg' },
   'pack-dentifrice-3m': { name: 'Pack Dentifrices Siwak en Poudre (3mois)', price: 15.99, oldPrice: 23.99, weight: 225, image: '/images/pack-dentifrice.png' },
+  'sac-cadeau':         { name: 'Sac cadeau ALYA & CO.',                    price: 1.39,  weight: 30,   image: '/images/sac-cadeau.jpg' },
 };
 
 // Grille Mondial Relay 2026 — France métropolitaine [poids max g, tarif €]
