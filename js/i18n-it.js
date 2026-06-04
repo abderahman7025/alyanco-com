@@ -25,7 +25,7 @@ window.ALYA_T_IT = {
   footer_info:        'Informazioni',
   footer_contact_col: 'Contatto',
   footer_tagline:     '"Benessere, soddisfazione, sorriso."<br>La tua bellezza naturale, la nostra passione.',
-  footer_copy:        '© 2025 ALYA & CO. Tutti i diritti riservati.',
+  footer_copy:        '© 2022 ALYA & CO. Tutti i diritti riservati.',
   footer_brosse:      'Spazzolino Siwak ricaricabile',
   footer_tetes:       'Testine di ricambio Siwak',
   footer_dent:        'Dentifricio Siwak in polvere',

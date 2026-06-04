@@ -25,7 +25,7 @@ window.ALYA_T_DE = {
   footer_info:        'Informationen',
   footer_contact_col: 'Kontakt',
   footer_tagline:     '"Wohlbefinden, Zufriedenheit, Lächeln."<br>Ihre natürliche Schönheit, unsere Leidenschaft.',
-  footer_copy:        '© 2025 ALYA & CO. Alle Rechte vorbehalten.',
+  footer_copy:        '© 2022 ALYA & CO. Alle Rechte vorbehalten.',
   footer_brosse:      'Wiederaufladbare Siwak Zahnbürste',
   footer_tetes:       'Siwak Ersatzköpfe',
   footer_dent:        'Siwak Zahnpulver',

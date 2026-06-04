@@ -25,7 +25,7 @@ window.ALYA_T_PT = {
   footer_info:        'Informações',
   footer_contact_col: 'Contacto',
   footer_tagline:     '"Bem-estar, satisfação, sorriso."<br>A tua beleza natural, a nossa paixão.',
-  footer_copy:        '© 2025 ALYA & CO. Todos os direitos reservados.',
+  footer_copy:        '© 2022 ALYA & CO. Todos os direitos reservados.',
   footer_brosse:      'Escova de dentes Siwak recarregável',
   footer_tetes:       'Cabeças de recarga Siwak',
   footer_dent:        'Pasta de dentes Siwak em pó',

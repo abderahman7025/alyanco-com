@@ -25,7 +25,7 @@ window.ALYA_T_NL = {
   footer_info:        'Informatie',
   footer_contact_col: 'Contact',
   footer_tagline:     '"Welzijn, tevredenheid, glimlach."<br>Uw natuurlijke schoonheid, onze passie.',
-  footer_copy:        '© 2025 ALYA & CO. Alle rechten voorbehouden.',
+  footer_copy:        '© 2022 ALYA & CO. Alle rechten voorbehouden.',
   footer_brosse:      'Oplaadbare Siwak Tandenborstel',
   footer_tetes:       'Siwak Opzetborstels',
   footer_dent:        'Siwak Tandpoeder',

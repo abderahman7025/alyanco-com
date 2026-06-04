@@ -28,7 +28,7 @@ window.ALYA_T_EN = {
   footer_info:        'Information',
   footer_contact_col: 'Contact',
   footer_tagline:     '"Well-being, satisfaction, smile."<br>Your natural beauty, our passion.',
-  footer_copy:        '© 2025 ALYA & CO. All rights reserved.',
+  footer_copy:        '© 2022 ALYA & CO. All rights reserved.',
   footer_brosse:      'Rechargeable Siwak Toothbrush',
   footer_tetes:       'Siwak Replacement Heads',
   footer_dent:        'Siwak Toothpowder',
