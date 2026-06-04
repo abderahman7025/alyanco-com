@@ -304,6 +304,19 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
   .desc-specs li { flex-wrap: wrap; gap: 4px; }
   .desc-specs li span { flex-basis: 100%; text-align: left; padding-left: 2px; }
 }
+/* ── BUNDLE UPSELL ── */
+.bundle-upsell{position:relative;border:1.5px solid var(--gold);padding:20px 22px;margin-bottom:20px;background:linear-gradient(135deg,rgba(184,151,90,0.06) 0%,rgba(234,209,191,0.12) 100%);}
+.bundle-upsell-badge{position:absolute;top:-11px;left:20px;background:var(--gold);color:#fff;font-family:var(--font-sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:4px 12px;}
+.bundle-upsell-content{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px;}
+.bundle-upsell-left{flex:1;}
+.bundle-upsell-title{font-family:var(--font-serif);font-size:17px;font-weight:400;color:var(--dark);margin-bottom:4px;}
+.bundle-upsell-desc{font-size:12px;color:var(--mid);font-weight:300;margin-bottom:6px;}
+.bundle-upsell-saving{font-size:11px;letter-spacing:0.08em;color:var(--gold);font-weight:400;text-transform:uppercase;}
+.bundle-upsell-right{text-align:right;flex-shrink:0;}
+.bundle-upsell-price{font-family:var(--font-serif);font-size:26px;font-weight:500;color:var(--gold);line-height:1;}
+.bundle-upsell-old{font-size:12px;color:var(--light);text-decoration:line-through;margin-top:2px;}
+.bundle-upsell-btn{display:block;width:100%;text-align:center;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:12px;text-decoration:none;transition:all 0.3s;}
+.bundle-upsell-btn:hover{background:var(--gold);color:#fff;}
 /* ── BOUTONS MOBILE : côte à côte ── */
 @media (max-width: 600px) {
   #stock-badge { display: none; }
@@ -436,6 +449,21 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       <li>Sans produit chimique — juste de l'eau chaude</li>
       <li>Livraison Mondial Relay 72h</li>
     </ul>
+    <div class="bundle-upsell">
+      <div class="bundle-upsell-badge" id="upsell-badge">Meilleur choix</div>
+      <div class="bundle-upsell-content">
+        <div class="bundle-upsell-left">
+          <div class="bundle-upsell-title" id="upsell-title">Pack 1 An Full Body</div>
+          <div class="bundle-upsell-desc" id="upsell-desc">Gant corps + Gant visage — routine complète</div>
+          <div class="bundle-upsell-saving" id="upsell-saving">Économisez 48% vs achat séparé</div>
+        </div>
+        <div class="bundle-upsell-right">
+          <div class="bundle-upsell-price">29,99€</div>
+          <div class="bundle-upsell-old">57,98€</div>
+        </div>
+      </div>
+      <a href="../produits/pack-1an-full-body" class="bundle-upsell-btn" id="upsell-btn">Choisir le Pack 1 An</a>
+    </div>
     <div class="product-ctas">
 <div id="stock-badge"></div>
 

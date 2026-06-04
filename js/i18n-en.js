@@ -48,6 +48,7 @@ window.ALYA_T_EN = {
 
   /* ── BUTTONS / COMMON ── */
   word_reviews: 'reviews',
+  word_silk: 'Silk',
   btn_atc:  'Add to cart',
   btn_back: '← Back to collection',
   verified: 'Verified purchase',
@@ -777,6 +778,9 @@ window.ALYA_T_EN = {
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
       reviews_title:   'They\'ve adopted<br><em>the natural routine</em>',
+      upsell_badge: 'Best value', upsell_title: 'Complete Siwak Pack',
+      upsell_desc: 'Brush + 3 replacement heads + Toothpowder',
+      upsell_saving: 'Save €9 vs separate purchase', upsell_btn: 'Choose the Complete Pack',
       ba_before: 'Before', ba_after: 'After',
       ba_section_eyebrow: 'Proven results',
       ba_section_title: 'Your smile, <em>transformed</em>',
@@ -941,6 +945,9 @@ window.ALYA_T_EN = {
       nl_btn:     'Subscribe',
       reviews_eyebrow: 'Customer testimonials',
       reviews_title:   'A skin<br><em>transformed</em>',
+      upsell_badge: 'Best value', upsell_title: '1-Year Full Body Pack',
+      upsell_desc: 'Body glove + Face glove — complete routine',
+      upsell_saving: 'Save 48% vs separate purchase', upsell_btn: 'Choose the 1-Year Pack',
       ba_before: 'Before', ba_after: 'After',
       ba_section_eyebrow: 'Proven results',
       ba_section_title: 'Your skin, <em>transformed</em>',

@@ -256,6 +256,12 @@
     /* HTML lang */
     document.documentElement.lang = t._lang || 'fr';
 
+    /* Textes décoratifs "Soie" */
+    if (t.word_silk) {
+      var decorSoie = qs('#decor-soie');
+      if (decorSoie) decorSoie.textContent = t.word_silk;
+    }
+
     /* Mot "avis" dans les étoiles des cartes produit */
     if (t._lang && t._lang !== 'fr' && t.word_reviews) {
       qsa('.product-stars span, .stars-count').forEach(function(el) {
@@ -425,6 +431,13 @@
     if (pd.ba_section_eyebrow) set('.ba-section .section-eyebrow', pd.ba_section_eyebrow);
     if (pd.ba_section_title)   set('.ba-section .section-title', pd.ba_section_title, true);
     if (pd.ba_intro)           set('.ba-intro', pd.ba_intro);
+
+    /* Bundle upsell */
+    if (pd.upsell_badge)  { var ub = qs('#upsell-badge');  if (ub) ub.textContent = pd.upsell_badge; }
+    if (pd.upsell_title)  { var ut = qs('#upsell-title');  if (ut) ut.textContent = pd.upsell_title; }
+    if (pd.upsell_desc)   { var ud = qs('#upsell-desc');   if (ud) ud.textContent = pd.upsell_desc; }
+    if (pd.upsell_saving) { var us = qs('#upsell-saving'); if (us) us.textContent = pd.upsell_saving; }
+    if (pd.upsell_btn)    { var ubtn = qs('#upsell-btn');  if (ubtn) ubtn.textContent = pd.upsell_btn; }
 
     /* Section contenu du pack */
     if (pd.pack_contents_title) set('.pack-contents-title', pd.pack_contents_title);
