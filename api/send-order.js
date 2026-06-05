@@ -651,17 +651,38 @@ export default async function handler(req, res) {
 </body>
 </html>`;
 
+  // ── TÉLÉCHARGEMENT ÉTIQUETTE PDF (pour pièce jointe) ────────────
+  let labelBase64 = null;
+  if (labelUrl && scPublic && scSecret) {
+    try {
+      const auth = Buffer.from(`${scPublic}:${scSecret}`).toString('base64');
+      const pdfRes = await fetch(labelUrl, {
+        headers: { Authorization: `Basic ${auth}` }
+      });
+      if (pdfRes.ok) {
+        const pdfBuffer = await pdfRes.arrayBuffer();
+        labelBase64 = Buffer.from(pdfBuffer).toString('base64');
+      }
+    } catch (e) {
+      console.error('Label PDF download error:', e.message);
+    }
+  }
+
   // ── ENVOI VIA BREVO ─────────────────────────────────────────────
-  const brevoSend = async (to, toName, subject, html) => {
+  const brevoSend = async (to, toName, subject, html, attachment = null) => {
+    const body = {
+      sender:      { name: 'ALYA & CO.', email: 'contact@alyanco.com' },
+      to:          [{ email: to, name: toName }],
+      subject,
+      htmlContent: html
+    };
+    if (attachment) {
+      body.attachment = [attachment];
+    }
     const r = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'api-key': brevoKey },
-      body: JSON.stringify({
-        sender:      { name: 'ALYA & CO.', email: 'contact@alyanco.com' },
-        to:          [{ email: to, name: toName }],
-        subject,
-        htmlContent: html
-      })
+      body: JSON.stringify(body)
     });
     if (!r.ok) console.error('Brevo error:', await r.text());
     return r.ok;
@@ -674,10 +695,15 @@ export default async function handler(req, res) {
       customerHtml
     );
 
-    // Email marchand (avec étiquette Sendcloud)
+    // Email marchand avec étiquette PDF en pièce jointe
+    const attachment = labelBase64
+      ? { content: labelBase64, name: `etiquette-${orderNumber}.pdf` }
+      : null;
+
     await brevoSend('contact@alyanco.com', 'ALYA & CO. Admin',
       `🛍️ ${orderNumber} — ${prenom} ${nom} — ${fmt(total)}`,
-      merchantHtml
+      merchantHtml,
+      attachment
     );
 
     // Ajout du client dans la liste Brevo "Clients" (#4)
