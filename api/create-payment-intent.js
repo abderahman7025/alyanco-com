@@ -1,40 +1,67 @@
+import { setCors, getClientIp, isRateLimited, computeExpectedTotal } from './_security.js';
+
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  setCors(req, res);
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).end();
 
-  const secretKey = process.env.STRIPE_SECRET_KEY;
-  if (!secretKey) return res.status(500).json({ error: 'STRIPE_SECRET_KEY not configured' });
-
-  const { amount, orderNumber, delivery, totalWeight } = req.body;
-  if (!amount || isNaN(parseFloat(amount))) {
-    return res.status(400).json({ error: 'Invalid amount' });
+  // ── Rate limiting : 8 PaymentIntents / 10 min par IP ──────────
+  const ip = getClientIp(req);
+  if (await isRateLimited(`pi:${ip}`, 8, 600)) {
+    return res.status(429).json({ error: 'Trop de tentatives. Réessayez dans quelques minutes.' });
   }
 
-  // Convert euros to cents (Stripe uses smallest currency unit)
-  const amountCents = Math.round(parseFloat(amount) * 100);
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) return res.status(500).json({ error: 'Configuration manquante' });
 
+  const { amount, orderNumber, delivery, totalWeight, items, carrier, promoRate } = req.body || {};
+
+  // ── Vérification du montant côté serveur ──────────────────────
+  // Si les items sont fournis, on recalcule le montant exact
+  if (items && Array.isArray(items)) {
+    const expected = computeExpectedTotal(items, carrier || 'mondial-relay', promoRate || 0);
+    if (!expected.valid) {
+      return res.status(400).json({ error: 'Panier invalide.' });
+    }
+
+    const clientAmount = parseFloat(amount);
+    const diff = Math.abs(clientAmount - expected.total);
+
+    // Tolérance de 0.02€ pour les arrondis flottants
+    if (diff > 0.02) {
+      console.warn(`[security] Montant suspect: client=${clientAmount} attendu=${expected.total} IP=${ip}`);
+      return res.status(400).json({ error: 'Montant invalide.' });
+    }
+
+    // Utiliser le montant calculé côté serveur (jamais le montant client)
+    const amountCents = Math.round(expected.total * 100);
+
+    return await createIntent(res, secretKey, amountCents, orderNumber, delivery, totalWeight);
+  }
+
+  // Fallback si pas d'items (rétrocompatibilité)
+  const clientAmount = parseFloat(amount);
+  if (!amount || isNaN(clientAmount) || clientAmount <= 0 || clientAmount > 9999) {
+    return res.status(400).json({ error: 'Montant invalide.' });
+  }
+  const amountCents = Math.round(clientAmount * 100);
+  return await createIntent(res, secretKey, amountCents, orderNumber, delivery, totalWeight);
+}
+
+async function createIntent(res, secretKey, amountCents, orderNumber, delivery, totalWeight) {
   const params = new URLSearchParams();
-  params.append('amount',                   String(amountCents));
-  params.append('currency',                 'eur');
-  params.append('payment_method_types[]',   'card');
+  params.append('amount', String(amountCents));
+  params.append('currency', 'eur');
+  params.append('payment_method_types[]', 'card');
 
-  // Metadata — for reference and future webhook use
-  if (orderNumber)           params.append('metadata[orderNumber]',   orderNumber);
-  if (totalWeight)           params.append('metadata[totalWeight]',   String(totalWeight));
+  if (orderNumber) params.append('metadata[orderNumber]', orderNumber);
+  if (totalWeight) params.append('metadata[totalWeight]', String(totalWeight));
 
   if (delivery) {
-    if (delivery.email)     params.append('metadata[email]',         delivery.email);
-    if (delivery.prenom)    params.append('metadata[prenom]',        delivery.prenom);
-    if (delivery.nom)       params.append('metadata[nom]',           delivery.nom);
-    if (delivery.tel)       params.append('metadata[tel]',           delivery.tel);
-    if (delivery.adresse)   params.append('metadata[adresse]',       delivery.adresse);
-    if (delivery.cp)        params.append('metadata[cp]',            delivery.cp);
-    if (delivery.ville)     params.append('metadata[ville]',         delivery.ville);
-    if (delivery.pays)      params.append('metadata[pays]',          delivery.pays);
-    if (delivery.shipping)  params.append('metadata[shipping]',      delivery.shipping);
+    const fields = ['email', 'prenom', 'nom', 'tel', 'adresse', 'cp', 'ville', 'pays', 'shipping'];
+    for (const f of fields) {
+      if (delivery[f]) params.append(`metadata[${f}]`, String(delivery[f]).slice(0, 500));
+    }
     params.append('metadata[shippingCost]', String(delivery.shippingCost || 0));
   }
 
@@ -42,22 +69,17 @@ export default async function handler(req, res) {
     const response = await fetch('https://api.stripe.com/v1/payment_intents', {
       method: 'POST',
       headers: {
-        'Authorization':  `Bearer ${secretKey}`,
-        'Content-Type':   'application/x-www-form-urlencoded'
+        'Authorization': `Bearer ${secretKey}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: params.toString()
     });
 
     const data = await response.json();
-
-    if (!response.ok) {
-      console.error('Stripe error:', data.error);
-      return res.status(400).json({ error: data.error?.message || 'Erreur Stripe' });
-    }
-
+    if (!response.ok) return res.status(400).json({ error: data.error?.message || 'Erreur paiement' });
     return res.status(200).json({ clientSecret: data.client_secret });
   } catch (err) {
-    console.error('Fetch error:', err);
-    return res.status(500).json({ error: err.message });
+    console.error('[create-payment-intent]', err.message);
+    return res.status(500).json({ error: 'Erreur serveur' });
   }
 }

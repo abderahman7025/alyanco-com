@@ -223,14 +223,18 @@ async function decrementStock(items) {
   );
 }
 
-export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+import { setCors, getClientIp, isRateLimited, isValidEmail } from './_security.js';
 
+export default async function handler(req, res) {
+  setCors(req, res);
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  // ── Rate limiting : 5 commandes / 15 min par IP ───────────────
+  const ip = getClientIp(req);
+  if (await isRateLimited(`so:${ip}`, 5, 900)) {
+    return res.status(429).json({ error: 'Trop de requêtes.' });
+  }
 
   const brevoKey = process.env.BREVO_API_KEY;
   const scPublic = process.env.SENDCLOUD_PUBLIC_KEY;
@@ -247,8 +251,8 @@ export default async function handler(req, res) {
 
   const t = EMAIL_T[lang] || EMAIL_T.fr;
 
-  if (!email || !orderNumber) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  if (!isValidEmail(email) || !orderNumber) {
+    return res.status(400).json({ error: 'Champs requis manquants ou invalides' });
   }
 
   // ── FORMAT HELPERS ──────────────────────────────────────────────
