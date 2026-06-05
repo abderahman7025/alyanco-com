@@ -1,9 +1,10 @@
-import { setCors, getClientIp, isRateLimited, computeExpectedTotal } from './_security.js';
+import { setCors, getClientIp, isRateLimited, computeExpectedTotal, checkBodySize } from './_security.js';
 
 export default async function handler(req, res) {
   setCors(req, res);
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).end();
+  if (!checkBodySize(req, res, 20)) return;
 
   // ── Rate limiting : 8 PaymentIntents / 10 min par IP ──────────
   const ip = getClientIp(req);

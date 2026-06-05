@@ -223,16 +223,25 @@ async function decrementStock(items) {
   );
 }
 
-import { setCors, getClientIp, isRateLimited, isValidEmail } from './_security.js';
+import { setCors, getClientIp, isRateLimited, isValidEmail, verifyPaymentIntent, isIpBlocked, logSecurityEvent } from './_security.js';
 
 export default async function handler(req, res) {
   setCors(req, res);
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // ── Rate limiting : 5 commandes / 15 min par IP ───────────────
   const ip = getClientIp(req);
+  const redisUrl   = process.env.upstash_redis_rest_KV_REST_API_URL   || process.env.UPSTASH_REDIS_REST_URL   || process.env.KV_REST_API_URL;
+  const redisToken = process.env.upstash_redis_rest_KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+
+  // ── IP bloquée ? ──────────────────────────────────────────────
+  if (await isIpBlocked(ip, redisUrl, redisToken)) {
+    return res.status(403).json({ error: 'Accès refusé.' });
+  }
+
+  // ── Rate limiting : 5 commandes / 15 min par IP ───────────────
   if (await isRateLimited(`so:${ip}`, 5, 900)) {
+    await logSecurityEvent('rate_limit_send_order', ip, '', redisUrl, redisToken);
     return res.status(429).json({ error: 'Trop de requêtes.' });
   }
 
@@ -246,13 +255,27 @@ export default async function handler(req, res) {
     email, prenom, nom, tel,
     orderNumber, items, total, shippingCost,
     shipping, adresse, cp, ville, pays, totalWeight, relayPoint,
-    promoCode, lang
+    promoCode, lang, paymentIntentId
   } = req.body;
 
   const t = EMAIL_T[lang] || EMAIL_T.fr;
 
   if (!isValidEmail(email) || !orderNumber) {
     return res.status(400).json({ error: 'Champs requis manquants ou invalides' });
+  }
+
+  // ── Vérification Stripe PaymentIntent (anti-fraude) ───────────
+  const stripeKey = process.env.STRIPE_SECRET_KEY;
+  if (stripeKey && paymentIntentId) {
+    const expectedCents = Math.round(parseFloat(total) * 100);
+    const piCheck = await verifyPaymentIntent(paymentIntentId, expectedCents, stripeKey, redisUrl, redisToken);
+    if (!piCheck.ok) {
+      await logSecurityEvent('invalid_payment_intent', ip, `${paymentIntentId} — ${piCheck.reason}`, redisUrl, redisToken);
+      return res.status(402).json({ error: 'Paiement non vérifié. Contactez le support.' });
+    }
+  } else if (stripeKey && !paymentIntentId) {
+    // PaymentIntentId manquant → log mais on laisse passer pour rétrocompatibilité
+    await logSecurityEvent('missing_payment_intent', ip, `order=${orderNumber}`, redisUrl, redisToken);
   }
 
   // ── FORMAT HELPERS ──────────────────────────────────────────────

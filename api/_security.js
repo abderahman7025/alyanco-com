@@ -3,6 +3,16 @@
 const ALLOWED_ORIGIN = 'https://alyanco.com';
 const ALLOWED_ORIGIN_WWW = 'https://www.alyanco.com';
 
+// ── Limite taille du body (protection DoS) ───────────────────────
+export function checkBodySize(req, res, maxKb = 50) {
+  const len = parseInt(req.headers['content-length'] || '0', 10);
+  if (len > maxKb * 1024) {
+    res.status(413).json({ error: 'Requête trop volumineuse.' });
+    return false;
+  }
+  return true;
+}
+
 // ── CORS strict ───────────────────────────────────────────────────
 export function setCors(req, res) {
   const origin = req.headers.origin || '';
@@ -63,6 +73,89 @@ export function getClientIp(req) {
     req.socket?.remoteAddress ||
     'unknown'
   );
+}
+
+// ── Vérifier qu'un PaymentIntent Stripe est succeeded + anti-replay ─
+export async function verifyPaymentIntent(paymentIntentId, expectedAmountCents, stripeSecretKey, redisUrl, redisToken) {
+  if (!paymentIntentId || typeof paymentIntentId !== 'string' || !paymentIntentId.startsWith('pi_')) {
+    return { ok: false, reason: 'PaymentIntent ID invalide' };
+  }
+
+  // Anti-replay : vérifier que ce PI n'a pas déjà été utilisé
+  if (redisUrl && redisToken) {
+    const usedKey = `pi_used:${paymentIntentId}`;
+    const checkRes = await fetch(`${redisUrl}/get/${encodeURIComponent(usedKey)}`, {
+      headers: { Authorization: `Bearer ${redisToken}` }
+    }).then(r => r.json()).catch(() => ({ result: null }));
+
+    if (checkRes.result !== null) {
+      return { ok: false, reason: 'Paiement déjà utilisé' };
+    }
+  }
+
+  // Vérifier avec Stripe que le paiement est bien succeeded
+  try {
+    const stripeRes = await fetch(`https://api.stripe.com/v1/payment_intents/${encodeURIComponent(paymentIntentId)}`, {
+      headers: { Authorization: `Bearer ${stripeSecretKey}` }
+    });
+
+    if (!stripeRes.ok) return { ok: false, reason: 'PaymentIntent introuvable' };
+
+    const pi = await stripeRes.json();
+
+    if (pi.status !== 'succeeded') {
+      return { ok: false, reason: `Paiement non confirmé (status: ${pi.status})` };
+    }
+
+    // Vérifier que le montant correspond (tolérance 2 centimes)
+    if (expectedAmountCents && Math.abs(pi.amount - expectedAmountCents) > 2) {
+      return { ok: false, reason: `Montant incohérent: PI=${pi.amount} attendu=${expectedAmountCents}` };
+    }
+
+    // Marquer ce PI comme utilisé (TTL 30 jours)
+    if (redisUrl && redisToken) {
+      const usedKey = `pi_used:${paymentIntentId}`;
+      await fetch(`${redisUrl}/set/${encodeURIComponent(usedKey)}/1/ex/2592000`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${redisToken}` }
+      }).catch(() => {});
+    }
+
+    return { ok: true, amount: pi.amount };
+  } catch (err) {
+    console.error('[verifyPaymentIntent]', err.message);
+    return { ok: false, reason: 'Erreur vérification paiement' };
+  }
+}
+
+// ── Bloquer une IP pour une durée prolongée ───────────────────────
+export async function blockIp(ip, durationSeconds, redisUrl, redisToken) {
+  if (!redisUrl || !redisToken) return;
+  const key = `blocked:${ip}`;
+  await fetch(`${redisUrl}/set/${encodeURIComponent(key)}/1/ex/${durationSeconds}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${redisToken}` }
+  }).catch(() => {});
+}
+
+export async function isIpBlocked(ip, redisUrl, redisToken) {
+  if (!redisUrl || !redisToken) return false;
+  const key = `blocked:${ip}`;
+  const r = await fetch(`${redisUrl}/get/${encodeURIComponent(key)}`, {
+    headers: { Authorization: `Bearer ${redisToken}` }
+  }).then(r => r.json()).catch(() => ({ result: null }));
+  return r.result !== null;
+}
+
+// ── Logger un événement de sécurité ──────────────────────────────
+export async function logSecurityEvent(event, ip, detail, redisUrl, redisToken) {
+  if (!redisUrl || !redisToken) return;
+  const entry = JSON.stringify({ t: Date.now(), ip, event, detail });
+  const key = `seclog:${Date.now()}:${Math.random().toString(36).slice(2)}`;
+  await fetch(`${redisUrl}/set/${encodeURIComponent(key)}/${encodeURIComponent(entry)}/ex/604800`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${redisToken}` }
+  }).catch(() => {});
 }
 
 // ── Sanitiser une chaîne (supprimer HTML/scripts) ─────────────────

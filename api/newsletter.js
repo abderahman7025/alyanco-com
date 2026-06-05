@@ -11,7 +11,13 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'Trop de requêtes. Réessayez plus tard.' });
   }
 
-  const { email } = req.body || {};
+  const { email, website } = req.body || {};
+
+  // Honeypot : si le champ caché est rempli → bot détecté
+  if (website) {
+    return res.status(200).json({ success: true }); // silently ignore
+  }
+
   if (!isValidEmail(email)) {
     return res.status(400).json({ error: 'Email invalide' });
   }

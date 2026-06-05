@@ -1807,6 +1807,8 @@ body::before {
     <h2 class="newsletter-title">Prenez soin de vous,<br><em>naturellement.</em></h2>
     <p class="newsletter-sub">Recevez nos conseils beauté, nos offres exclusives<br>et soyez les premiers informés de nos nouveautés.</p>
     <form class="newsletter-form" onsubmit="return false;">
+      <!-- Honeypot anti-bot : invisible pour les humains, rempli par les bots -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
       <input type="email" class="newsletter-input" placeholder="Votre adresse email">
       <button type="submit" class="newsletter-btn">S'inscrire</button>
     </form>
@@ -2101,6 +2103,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     var btn = nf.querySelector('button');
     var email = input ? input.value.trim() : '';
     if (!email) return;
+    // Vérification honeypot : si le champ caché est rempli, c'est un bot
+    var honeypot = nf.querySelector('input[name="website"]');
+    if (honeypot && honeypot.value) return;
     var origTxt = btn.textContent;
     btn.textContent = '...'; btn.disabled = true;
     try {

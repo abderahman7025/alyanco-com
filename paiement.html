@@ -378,7 +378,7 @@ function switchPayment(type, btn){
 var stripe, cardElement, clientSecret;
 
 // Factoriser le succès (partagé carte + wallet)
-function handleSuccess(orderNum) {
+function handleSuccess(orderNum, paymentIntentId) {
   localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
   fetch('/api/send-order', {
     method: 'POST',
@@ -391,7 +391,8 @@ function handleSuccess(orderNum) {
       pays: delivery.pays || 'FR', totalWeight: getCartTotalWeight(),
       relayPoint: delivery.relayPoint || null,
       promoCode: _promo ? _promo.code : null,
-      lang: localStorage.getItem('alya_lang') || 'fr'
+      lang: localStorage.getItem('alya_lang') || 'fr',
+      paymentIntentId: paymentIntentId || null
     })
   }).catch(function(){});
   gtag('event','conversion',{'send_to':'AW-17586286447/2rBGCL_NmrIcEO_e5cFB','value':total,'currency':'EUR','transaction_id':orderNum});
@@ -495,14 +496,14 @@ async function initStripe() {
       } else {
         ev.complete('success');
         if (paymentIntent.status === 'requires_action') {
-          var { error } = await stripe.confirmCardPayment(clientSecret);
+          var { error, paymentIntent: pi2 } = await stripe.confirmCardPayment(clientSecret);
           if (error) {
             document.getElementById('card-errors').textContent = error.message;
           } else {
-            handleSuccess('ALC-' + Date.now().toString().slice(-6));
+            handleSuccess('ALC-' + Date.now().toString().slice(-6), pi2 && pi2.id);
           }
         } else {
-          handleSuccess('ALC-' + Date.now().toString().slice(-6));
+          handleSuccess('ALC-' + Date.now().toString().slice(-6), paymentIntent.id);
         }
       }
     });
@@ -577,7 +578,7 @@ async function handlePayment(e) {
       btn.textContent = PAT.pay_btn + ' ' + fmt(total);
       btn.disabled = false;
     } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-      handleSuccess('ALC-' + Date.now().toString().slice(-6));
+      handleSuccess('ALC-' + Date.now().toString().slice(-6), result.paymentIntent.id);
     }
   } catch(err) {
     document.getElementById('card-errors').textContent = PAT.err_generic;
