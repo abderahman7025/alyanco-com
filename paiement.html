@@ -395,8 +395,10 @@ function handleSuccess(orderNum, paymentIntentId) {
       paymentIntentId: paymentIntentId || null
     })
   }).catch(function(){});
-  gtag('event','conversion',{'send_to':'AW-17586286447/2rBGCL_NmrIcEO_e5cFB','value':total,'currency':'EUR','transaction_id':orderNum});
-  gtag('event','purchase',{'transaction_id':orderNum,'value':total,'currency':'EUR'});
+  if(typeof gtag!=='undefined') {
+    gtag('event','conversion',{'send_to':'AW-17586286447/2rBGCL_NmrIcEO_e5cFB','value':total,'currency':'EUR','transaction_id':orderNum});
+    gtag('event','purchase',{'transaction_id':orderNum,'value':total,'currency':'EUR'});
+  }
   if(typeof fbq!=='undefined') fbq('track','Purchase',{value:total,currency:'EUR'});
   clearCart();
   localStorage.removeItem('alyanco_promo');
