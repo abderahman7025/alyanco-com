@@ -588,10 +588,28 @@ async function handlePayment(e) {
       document.getElementById('card-errors').textContent = result.error.message;
       btn.textContent = PAT.pay_btn + ' ' + fmt(total);
       btn.disabled = false;
-    } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-      handleSuccess('ALC-' + Date.now().toString().slice(-6), result.paymentIntent.id);
+    } else if (result.paymentIntent) {
+      var status = result.paymentIntent.status;
+      if (status === 'succeeded' || status === 'processing') {
+        handleSuccess('ALC-' + Date.now().toString().slice(-6), result.paymentIntent.id);
+      } else if (status === 'requires_action') {
+        // 3DS — Stripe.js le gère automatiquement, on rappelle confirmCardPayment
+        var result2 = await stripe.confirmCardPayment(clientSecret);
+        if (result2.error) {
+          document.getElementById('card-errors').textContent = result2.error.message;
+          btn.textContent = PAT.pay_btn + ' ' + fmt(total);
+          btn.disabled = false;
+        } else {
+          handleSuccess('ALC-' + Date.now().toString().slice(-6), result2.paymentIntent.id);
+        }
+      } else {
+        // Statut inattendu mais pas d'erreur → on redirige quand même
+        console.warn('[paiement] Statut inattendu:', status);
+        handleSuccess('ALC-' + Date.now().toString().slice(-6), result.paymentIntent.id);
+      }
     }
   } catch(err) {
+    console.error('[paiement] confirmCardPayment error:', err);
     document.getElementById('card-errors').textContent = PAT.err_generic;
     btn.textContent = PAT.pay_btn + ' ' + fmt(total);
     btn.disabled = false;
