@@ -299,10 +299,27 @@ export default async function handler(req, res) {
     ? `<span style="color:#B8975A;font-weight:500;">${t.free}</span>`
     : fmt(shippingCost);
 
-  // ── SENDCLOUD — CRÉATION DU COLIS & ÉTIQUETTE ──────────────────
-  // IDs des méthodes d'expédition Sendcloud. Si ça ne colle pas avec votre compte,
-  // vérifiez vos méthodes disponibles via GET /api/v2/shipping_methods
-  const SC_METHOD = { 'mondial-relay': 8, 'colissimo': 26 };
+  // ── SENDCLOUD — SÉLECTION MÉTHODE PAR POIDS ────────────────────
+  // Colissimo Home : IDs par tranche de poids (grammes)
+  const COLISSIMO_IDS = [
+    [250,  371], [500,  366], [750,  367], [1000, 364],
+    [2000, 1066],[3000, 1067],[4000, 1068],[5000, 1069],
+    [6000, 1070],[7000, 1071],[8000, 1072],[9000, 1073],[10000,1074]
+  ];
+  // Mondial Relay Point Relais : IDs par tranche de poids (grammes)
+  const MONDIAL_RELAY_IDS = [
+    [250,  28035],[500,  28036],[1000, 28037],[2000, 28038],
+    [3000, 28039],[5000, 28040],[7000, 28041],[10000,28042],
+    [15000,28043],[20000,28044],[25000,28045],[30000,28046]
+  ];
+
+  function getShippingMethodId(carrier, weightG) {
+    const table = carrier === 'colissimo' ? COLISSIMO_IDS : MONDIAL_RELAY_IDS;
+    for (const [maxW, id] of table) {
+      if (weightG <= maxW) return id;
+    }
+    return table[table.length - 1][1];
+  }
 
   let labelUrl        = null;
   let sendcloudId     = null;
@@ -312,10 +329,9 @@ export default async function handler(req, res) {
 
   if (scPublic && scSecret) {
     try {
-      const weightKg = totalWeight
-        ? Math.max(0.01, totalWeight / 1000).toFixed(3)
-        : '0.200';
-      const methodId = SC_METHOD[shipping] || 8;
+      const weightG = totalWeight || 200;
+      const weightKg = Math.max(0.01, weightG / 1000).toFixed(3);
+      const methodId = getShippingMethodId(shipping, weightG);
       const auth = Buffer.from(`${scPublic}:${scSecret}`).toString('base64');
 
       const scRes = await fetch('https://panel.sendcloud.sc/api/v2/parcels', {
@@ -331,7 +347,7 @@ export default async function handler(req, res) {
             address:     (shipping === 'mondial-relay' && relayPoint) ? relayPoint.adresse : adresse,
             city:        (shipping === 'mondial-relay' && relayPoint) ? relayPoint.ville   : ville,
             postal_code: (shipping === 'mondial-relay' && relayPoint) ? relayPoint.cp      : cp,
-            country:     { iso_2: pays || 'FR' },
+            country:     pays || 'FR',
             email:       email,
             telephone:   tel || '',
             weight:      weightKg,
