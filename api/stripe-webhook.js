@@ -77,6 +77,7 @@ export default async function handler(req, res) {
 
   if (event.type === 'payment_intent.succeeded') {
     const pi = event.data.object;
+    if (pi.metadata?.site !== 'alyanco') return res.status(200).json({ received: true });
     console.log(`[stripe-webhook] Paiement confirmé: ${pi.id} — ${pi.amount / 100}€ — ${pi.metadata?.orderNumber || '?'}`);
 
     // Marquer le PI comme vérifié par Stripe (source de confiance)
@@ -91,6 +92,7 @@ export default async function handler(req, res) {
 
   if (event.type === 'payment_intent.payment_failed') {
     const pi = event.data.object;
+    if (pi.metadata?.site !== 'alyanco') return res.status(200).json({ received: true });
     console.warn(`[stripe-webhook] Paiement échoué: ${pi.id} — ${pi.last_payment_error?.message || '?'}`);
   }
 

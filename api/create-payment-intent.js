@@ -60,6 +60,7 @@ async function createIntent(res, secretKey, amountCents, orderNumber, delivery, 
   params.append('currency', 'eur');
   params.append('payment_method_types[]', 'card');
 
+  params.append('metadata[site]', 'alyanco');
   if (orderNumber) params.append('metadata[orderNumber]', orderNumber);
   if (totalWeight) params.append('metadata[totalWeight]', String(totalWeight));
 
