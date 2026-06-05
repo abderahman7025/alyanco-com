@@ -477,7 +477,15 @@ async function initStripe() {
           var r = await fetch('/api/create-payment-intent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount: total, orderNumber: 'pending', delivery: delivery, totalWeight: getCartTotalWeight() })
+            body: JSON.stringify({
+              amount: total,
+              orderNumber: 'pending',
+              delivery: delivery,
+              totalWeight: getCartTotalWeight(),
+              items: items,
+              carrier: delivery.shipping || 'mondial-relay',
+              promoCode: _promo ? _promo.code : null
+            })
           });
           var d = await r.json();
           clientSecret = d.clientSecret;
@@ -523,7 +531,10 @@ async function createPaymentIntent() {
         amount: total,
         orderNumber: 'pending',
         delivery: delivery,
-        totalWeight: getCartTotalWeight()
+        totalWeight: getCartTotalWeight(),
+        items: items,
+        carrier: delivery.shipping || 'mondial-relay',
+        promoCode: _promo ? _promo.code : null
       })
     });
     var data = await res.json();

@@ -223,12 +223,13 @@ async function decrementStock(items) {
   );
 }
 
-import { setCors, getClientIp, isRateLimited, isValidEmail, verifyPaymentIntent, isIpBlocked, logSecurityEvent } from './_security.js';
+import { setCors, getClientIp, isRateLimited, isValidEmail, verifyPaymentIntent, isIpBlocked, logSecurityEvent, escapeHtml, checkBodySize } from './_security.js';
 
 export default async function handler(req, res) {
   setCors(req, res);
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  if (!checkBodySize(req, res, 100)) return;
 
   const ip = getClientIp(req);
   const redisUrl   = process.env.upstash_redis_rest_KV_REST_API_URL   || process.env.UPSTASH_REDIS_REST_URL   || process.env.KV_REST_API_URL;
@@ -260,22 +261,34 @@ export default async function handler(req, res) {
 
   const t = EMAIL_T[lang] || EMAIL_T.fr;
 
+  // Échapper toutes les données client avant insertion dans HTML
+  const safePrenom    = escapeHtml(prenom    || '');
+  const safeNom       = escapeHtml(nom       || '');
+  const safeAdresse   = escapeHtml(adresse   || '');
+  const safeCp        = escapeHtml(cp        || '');
+  const safeVille     = escapeHtml(ville     || '');
+  const safePays      = escapeHtml(pays      || 'FR');
+  const safeTel       = escapeHtml(tel       || '—');
+  const safeEmail     = escapeHtml(email     || '');
+  const safeOrderNum  = escapeHtml(orderNumber || '');
+
   if (!isValidEmail(email) || !orderNumber) {
     return res.status(400).json({ error: 'Champs requis manquants ou invalides' });
   }
 
   // ── Vérification Stripe PaymentIntent (anti-fraude) ───────────
   const stripeKey = process.env.STRIPE_SECRET_KEY;
-  if (stripeKey && paymentIntentId) {
+  if (!paymentIntentId) {
+    await logSecurityEvent('missing_payment_intent', ip, `order=${orderNumber}`, redisUrl, redisToken);
+    return res.status(402).json({ error: 'Paiement non vérifié. Contactez le support.' });
+  }
+  if (stripeKey) {
     const expectedCents = Math.round(parseFloat(total) * 100);
     const piCheck = await verifyPaymentIntent(paymentIntentId, expectedCents, stripeKey, redisUrl, redisToken);
     if (!piCheck.ok) {
       await logSecurityEvent('invalid_payment_intent', ip, `${paymentIntentId} — ${piCheck.reason}`, redisUrl, redisToken);
       return res.status(402).json({ error: 'Paiement non vérifié. Contactez le support.' });
     }
-  } else if (stripeKey && !paymentIntentId) {
-    // PaymentIntentId manquant → log mais on laisse passer pour rétrocompatibilité
-    await logSecurityEvent('missing_payment_intent', ip, `order=${orderNumber}`, redisUrl, redisToken);
   }
 
   // ── FORMAT HELPERS ──────────────────────────────────────────────
@@ -406,14 +419,14 @@ export default async function handler(req, res) {
           <div style="width:64px;height:64px;background:#B8975A;border-radius:50%;margin:0 auto 24px;
                       font-size:28px;line-height:64px;text-align:center;color:#FFFFFF;">✓</div>
           <h1 style="font-family:Georgia,serif;font-size:32px;font-weight:400;color:#1C1612;margin:0 0 12px;line-height:1.2;">
-            ${t.thank_you(prenom)}
+            ${t.thank_you(safePrenom)}
           </h1>
           <p style="font-size:15px;color:#6B5B4E;margin:0 0 20px;line-height:1.7;">
             ${t.confirmed}
           </p>
           <div style="display:inline-block;background:rgba(184,151,90,0.1);border:1px solid rgba(184,151,90,0.3);
                       color:#B8975A;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:10px 24px;">
-            ${orderNumber}
+            ${safeOrderNum}
           </div>
         </td>
       </tr>
@@ -454,7 +467,7 @@ export default async function handler(req, res) {
               <td width="50%" style="padding-right:16px;vertical-align:top;">
                 <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#B8975A;margin-bottom:12px;">${t.delivery_addr}</div>
                 <div style="font-size:14px;color:#1C1612;line-height:1.8;">
-                  <strong>${prenom} ${nom}</strong><br>${adresse}<br>${cp} ${ville}<br>France
+                  <strong>${safePrenom} ${safeNom}</strong><br>${safeAdresse}<br>${safeCp} ${safeVille}<br>France
                 </div>
               </td>
               <td width="50%" style="padding-left:16px;vertical-align:top;border-left:1px solid #F0E8DF;">
@@ -585,10 +598,10 @@ export default async function handler(req, res) {
 
       <!-- Client -->
       <h2 style="font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#B8975A;margin:0 0 14px;">Client</h2>
-      <p style="margin:0 0 4px;font-size:14px;"><strong>${prenom} ${nom}</strong></p>
-      <p style="margin:0 0 4px;font-size:14px;">📧 <a href="mailto:${email}" style="color:#1C1612;">${email}</a></p>
-      <p style="margin:0 0 4px;font-size:14px;">📱 ${tel || '—'}</p>
-      <p style="margin:0 0 24px;font-size:14px;">📍 ${adresse}, ${cp} ${ville} (${pays || 'FR'})</p>
+      <p style="margin:0 0 4px;font-size:14px;"><strong>${safePrenom} ${safeNom}</strong></p>
+      <p style="margin:0 0 4px;font-size:14px;">📧 <a href="mailto:${safeEmail}" style="color:#1C1612;">${safeEmail}</a></p>
+      <p style="margin:0 0 4px;font-size:14px;">📱 ${safeTel}</p>
+      <p style="margin:0 0 24px;font-size:14px;">📍 ${safeAdresse}, ${safeCp} ${safeVille} (${safePays})</p>
 
       <hr style="border:none;border-top:1px solid #F0E8DF;margin:0 0 24px;">
 

@@ -167,6 +167,32 @@ export function sanitize(str, maxLen = 500) {
     .trim();
 }
 
+// ── Échapper les caractères HTML (pour les templates email) ───────
+export function escapeHtml(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;');
+}
+
+// ── Charger et valider un code promo depuis l'env ─────────────────
+export function loadPromoCodes() {
+  const CODES = {};
+  const envCodes = process.env.PROMO_CODES;
+  if (envCodes) {
+    try {
+      Object.assign(CODES, JSON.parse(envCodes));
+    } catch { /* ignore */ }
+  }
+  if (Object.keys(CODES).length === 0) {
+    CODES['ALYA10'] = { discount: 0.10, label: '-10%' };
+  }
+  return CODES;
+}
+
 // ── Prix côté serveur des produits (source de vérité) ────────────
 export const SERVER_PRICES = {
   'brosse-siwak':       12.99,

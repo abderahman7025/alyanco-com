@@ -1,4 +1,4 @@
-import { setCors, getClientIp, isRateLimited, isValidEmail } from './_security.js';
+import { setCors, getClientIp, isRateLimited, isValidEmail, loadPromoCodes } from './_security.js';
 
 export default async function handler(req, res) {
   setCors(req, res);
@@ -13,21 +13,7 @@ export default async function handler(req, res) {
 
   const { email, code } = req.body || {};
   const upperCode = (typeof code === 'string' ? code : '').trim().toUpperCase().slice(0, 20);
-
-  // Codes valides — lus depuis les variables d'environnement (priorité)
-  // sinon fallback sur le code hardcodé
-  const CODES = {};
-  const envCodes = process.env.PROMO_CODES;
-  if (envCodes) {
-    try {
-      // Format attendu : JSON {"ALYA10":{"discount":0.10,"label":"-10%"}}
-      Object.assign(CODES, JSON.parse(envCodes));
-    } catch { /* ignore */ }
-  }
-  // Fallback si pas de variable d'env
-  if (Object.keys(CODES).length === 0) {
-    CODES['ALYA10'] = { discount: 0.10, label: '-10%' };
-  }
+  const CODES = loadPromoCodes();
 
   if (!CODES[upperCode]) {
     return res.status(200).json({ valid: false, reason: 'Code invalide.' });

@@ -53,11 +53,17 @@ export default async function handler(req, res) {
     if (Date.now() / 1000 - tsNum > 300) throw new Error('Event expiré');
 
     // Recalculer la signature HMAC-SHA256
-    const { createHmac } = await import('crypto');
+    const { createHmac, timingSafeEqual } = await import('crypto');
     const payload = `${timestamp}.${rawBody.toString()}`;
     const computedSig = createHmac('sha256', webhookSecret).update(payload).digest('hex');
 
-    if (computedSig !== expectedSig) throw new Error('Signature incorrecte');
+    // timingSafeEqual évite les attaques par timing (comparaison en temps constant)
+    // Les deux buffers doivent avoir la même longueur (sinon signature malformée)
+    const computedBuf = Buffer.from(computedSig, 'hex');
+    const expectedBuf = Buffer.from(expectedSig, 'hex');
+    if (computedBuf.length !== expectedBuf.length || !timingSafeEqual(computedBuf, expectedBuf)) {
+      throw new Error('Signature incorrecte');
+    }
 
     event = JSON.parse(rawBody.toString());
   } catch (err) {

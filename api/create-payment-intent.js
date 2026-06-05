@@ -1,4 +1,4 @@
-import { setCors, getClientIp, isRateLimited, computeExpectedTotal, checkBodySize } from './_security.js';
+import { setCors, getClientIp, isRateLimited, computeExpectedTotal, checkBodySize, loadPromoCodes } from './_security.js';
 
 export default async function handler(req, res) {
   setCors(req, res);
@@ -15,12 +15,22 @@ export default async function handler(req, res) {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!secretKey) return res.status(500).json({ error: 'Configuration manquante' });
 
-  const { amount, orderNumber, delivery, totalWeight, items, carrier, promoRate } = req.body || {};
+  const { amount, orderNumber, delivery, totalWeight, items, carrier, promoCode } = req.body || {};
+
+  // ── Résoudre le taux de remise depuis le code promo (jamais depuis le client) ──
+  let verifiedPromoRate = 0;
+  if (promoCode && typeof promoCode === 'string') {
+    const CODES = loadPromoCodes();
+    const upperCode = promoCode.trim().toUpperCase().slice(0, 20);
+    if (CODES[upperCode]) {
+      verifiedPromoRate = CODES[upperCode].discount || 0;
+    }
+    // Code inconnu → on ignore silencieusement (pas d'erreur pour ne pas divulguer les codes valides)
+  }
 
   // ── Vérification du montant côté serveur ──────────────────────
-  // Si les items sont fournis, on recalcule le montant exact
   if (items && Array.isArray(items)) {
-    const expected = computeExpectedTotal(items, carrier || 'mondial-relay', promoRate || 0);
+    const expected = computeExpectedTotal(items, carrier || 'mondial-relay', verifiedPromoRate);
     if (!expected.valid) {
       return res.status(400).json({ error: 'Panier invalide.' });
     }
@@ -40,13 +50,8 @@ export default async function handler(req, res) {
     return await createIntent(res, secretKey, amountCents, orderNumber, delivery, totalWeight);
   }
 
-  // Fallback si pas d'items (rétrocompatibilité)
-  const clientAmount = parseFloat(amount);
-  if (!amount || isNaN(clientAmount) || clientAmount <= 0 || clientAmount > 9999) {
-    return res.status(400).json({ error: 'Montant invalide.' });
-  }
-  const amountCents = Math.round(clientAmount * 100);
-  return await createIntent(res, secretKey, amountCents, orderNumber, delivery, totalWeight);
+  // Fallback sans items : on rejette plutôt que d'accepter un montant arbitraire
+  return res.status(400).json({ error: 'Liste des articles requise.' });
 }
 
 async function createIntent(res, secretKey, amountCents, orderNumber, delivery, totalWeight) {
