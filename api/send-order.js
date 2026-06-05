@@ -272,8 +272,6 @@ export default async function handler(req, res) {
   const safeEmail     = escapeHtml(email     || '');
   const safeOrderNum  = escapeHtml(orderNumber || '');
 
-  console.log(`[send-order] orderNumber=${orderNumber} promoCode=${promoCode} email=${email}`);
-
   if (!isValidEmail(email) || !orderNumber) {
     return res.status(400).json({ error: 'Champs requis manquants ou invalides' });
   }

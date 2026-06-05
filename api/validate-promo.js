@@ -44,6 +44,13 @@ export default async function handler(req, res) {
     }
 
     const contact = await r.json();
+
+    // Vérifier que le contact est bien abonné à la liste Newsletter (#3)
+    const lists = contact.listIds || [];
+    if (!lists.includes(3)) {
+      return res.status(200).json({ valid: false, reason: 'Ce code est réservé aux abonnés à notre newsletter.' });
+    }
+
     const usedCodes = (contact.attributes?.PROMO_USED || '').toUpperCase();
 
     if (usedCodes.includes(upperCode)) {
