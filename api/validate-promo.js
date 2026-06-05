@@ -34,11 +34,13 @@ export default async function handler(req, res) {
     });
 
     if (r.status === 404) {
-      return res.status(200).json({ valid: true, ...CODES[upperCode] });
+      // Email non trouvé dans Brevo → pas abonné à la newsletter → code refusé
+      return res.status(200).json({ valid: false, reason: 'Ce code est réservé aux abonnés à notre newsletter.' });
     }
 
     if (!r.ok) {
-      return res.status(200).json({ valid: true, ...CODES[upperCode] });
+      // Erreur Brevo → on refuse par sécurité
+      return res.status(200).json({ valid: false, reason: 'Impossible de vérifier le code. Réessayez.' });
     }
 
     const contact = await r.json();
