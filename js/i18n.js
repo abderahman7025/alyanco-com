@@ -7,9 +7,12 @@
   'use strict';
 
   var LANG_LABELS = { fr:'Français', en:'English', nl:'Nederlands', it:'Italiano', pt:'Português', es:'Español', de:'Deutsch' };
-  var LANG_FLAGS  = { fr:'🇫🇷', en:'🇬🇧', nl:'🇳🇱', it:'🇮🇹', pt:'🇵🇹', es:'🇪🇸', de:'🇩🇪' };
+  var LANG_FLAG_CC = { fr:'fr', en:'gb', nl:'nl', it:'it', pt:'pt', es:'es', de:'de' };
   function langFlag(cc, w) {
-    return '<span style="font-size:' + (w || 20) + 'px;line-height:1;vertical-align:middle;">' + LANG_FLAGS[cc] + '</span>';
+    w = w || 20;
+    var h = Math.round(w * 3 / 4);
+    var srcW = w < 20 ? 20 : w;
+    return '<img src="https://flagcdn.com/w' + srcW + '/' + LANG_FLAG_CC[cc] + '.png" width="' + w + '" height="' + h + '" alt="' + cc.toUpperCase() + '" loading="eager" style="display:inline-block;vertical-align:middle;border-radius:2px;">';
   }
 
   /* ── HELPERS ── */

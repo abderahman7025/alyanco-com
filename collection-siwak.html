@@ -301,7 +301,7 @@ footer { background: var(--dark); color: var(--cream); padding: 80px; }
 body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
 @media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .collection-hero { padding: 60px 20px; } .collection-stats { gap: 24px; flex-wrap: wrap; } .products-section { padding: 48px 20px; } .btn-add { display: none; } .story-strip { grid-template-columns: 1fr; } .story-strip-image { height: 200px; } .story-strip-content { padding: 40px 20px; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
-@media (max-width: 600px) { .stars-count { width: 100%; margin-top: 2px; } .product-stars { gap: 4px; } }
+@media (max-width: 600px) { .product-stars { flex-wrap: wrap; } .product-stars > span:last-child { display: block; width: 100%; margin-top: 2px; } }
 </style>
 </head>
 <body>
@@ -359,7 +359,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Pack Brosse Siwak Complet</div>
-        <div class="product-stars">★★★★★ 4.7/5 <span>(216 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.7/5 <span>(216 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Brosse + 3 têtes-recharges + dentifrice. Tout pour démarrer l'hygiène naturelle. Économisez 30%.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">24,99€</span><span class="price-old">32,99€</span></div>
@@ -373,7 +373,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Brosse à dents Siwak Rechargeable</div>
-        <div class="product-stars">★★★★★ 4.6/5 <span>(62 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.6/5 <span>(62 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Bio & 100% naturel, avec 3 têtes-recharges à visser. Antibactérienne, blanchissante.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">12,99€</span><span class="price-old">15,99€</span></div>
@@ -387,7 +387,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Têtes-Recharges Siwak</div>
-        <div class="product-stars">★★★★★ 4.6/5 <span>(87 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.6/5 <span>(87 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Pack de 3 têtes biodégradables. Compatible avec la brosse ALYA & CO. Zéro plastique.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">6,99€</span><span class="price-old">8,99€</span></div>
@@ -401,7 +401,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Dentifrice Siwak en Poudre</div>
-        <div class="product-stars">★★★★★ 4.6/5 <span>(55 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.6/5 <span>(55 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Bio & 100% naturel. Sans fluor, sans sulfates. Blancheur naturelle dès 2 semaines.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">5,99€</span><span class="price-old">7,99€</span></div>

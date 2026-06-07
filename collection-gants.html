@@ -296,7 +296,7 @@ footer { background: var(--dark); color: var(--cream); padding: 80px; }
 body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
 @media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .collection-hero { padding: 60px 20px; } .collection-stats { gap: 24px; flex-wrap: wrap; } .products-section { padding: 48px 20px; } .btn-add { display: none; } .story-strip { grid-template-columns: 1fr; } .story-strip-image { height: 200px; } .story-strip-content { padding: 40px 20px; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
-@media (max-width: 600px) { .stars-count { width: 100%; margin-top: 2px; } .product-stars { gap: 4px; } }
+@media (max-width: 600px) { .product-stars { flex-wrap: wrap; } .product-stars > span:last-child { display: block; width: 100%; margin-top: 2px; } }
 </style>
 </head>
 <body>
@@ -356,7 +356,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Pack 1 An Full Body</div>
-        <div class="product-stars">★★★★★ 4.9/5 <span>(542 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.9/5 <span>(542 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Corps + visage. Peau douce toute l'année. Économisez 48% vs l'achat séparé.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">29,99€</span><span class="price-old">57,98€</span></div>
@@ -370,7 +370,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Gant Exfoliant Corps — Soie de Mûrier</div>
-        <div class="product-stars">★★★★★ 4.8/5 <span>(216 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.8/5 <span>(216 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Gommage doux pour le corps. Hypoallergénique, toutes peaux. Résultats visibles dès la 1ère utilisation.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">21,59€</span><span class="price-old">35,99€</span></div>
@@ -384,7 +384,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Gant Exfoliant Visage — Soie de Mûrier</div>
-        <div class="product-stars">★★★★★ 4.8/5 <span>(334 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.8/5 <span>(334 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Ultra-doux pour le visage. Élimine les cellules mortes, anti-acné, anti-points noirs.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">13,19€</span><span class="price-old">21,99€</span></div>
@@ -398,7 +398,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
       </div>
       <div class="product-info">
         <div class="product-name">Chouchou Tenue Parfaite — Satin</div>
-        <div class="product-stars">★★★★★ 4.8/5 <span>(65 avis)</span></div>
+        <div class="product-stars">★★★★★ 4.8/5 <span>(65 avis) <span style="display:inline-flex;align-items:center;gap:3px;background:#e8f5e9;color:#2e7d32;font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;">✓ vérifiés</span></span></div>
         <div class="product-desc">Satin de mûrier. Préserve vos cheveux, évite la casse, les nœuds et les frisottis.</div>
         <div class="product-bottom">
           <div class="product-price"><span class="price-current">5,39€</span><span class="price-old">8,99€</span></div>

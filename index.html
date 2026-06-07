@@ -850,6 +850,10 @@ nav {
   font-size: 11px;
   color: var(--gold);
   margin-bottom: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
 }
 .product-stars span {
   color: var(--light);
@@ -1334,7 +1338,7 @@ body::before {
   .hero-left { padding: 40px 40px 40px 60px; }
   .hero-right { height: 100vmin; }
 }
-@media (max-width: 600px) { .stars-count { width: 100%; margin-top: 2px; } .product-stars { gap: 4px; } }
+@media (max-width: 600px) { .product-stars { flex-wrap: wrap; } .product-stars span { display: block; width: 100%; margin-top: 2px; } }
 </style>
 </head>
 <body>
