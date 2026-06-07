@@ -7,21 +7,12 @@
   'use strict';
 
   var LANG_LABELS = { fr:'Français', en:'English', nl:'Nederlands', it:'Italiano', pt:'Português', es:'Español', de:'Deutsch' };
-  var LANG_FLAG_SVG = {
-    fr: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg>',
-    en: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>',
-    nl: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.667" fill="#AE1C28"/><rect y="1.333" width="3" height="0.667" fill="#21468B"/></svg>',
-    it: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg>',
-    pt: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#D52B1E"/><rect width="1.2" height="2" fill="#006600"/></svg>',
-    es: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg>',
-    de: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3"><rect width="5" height="3" fill="#000"/><rect y="1" width="5" height="2" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>'
-  };
+  var LANG_FLAG_CC = { fr:'fr', en:'gb', nl:'nl', it:'it', pt:'pt', es:'es', de:'de' };
   function langFlag(cc, w) {
     w = w || 20;
     var h = Math.round(w * 3 / 4);
-    var svg = LANG_FLAG_SVG[cc] || '';
-    var b64 = btoa(svg);
-    return '<img src="data:image/svg+xml;base64,' + b64 + '" width="' + w + '" height="' + h + '" alt="' + cc.toUpperCase() + '" style="display:inline-block;vertical-align:middle;border-radius:2px;">';
+    var code = LANG_FLAG_CC[cc] || cc;
+    return '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/' + code + '.svg" width="' + w + '" height="' + h + '" alt="' + cc.toUpperCase() + '" style="display:inline-block;vertical-align:middle;border-radius:2px;">';
   }
 
   /* ── HELPERS ── */
