@@ -299,6 +299,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 @media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { nav { padding: 0 20px; } .nav-links { display: none; } .menu-toggle { display: flex; } .collection-hero { padding: 60px 20px; } .collection-stats { gap: 24px; flex-wrap: wrap; } .products-section { padding: 48px 20px; } .btn-add { display: none; } .story-strip { grid-template-columns: 1fr; } .story-strip-image { height: 200px; } .story-strip-content { padding: 40px 20px; } .newsletter-section { padding: 60px 20px; } footer { padding: 48px 20px; } .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
 @media (max-width: 600px) { .product-stars { flex-wrap: wrap; } .product-stars > span:last-child { display: block; width: 100%; margin-top: 2px; } }
+@media(max-width:600px){.footer-legal{display:none!important;}}
 </style>
 </head>
 <body>
@@ -361,7 +362,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <div class="product-stars">★★★★★ 4.9/5 <span>- 542 avis <span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid #A8958A;color:#A8958A;font-size:9px;font-weight:500;vertical-align:text-bottom;">✓</span></span></div>
         <div class="product-desc">Corps + visage. Peau douce toute l'année. Économisez 48% vs l'achat séparé.</div>
         <div class="product-bottom">
-          <div class="product-price"><span class="price-current">29,99€</span><span class="price-old">57,98€</span></div>
+          <div class="product-price"><span class="price-current">54,99€</span><span class="price-old">64,99€</span></div>
           <button class="btn-add" onclick="event.stopPropagation();addToCart('pack-1an-full-body',1);var b=this;b.textContent='✓';setTimeout(function(){b.textContent='+'},1500)">+</button>
         </div>
       </div>
@@ -375,7 +376,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <div class="product-stars">★★★★★ 4.8/5 <span>- 216 avis <span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid #A8958A;color:#A8958A;font-size:9px;font-weight:500;vertical-align:text-bottom;">✓</span></span></div>
         <div class="product-desc">Gommage doux pour le corps. Hypoallergénique, toutes peaux. Résultats visibles dès la 1ère utilisation.</div>
         <div class="product-bottom">
-          <div class="product-price"><span class="price-current">21,59€</span><span class="price-old">35,99€</span></div>
+          <div class="product-price"><span class="price-current">39,99€</span></div>
           <button class="btn-add" onclick="event.stopPropagation();addToCart('gant-corps',1);var b=this;b.textContent='✓';setTimeout(function(){b.textContent='+'},1500)">+</button>
         </div>
       </div>
@@ -389,7 +390,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
         <div class="product-stars">★★★★★ 4.8/5 <span>- 334 avis <span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid #A8958A;color:#A8958A;font-size:9px;font-weight:500;vertical-align:text-bottom;">✓</span></span></div>
         <div class="product-desc">Ultra-doux pour le visage. Élimine les cellules mortes, anti-acné, anti-points noirs.</div>
         <div class="product-bottom">
-          <div class="product-price"><span class="price-current">13,19€</span><span class="price-old">21,99€</span></div>
+          <div class="product-price"><span class="price-current">24,99€</span></div>
           <button class="btn-add" onclick="event.stopPropagation();addToCart('gant-visage',1);var b=this;b.textContent='✓';setTimeout(function(){b.textContent='+'},1500)">+</button>
         </div>
       </div>
