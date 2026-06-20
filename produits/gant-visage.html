@@ -314,6 +314,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
 }
 
 @media(max-width:600px){.footer-legal{display:none!important;}}
+.qty-selector{display:flex;align-items:center;gap:0;border:1px solid rgba(184,151,90,0.3);height:48px;margin-bottom:0;}.qty-btn{width:44px;height:48px;background:none;border:none;font-size:20px;color:var(--dark);cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;}.qty-btn:hover{background:var(--warm);}.qty-input{width:44px;height:48px;border:none;border-left:1px solid rgba(184,151,90,0.3);border-right:1px solid rgba(184,151,90,0.3);text-align:center;font-family:var(--font-serif);font-size:16px;color:var(--dark);background:none;-moz-appearance:textfield;}.qty-input::-webkit-outer-spin-button,.qty-input::-webkit-inner-spin-button{-webkit-appearance:none;}
 </style>
 <script type="application/ld+json">
 {
@@ -433,6 +434,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     <div class="product-ctas">
 <div id="stock-badge"></div>
 
+      <div class="qty-selector"><button class="qty-btn" onclick="var i=document.getElementById('qty');i.value=Math.max(1,+i.value-1)" type="button">−</button><input class="qty-input" type="number" id="qty" value="1" min="1" max="10" readonly><button class="qty-btn" onclick="var i=document.getElementById('qty');i.value=Math.min(10,+i.value+1)" type="button">+</button></div>
       <button class="btn-primary btn-atc" onclick="handleATC(event)">Ajouter au panier</button>
       <a href="../collection-gants" class="btn-outline">← Retour collection</a>
     </div>
@@ -837,7 +839,7 @@ body::before { content: ''; position: fixed; inset: 0; background-image: url("da
     <div><div class="footer-col-title">Informations</div><ul class="footer-links"><li><a href="../notre-histoire">Notre histoire</a></li><li><a href="../faq">FAQ</a></li><li><a href="../contact">Nous contacter</a></li><li><a href="../livraison">Livraison</a></li><li><a href="../cgv">CGV</a></li><li><a href="../mentions-legales">Mentions légales</a></li></ul></div>
     <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:contact@alyanco.com">contact@alyanco.com</a></li><li style="color:var(--light); font-size:13px; margin-top:16px; line-height:1.8;">Réponse sous 24h<br>Du lundi au vendredi</li></ul></div>
   </div>
-  <div class="footer-bottom"><div class="footer-copy">© 2022 ALYA & CO. Tous droits réservés.</div><div class="footer-legal"><a href="../cgv">CGV</a><a href="mentions-legales#confidentialite">Confidentialité</a><a href="../mentions-legales">Mentions légales</a></div></div>
+  <div class="footer-bottom"><div class="footer-copy">© 2022 ALYA & CO. Tous droits réservés.</div><div class="footer-legal"><a href="../cgv">CGV</a><a href="../mentions-legales#confidentialite">Confidentialité</a><a href="../mentions-legales">Mentions légales</a></div></div>
 </footer>
 <script>
 const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
