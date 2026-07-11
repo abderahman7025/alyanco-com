@@ -197,7 +197,7 @@ function addToCart(productId, qty) {
   if (existing) { existing.qty += qty; }
   else { cart.push({ id: productId, qty: qty }); }
   saveCart(cart);
-  showCartNotification(productId);
+  openCartDrawer();
 }
 
 function removeFromCart(productId) {
@@ -242,21 +242,171 @@ function updateCartBadge() {
   });
 }
 
-function showCartNotification(productId) {
-  var lang = localStorage.getItem('alya_lang') || 'fr';
-  var nt = CART_NOTIF_T[lang] || CART_NOTIF_T.fr;
-  var names = PRODUCT_NAMES[lang] || PRODUCT_NAMES.fr;
-  var name = names[productId] || (PRODUCTS[productId] ? PRODUCTS[productId].name : productId);
-  var existing = document.querySelector('.cart-notif');
-  if (existing) existing.remove();
-  var n = document.createElement('div');
-  n.className = 'cart-notif';
-  // Detect if we're in produits/ subfolder
-  var prefix = window.location.pathname.indexOf('/produits/') !== -1 ? '../' : '';
-  n.innerHTML = '<div class="cart-notif-inner"><span class="cart-notif-check">✓</span><div class="cart-notif-text"><strong>' + name + '</strong><span>' + nt.added + '</span></div><a href="' + prefix + 'cart" class="cart-notif-btn">' + nt.view + '</a></div>';
-  document.body.appendChild(n);
-  setTimeout(function(){ n.classList.add('show'); }, 10);
-  setTimeout(function(){ n.classList.remove('show'); setTimeout(function(){ n.remove(); }, 400); }, 3000);
+/* ── Mini-panier drawer ── */
+
+function _injectDrawerCSS() {
+  if (document.getElementById('cart-drawer-css')) return;
+  var s = document.createElement('style');
+  s.id = 'cart-drawer-css';
+  s.textContent = [
+    '.drawer-overlay{position:fixed;inset:0;background:rgba(28,22,18,0.5);z-index:9998;opacity:0;pointer-events:none;transition:opacity .35s;}',
+    '.drawer-overlay.open{opacity:1;pointer-events:auto;}',
+    '.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100vw;background:var(--cream,#FAF6F1);z-index:9999;transform:translateX(100%);transition:transform .4s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,0.15);}',
+    '.cart-drawer.open{transform:translateX(0);}',
+    '.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;border-bottom:1px solid rgba(184,151,90,0.15);flex-shrink:0;}',
+    '.drawer-title{font-family:var(--font-serif,Georgia,serif);font-size:20px;font-weight:400;color:var(--dark,#1C1612);}',
+    '.drawer-count{font-size:12px;color:var(--light,#A8958A);margin-left:8px;}',
+    '.drawer-close{background:none;border:none;cursor:pointer;font-size:20px;color:var(--mid,#6B5B4E);padding:4px 0 4px 8px;line-height:1;}',
+    '.drawer-close:hover{color:var(--dark,#1C1612);}',
+    '.drawer-items{flex:1;overflow-y:auto;padding:16px 28px;}',
+    '.drawer-empty{text-align:center;padding:60px 0;color:var(--light,#A8958A);font-size:14px;}',
+    '.drawer-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(184,151,90,0.1);}',
+    '.drawer-item:last-child{border-bottom:none;}',
+    '.drawer-item-img{width:68px;height:68px;object-fit:contain;background:var(--warm,#F2E8DD);flex-shrink:0;}',
+    '.drawer-item-info{flex:1;min-width:0;}',
+    '.drawer-item-name{font-size:12px;color:var(--dark,#1C1612);font-weight:400;margin-bottom:5px;line-height:1.4;}',
+    '.drawer-item-price{font-family:var(--font-serif,Georgia,serif);font-size:16px;color:var(--gold,#B8975A);}',
+    '.drawer-item-controls{display:flex;align-items:center;gap:8px;margin-top:8px;}',
+    '.drawer-qty-btn{width:26px;height:26px;border:1px solid rgba(184,151,90,0.35);background:none;cursor:pointer;font-size:15px;color:var(--dark,#1C1612);display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1;}',
+    '.drawer-qty-btn:hover{border-color:var(--dark,#1C1612);background:var(--dark,#1C1612);color:#fff;}',
+    '.drawer-qty{font-size:13px;color:var(--dark,#1C1612);min-width:18px;text-align:center;}',
+    '.drawer-remove{margin-left:auto;background:none;border:none;cursor:pointer;font-size:10px;color:var(--light,#A8958A);letter-spacing:.1em;text-transform:uppercase;padding:0;}',
+    '.drawer-remove:hover{color:var(--dark,#1C1612);}',
+    '.drawer-footer{padding:18px 28px 24px;border-top:1px solid rgba(184,151,90,0.15);flex-shrink:0;}',
+    '.drawer-subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}',
+    '.drawer-subtotal-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid,#6B5B4E);}',
+    '.drawer-subtotal-amount{font-family:var(--font-serif,Georgia,serif);font-size:22px;color:var(--dark,#1C1612);}',
+    '.drawer-shipping-note{font-size:11px;color:var(--light,#A8958A);margin-bottom:16px;text-align:center;}',
+    '.drawer-cta{display:block;width:100%;padding:15px;background:var(--dark,#1C1612);color:var(--cream,#FAF6F1);text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:1px solid var(--dark,#1C1612);transition:all .3s;margin-bottom:10px;box-sizing:border-box;}',
+    '.drawer-cta:hover{background:transparent;color:var(--dark,#1C1612);}',
+    '.drawer-continue{display:block;width:100%;padding:8px;background:none;border:none;cursor:pointer;font-size:11px;color:var(--light,#A8958A);letter-spacing:.12em;text-transform:uppercase;text-align:center;}',
+    '.drawer-continue:hover{color:var(--dark,#1C1612);}',
+    '@media(max-width:600px){.cart-drawer{width:100vw;}}'
+  ].join('');
+  document.head.appendChild(s);
+}
+
+function _getCartHref() {
+  return window.location.pathname.indexOf('/produits/') !== -1 ? '../cart' : '/cart';
+}
+
+function _renderDrawerItems() {
+  var items = getCartItems();
+  var container = document.querySelector('.drawer-items');
+  var footer = document.querySelector('.drawer-footer');
+  var countEl = document.querySelector('.drawer-count');
+  if (!container) return;
+
+  var total = getCartCount();
+  if (countEl) countEl.textContent = total > 0 ? '(' + total + ')' : '';
+
+  if (items.length === 0) {
+    container.innerHTML = '<p class="drawer-empty">Votre panier est vide</p>';
+    if (footer) footer.style.display = 'none';
+    return;
+  }
+  if (footer) footer.style.display = '';
+
+  container.innerHTML = items.map(function(item) {
+    var priceStr = item.price.toFixed(2).replace('.', ',') + ' €';
+    return '<div class="drawer-item">' +
+      '<img class="drawer-item-img" src="' + item.image + '" alt="" loading="lazy">' +
+      '<div class="drawer-item-info">' +
+        '<div class="drawer-item-name">' + item.name + '</div>' +
+        '<div class="drawer-item-price">' + priceStr + '</div>' +
+        '<div class="drawer-item-controls">' +
+          '<button class="drawer-qty-btn" onclick="drawerQty(\'' + item.id + '\',-1)">−</button>' +
+          '<span class="drawer-qty">' + item.qty + '</span>' +
+          '<button class="drawer-qty-btn" onclick="drawerQty(\'' + item.id + '\',1)">+</button>' +
+          '<button class="drawer-remove" onclick="drawerRemove(\'' + item.id + '\')">Retirer</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  var subtotal = getCartSubtotal();
+  var amountEl = document.querySelector('.drawer-subtotal-amount');
+  if (amountEl) amountEl.textContent = subtotal.toFixed(2).replace('.', ',') + ' €';
+
+  var noteEl = document.querySelector('.drawer-shipping-note');
+  if (noteEl) {
+    if (subtotal >= 45) {
+      noteEl.textContent = '✓ Livraison Mondial Relay offerte';
+      noteEl.style.color = '#4a7c59';
+    } else {
+      var rem = (45 - subtotal).toFixed(2).replace('.', ',');
+      noteEl.textContent = 'Plus que ' + rem + ' € pour la livraison offerte';
+      noteEl.style.color = '';
+    }
+  }
+}
+
+function drawerQty(id, delta) {
+  var items = getCart();
+  var item = items.find(function(i){ return i.id === id; });
+  if (!item) return;
+  item.qty = Math.max(1, item.qty + delta);
+  saveCart(items);
+  _renderDrawerItems();
+}
+
+function drawerRemove(id) {
+  removeFromCart(id);
+  _renderDrawerItems();
+}
+
+function _handleDrawerKey(e) {
+  if (e.key === 'Escape') closeCartDrawer();
+}
+
+function openCartDrawer() {
+  _injectDrawerCSS();
+
+  var overlay = document.querySelector('.drawer-overlay');
+  var drawer = document.querySelector('.cart-drawer');
+
+  if (!drawer) {
+    overlay = document.createElement('div');
+    overlay.className = 'drawer-overlay';
+    overlay.addEventListener('click', closeCartDrawer);
+    document.body.appendChild(overlay);
+
+    drawer = document.createElement('div');
+    drawer.className = 'cart-drawer';
+    drawer.innerHTML =
+      '<div class="drawer-header">' +
+        '<div><span class="drawer-title">Mon Panier</span><span class="drawer-count"></span></div>' +
+        '<button class="drawer-close" onclick="closeCartDrawer()">✕</button>' +
+      '</div>' +
+      '<div class="drawer-items"></div>' +
+      '<div class="drawer-footer">' +
+        '<div class="drawer-subtotal">' +
+          '<span class="drawer-subtotal-label">Sous-total</span>' +
+          '<span class="drawer-subtotal-amount"></span>' +
+        '</div>' +
+        '<p class="drawer-shipping-note"></p>' +
+        '<a href="' + _getCartHref() + '" class="drawer-cta">Commander →</a>' +
+        '<button class="drawer-continue" onclick="closeCartDrawer()">Continuer mes achats</button>' +
+      '</div>';
+    document.body.appendChild(drawer);
+  }
+
+  _renderDrawerItems();
+
+  requestAnimationFrame(function() {
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+  });
+
+  document.addEventListener('keydown', _handleDrawerKey);
+}
+
+function closeCartDrawer() {
+  var overlay = document.querySelector('.drawer-overlay');
+  var drawer = document.querySelector('.cart-drawer');
+  if (overlay) overlay.classList.remove('open');
+  if (drawer) drawer.classList.remove('open');
+  document.removeEventListener('keydown', _handleDrawerKey);
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
