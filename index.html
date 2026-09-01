@@ -271,6 +271,11 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   text-transform: uppercase;
 }
 .promo-banner span { opacity: .7; margin: 0 10px; font-weight: 300; }
+.pb-br { display: none; }
+@media (max-width: 768px) {
+  .pb-br { display: block; }
+  .pb-sep { display: none; }
+}
 
 /* ── NAVIGATION ── */
 nav {
@@ -1393,7 +1398,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- PROMO BANNER -->
 <div class="promo-banner">
-  Profitez de nos offres exceptionnelles pour la rentrée&nbsp;! <span>✦</span> Jusqu'à −50% sur tout le site
+  Profitez de nos offres exceptionnelles<br class="pb-br">
+  pour la rentrée&nbsp;!<span class="pb-sep"> ✦ </span><br class="pb-br">
+  <span>Jusqu'à −50% sur tout le site</span>
 </div>
 
 <!-- NAVIGATION -->
