@@ -258,6 +258,23 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   100% { transform: translateX(-50%); }
 }
 
+/* ── PROMO BANNER ── */
+.promo-banner {
+  background: var(--gold);
+  color: #fff;
+  text-align: center;
+  padding: 9px 24px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.promo-banner span { opacity: .7; margin: 0 10px; font-weight: 300; }
+
 /* ── NAVIGATION ── */
 nav {
   position: sticky;
@@ -499,7 +516,45 @@ nav {
 .hero-right {
   position: relative;
   overflow: hidden;
-  background: var(--warm);
+  background: #14100d;
+}
+/* ── HERO SIWAK PHOTOS ── */
+.hp-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  z-index: 0;
+  animation: hpZoom 18s ease-in-out infinite;
+  transform-origin: center center;
+}
+@keyframes hpZoom {
+  0%,100% { transform: scale(1.04) translateY(0px); }
+  50%      { transform: scale(1.09) translateY(-18px); }
+}
+.hp-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(20,16,13,0.35) 0%,
+    rgba(20,16,13,0.05) 45%,
+    rgba(20,16,13,0.55) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hp-float {
+  position: absolute;
+  width: 38%;
+  max-width: 230px;
+  bottom: 14%;
+  left: 8%;
+  transform: rotate(-4deg);
+  animation: heroFloat 11s ease-in-out infinite;
+  animation-delay: -3s;
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.9));
+  z-index: 3;
 }
 .hero-visual {
   position: absolute;
@@ -1349,6 +1404,182 @@ body::before {
 }
 @media (max-width: 600px) { .product-stars { flex-wrap: wrap; } .product-stars span { display: block; width: 100%; margin-top: 2px; } }
 @media(max-width:600px){.footer-legal{display:none!important;}}
+
+/* ══════════════════════════════════════════
+   SCROLL STORY — BROSSE SIWAK (ss- prefix)
+   ══════════════════════════════════════════ */
+.ss-wrapper {
+  position: relative;
+  height: 500vh;
+}
+.ss-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0807;
+}
+.ss-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+.ss-slide.ss-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ss-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: center;
+  will-change: transform;
+}
+.ss-slide-0 .ss-img { object-position: 38% center; }
+.ss-slide-1 .ss-img { object-position: center 55%; }
+.ss-slide-2 .ss-img { object-position: center 50%; }
+.ss-slide-3 .ss-img { object-position: center 42%; }
+.ss-slide-4 .ss-img { object-position: center 45%; }
+.ss-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top,  rgba(10,8,7,0.78) 0%, transparent 48%),
+    linear-gradient(to right, rgba(10,8,7,0.38) 0%, transparent 55%);
+  z-index: 1;
+  pointer-events: none;
+}
+.ss-text {
+  position: absolute;
+  bottom: 12%;
+  left: 7%;
+  z-index: 2;
+  max-width: 560px;
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.5s ease;
+}
+.ss-slide.ss-active .ss-text {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.14s;
+}
+.ss-eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.ss-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5.5vw, 70px);
+  font-weight: 300;
+  line-height: 1.08;
+  color: var(--cream);
+  margin-bottom: 14px;
+  text-shadow: 0 2px 30px rgba(10,8,7,0.5);
+}
+.ss-sub {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: rgba(250,246,241,0.68);
+  line-height: 1.65;
+}
+.ss-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 13px 28px;
+  background: transparent;
+  border: 1px solid rgba(184,151,90,0.6);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+.ss-slide.ss-active .ss-cta {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0.38s;
+  transition: opacity 0.5s ease 0.38s, transform 0.5s cubic-bezier(0.22,1,0.36,1) 0.38s, background 0.3s, color 0.3s;
+}
+.ss-cta:hover { background: var(--gold); color: #0a0807; border-color: var(--gold); }
+.ss-dots {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.ss-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(250,246,241,0.28);
+  border: 1px solid rgba(250,246,241,0.28);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.ss-dot.ss-dot-active {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.45);
+}
+.ss-hint {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+.ss-hint.ss-hint-hidden { opacity: 0; }
+.ss-hint span {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(250,246,241,0.45);
+}
+.ss-hint-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  animation: ssScrollDown 2s ease-in-out infinite;
+}
+@keyframes ssScrollDown {
+  0%,100% { transform: scaleY(1); opacity: 1; transform-origin: top; }
+  50%      { transform: scaleY(0.35); opacity: 0.35; transform-origin: top; }
+}
+@media (max-width: 768px) {
+  .ss-dots { right: 14px; }
+  .ss-title { font-size: clamp(28px, 8vw, 46px); }
+  .ss-text { left: 5%; bottom: 10%; max-width: 90%; }
+}
 </style>
 </head>
 <body>
@@ -1375,6 +1606,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <div class="announcement-item">Plus de 1500 avis ⭐ 4,8/5</div>
   </div>
+</div>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  Profitez de nos offres exceptionnelles pour la rentrée&nbsp;! <span>✦</span> Jusqu'à −50% sur toute la gamme
 </div>
 
 <!-- NAVIGATION -->
@@ -1405,6 +1641,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="contact" onclick="closeMobileNav()">Contact</a>
   <a href="contact" onclick="closeMobileNav()">○ Panier</a>
 </div>
+
+<!-- SIWAK SCROLL STORY -->
+<section class="ss-wrapper" id="ss-story">
+  <div class="ss-viewport">
+
+    <!-- Slide 0 : Macro têtes -->
+    <div class="ss-slide ss-slide-0 ss-active" data-ss="0">
+      <img src="images/siwak/brosse-macro-noire.png" class="ss-img" alt="Fibres naturelles Siwak">
+      <div class="ss-overlay"></div>
+      <div class="ss-text">
+        <span class="ss-eyebrow">Siwak ancestral</span>
+        <h2 class="ss-title">Les fibres<br><em>du Siwak naturel</em></h2>
+        <p class="ss-sub">Une brosse à dents entièrement naturelle,<br>aux vertus prouvées depuis 3000 ans.</p>
+      </div>
+      <div class="ss-hint" id="ssHint">
+        <span>Scroll</span>
+        <div class="ss-hint-line"></div>
+      </div>
+    </div>
+
+    <!-- Slide 1 : Boîte vide -->
+    <div class="ss-slide ss-slide-1" data-ss="1">
+      <img src="images/siwak/boite-vide.png" class="ss-img" alt="Coffret vide">
+      <div class="ss-overlay"></div>
+      <div class="ss-text">
+        <span class="ss-eyebrow">Coffret premium</span>
+        <h2 class="ss-title">Un écrin<br><em>taillé dans le noir</em></h2>
+        <p class="ss-sub">Embossé de fleurs, pensé pour durer.<br>Chaque détail compte.</p>
+      </div>
+    </div>
+
+    <!-- Slide 2 : Boîte + tête de rechange -->
+    <div class="ss-slide ss-slide-2" data-ss="2">
+      <img src="images/siwak/boite-tete.png" class="ss-img" alt="Tête de rechange">
+      <div class="ss-overlay"></div>
+      <div class="ss-text">
+        <span class="ss-eyebrow">Rechargeable</span>
+        <h2 class="ss-title">1 tête de<br><em>rechange incluse</em></h2>
+        <p class="ss-sub">Remplaçable en quelques secondes.<br>Zéro plastique, 100% naturel.</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 : Brosse dans la boîte (top-down) -->
+    <div class="ss-slide ss-slide-3" data-ss="3">
+      <img src="images/siwak/brosse-boite-topdown.png" class="ss-img" alt="Brosse Siwak dans son coffret">
+      <div class="ss-overlay"></div>
+      <div class="ss-text">
+        <span class="ss-eyebrow">100% naturel</span>
+        <h2 class="ss-title">La brosse<br><em>dans son écrin</em></h2>
+        <p class="ss-sub">Manche en bois sculpté.<br>Têtes en fibres de Siwak pur.</p>
+      </div>
+    </div>
+
+    <!-- Slide 4 : Boîte ouverte (finale) -->
+    <div class="ss-slide ss-slide-4" data-ss="4">
+      <img src="images/siwak/boite-ouverte.png" class="ss-img" alt="Coffret ouvert Alya & Co.">
+      <div class="ss-overlay"></div>
+      <div class="ss-text">
+        <span class="ss-eyebrow">Collection Siwak</span>
+        <h2 class="ss-title"><em>La tradition ancestrale,</em><br>au service de votre sourire</h2>
+        <p class="ss-sub">Brosse + tête de rechange. Livraison offerte dès 45€.</p>
+        <a href="produits/brosse-siwak" class="ss-cta">Découvrir la brosse →</a>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <nav class="ss-dots" id="ssDots"></nav>
+  </div>
+</section>
 
 <!-- HERO -->
 <section class="hero">
@@ -1439,33 +1744,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <div class="hero-right">
-    <div class="hero-visual">
-      <div class="hero-bg-text">ALYA</div>
-      <div class="floating-orbs">
-        <div class="orb orb-1">
-          <div class="orb-label">
-            Brosse Siwak
-            <span class="orb-price">12,99€</span>
-          </div>
-        </div>
-        <div class="orb orb-2">
-          <div class="orb-label">
-            Gant Soie
-            <span class="orb-price">24,99€</span>
-          </div>
-        </div>
-        <div class="orb orb-3">
-          <div class="orb-label" style="font-size:11px;">
-            Pack 1 an
-            <span class="orb-price" style="font-size:15px;">29,99€</span>
-          </div>
-        </div>
-        <div class="orb orb-4">
-          <div class="orb-label" style="font-size:10px;">
-            ✦ Bio
-          </div>
-        </div>
-      </div>
+    <div class="hero-photo-scene">
+      <img src="images/siwak/brosse-boite-topdown.png" class="hp-bg" alt="Brosse à dents Siwak Alya & Co.">
+      <div class="hp-overlay"></div>
     </div>
     <div class="hero-scroll">
       <span class="scroll-text">Scroll</span>
@@ -2142,5 +2423,66 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 <script src="/newsletter-popup.js"></script>
 <script src="/js/i18n.js"></script>
 <script src="/prices.js"></script>
+
+<script>
+/* ── SIWAK SCROLL STORY ── */
+(function () {
+  var wrapper  = document.getElementById('ss-story');
+  var slides   = Array.from(document.querySelectorAll('.ss-slide'));
+  var dotsNav  = document.getElementById('ssDots');
+  var hint     = document.getElementById('ssHint');
+  var N        = slides.length;
+  var cur      = 0;
+  var rafId    = null;
+
+  // Build dots
+  var dots = slides.map(function (_, i) {
+    var d = document.createElement('button');
+    d.className = 'ss-dot' + (i === 0 ? ' ss-dot-active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.addEventListener('click', function () {
+      var pct = i / N + 0.001;
+      var top = wrapper.offsetTop + pct * (wrapper.offsetHeight - window.innerHeight);
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+    dotsNav.appendChild(d);
+    return d;
+  });
+
+  function update() {
+    var rect = wrapper.getBoundingClientRect();
+    var denom = wrapper.offsetHeight - window.innerHeight;
+    if (denom <= 0) { rafId = null; return; }
+    var progress = Math.max(0, Math.min(1, -rect.top / denom));
+
+    // Scroll hint
+    if (hint) hint.classList.toggle('ss-hint-hidden', progress > 0.04);
+
+    var raw      = progress * N;
+    var idx      = Math.min(Math.floor(raw), N - 1);
+    var t        = raw - Math.floor(raw);
+
+    if (idx !== cur) {
+      slides[cur].classList.remove('ss-active');
+      dots[cur].classList.remove('ss-dot-active');
+      slides[idx].classList.add('ss-active');
+      dots[idx].classList.add('ss-dot-active');
+      cur = idx;
+    }
+
+    // Subtle parallax zoom on current image
+    var img = slides[idx].querySelector('.ss-img');
+    if (img) img.style.transform = 'scale(' + (1.08 - 0.06 * t) + ')';
+
+    rafId = null;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!rafId) rafId = requestAnimationFrame(update);
+  }, { passive: true });
+
+  update();
+})();
+</script>
 </body>
 </html>
