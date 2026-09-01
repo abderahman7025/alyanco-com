@@ -4,46 +4,46 @@
  */
 const PRICES = {
   'gant-corps': {
-    current: '24,99€',
-    old: null,
+    current: '15,99€',
+    old: '24,99€',
     promo: null,
-    schema: '24.99'
+    schema: '15.99'
   },
   'gant-visage': {
-    current: '14,99€',
-    old: null,
-    promo: null,
-    schema: '14.99'
-  },
-  'pack-1an-full-body': {
-    current: '29,99€',
-    old: '39,99€',
-    promo: '−25%',
-    schema: '29.99'
-  },
-  'pack-siwak-complet': {
-    current: '24,99€',
-    old: '32,99€',
-    promo: '−30%',
-    schema: '24.99'
-  },
-  'brosse-siwak': {
-    current: '12,99€',
-    old: null,
-    promo: null,
-    schema: '12.99'
-  },
-  'dentifrice-siwak': {
     current: '9,99€',
-    old: null,
+    old: '14,99€',
     promo: null,
     schema: '9.99'
   },
-  'tetes-recharges': {
+  'pack-1an-full-body': {
+    current: '21,99€',
+    old: '39,99€',
+    promo: null,
+    schema: '21.99'
+  },
+  'pack-siwak-complet': {
+    current: '15,99€',
+    old: '31,99€',
+    promo: null,
+    schema: '15.99'
+  },
+  'brosse-siwak': {
+    current: '7,99€',
+    old: '15,99€',
+    promo: null,
+    schema: '7.99'
+  },
+  'dentifrice-siwak': {
     current: '4,99€',
-    old: null,
+    old: '7,99€',
     promo: null,
     schema: '4.99'
+  },
+  'tetes-recharges': {
+    current: '3,99€',
+    old: '8,99€',
+    promo: null,
+    schema: '3.99'
   },
   'pack-tetes-x3': {
     current: '12,99€',
@@ -58,10 +58,10 @@ const PRICES = {
     schema: '24.99'
   },
   'chouchou-soie': {
-    current: '5,39€',
+    current: '3,99€',
     old: '8,99€',
     promo: null,
-    schema: '5.39'
+    schema: '3.99'
   }
 };
 
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var priceEl = orb.querySelector('.orb-price');
     if (!priceEl) return;
     if (label.includes('Gant')) priceEl.textContent = PRICES['gant-corps'].current;
-    if (label.includes('Pack 1 an') || label.includes('Pack 1 an')) priceEl.textContent = PRICES['pack-1an-full-body'].current;
+    if (label.includes('Pack 1 an') || label.includes('Pack 1 an')) priceEl.textContent = PRICES['pack-1an-full-body'].current;
   });
 
   // 4. JSON-LD schema sur les pages produits
