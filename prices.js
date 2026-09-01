@@ -116,7 +116,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (label.includes('Pack 1 an') || label.includes('Pack 1 an')) priceEl.textContent = PRICES['pack-1an-full-body'].current;
   });
 
-  // 4. JSON-LD schema sur les pages produits
+  // 4. Page produit elle-même : .price-main / .price-crossed hors lien
+  (function() {
+    var slug = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+    var p = PRICES[slug];
+    if (!p) return;
+    var main    = document.querySelector('.price-main');
+    var crossed = document.querySelector('.price-crossed');
+    var promo   = document.querySelector('.price-promo');
+    if (main)    main.textContent    = p.current;
+    if (crossed) crossed.textContent = p.old || '';
+    if (promo)   promo.style.display = p.old ? '' : 'none';
+  })();
+
+  // 5. JSON-LD schema sur les pages produits
   document.querySelectorAll('script[type="application/ld+json"]').forEach(function (s) {
     try {
       var data = JSON.parse(s.textContent);
