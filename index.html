@@ -270,11 +270,10 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   letter-spacing: .2em;
   text-transform: uppercase;
 }
-.promo-banner span { opacity: .7; margin: 0 10px; font-weight: 300; }
-.pb-br { display: none; }
 @media (max-width: 768px) {
-  .pb-br { display: block; }
+  .pb-l1, .pb-l2, .pb-l3 { display: block; }
   .pb-sep { display: none; }
+  .pb-l3::before { content: '✦  '; }
 }
 
 /* ── NAVIGATION ── */
@@ -1398,9 +1397,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- PROMO BANNER -->
 <div class="promo-banner">
-  Profitez de nos offres exceptionnelles<br class="pb-br">
-  pour la rentrée&nbsp;!<span class="pb-sep"> ✦ </span><br class="pb-br">
-  <span>Jusqu'à −50% sur tout le site</span>
+  <span class="pb-l1">Profitez de nos offres exceptionnelles</span>
+  <span class="pb-l2"> pour la rentrée&nbsp;!</span>
+  <span class="pb-sep"> ✦ </span>
+  <span class="pb-l3">Jusqu'à −50% sur tout le site</span>
 </div>
 
 <!-- NAVIGATION -->
