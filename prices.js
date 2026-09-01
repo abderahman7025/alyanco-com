@@ -97,17 +97,15 @@ function _inject(container, p, opts) {
     oldEl.textContent = '';
   }
 
-  /* Badge % réduction */
-  if (promo) {
-    if (!promoEl && oldEl) {
-      promoEl = document.createElement('span');
-      promoEl.className = opts.promoClass || 'price-promo';
-      oldEl.insertAdjacentElement('afterend', promoEl);
+  /* Badge % réduction — mis à jour uniquement s'il existe déjà dans le HTML */
+  if (promoEl) {
+    if (promo) {
+      promoEl.textContent = promo;
+      promoEl.style.display = '';
+    } else {
+      promoEl.textContent = '';
+      promoEl.style.display = 'none';
     }
-    if (promoEl) promoEl.textContent = promo;
-  } else if (promoEl) {
-    promoEl.textContent = '';
-    promoEl.style.display = 'none';
   }
 }
 
