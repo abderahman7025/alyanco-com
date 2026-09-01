@@ -270,10 +270,11 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   letter-spacing: .2em;
   text-transform: uppercase;
 }
+.pb-star { display: none; }
 @media (max-width: 768px) {
   .pb-l1, .pb-l2, .pb-l3 { display: block; }
   .pb-sep { display: none; }
-  .pb-l3::before { content: '✦  '; }
+  .pb-star { display: inline; }
 }
 
 /* ── NAVIGATION ── */
@@ -1400,7 +1401,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span class="pb-l1">Profitez de nos offres exceptionnelles</span>
   <span class="pb-l2"> pour la rentrée&nbsp;!</span>
   <span class="pb-sep"> ✦ </span>
-  <span class="pb-l3">Jusqu'à −50% sur tout le site</span>
+  <span class="pb-l3"><span class="pb-star">✦ </span>Jusqu'à −50% sur tout le site</span>
 </div>
 
 <!-- NAVIGATION -->
