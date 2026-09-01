@@ -271,6 +271,11 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
   text-transform: uppercase;
 }
 .pb-star { display: none; }
+@keyframes pb-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+.promo-banner { animation: pb-pulse 2.2s ease-in-out infinite; }
 @media (max-width: 768px) {
   .pb-l1, .pb-l2, .pb-l3 { display: block; }
   .pb-sep { display: none; }
