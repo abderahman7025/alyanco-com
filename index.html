@@ -273,9 +273,9 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
 .pb-star { display: none; }
 @keyframes pb-pulse {
   0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.04); }
+  50%       { transform: scale(1.06); }
 }
-.promo-banner { animation: pb-pulse 2.2s ease-in-out infinite; }
+.promo-banner-inner { display: inline-block; animation: pb-pulse 2.2s ease-in-out infinite; }
 @media (max-width: 768px) {
   .pb-l1, .pb-l2, .pb-l3 { display: block; }
   .pb-sep { display: none; }
@@ -1403,10 +1403,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- PROMO BANNER -->
 <div class="promo-banner">
-  <span class="pb-l1">Profitez de nos offres exceptionnelles</span>
-  <span class="pb-l2"> pour la rentrée&nbsp;!</span>
-  <span class="pb-sep"> ✦ </span>
-  <span class="pb-l3"><span class="pb-star">✦ </span>Jusqu'à −50% sur tout le site</span>
+  <span class="promo-banner-inner">
+    <span class="pb-l1">Profitez de nos offres exceptionnelles</span>
+    <span class="pb-l2"> pour la rentrée&nbsp;!</span>
+    <span class="pb-sep"> ✦ </span>
+    <span class="pb-l3"><span class="pb-star">✦ </span>Jusqu'à −50% sur tout le site</span>
+  </span>
 </div>
 
 <!-- NAVIGATION -->
