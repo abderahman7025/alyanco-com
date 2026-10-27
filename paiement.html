@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
+<script src="/consent-mode.js"></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -409,11 +410,8 @@ function handleSuccess(orderNum, paymentIntentId) {
       paymentIntentId: paymentIntentId || null
     })
   }).catch(function(){});
-  if(typeof gtag!=='undefined') {
-    gtag('event','conversion',{'send_to':'AW-17586286447/2rBGCL_NmrIcEO_e5cFB','value':total,'currency':'EUR','transaction_id':orderNum});
-    gtag('event','purchase',{'transaction_id':orderNum,'value':total,'currency':'EUR'});
-  }
-  if(typeof fbq!=='undefined') fbq('track','Purchase',{value:total,currency:'EUR'});
+  /* L'achat (Google Ads, GA4, Meta) est envoyé sur la page de confirmation,
+     par GTM : ici la redirection immédiate coupait souvent l'envoi. */
   clearCart();
   localStorage.removeItem('alyanco_promo');
   window.location.href = 'confirmation';

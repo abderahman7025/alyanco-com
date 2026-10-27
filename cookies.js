@@ -1,7 +1,9 @@
+/* Le bandeau de cookies. Il ne charge AUCUNE balise lui-même : GA4, Google
+   Ads, Meta et Clarity sont tous dans Google Tag Manager. Il transmet
+   seulement la réponse du visiteur (mode Consentement Google, posé au départ
+   par /consent-mode.js) et prévient GTM par l'événement « consent_update »,
+   pour que Meta et Clarity démarrent dès l'accord, sans recharger la page. */
 (function () {
-  var GA_ID  = 'G-FL7S62N6GC';
-  var ADS_ID = 'AW-17586286447';
-  var FB_ID  = '520134214238349';
   var KEY    = 'alya_cookie_consent';
 
   /* ── Traductions ── */
@@ -18,25 +20,17 @@
   var c = CKT[lang] || CKT.fr;
 
   var consent = localStorage.getItem(KEY);
-  if (consent === 'accepted') loadAnalytics();
   if (!consent) document.addEventListener('DOMContentLoaded', showBanner);
 
-  function loadAnalytics() {
-    // GA4 + Google Ads
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
+  /* Transmet la réponse au mode Consentement Google et à GTM. */
+  function transmettre(oui) {
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_ID);
-    gtag('config', ADS_ID);
-    // Meta Pixel
-    !function(f,b,e,v,n,t,s2){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s2=b.getElementsByTagName(e)[0];s2.parentNode.insertBefore(t,s2)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', FB_ID);
-    fbq('track', 'PageView');
+    var gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    var v = oui ? 'granted' : 'denied';
+    gtag('consent', 'update', {
+      ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v
+    });
+    window.dataLayer.push({ event: 'consent_update', consentement: oui ? 'accepte' : 'refuse' });
   }
 
   function showBanner() {
@@ -88,11 +82,12 @@
 
   window.cookieAccept = function() {
     localStorage.setItem(KEY, 'accepted');
-    loadAnalytics();
+    transmettre(true);
     hideBanner();
   };
   window.cookieRefuse = function() {
     localStorage.setItem(KEY, 'refused');
+    transmettre(false);
     hideBanner();
   };
 })();

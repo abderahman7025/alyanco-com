@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
+<script src="/consent-mode.js"></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -269,6 +270,24 @@ if (order.items && order.items.length) {
   if (order.total) {
     document.getElementById('orderTotal').innerHTML = '<span>'+CONF.total_paid+'</span><span>'+fmt(order.total)+'</span>';
   }
+}
+// L'ACHAT, pour GTM (Google Ads, GA4, Meta) : montant réel et numéro de
+// commande. Envoyé une seule fois : la commande est effacée juste après,
+// un rechargement de la page n'envoie donc rien.
+if (order.number && order.total) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ ecommerce: null });
+  window.dataLayer.push({
+    event: 'purchase',
+    ecommerce: {
+      transaction_id: String(order.number),
+      value: Math.round(Number(order.total) * 100) / 100,
+      currency: 'EUR',
+      items: (order.items || []).map(function (it) {
+        return { item_id: it.id, item_name: it.name, price: it.price, quantity: it.qty };
+      })
+    }
+  });
 }
 // Clean up
 localStorage.removeItem('alyanco_delivery');
