@@ -234,6 +234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-bottom"><div class="footer-copy">© 2022 ALYA&nbsp;&amp;&nbsp;CO. Tous droits réservés.</div><div class="footer-legal"><a href="cgv">CGV</a><a href="mentions-legales#confidentialite">Confidentialité</a><a href="mentions-legales">Mentions légales</a></div></div>
 </footer>
 
+<script src="/api/prices"></script>
 <script src="cart.js?v=5"></script>
 <script>
 const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
@@ -425,14 +426,14 @@ function renderCart() {
       '<img src="/images/sac-cadeau.jpg" alt="Sac cadeau ALYA &amp; CO." class="gift-bag-img" onerror="this.style.background=\'#EAD1BF\'">' +
       '<div class="gift-bag-info">' +
         '<div class="gift-bag-name">' + CT.gift_name + '</div>' +
-        '<div class="gift-bag-price">1,39€ ' + CT.gift_per + '</div>' +
+        '<div class="gift-bag-price">' + fmt(PRODUCTS['sac-cadeau'].price) + ' ' + CT.gift_per + '</div>' +
       '</div>' +
       '<div class="gift-bag-controls">' +
         '<button class="gift-qty-btn" onclick="changeGiftQty(-1)">−</button>' +
         '<span class="gift-qty-val">' + giftQty + '</span>' +
         '<button class="gift-qty-btn" onclick="changeGiftQty(1)">+</button>' +
       '</div>' +
-      (giftQty > 0 ? '<div class="gift-bag-total">' + fmt(giftQty * 1.39) + '</div>' : '<div class="gift-bag-total"></div>') +
+      (giftQty > 0 ? '<div class="gift-bag-total">' + fmt(giftQty * PRODUCTS['sac-cadeau'].price) + '</div>' : '<div class="gift-bag-total"></div>') +
     '</div>' +
     (giftQty > 0 ? '<div class="gift-bag-added">' + CT.gift_added + '</div>' : '') +
   '</div>';

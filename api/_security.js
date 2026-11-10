@@ -1,3 +1,4 @@
+import { getPrices } from './_prices.js';
 // api/_security.js — Utilitaires de sécurité partagés ALYA & CO.
 
 const ALLOWED_ORIGIN = 'https://alyanco.com';
@@ -193,21 +194,6 @@ export function loadPromoCodes() {
   return CODES;
 }
 
-// ── Prix côté serveur des produits (source de vérité) ────────────
-export const SERVER_PRICES = {
-  'brosse-siwak':       12.99,
-  'tetes-recharges':     6.99,
-  'dentifrice-siwak':    5.99,
-  'pack-siwak-complet': 24.99,
-  'gant-corps':         21.59,
-  'gant-visage':        13.19,
-  'pack-1an-full-body': 29.99,
-  'chouchou-soie':       5.39,
-  'pack-tetes-x3':      17.99,
-  'pack-dentifrice-3m': 15.99,
-  'sac-cadeau':          1.39,
-};
-
 // ── Grilles de frais de livraison (identique à cart.js) ──────────
 const MR_TARIFS = [
   [150,3.59],[250,3.99],[500,4.49],[1000,5.19],
@@ -232,31 +218,31 @@ function shippingCost(carrier, weightG) {
 }
 
 // ── Calculer le total attendu côté serveur ────────────────────────
-// Retourne { subtotal, shipping, total, valid: true } ou { valid: false }
-export function computeExpectedTotal(items, carrier, promoRate) {
-  if (!Array.isArray(items) || items.length === 0) return { valid: false };
+// Même calcul que paiement.html :
+//   sous-total = somme(prix × qté)
+//   livraison Mondial Relay offerte si sous-total (avant promo) >= 45 €
+//   remise = arrondi(sous-total × taux) ; total = arrondi(sous-total − remise + livraison)
+// promoRate : taux déjà vérifié par l'appelant (depuis loadPromoCodes, jamais depuis le navigateur).
+export async function computeExpectedTotal(items, carrier, promoRate) {
+  if (!Array.isArray(items) || items.length === 0 || items.length > 30) return { valid: false };
+  const prices = await getPrices();
 
   let subtotal = 0;
   let totalWeightG = 0;
-
   for (const item of items) {
-    const price = SERVER_PRICES[item.id];
-    if (!price) return { valid: false }; // produit inconnu
+    const p = prices[item && item.id];
+    if (!p) return { valid: false }; // produit inconnu
     const qty = parseInt(item.qty, 10);
     if (!qty || qty < 1 || qty > 99) return { valid: false };
-    subtotal += price * qty;
+    subtotal += p.price * qty;
     totalWeightG += (PRODUCT_WEIGHTS[item.id] || 50) * qty;
   }
 
-  // Appliquer le code promo (max 50% de réduction)
   const rate = Math.min(Math.max(parseFloat(promoRate) || 0, 0), 0.5);
-  const discountedSubtotal = Math.round(subtotal * (1 - rate) * 100) / 100;
 
-  // Mondial Relay gratuit dès 45€ (avant promo)
   const isMondialRelay = carrier !== 'colissimo';
-  const freeShipping = isMondialRelay && discountedSubtotal >= 45;
-  const shipping = freeShipping ? 0 : shippingCost(carrier, totalWeightG);
-
-  const total = Math.round((discountedSubtotal + shipping) * 100) / 100;
-  return { subtotal: discountedSubtotal, shipping, total, valid: true };
+  const shipping = (isMondialRelay && subtotal >= 45) ? 0 : shippingCost(carrier, totalWeightG);
+  const discount = Math.round(subtotal * rate * 100) / 100;
+  const total = Math.round((subtotal - discount + shipping) * 100) / 100;
+  return { subtotal, discount, shipping, total, valid: true };
 }

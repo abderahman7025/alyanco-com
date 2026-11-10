@@ -301,7 +301,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="subtitle">Modifiez le prix affiché et le prix barré de chaque produit.</p>
 
     <div class="actions-bar">
-      <button class="btn btn-gold btn-sm" onclick="generatePricesFile()">Télécharger prices.js mis à jour</button>
+      <button class="btn btn-gold btn-sm" id="save-prices-btn" onclick="savePricesToServer()">Enregistrer les prix</button>
+      <span style="font-size:12px;color:#6B5B4E;margin-left:12px;">Appliqué partout (affichage, panier et paiement) en moins d'une minute.</span>
     </div>
 
     <p class="section-title">Produits individuels</p>
@@ -584,10 +585,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     'pack-siwak-complet':{ name: 'Pack Brosse Siwak Complet',         current: '24,99€', old: '32,99€', schema: '24.99', promo: null },
     'pack-1an-full-body':{ name: 'Pack 1 An Full Body',               current: '29,99€', old: '57,98€', schema: '29.99', promo: null },
     'pack-tetes-x3':     { name: 'Pack Têtes ×3',                     current: '17,99€', old: '26,99€', schema: '17.99', promo: '−15%' },
+    'sac-cadeau':        { name: 'Sac cadeau',                        current: '1,39€',  old: '',       schema: '1.39',  promo: null },
     'pack-dentifrice-3m':{ name: 'Pack Dentifrice 3 mois',            current: '15,99€', old: '23,99€', schema: '15.99', promo: '−15%' }
   };
 
-  const PRICE_INDIVIDUAL_IDS = ['brosse-siwak','tetes-recharges','dentifrice-siwak','gant-corps','gant-visage','chouchou-soie'];
+  const PRICE_INDIVIDUAL_IDS = ['brosse-siwak','tetes-recharges','dentifrice-siwak','gant-corps','gant-visage','chouchou-soie','sac-cadeau'];
   const PRICE_PACK_IDS       = ['pack-siwak-complet','pack-1an-full-body','pack-tetes-x3','pack-dentifrice-3m'];
 
   function buildPriceRow(id) {
@@ -608,11 +610,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </tr>`;
   }
 
-  function initPrices() {
+  const fmtEur = n => n.toFixed(2).replace('.', ',') + '€';
+  const parseEur = v => { const n = parseFloat(String(v || '').replace(',', '.').replace('€', '').trim()); return Number.isFinite(n) ? n : null; };
+
+  async function initPrices() {
+    /* Prix réellement en vigueur sur le site (serveur) */
+    try {
+      const r = await fetch('/api/prices?format=json', { cache: 'no-store' });
+      const live = await r.json();
+      Object.keys(live).forEach(id => {
+        if (!PRICES_DATA[id]) return;
+        PRICES_DATA[id].current = fmtEur(live[id].price);
+        PRICES_DATA[id].old = typeof live[id].old === 'number' ? fmtEur(live[id].old) : '';
+      });
+    } catch (e) { showToast('Prix du serveur non chargés : valeurs par défaut affichées', 'error'); }
     document.getElementById('prices-individual-tbody').innerHTML =
       PRICE_INDIVIDUAL_IDS.map(buildPriceRow).join('');
     document.getElementById('prices-packs-tbody').innerHTML =
       PRICE_PACK_IDS.map(buildPriceRow).join('');
+  }
+
+  async function savePricesToServer() {
+    const prices = {};
+    for (const id of Object.keys(PRICES_DATA)) {
+      const price = parseEur((document.getElementById('pc-' + id) || {}).value);
+      const oldRaw = (document.getElementById('po-' + id) || {}).value;
+      const old = oldRaw && oldRaw.trim() ? parseEur(oldRaw) : null;
+      if (price === null) { showToast('Prix invalide pour ' + PRICES_DATA[id].name, 'error'); return; }
+      if (old !== null && old <= price) { showToast('Le prix barré doit être plus élevé que le prix : ' + PRICES_DATA[id].name, 'error'); return; }
+      prices[id] = { price, old };
+    }
+    const btn = document.getElementById('save-prices-btn');
+    btn.disabled = true;
+    try {
+      const r = await fetch('/api/set-prices', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret: SECRET, prices })
+      });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || 'Erreur');
+      showToast("Prix enregistrés : visibles sur le site et au paiement d'ici une minute", 'success');
+    } catch (e) {
+      showToast(e.message, 'error');
+    } finally {
+      btn.disabled = false;
+    }
   }
 
   function getPricesFromForm() {

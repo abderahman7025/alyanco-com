@@ -116,6 +116,19 @@ const PRODUCTS = {
   'sac-cadeau':         { name: 'Sac cadeau ALYA & CO.',                    price: 1.39,  weight: 30,   image: '/images/sac-cadeau.jpg' },
 };
 
+// Prix en vigueur (modifiables depuis l'admin), chargés par <script src="/api/prices">.
+// Les valeurs ci-dessus ne servent que si ce chargement échoue.
+(function () {
+  var live = window.ALYA_PRICES;
+  if (!live) return;
+  Object.keys(live).forEach(function (id) {
+    var p = PRODUCTS[id], l = live[id];
+    if (!p || !l || typeof l.price !== 'number') return;
+    p.price = l.price;
+    if (typeof l.old === 'number') p.oldPrice = l.old; else delete p.oldPrice;
+  });
+})();
+
 // Grille Mondial Relay 2026 — France métropolitaine [poids max g, tarif €]
 var MONDIAL_RELAY_TARIFS = [
   [150,   3.59],

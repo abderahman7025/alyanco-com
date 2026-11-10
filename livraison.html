@@ -463,6 +463,7 @@ const observer = new IntersectionObserver(entries => { entries.forEach(e => { if
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 40px rgba(28,22,18,0.08)' : 'none'; });
 </script>
+<script src="/api/prices"></script>
 <script src="cart.js?v=5"></script>
 <script src="/newsletter-popup.js"></script>
 <script src="/js/i18n.js"></script>

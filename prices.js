@@ -55,6 +55,23 @@ const PRICES = {
   }
 };
 
+/* Les prix affichés = les prix du panier (cart.js, lui-même alimenté par
+   /api/prices, modifiable depuis l'admin). La table ci-dessus ne sert que
+   si cart.js n'est pas chargé. */
+(function () {
+  if (typeof PRODUCTS === 'undefined') return;
+  var f = function (n) { return n.toFixed(2).replace('.', ',') + '€'; };
+  Object.keys(PRICES).forEach(function (id) {
+    var p = PRODUCTS[id];
+    if (!p || typeof p.price !== 'number') return;
+    PRICES[id] = {
+      current: f(p.price),
+      old: typeof p.oldPrice === 'number' ? f(p.oldPrice) : null,
+      schema: p.price.toFixed(2)
+    };
+  });
+})();
+
 /* ── Helpers ────────────────────────────────────────────────────────── */
 function _parsePrice(str) {
   if (!str) return 0;
@@ -142,6 +159,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!wrap) return;
     _inject(wrap, p, { oldClass: 'price-crossed', promoClass: 'price-promo' });
   })();
+
+  /* 3b. Encadré « Meilleur choix » (pack proposé sur une page produit) */
+  document.querySelectorAll('.bundle-upsell').forEach(function (box) {
+    var a = box.querySelector('a[href*="produits/"]');
+    if (!a) return;
+    var slug = (a.getAttribute('href') || '').replace(/.*produits[\/\\]/, '').replace(/[?#].*/, '').replace(/\.html$/, '');
+    var p = PRICES[slug];
+    if (!p) return;
+    var cur = box.querySelector('.bundle-upsell-price');
+    var old = box.querySelector('.bundle-upsell-old');
+    if (cur) cur.textContent = p.current;
+    if (old) old.textContent = p.old || '';
+  });
 
   /* 4. Orb-prices sur l'accueil */
   document.querySelectorAll('.orb').forEach(function (orb) {

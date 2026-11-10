@@ -30,18 +30,18 @@ export default async function handler(req, res) {
 
   // ── Vérification du montant côté serveur ──────────────────────
   if (items && Array.isArray(items)) {
-    const expected = computeExpectedTotal(items, carrier || 'mondial-relay', verifiedPromoRate);
+    const expected = await computeExpectedTotal(items, carrier || 'mondial-relay', verifiedPromoRate);
     if (!expected.valid) {
-      return res.status(400).json({ error: 'Panier invalide.' });
+      return res.status(400).json({ error: 'Panier invalide. Actualisez la page.' });
     }
 
     const clientAmount = parseFloat(amount);
     const diff = Math.abs(clientAmount - expected.total);
 
     // Tolérance de 0.02€ pour les arrondis flottants
-    if (diff > 0.02) {
-      console.warn(`[security] Montant suspect: client=${clientAmount} attendu=${expected.total} IP=${ip}`);
-      return res.status(400).json({ error: 'Montant invalide.' });
+    if (!Number.isFinite(clientAmount) || diff > 0.02) {
+      console.warn(`[security] Montant différent: client=${clientAmount} serveur=${expected.total} IP=${ip}`);
+      return res.status(409).json({ error: 'Les prix ont changé. Actualisez la page pour voir le montant à jour.' });
     }
 
     // Utiliser le montant calculé côté serveur (jamais le montant client)
