@@ -84,7 +84,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--gold);
       margin-bottom: 8px;
     }
-    input[type="password"], input[type="number"] {
+    input[type="password"], input[type="number"], input[type="text"] {
       width: 100%;
       padding: 12px 16px;
       border: 1px solid var(--sand);
@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       outline: none;
       transition: border-color .2s;
     }
-    input[type="password"]:focus, input[type="number"]:focus {
+    input[type="password"]:focus, input[type="number"]:focus, input[type="text"]:focus {
       border-color: var(--gold);
     }
     .btn {
@@ -236,6 +236,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border: none;
       font-family: 'Jost', sans-serif;
     }
+  /* ── PRICE TABLE ─────────────────────────────────────────────── */
+  #prices-section { display: none; margin-top: 48px; }
+  .price-input-group { display: flex; gap: 8px; align-items: center; }
+  .price-input-group input { width: 110px; padding: 7px 10px; }
+  .price-input-group .sep { font-size: 11px; color: var(--light); }
+  .price-badge-old { font-size: 11px; color: var(--light); text-decoration: line-through; }
+  .download-modal {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55);
+    z-index: 500; align-items: center; justify-content: center;
+  }
+  .download-modal.open { display: flex; }
+  .modal-box {
+    background: #fff; max-width: 620px; width: 90%; padding: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3); position: relative;
+  }
+  .modal-box h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400;
+    color: var(--dark); margin-bottom: 8px;
+  }
+  .modal-box p { font-size: 13px; color: var(--light); margin-bottom: 16px; }
+  .modal-box textarea {
+    width: 100%; height: 220px; font-family: monospace; font-size: 12px;
+    border: 1px solid var(--sand); padding: 12px; resize: none; color: var(--dark);
+  }
+  .modal-actions { display: flex; gap: 10px; margin-top: 14px; }
+  .modal-close {
+    position: absolute; top: 14px; right: 18px; background: none; border: none;
+    font-size: 20px; cursor: pointer; color: var(--light);
+  }
   @media(max-width:600px){.footer-legal{display:none!important;}}
 </style>
 </head>
@@ -262,6 +291,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="btn btn-dark" onclick="login()">Accéder</button>
     </div>
     <p id="auth-error" style="font-size:12px;color:var(--danger);margin-top:10px;display:none;">Mot de passe incorrect.</p>
+  </div>
+
+  <!-- ── STOCK PANEL ───────────────────────────────────────────────── -->
+  <!-- ── PRICES PANEL ─────────────────────────────────────────────── -->
+  <div id="prices-section">
+
+    <h1 style="margin-top:48px;">Gestion des prix</h1>
+    <p class="subtitle">Modifiez le prix affiché et le prix barré de chaque produit.</p>
+
+    <div class="actions-bar">
+      <button class="btn btn-gold btn-sm" onclick="generatePricesFile()">Télécharger prices.js mis à jour</button>
+    </div>
+
+    <p class="section-title">Produits individuels</p>
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Produit</th>
+          <th>Prix actuel</th>
+          <th>Prix barré</th>
+        </tr>
+      </thead>
+      <tbody id="prices-individual-tbody"></tbody>
+    </table>
+
+    <p class="section-title">Packs</p>
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Pack</th>
+          <th>Prix actuel</th>
+          <th>Prix barré</th>
+        </tr>
+      </thead>
+      <tbody id="prices-packs-tbody"></tbody>
+    </table>
+
   </div>
 
   <!-- ── STOCK PANEL ───────────────────────────────────────────────── -->
@@ -307,6 +373,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<!-- ── DOWNLOAD MODAL ──────────────────────────────────────────────── -->
+<div class="download-modal" id="download-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>prices.js mis à jour</h3>
+    <p>Copiez ce contenu et remplacez votre fichier <code>prices.js</code> à la racine du site.</p>
+    <textarea id="modal-content" readonly></textarea>
+    <div class="modal-actions">
+      <button class="btn btn-gold btn-sm" onclick="copyPrices()">Copier</button>
+      <button class="btn btn-dark btn-sm" onclick="downloadPrices()">Télécharger</button>
+      <button class="btn btn-sm" style="background:var(--warm);color:var(--dark);" onclick="closeModal()">Fermer</button>
+    </div>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <script>
@@ -349,7 +430,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // We validate secret on first save. For now, just proceed.
     document.getElementById('auth-section').style.display = 'none';
     document.getElementById('stock-section').style.display = 'block';
+    document.getElementById('prices-section').style.display = 'block';
     loadStocks();
+    initPrices();
   }
 
   /* ── STATUS PILL ────────────────────────────────────────────────── */
@@ -488,6 +571,158 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     } catch (e) {
       showToast(e.message, 'error');
     }
+  }
+
+  /* ── PRICES DATA ────────────────────────────────────────────────── */
+  const PRICES_DATA = {
+    'brosse-siwak':      { name: 'Brosse à dents Siwak rechargeable', current: '12,99€',  old: '15,99€', schema: '12.99',  promo: null },
+    'tetes-recharges':   { name: 'Têtes-recharges Siwak',             current: '6,99€',  old: '8,99€',  schema: '6.99',  promo: null },
+    'dentifrice-siwak':  { name: 'Dentifrice Siwak en poudre',        current: '5,99€',  old: '7,99€',  schema: '5.99',  promo: null },
+    'gant-corps':        { name: 'Gant exfoliant corps',              current: '21,59€', old: '35,99€', schema: '21.59', promo: null },
+    'gant-visage':       { name: 'Gant exfoliant visage',             current: '13,19€',  old: '21,99€', schema: '13.19',  promo: null },
+    'chouchou-soie':     { name: 'Chouchou soie',                     current: '5,39€',  old: '8,99€',  schema: '5.39',  promo: null },
+    'pack-siwak-complet':{ name: 'Pack Brosse Siwak Complet',         current: '24,99€', old: '32,99€', schema: '24.99', promo: null },
+    'pack-1an-full-body':{ name: 'Pack 1 An Full Body',               current: '29,99€', old: '57,98€', schema: '29.99', promo: null },
+    'pack-tetes-x3':     { name: 'Pack Têtes ×3',                     current: '17,99€', old: '26,99€', schema: '17.99', promo: '−15%' },
+    'pack-dentifrice-3m':{ name: 'Pack Dentifrice 3 mois',            current: '15,99€', old: '23,99€', schema: '15.99', promo: '−15%' }
+  };
+
+  const PRICE_INDIVIDUAL_IDS = ['brosse-siwak','tetes-recharges','dentifrice-siwak','gant-corps','gant-visage','chouchou-soie'];
+  const PRICE_PACK_IDS       = ['pack-siwak-complet','pack-1an-full-body','pack-tetes-x3','pack-dentifrice-3m'];
+
+  function buildPriceRow(id) {
+    const p = PRICES_DATA[id];
+    return `<tr>
+      <td>
+        <div class="product-name">${p.name}</div>
+        <div class="product-type">${id}</div>
+      </td>
+      <td>
+        <input type="text" id="pc-${id}" value="${p.current}" style="width:110px;padding:7px 10px;"
+               placeholder="ex: 9,99€">
+      </td>
+      <td>
+        <input type="text" id="po-${id}" value="${p.old || ''}" style="width:110px;padding:7px 10px;"
+               placeholder="aucun">
+      </td>
+    </tr>`;
+  }
+
+  function initPrices() {
+    document.getElementById('prices-individual-tbody').innerHTML =
+      PRICE_INDIVIDUAL_IDS.map(buildPriceRow).join('');
+    document.getElementById('prices-packs-tbody').innerHTML =
+      PRICE_PACK_IDS.map(buildPriceRow).join('');
+  }
+
+  function getPricesFromForm() {
+    const out = {};
+    Object.keys(PRICES_DATA).forEach(id => {
+      const curr = (document.getElementById('pc-' + id) || {}).value || PRICES_DATA[id].current;
+      const old  = (document.getElementById('po-' + id) || {}).value || '';
+      const schema = curr.replace(',', '.').replace('€', '').trim();
+      out[id] = {
+        current: curr.trim(),
+        old: old.trim() || null,
+        promo: PRICES_DATA[id].promo,
+        schema: parseFloat(schema).toFixed(2)
+      };
+    });
+    return out;
+  }
+
+  function generatePricesFile() {
+    const prices = getPricesFromForm();
+    const lines = ['/**', ' * PRICES.JS — Source unique des prix', ' * Pour modifier un prix : changer uniquement ici, tout le site se met à jour automatiquement.', ' */', 'const PRICES = {'];
+    const keys = Object.keys(prices);
+    keys.forEach((id, i) => {
+      const p = prices[id];
+      const comma = i < keys.length - 1 ? ',' : '';
+      lines.push(`  '${id}': {`);
+      lines.push(`    current: '${p.current}',`);
+      lines.push(`    old: ${p.old ? `'${p.old}'` : 'null'},`);
+      lines.push(`    promo: ${p.promo ? `'${p.promo}'` : 'null'},`);
+      lines.push(`    schema: '${p.schema}'`);
+      lines.push(`  }${comma}`);
+    });
+    lines.push('};');
+    lines.push('');
+    lines.push(`/**`);
+    lines.push(` * Met à jour tous les prix sur la page au chargement.`);
+    lines.push(` */`);
+    lines.push(`document.addEventListener('DOMContentLoaded', function () {`);
+    lines.push(`  document.querySelectorAll('a[href*="produits/"], a[href*="produits\\\\\\\\"]').forEach(function (link) {`);
+    lines.push(`    var href = link.getAttribute('href') || '';`);
+    lines.push(`    var slug = href.replace(/.*produits[\\/\\\\]/, '').replace(/[?#].*/, '').replace(/\\.html$/, '');`);
+    lines.push(`    var p = PRICES[slug];`);
+    lines.push(`    if (!p) return;`);
+    lines.push(`    var curr = link.querySelector('.price-current, .price-main, .pack-price-main');`);
+    lines.push(`    var old  = link.querySelector('.price-old, .price-crossed, .pack-price-old');`);
+    lines.push(`    var promo = link.querySelector('.price-promo, .pack-promo');`);
+    lines.push(`    if (curr) curr.textContent = p.current;`);
+    lines.push(`    if (old)  old.textContent  = p.old || '';`);
+    lines.push(`    if (promo && p.promo) promo.textContent = p.promo;`);
+    lines.push(`  });`);
+    lines.push(`  document.querySelectorAll('[onclick*="addToCart"]').forEach(function (btn) {`);
+    lines.push(`    var m = (btn.getAttribute('onclick') || '').match(/addToCart\\(['"']([\\w-]+)['"']/);`);
+    lines.push(`    if (!m) return;`);
+    lines.push(`    var p = PRICES[m[1]];`);
+    lines.push(`    if (!p) return;`);
+    lines.push(`    var container = btn.closest('.product-bottom, .pack-price-row, .product-card, .pack-card');`);
+    lines.push(`    if (!container) return;`);
+    lines.push(`    var curr  = container.querySelector('.price-current, .pack-price-main');`);
+    lines.push(`    var old   = container.querySelector('.price-old, .pack-price-old');`);
+    lines.push(`    var promo = container.querySelector('.price-promo, .pack-promo');`);
+    lines.push(`    if (curr) curr.textContent = p.current;`);
+    lines.push(`    if (old)  old.textContent  = p.old || '';`);
+    lines.push(`    if (promo && p.promo) promo.textContent = p.promo;`);
+    lines.push(`  });`);
+    lines.push(`  document.querySelectorAll('.orb').forEach(function (orb) {`);
+    lines.push(`    var label = (orb.querySelector('.orb-label') || {}).textContent || '';`);
+    lines.push(`    var priceEl = orb.querySelector('.orb-price');`);
+    lines.push(`    if (!priceEl) return;`);
+    lines.push(`    if (label.includes('Gant')) priceEl.textContent = PRICES['gant-corps'].current;`);
+    lines.push(`    if (label.includes('Pack 1 an')) priceEl.textContent = PRICES['pack-1an-full-body'].current;`);
+    lines.push(`  });`);
+    lines.push(`  document.querySelectorAll('script[type="application/ld+json"]').forEach(function (s) {`);
+    lines.push(`    try {`);
+    lines.push(`      var data = JSON.parse(s.textContent);`);
+    lines.push(`      if (data['@type'] === 'Product' && data.offers) {`);
+    lines.push(`        var slug = (window.location.pathname.split('/').pop() || '').replace(/\\.html$/, '');`);
+    lines.push(`        var p = PRICES[slug];`);
+    lines.push(`        if (p && data.offers.price) { data.offers.price = p.schema; s.textContent = JSON.stringify(data, null, 2); }`);
+    lines.push(`      }`);
+    lines.push(`    } catch (e) {}`);
+    lines.push(`  });`);
+    lines.push(`});`);
+
+    const content = lines.join('\n');
+    document.getElementById('modal-content').value = content;
+    document.getElementById('download-modal').classList.add('open');
+    window._pricesFileContent = content;
+  }
+
+  function copyPrices() {
+    const ta = document.getElementById('modal-content');
+    ta.select();
+    document.execCommand('copy');
+    showToast('Contenu copié ✓', 'success');
+  }
+
+  function downloadPrices() {
+    const content = window._pricesFileContent || '';
+    const blob = new Blob([content], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'prices.js';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Téléchargement lancé ✓', 'success');
+  }
+
+  function closeModal() {
+    document.getElementById('download-modal').classList.remove('open');
   }
 
   /* ── TOAST ──────────────────────────────────────────────────────── */

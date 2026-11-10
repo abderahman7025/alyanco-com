@@ -4,54 +4,54 @@
  */
 const PRICES = {
   'gant-corps': {
-    current: '15,99€',
-    old: '24,99€',
-    schema: '15.99'
+    current: '21,59€',
+    old: '35,99€',
+    schema: '21.59'
   },
   'gant-visage': {
-    current: '9,99€',
-    old: '14,99€',
-    schema: '9.99'
+    current: '13,19€',
+    old: '21,99€',
+    schema: '13.19'
   },
   'pack-1an-full-body': {
-    current: '21,99€',
-    old: '39,99€',
-    schema: '21.99'
+    current: '29,99€',
+    old: '57,98€',
+    schema: '29.99'
   },
   'pack-siwak-complet': {
-    current: '15,99€',
-    old: '31,99€',
-    schema: '15.99'
-  },
-  'brosse-siwak': {
-    current: '7,99€',
-    old: '15,99€',
-    schema: '7.99'
-  },
-  'dentifrice-siwak': {
-    current: '4,99€',
-    old: '7,99€',
-    schema: '4.99'
-  },
-  'tetes-recharges': {
-    current: '3,99€',
-    old: '8,99€',
-    schema: '3.99'
-  },
-  'pack-tetes-x3': {
-    current: '12,99€',
-    old: '14,99€',
-    schema: '12.99'
-  },
-  'pack-dentifrice-3m': {
     current: '24,99€',
-    old: '29,99€',
+    old: '32,99€',
     schema: '24.99'
   },
-  'chouchou-soie': {
-    current: '3,99€',
+  'brosse-siwak': {
+    current: '12,99€',
+    old: '15,99€',
+    schema: '12.99'
+  },
+  'dentifrice-siwak': {
+    current: '5,99€',
+    old: '7,99€',
+    schema: '5.99'
+  },
+  'tetes-recharges': {
+    current: '6,99€',
     old: '8,99€',
-    schema: '3.99'
+    schema: '6.99'
+  },
+  'pack-tetes-x3': {
+    current: '17,99€',
+    old: '26,99€',
+    schema: '17.99'
+  },
+  'pack-dentifrice-3m': {
+    current: '15,99€',
+    old: '23,99€',
+    schema: '15.99'
+  },
+  'chouchou-soie': {
+    current: '5,39€',
+    old: '8,99€',
+    schema: '5.39'
   }
 };
 
