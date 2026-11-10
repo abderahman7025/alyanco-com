@@ -393,10 +393,17 @@ function switchPayment(type, btn){
 var stripe, cardElement, clientSecret;
 
 // Factoriser le succès (partagé carte + wallet)
-function handleSuccess(orderNum, paymentIntentId) {
+async function handleSuccess(orderNum, paymentIntentId) {
   localStorage.setItem('alyanco_order', JSON.stringify({ number: orderNum, items: items, total: total, delivery: delivery }));
-  fetch('/api/send-order', {
+  /* Bloquer le bouton pendant l'envoi de la commande */
+  var _btn = document.getElementById('payBtn');
+  if (_btn) { _btn.disabled = true; _btn.textContent = '✓ …'; }
+  /* keepalive : le navigateur termine l'envoi même si la page change.
+     On attend la réponse (max 15 s) avant de rediriger, sinon la commande
+     pouvait se perdre (pas d'email, pas d'étiquette). */
+  var _send = fetch('/api/send-order', {
     method: 'POST',
+    keepalive: true,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       email: delivery.email, prenom: delivery.prenom, nom: delivery.nom,
@@ -410,6 +417,7 @@ function handleSuccess(orderNum, paymentIntentId) {
       paymentIntentId: paymentIntentId || null
     })
   }).catch(function(){});
+  await Promise.race([_send, new Promise(function(r){ setTimeout(r, 15000); })]);
   /* L'achat (Google Ads, GA4, Meta) est envoyé sur la page de confirmation,
      par GTM : ici la redirection immédiate coupait souvent l'envoi. */
   clearCart();

@@ -70,6 +70,14 @@ async function createIntent(res, secretKey, amountCents, orderNumber, delivery, 
       if (delivery[f]) params.append(`metadata[${f}]`, String(delivery[f]).slice(0, 500));
     }
     params.append('metadata[shippingCost]', String(delivery.shippingCost || 0));
+    // Point relais Mondial Relay (secours si l'email de commande se perd)
+    const rp = delivery.relayPoint;
+    if (rp && typeof rp === 'object') {
+      if (rp.id)   params.append('metadata[relais_id]', String(rp.id).slice(0, 100));
+      if (rp.name) params.append('metadata[relais_nom]', String(rp.name).slice(0, 200));
+      const rpAddr = [rp.adresse, rp.cp, rp.ville].filter(Boolean).join(', ');
+      if (rpAddr)  params.append('metadata[relais_adresse]', rpAddr.slice(0, 300));
+    }
   }
 
   try {
